@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=arbeit.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=431
+TopLine=17
+Cursor=896
 
 [Frame1]
 Flags=0
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=Kapitel1.tex
 
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=Kapitel2.tex
 
 [Frame2_View0,0]
-TopLine=13
-Cursor=56
+TopLine=12
+Cursor=340
 
 [Frame3]
 Flags=0
@@ -65,8 +65,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=Kapitel3.tex
 
@@ -83,8 +83,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=999Eid.tex
 
@@ -101,16 +101,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1169
-NormalPos.bottom=403
+NormalPos.right=1665
+NormalPos.bottom=710
 Class=LaTeXView
 Document=000Deckblatt.tex
 
 [Frame5_View0,0]
 TopLine=0
-Cursor=1
+Cursor=13
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=4
+ActiveFrame=5
 

@@ -1,4 +1,4 @@
-\section{Riemanns zweiter Beweis}
+\section{Formeln und Definitionen}
 \label{sec:riemann2}
 
 \begin{defi}
@@ -28,5 +28,20 @@
 	\label{def:gamma_infty}
 	\begin{align}
 		\Gamma_\infty(s) := \pi^{-s/2} \Gamma(s/2)
+	\end{align}
+\end{defi}
+
+\begin{satz}[Poisson Summenformel]
+	\label{satz:poisson}
+	F"ur $\kinf$ und $\tinf \in \kinf^*$, $\finf$ Schwartzfunktion, $|\tinf|_\infty := |\tinf|$ Absolutbetrag und $\finft$ Fourier-transformierte von $\finf$ gilt:
+	\begin{align}
+		\sum_{a \in \Z} \finf (a \tinf) = \frac{1}{|\tinf|_\infty} \sum_{a \in \Z} \finft \left( \frac{a} {\tinf} \right)
+	\end{align}
+\end{satz}
+
+\begin{defi}[Fouriertransformation]
+	\label{def:fourier}
+	\begin{align}
+		\finft(\xiinf) := \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
 	\end{align}
 \end{defi}

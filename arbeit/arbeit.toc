@@ -1,4 +1,4 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Einleitung}{1}
-\contentsline {section}{\numberline {2}Riemanns zweiter Beweis}{2}
+\contentsline {section}{\numberline {2}Formeln und Definitionen}{2}
 \contentsline {section}{\numberline {3}Zusammenfassung und Ausblick}{3}
