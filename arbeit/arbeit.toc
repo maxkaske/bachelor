@@ -1,13 +1,4 @@
 \select@language {ngerman}
-\contentsline {section}{Abbildungsverzeichnis}{IV}
-\contentsline {section}{Tabellenverzeichnis}{V}
-\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{VI}
 \contentsline {section}{\numberline {1}Einleitung}{1}
-\contentsline {paragraph}{Anleitung f\IeC {\"u}r diese Mustervorlage:}{1}
-\contentsline {section}{\numberline {2}Die Hausarbeit in der Praxis}{2}
-\contentsline {subsection}{\numberline {2.1}Die Quellenverwaltung und Zitiertechnik}{2}
-\contentsline {subsection}{\numberline {2.2}Der Schreib- und Forschungsprozess}{4}
-\contentsline {subsection}{\numberline {2.3}Bestandteile einer wissenschaftlichen Arbeit}{5}
-\contentsline {section}{\numberline {3}Zusammenfassung und Ausblick}{6}
-\contentsline {section}{Literaturverzeichnis}{7}
-\contentsline {section}{\numberline {A}Anhang}{8}
+\contentsline {section}{\numberline {2}Riemanns zweiter Beweis}{2}
+\contentsline {section}{\numberline {3}Zusammenfassung und Ausblick}{3}
