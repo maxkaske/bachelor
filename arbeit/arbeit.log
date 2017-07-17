@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.7.25)  14 AUG 2016 19:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.7.25)  14 AUG 2016 23:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -473,9 +473,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 \c@defi=\count103
- (./arbeit.aux
-No file 000Deckblatt.aux.
-)
+ (./arbeit.aux (./000Deckblatt.aux))
 \openout1 = `arbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -573,11 +571,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
 ] (./arbeit.aux (./000Deckblatt.aux)) ) 
 Here is how much of TeX's memory you used:
- 2730 strings out of 493013
- 31572 string characters out of 6135157
- 99423 words of memory out of 5000000
- 6237 multiletter control sequences out of 15000+600000
- 11383 words of font info for 36 fonts, out of 8000000 for 9000
+ 2735 strings out of 493013
+ 31646 string characters out of 6135157
+ 103690 words of memory out of 5000000
+ 6239 multiletter control sequences out of 15000+600000
+ 12072 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,9n,26p,399b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Dev/texlive/2016/texmf-dist/fonts/en
@@ -585,18 +583,20 @@ c/dvips/cm-super/cm-super-t1.enc}<d:/Dev/texlive/2016/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmex10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmmi10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi8.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Dev
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Dev/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/Dev/texli
-ve/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/Dev/texlive/201
-6/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/Dev/texlive/2016/texm
-f-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on arbeit.pdf (6 pages, 135998 bytes).
+/cmr10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:
+/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Dev/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Dev/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Dev/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/Dev/texlive/2016
+/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/Dev/texlive/2016/texmf
+-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/Dev/texlive/2016/texmf-dist/
+fonts/type1/public/cm-super/sfrm1095.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/
+type1/public/cm-super/sfti1095.pfb>
+Output written on arbeit.pdf (6 pages, 168113 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

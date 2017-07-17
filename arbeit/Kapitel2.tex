@@ -45,3 +45,32 @@
 		\finft(\xiinf) := \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
 	\end{align}
 \end{defi}
+
+%%% Gaussfunktion Fourier %%%
+\begin{satz}
+	Die Gaussche Funktion
+	\begin{align}
+		g_\infty(\xinf) := e^{-\pi |\xinf|^2}
+	\end{align}
+	ist ihre eigene Fouriertransformierte.
+\end{satz}
+
+\begin{proof}
+	Wir berechnen zun"achst
+	\begin{align*}
+		g(x)e^{-2\pi i x \xi} = e^{-\pi(x^2 +2 i x \xi - \xi ^2)}e^{-\pi \xi^2} = e^{-pi (x + i \xi)^2} g(\xi)
+	\end{align*}
+	und stellen erfreut fest, dass die Fouriertransformierte von $g$ gerade
+	\begin{align*}
+		\hat{g}(\xi) = g(\xi) \int_{-\infty}^{\infty} e^{-\pi(x+i\xi)^2}dx
+	\end{align*}
+	ist. Es reicht also zu zeigen, dass das zweite Integral 1 ist.\\
+	Sei zun"achst $\gamma$ eine Kurve entlang des Rechtecks mit den Ecken $-R$, $R$, $R+i\eta$ und $-R+i\eta$. Nach dem Cauchy Integralsatz gilt f"ur unsere ganze Funktion $g(z)$
+	\begin{align*}
+		0 = \int_{-R}^{R} {g(z)dz} + \int_{R}^{R+i\eta} {g(z)dz}  + \int_{R+i\eta}^{-R+i\eta} {g(z)dz}  + \int_{-R+i\eta}^{-R} {g(z)dz} 
+	\end{align*}
+	Weiter gilt $|g(z)|=e^{-\pi (R^2 - y^2)}$ f"ur $z=\pm R + i y$ und $0\leq y \leq \eta$ und so verschwinden das zweite und vierte Integral f"ur $R\rightarrow \infty$. Nach Umstellen der verbleibenden Integrale und genauen hinsehen stellen wir fest, dass
+	\begin{align*}
+		\int_\R{e^{-\pi (x + i\xi)^2}} = \int_\R {e^{-\pi x^2} = 1}
+	\end{align*}
+\end{proof}
