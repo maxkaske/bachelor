@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=arbeit.tex
 
 [Frame0_View0,0]
-TopLine=17
-Cursor=896
+TopLine=0
+Cursor=1443
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=Kapitel1.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=42
+Cursor=241
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=Kapitel2.tex
 
 [Frame2_View0,0]
-TopLine=12
-Cursor=340
+TopLine=0
+Cursor=56
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=Kapitel3.tex
 
 [Frame3_View0,0]
 TopLine=0
-Cursor=0
+Cursor=1266
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=999Eid.tex
 
 [Frame4_View0,0]
 TopLine=0
-Cursor=443
+Cursor=505
 
 [Frame5]
 Flags=0
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1665
-NormalPos.bottom=710
+NormalPos.right=1483
+NormalPos.bottom=671
 Class=LaTeXView
 Document=000Deckblatt.tex
 
@@ -110,7 +110,43 @@ Document=000Deckblatt.tex
 TopLine=0
 Cursor=13
 
+[Frame6]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1483
+NormalPos.bottom=671
+Class=LaTeXView
+Document=padisch.tex
+
+[Frame6_View0,0]
+TopLine=0
+Cursor=34
+
+[Frame7]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1483
+NormalPos.bottom=671
+Class=LaTeXView
+Document=tateproof.tex
+
+[Frame7_View0,0]
+TopLine=0
+Cursor=22
+
 [SessionInfo]
-FrameCount=6
-ActiveFrame=5
+FrameCount=8
+ActiveFrame=6
 

@@ -28,8 +28,11 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\A}{\mathbb{A}}
+\newcommand{\Aq}{\A_\Q}
 \newcommand{\kinf}{k_\infty}
+\newcommand{\ginf}{g_\infty}
 \newcommand{\tinf}{t_\infty}
 \newcommand{\finf}{f_\infty}
 \newcommand{\xinf}{x_\infty}
@@ -40,13 +43,16 @@
 %%%%%%%%%%%%
 % Theoreme %
 %%%%%%%%%%%%
+
+
+
 \theoremstyle{definition}
 \newtheorem{defi}{Definition}[section]
-
-\newtheorem{satz}[defi]{Satz}
 \newtheorem{bsp}[defi]{Beispiel}
 
-
+\theoremstyle{plain}
+\newtheorem{satz}[defi]{Satz}
+\newtheorem{lemma}[defi]{Lemma}
 
 
 
@@ -70,9 +76,15 @@
 \clearpage
 
 \input{Kapitel2}
-
 \clearpage
+
 \input{Kapitel3}
+\clearpage
+
+\input{padisch}
+\clearpage
+
+\input{tateproof}
 \clearpage
 
 \input{999Eid}

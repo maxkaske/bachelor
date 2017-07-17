@@ -1,7 +1,33 @@
-\section{Zusammenfassung und Ausblick}
+\section{Riemanns Beweis}
 \label{sec:kapitel3}
 
+Wenden wir die Poisson-Summenformel f\" ur $\kinf$ auf die Schwartz-Funktion $\ginf(\xinf):=e^{-\pi|\xinf|^2}$ an, sehen wir, dass die Thetafunktion
+\begin{align}
+	\Theta_\infty (\xinf):=\sum_{n\in\Z}{\ginf (n\xinf)} = 1+ 2\sum_{n=1}^\infty{e^{-\pi n^2 |\xinf|_\infty^2}}
+\end{align}
+die Funktionalgleichung
+\begin{align}
+	\label{eq:thetafunktional}
+	\Theta_\infty (\xinf) = \frac{1}{|\xinf|_\infty} \Theta_\infty(\frac{1}{\xinf})
+\end{align}
 
+f\"ur $\xinf \in \kinf^\times :=\kinf\setminus{0}$. Da insbesondere $\Theta_\infty(x_\infty)-1$ f\"ur $\xinf \rightarrow \infty$ schnell f\"allt, sehen wir, dass $\Theta_\infty(\xinf) - 1 / \xinf$ schnell f\"allt wenn $\xinf \rightarrow 0$. 
+Formal k\"onnen wir die Mellin-Transformation auf \eqref{eq:thetafunktional} anwenden und folgern
+\begin{align}
+	\label{eq:thetamellin}
+	\int_{k_\infty^\times} \Theta_\infty(x_\infty) |x_\infty|_\infty^s d^\times x_\infty = \int_{k_\infty^\times} \Theta_\infty(x_\infty) |x_\infty|_\infty^{1-s} d^\times x_\infty
+\end{align}
 
+f\"ur beliebige $s$, wobei $d^\times x_\infty := \frac{dx_\infty}{|x_\infty|_\infty}$ das standard multiplikative Haarma{\ss} auf $\kinf^\times$ ist. Dies macht streng genommen keinen Sinn, da die beiden Integranden hier bei $0$ und $\infty$ divergieren (was letztendlich auf die Pole der Riemannschen Xi Funktion bei $s=0$ und $s=1$ zur\"uckgeht). Setzen wir hier trotzdem weiter an. Verwenden wir den Trafo $y := \pi n^2 t^2$ und erinnern uns an die Formeln der Riemannschen Xi Funktion und des Gamma-Faktors, erhalten wir
+\begin{align}
+	 \int_{k_\infty}e^{-\pi n^2 x_\infty^2} |x_\infty|_\infty^s d^\times x_\infty = \Gamma_\infty(s) n^{-s}
+\end{align}
+
+und somit formal
+\begin{align}
+	\int_{k_\infty} \Theta_\infty(x_\infty) |x_\infty|_\infty^s d^\times x_\infty = \int_{k_\infty} |x_\infty|^s d^\times x_\infty + 2\Gamma_\infty(s) \zeta(s)
+\end{align}
+
+Schmei{\ss}en wir das divergente Integral $\int_{k_\infty} |x_\infty|^s d^\times x_\infty$ weg und wenden \eqref{eq:thetamellin} erhalten wir rein formal die Funktionalgleichung \eqref{eq:funktionalgleichung}. Diese Berechnungen waren nur formeller Natur.
 
 Dieser Teil soll die Arbeit abrunden und ein kurzes Fazit liefern.

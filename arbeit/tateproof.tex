@@ -1,0 +1,80 @@
+\section{Tates Beweis}
+\subsection{Adelische Poisson Summenformel und der Satz von Riemann-Roch}
+	\begin{satz}[Poisson Summenformel]\label{satz:adelic-poisson}
+		Sei $f \in S(\Aq)$. Dann gilt:
+		\begin{align}
+			\sum_{\gamma \in \Q} {f(\gamma + x)} = \sum_{\gamma \in \Q}{\hat{f}(\gamma + x)}
+		\end{align}
+		f"ur alle $x \in \Aq$.
+	\end{satz}
+	\begin{proof}
+		Jede $\Q$-invariante Funktion $\phi$ auf $\Aq$ induziert eine Funktion auf $\Aq/\Q$, welche wir wieder $\phi$ nennen.
+		Wir k"onnen dann die Fouriertransformation von $\phi: \Aq/\Q \rightarrow \C$ als Funktion auf $\Q$ betrachten, da $\Q$ gerade die duale Gruppe von $\Aq/\Q$ ist. Dazu setzen wir
+		\begin{align*}
+			\hat{\phi}(x) = \int_{\Aq/\Q}\phi(t)\Psi(tx)\overline{dt}
+		\end{align*}
+		wobei $\overline{dt}$ das Quotientenma\ss auf $\Aq/\Q$ ist, welches von dem Ma\ss $dt$ auf $\Aq$ induziert wird. Dieses Haarma\ss ist charakterisiert durch
+		\begin{align*}
+			\int_{\Aq/\Q}\tilde{f}(t)\overline{dt} =
+			\int_{\Aq/\Q}\sum{\gamma \in \Q}f(\gamma+t)\overline{dt} =
+			\int_{\Aq} f(t)dt
+		\end{align*}
+		f"ur alle stetigen Funktionen $f$ auf $\Aq$ mit geeigneten Konvergenzeigenschaften (z.b. $f\in S(\Aq)$).
+		
+		\begin{lemma}
+			F"ur jede Funktion $f \in S(\Aq)$ gilt:
+			\begin{align*}
+				\hat{f}|_\Q = \hat{\tilde{f}}|_\Q.
+			\end{align*}
+		\end{lemma}
+		\begin{proof}
+			Sei $x \in \Q$ beliebig aber fest. Wir beobachten zun"achst, dass wir wegen $\Psi|_\Q =1$
+			\begin{align*}
+				\Psi(tx)= \Psi(tx)\Psi(\gamma x)=\Psi((\gamma + t) x)
+			\end{align*}
+			f"ur alle $\gamma \in \Q$ und $t\in \Aq$ haben. Per Definition der Fouriertransformation
+			\begin{align*}
+				\hat{\tilde{f}}(x)	&= \int_{\Aq / \Q} {\hat{f}(t)\Psi(tx)\overline{dt}} 
+									 = \int_{\Aq / \Q} \left(\sum_{\gamma \in \Q}{f(\gamma + t)}\right)\Psi(tx)\overline{dt} =\\
+									&= \int_{\Aq / \Q} \left(\sum_{\gamma \in \Q}{f(\gamma + t)}\Psi((\gamma + t)x)\right)\overline{dt}
+									 = \int_{\Aq} f(t)\Psi(tx)dt = \hat{f}(x)
+			\end{align*}
+			wobei wir im vorletzten Schritt die oben besprochene Charakterisierung des Quotientenmaßes $\overline{dt}$ ausgenutzt haben.
+		\end{proof}
+		
+		\begin{lemma}
+			F"ur jede Funktion $f \in S(\Aq)$ und jedes $x\in \Q$ gilt
+			\begin{align*}
+				\tilde{f}(x) = \sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
+			\end{align*}
+		\end{lemma}
+		\begin{proof}
+			Wie wir eben bewiesen haben gilt $\hat{f}|_\Q = \hat{\tilde{f}}|_\Q$ und daher
+			\begin{align*}
+				\left| \sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}\right| = 
+				\left| \sum_{\gamma \in \Q} {\hat{f}(\gamma)\overline{\Psi}(\gamma x)}\right| 
+				\leq \sum_{\gamma \in \Q} {|\hat{f}(\gamma)|}
+			\end{align*}
+			unter Ausnutzen der Tatsache, dass $\Psi$ unit"ar ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\Aq)$. Analog folgt, dass auch $\sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. Wir erinnern uns, dass das Pontryagin Duale $\widehat{\Aq/\Q}$ als topologische Gruppe isomorph zu $\Q$ (versehen mit der diskreten Topologie) ist. Also $\hat{\tilde{f}} \in L^1(\Q)$ und
+			\begin{align*}
+				\sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
+			\end{align*}
+			ist die Fouriertransformierte von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$. Nach Fourierinversionsformel erhalten wir also
+			\begin{align*}
+				\tilde{f}(x) = \hat{\hat{\tilde{f}}}(-x) = \sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
+			\end{align*}
+			und damit das Lemma.
+		\end{proof}
+		Zur"uck zum Beweis der Summenformel. Wir erhalten aufgrund des zweiten Lemmas mit $x=0$ und anschlie\ss enden Anwenden des Ersten
+		\begin{align*}
+			\tilde{f}(0) = 	\sum_{\gamma \in \Q} \hat{\tilde{f}}(\gamma) \bar{\Psi}(0) =
+							\sum_{\gamma \in \Q} \hat{\tilde{f}}(\gamma) =
+							\sum_{\gamma \in \Q} \hat{f}
+		\end{align*}
+		Aber per Definition gilt gerade $\tilde{f}(0) = \sum_{\gamma \in \Q}f(\gamma)$, also
+		\begin{align*}
+			\sum_{\gamma \in \Q}f(\gamma) = \sum_{\gamma \in \Q} \hat{f}
+		\end{align*}
+		und wir sind fertig.
+		
+	\end{proof}

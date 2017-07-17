@@ -1,4 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.7.25)  14 AUG 2016 19:55
+<<<<<<< HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.7.25)  17 JUL 2017 22:42
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.7.25)  14 AUG 2016 23:13
+>>>>>>> c478616a0b82970cc73550764d31f12f6a22d55c
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -473,23 +477,21 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 \c@defi=\count103
- (./arbeit.aux
-No file 000Deckblatt.aux.
-)
+ (./arbeit.aux (./000Deckblatt.aux))
 \openout1 = `arbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -531,30 +533,35 @@ LaTeX Font Info:    ... okay on input line 53.
 
 
 {d:/Dev/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./arbeit.t
-oc)
+oc
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+
+(d:/Dev/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+
+(d:/Dev/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write3
 \openout3 = `arbeit.toc'.
 
  [2
 
-] (./Kapitel1.tex) [1
-
-] (./Kapitel2.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 6.
-
-(d:/Dev/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 6.
-
-(d:/Dev/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) [2
-
 ]
-(./Kapitel3.tex) [3
+(./Kapitel1.tex) [1
 
-] (./999Eid.tex
+] (./Kapitel2.tex) [2
+
+] (./Kapitel3.tex) [3
+
+] (./padisch.tex)
+[4
+
+] (./tateproof.tex [5
+
+]) [6] (./999Eid.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
@@ -569,34 +576,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
 
-) [4
+) [7
 
 ] (./arbeit.aux (./000Deckblatt.aux)) ) 
 Here is how much of TeX's memory you used:
- 2730 strings out of 493013
- 31572 string characters out of 6135157
- 99423 words of memory out of 5000000
- 6237 multiletter control sequences out of 15000+600000
- 11383 words of font info for 36 fonts, out of 8000000 for 9000
+<<<<<<< HEAD
+ 2753 strings out of 493013
+ 31839 string characters out of 6135157
+ 104755 words of memory out of 5000000
+ 6249 multiletter control sequences out of 15000+600000
+ 13612 words of font info for 39 fonts, out of 8000000 for 9000
+=======
+ 2735 strings out of 493013
+ 31646 string characters out of 6135157
+ 103690 words of memory out of 5000000
+ 6239 multiletter control sequences out of 15000+600000
+ 12072 words of font info for 37 fonts, out of 8000000 for 9000
+>>>>>>> c478616a0b82970cc73550764d31f12f6a22d55c
  1141 hyphenation exceptions out of 8191
- 27i,9n,26p,399b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,14n,26p,564b,287s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Dev/texlive/2016/texmf-dist/fonts/en
 c/dvips/cm-super/cm-super-t1.enc}<d:/Dev/texlive/2016/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmex10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmmi10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi8.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Dev
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Dev/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/Dev/texli
-ve/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/Dev/texlive/201
-6/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/Dev/texlive/2016/texm
-f-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on arbeit.pdf (6 pages, 135998 bytes).
+/cmr10.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:
+/Dev/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Dev/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Dev/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Dev/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/Dev/texlive/2016
+<<<<<<< HEAD
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><d:/Dev/texlive/2016/
+texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/Dev/texlive/2016/texmf-
+dist/fonts/type1/public/cm-super/sfbx1200.pfb><d:/Dev/texlive/2016/texmf-dist/f
+onts/type1/public/cm-super/sfbx1440.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm1095.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/type1/p
+ublic/cm-super/sfti1095.pfb>
+Output written on arbeit.pdf (9 pages, 216447 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
+=======
+/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/Dev/texlive/2016/texmf
+-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/Dev/texlive/2016/texmf-dist/
+fonts/type1/public/cm-super/sfrm1095.pfb><d:/Dev/texlive/2016/texmf-dist/fonts/
+type1/public/cm-super/sfti1095.pfb>
+Output written on arbeit.pdf (6 pages, 168113 bytes).
+PDF statistics:
+ 80 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
+>>>>>>> c478616a0b82970cc73550764d31f12f6a22d55c
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
