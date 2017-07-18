@@ -1,1 +1,73 @@
 \section{Exkurs: p-adische Zahlen}
+	\begin{satz}[Ostrowski]
+		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist "aquivalent zu einem der Absolutbetr"age $|.|_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
+	\end{satz}
+	\begin{proof}
+		Sei $|.|$ ein beliebiger nicht-trivialer Absolutbetrag auf $\Q$. Wir untersuchen die zwei m"oglichen F"alle.\\
+		
+		(1) $|.|$ ist archimedisch.
+		Sei dann $n_0\in \N$ die kleinste nat"urliche Zahl mit $|n_0| > 1$.
+		Dann gibt es ein $\alpha \in \R^+$ mit $|n_0|^{\alpha}=n_0$.
+		Wir wollen nun zeigen, dass $|n|=|n|_\infty^\alpha$ f"ur alle $n in \N$ gilt. Der allgemeine Fall f"ur $\Q$ folgt dann aus den Eigenschaften des Betrags.
+		Dazu bedienen wir uns eines kleinen Tricks: F"ur $n \in \N$ nehmen wir die Darstellung zur Basis $n_0$, d.h.
+		\begin{align*}
+			n = \sum_{i=0}^{k} a_i n_0^i
+		\end{align*}
+		mit $a_i \in \{0,1,\dots,n_0-1\}$, $a_k \neq 0$ und $n_0^k\leq n < n_0^{k+1}$. Nehmen wir davon den Absolutbetrag und beachten, dass $|a_i|\leq 1$ nach unserer Wahl von $n_0$ gilt, so erhalten wir
+		\begin{align*}
+			|n| \leq \sum_{i=0}^{k} |a_i| n_0^{i\alpha}
+				\leq \sum_{i=0}^{k} n_0^{i\alpha}
+				\leq n_0^{k\alpha}\sum_{i=0}^{k} n_0^{-i\alpha}
+				\leq n_0^{k\alpha}\sum_{i=0}^{\infty} n_0^{-i\alpha}
+				 = n_0^{k\alpha} \frac{n_0^\alpha}{n_0^\alpha - 1}.
+		\end{align*}
+		Setzt man nun $C:=\frac{n_0^\alpha}{n_0^\alpha - 1}>0$, so sehen wir
+		\begin{align*}
+			|n|\leq C n_0^{k\alpha}\leq C n^\alpha
+		\end{align*}
+		f"ur beliebige $n \in \N$, also insbesondere auch
+		\begin{align*}
+			|n^N|\leq C n^{N\alpha}.
+		\end{align*}
+		Ziehen wir nun auf beiden Seiten die $N$-te Wurzel und lassen $N$ gegen $\infty$ laufen, so konvergiert $\sqrt[N]{C}$ gegen $0$ und wir erhalten 
+		\begin{align*}
+			|n| \leq n^\alpha
+		\end{align*}
+		Ein gutes Ergebnis zur Ende der ersten Halbzeit. \\
+		Z"uruck zur unserer Basisdarstellung
+		\begin{align*}
+			n = \sum_{i=0}^{k} a_i n_0^i.
+		\end{align*}
+		Da $n < n_0^{k+1}$ erhalten wir die Absch"atzung
+		\begin{align*}
+			n_0^{(k+1)\alpha}=|n_0^{k+1}| = |n + n_0^{k+1} - n| \leq |n| + |n_0^{k+1} -n|
+		\end{align*}
+		so dass wir mit dem Ergebnis vor der Halbzeit und $n\geq n_0^k$ die Absch"atzung
+		\begin{align*}
+			|n| &\geq n_0^{(k+1)\alpha} - |n_0^{k+1} -n| 
+				\geq n_0^{(k+1)\alpha} - (n_0^{k+1} -n)^\alpha
+				\\&\geq n_0^{(k+1)\alpha} - (n_0^{k+1} -n_0^k)^\alpha
+				=n_0^{(k+1)\alpha} \left(1 - \left(1 - \frac{1}{n_0}\right)\right)
+				\\&> n^\alpha \left(1 - \left(1 - \frac{1}{n_0}\right)\right)
+		\end{align*}
+		erhalten. Setzen wir wieder $C':=\left(1 - \left(1 - \frac{1}{n_0}\right)\right) >0$ folgt analog zum ersten Teil, dass
+		\begin{align*} 
+			|n|\geq n^\alpha
+		\end{align*}
+		und daher $|n|=n^\alpha$. Damit haben wir gezeigt, dass $|.|$ "aquivalent zum klassischen Absolutbetrag $|.|_\infty$ ist.
+		\textit{(2)} $|.|$ ist nicht archimedisch.
+		Dann ist $|n_0|\leq 1$ f"ur alle $n \in \N$ und, da $|.|$ nicht-trivial ist, muss es eine kleinste Zahl $n_0$ geben mit $|n_0|<1$. Insbesondere muss $n_0$ eine Primzahl sein, denn sei $p \in \N$ ein Primteiler von $n_0$, also $n_0=p \cdot n'$ mit $n' \in \N$ und $n' < n$, dann gilt nach unserer Wahl von $n_0$
+		\begin{align*}
+			|p| = |p|\cdot |n'| =|p \cdot n'| = |n_0| < 1.
+		\end{align*}
+		Folglich muss schon $p=n_0$ gelten. Ziel wird es jetzt nat"urlich sein zu zeigen, dass $|.|$ "aquivalent zum $p$-adischen Absolutbetrag ist.
+		Zun"achst finden wir ein $\alpha \in \R^+$ mit $|p| = |p|_p^{\alpha} = \frac{1}{p^{\alpha}}$ . Sei als n"achstes $n\in \Z$ mit $p \not | n$. Wir schreiben
+		\begin{align*}
+			n= rp + s, r \in \Z, 0<s<p
+		\end{align*}
+		Nach unserer Wahl von $p=n_0$ gilt $|s|=1$ und $|rp|<1$. Es folgt $|n|=\text{max}\{|rp|,|s|\}=1$. Sei nun $n\in \Z$ beliebig. Wir schreiben $n=p^{v}n'$ mit $p\not | n'$ und sehen
+		\begin{align*}
+			|n| = |p|^{v}|n'| = |p|^v = (|p|_p^{\alpha})^{v}=|n|_p^{\alpha}.
+		\end{align*}
+		Mit den gleichen "Uberlegungen aus dem ersten Fall folgt damit die Behauptung.
+	\end{proof}

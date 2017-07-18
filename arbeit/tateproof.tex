@@ -19,7 +19,7 @@
 			\int_{\Aq/\Q}\sum{\gamma \in \Q}f(\gamma+t)\overline{dt} =
 			\int_{\Aq} f(t)dt
 		\end{align*}
-		f"ur alle stetigen Funktionen $f$ auf $\Aq$ mit geeigneten Konvergenzeigenschaften (z.b. $f\in S(\Aq)$).
+		f"ur alle stetigen Funktionen $f$ auf $\Aq$ mit geeigneten Konvergenzeigenschaften (z.b. $f\in S(\Aq)$). F"ur den eigentlichen Beweis ben"otigen wir zwei
 		
 		\begin{lemma}
 			F"ur jede Funktion $f \in S(\Aq)$ gilt:
@@ -55,11 +55,11 @@
 				\left| \sum_{\gamma \in \Q} {\hat{f}(\gamma)\overline{\Psi}(\gamma x)}\right| 
 				\leq \sum_{\gamma \in \Q} {|\hat{f}(\gamma)|}
 			\end{align*}
-			unter Ausnutzen der Tatsache, dass $\Psi$ unit"ar ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\Aq)$. Analog folgt, dass auch $\sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. Wir erinnern uns, dass das Pontryagin Duale $\widehat{\Aq/\Q}$ als topologische Gruppe isomorph zu $\Q$ (versehen mit der diskreten Topologie) ist. Also $\hat{\tilde{f}} \in L^1(\Q)$ und
+			unter Ausnutzen der Tatsache, dass $\Psi$ unit"ar ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\Aq)$. Analog folgt, dass auch $\sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. Wir erinnern uns, dass das Pontryagin Duale $\widehat{\Aq/\Q}$ als topologische Gruppe isomorph zu $\Q$\footnote{Achtung: Hier ist $Q$ versehen mit der diskreten Topologie gemeint} ist. Also $\hat{\tilde{f}} \in L^1(\Q)$ und
 			\begin{align*}
 				\sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
 			\end{align*}
-			ist die Fouriertransformierte von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$. Nach Fourierinversionsformel erhalten wir also
+			ist die Fouriertransformierte\footnote{Wir erinnern uns, dass in diesem Fall das Z"ahlma\ss ein Haar-Ma\ss ist} von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$. Nach Fourierinversionsformel erhalten wir also
 			\begin{align*}
 				\tilde{f}(x) = \hat{\hat{\tilde{f}}}(-x) = \sum_{\gamma \in \Q} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
 			\end{align*}
@@ -76,5 +76,24 @@
 			\sum_{\gamma \in \Q}f(\gamma) = \sum_{\gamma \in \Q} \hat{f}
 		\end{align*}
 		und wir sind fertig.
-		
+	\end{proof}
+	
+	\begin{satz}[Riemann-Roch]
+		Sei $x \in \Iq$ ein Idel von $\Q$ und sei $f\in S(\Aq)$. Dann
+		\begin{align*}
+			\sum_{\gamma \in \Q} {f(\gamma x)} = \frac{1}{|x|_{\Aq}}\sum_{\gamma \in \Q} {\hat{f}(\gamma x^{-1})}
+		\end{align*}
+	\end{satz}
+	\begin{proof}
+	Sei $x \in \Iq$ beliebig aber fest. F"ur beliebige $y \in \Aq$ definieren wir eine Funktion $h(y):=f(yx)$. Diese ist wieder in $S(\Aq)$ und erf"ullt damit die Poisson-Summenformel
+		\begin{align*}
+			\sum_{\gamma \in \Q}h(\gamma) = \sum_{\gamma \in \Q} \hat{h}.
+		\end{align*}
+		Berechnen wir allerdings die Fouriertransformation von $h$ erhalten wir mit Translation um $x^{-1}$
+		\begin{align*}
+			\hat(h){\gamma}) &= \int_{\Aq}h(y)\Psi(\gamma y)dy \\
+							 &= \int_{\Aq}f(yx)\Psi(\gamma y)dy \\
+							 &= \frac{1}{|x|_{\Aq}} \int_{\Aq}f(y)\Psi(\gamma y x^{-1})dy \\
+							 &= \frac{1}{|x|_{\Aq}} \hat{f}(\gamma x^{-1}).
+		\end{align*}
 	\end{proof}
