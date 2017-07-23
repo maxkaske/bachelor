@@ -1,0 +1,70 @@
+\section{Lokalkompakte Gruppen}
+\begin{defi}
+	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, die die folgenden Eigenschaften erf"ullt:
+	\begin{enumerate}[label=(\roman*), leftmargin=*, align=left, labelsep=1pt]
+		\item Die Gruppenoperation
+			\begin{align*}
+				G \times G &\to G\\
+				(g,h) &\mapsto gh
+			\end{align*}
+		stetig auf der Produkttopologie von $G \times G$
+		\item Die Umkehrabbildung
+			\begin{align*}
+				G &\to G\\
+				g &\mapsto g^{-1}
+			\end{align*}
+			ist stetig
+	\end{enumerate}
+\end{defi}
+
+\begin{defi}
+	Ein topologischer Raum heißt \highlight{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. Eine \highlight{lokalkompakte Gruppe} ist eine topologische Gruppe, die lokalkompakt und hausdorffsch ist. 
+\end{defi}
+\subsection{Haarsche Maß}
+	Nun zu etwas Maßtheorie. Wir beginnen mit einer kleinen Auffrischung der wichtigsten Objekte. Eine \emph{$\sigma$-Algebra} auf einer Menge $X$ ist eine Teilmenge $\Omega$ von $P(X)$, so dass
+	\begin{enumerate}[label=(\roman*)]
+		\item $X \in \Omega$
+		\item Wenn $A \in \Omega$, dann $A^c \in \Omega$, wobei hier $A^c := X\setminus A$ das Komplement von $A$ in $X$ notiert.
+		\item $\Omega$ ist abgeschlossen unter abz"ahlbarer Vereinigung, d.h. $\bigcup_{k=0}^{\infty} A_k \in \Omega$, falls $A_k \in \Omega$ f"ur alle $k$.
+	\end{enumerate}
+	Die Elemente in $\Omega$ werden \emph{messbar} genannt. Aus den Axiomen l"asst sich leicht folgern, dass die leere Menge und abz"ahlbare Schnitte von messbaren Mengen wiederum messbar sind. Weiter ist der Schnitt $\bigcap_n \Omega_n$ beliebiger Familien $\{\Omega_n\}$ von $\sigma$-Algebren auf X selbst wieder eine $\sigma$-Algebra.
+	
+	
+	Eine Menge $X$ zusammen mit einer $\sigma$-Algebra $\Omega$ bilden den \emph{messbaren Raum} $(X, \Omega)$. Ist X ein topologischer Raum, so k"onnen wir die kleinste $\sigma$-Algebra $\Borel$ betrachten, die alle offenen Mengen von $X$ enth"alt. Die Elemente von $\Borel$ werden \emph{Borelmengen} von $X$ genannt.
+	
+	
+	Nun zum eigentlichen Messen der messbaren Mengen. Ein \emph{Maß} auf einem beliebigen messbaren Raum $(X, \Omega)$ ist eine Funktion $\mu: \Omega \to [0, \infty]$ mit $\mu(\emptyset) = 0$ und die \emph{$\sigma$-additiv} ist. Das bedeutet
+	
+	\begin{align*}
+		\mu( \bigcup_{n=1}^{\infty}) = \sum_{n=1}^{\infty} \mu (A_n)
+	\end{align*}
+	f"ur beliebige Familien $\{A_n\}_1^\infty$ von paarweise disjunkten Mengen in $\Omega$.
+	
+	%%TODO: Borelmass
+	
+	Sei nun $\mu$ ein Borelmaß auf einem lokalkompakten hausdorffschen Raum X und sei $E$ ein eine beliebige Borelmenge von $X$. Wir nennen $\mu$ von \emph{innen regul"ar} auf E, falls
+	\begin{align*}
+		\mu(E) = \sup\{\mu(K): K \subseteq E, K \text{ kompakt}\}
+	\end{align*}
+	Umgekehrt heißt $\mu$ von \emph{außen regul"r} auf E, wenn
+	\begin{align*}
+		\mu(E) = \inf\{\mu(U): E \subseteq U, U \text{ offen}\}.
+	\end{align*}
+	
+	
+	Ein \emph{Radonmaß} auf $X$ ist ein Borelmaß, das endlich auf kompakten Mengen, von innen regul"ar auf allen offenen Mengen und von außen regul"ar auf allen Borelmengen ist.
+	
+	
+	Sei nun $G$ eine topologische Gruppe und $\mu$ ein Borelmaß auf G. Wir k"onnen untersuchen, wie sich das Maß bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}. Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$. Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
+	
+	Nun haben wir alle wichtigen Konzepte zusammen f"ur folgende wichtige
+	\begin{defi}[Haarsche Maß]
+		Sei $G$ eine lokalkompakte Gruppe. Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haarsches Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radonmaß, das auf nichtleeren offenen Mengen positiv ist. 
+	\end{defi}
+	\begin{bsp}
+		\begin{enumerate}
+			\item Ist $G$ diskret, dann ist das Z"ahlmaß ein Haarsches Maß.
+			\item F"ur $G=\R^+$ definiert das Lebesguemaß ein Haarsches Maß.
+			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haarsches Maß, wie wir in TODO sehen werden.
+		\end{enumerate}
+	\end{bsp}

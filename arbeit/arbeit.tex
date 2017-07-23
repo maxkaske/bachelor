@@ -1,12 +1,16 @@
 \documentclass[11pt]{article} % use larger type; default would be 10pt
-
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
 \usepackage[ngerman]{babel}% deutsche Trennregeln
 \usepackage[T1]{fontenc}% wichtig für Trennung von Wörtern mit Umlauten
+\usepackage{lmodern}
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
-\geometry{a4paper, left=30mm, right=40mm, top=25mm, bottom=20mm} 
+\geometry{a4paper, left=30mm, right=40mm, top=25mm, bottom=20mm}
+
+%Listen
+\usepackage{enumitem} 
 
 %%%%%%%%%%%%%%%%%%
 % Mathe Packages %
@@ -15,14 +19,30 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bbm}
 
 
-
+%Links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematische Symbole %
 %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Topologie
+\newcommand{\Borel}{\mathcal{B}}
+
+%masstheorie
+\newcommand{\ind}{\mathbbm{1}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -31,17 +51,33 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\I}{\mathbb{I}}
+\newcommand{\K}{K}
 \newcommand{\Aq}{\A_\Q}
+\newcommand{\Ak}{\A_\K}
 \newcommand{\Iq}{\I_\Q}
-\newcommand{\kinf}{k_\infty}
+\newcommand{\kinf}{\K_\infty}
 \newcommand{\ginf}{g_\infty}
 \newcommand{\tinf}{t_\infty}
 \newcommand{\finf}{f_\infty}
 \newcommand{\xinf}{x_\infty}
 \newcommand{\xiinf}{\xi_\infty}
 \newcommand{\finft}{\hat{f}_\infty}
-\newcommand{\rdprod}[1]{\widehat{\prod\limits_{#1}}}
 
+
+
+\newcommand{\rdprod}[1]{\widehat{\prod\limits_{#1}}}
+\DeclarePairedDelimiter\abso{\lvert}{\rvert}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abso
+\def\abso{\@ifstar{\oldabs}{\oldabs*}}
+
+\newcommand{\abs}[1][\,\cdot\,]{\abso{#1}}
+
+\newcommand{\highlight}[1]{\textit{#1}}
 
 %%%%%%%%%%%%
 % Theoreme %
@@ -51,7 +87,7 @@
 
 \theoremstyle{definition}
 \newtheorem{defi}{Definition}[section]
-\newtheorem{bsp}[defi]{Beispiel}
+\newtheorem{bsp}[defi]{Beispiele}
 
 \theoremstyle{plain}
 \newtheorem{satz}[defi]{Satz}
@@ -75,14 +111,9 @@
 
 %%%%%%%%%%%%%%%%%%%Beginn
 
-\input{Kapitel1}
+\input{topogroup}
 \clearpage
 
-\input{Kapitel2}
-\clearpage
-
-\input{Kapitel3}
-\clearpage
 
 \input{padisch}
 \clearpage
@@ -99,4 +130,3 @@
 
 
 \end{document}
-
