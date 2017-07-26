@@ -1,20 +1,123 @@
 \section{Der Adele- und Idelering}
-	In Zukunft m"ochten wir gerne auch unsere lokalen Ergebnisse 
+	In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln.
 	\subsection{Eingeschränktes Direktes Produkt}
-		Wir beginnen mit einer
-		\begin{defi}[Eingeschr"ankte direkte Produkt]
-			Sei $J=\{v\}$ eine Indexmenge und f"ur jedes $v \in J$ sei $G_v$ eine lokal kompakte Gruppe. 
-			Sei weiter $J_\infty \subseteq J$ eine endliche Teilmenge von $J$ und f"ur jedes $v \notin J_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
-			Das \textit{eingeschr"ankte direkte Produkt} der $G_v$ bez"uglich $H_v$ ist definiert als 
+		\begin{lemma}\label{Lemma:lokalkompaktProd}
+			Sei $I$ eine Indexmenge und $X_i$ ein lokalkompakter Hausdorff-Raum f"ur alle $i \in I$. Der Raum $X:=\prod_{i \in I} X_i$ ist genau dann lokalkompakt, wenn fast alle $X_i$ kompakt sind.
+		\end{lemma}
+		Wir geben den Beweis von Deitmar \cite{deitmar2010}:
+		\begin{proof}
+			Zun"achst eine Beobachtung: Ist $X$ kompakt, so ist auch jedes $X_i$ kompakt als Bild von $X$ unter der (stetigen) Projektion $\pi_i:X \to X_i$.
+			Sei $E \subset I$ eine endliche Teilmenge und $U_i \in X_i$ eine offene Menge f"ur jedes $i \in E$. Wir betrachten die offenen Rechtecke
 			\begin{align*}
-				\rdprod{v \in J} G_v := \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ f"ur alle bis auf endlich viele } v \}.
+				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} X_i,
 			\end{align*}
+			welche eine Basis der Produkttopologie bilden. Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschlu\ss kompakt ist. Folglich sind fast alle $X_i$ kompakt. Die R"uckrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter R"aume wieder lokalkompakt sind.
+		\end{proof}
+		
+		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. Wir sehen nun aber, was wir zu tun haben damit doch eine runde Sache daraus wird und geben folgende
+		\begin{defi}[Eingeschr"ankte direkte Produkt]
+			Sei $I=\{v\}$ eine Indexmenge und f"ur jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
+			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und f"ur jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
+			Das \emph{eingeschr"ankte direkte Produkt} der $G_v$ bez"uglich $H_v$ ist definiert als 
+			\begin{align*}
+				G = \rdprod{v \in I} G_v := \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ f"ur alle bis auf endlich viele } v \}.
+			\end{align*}
+			mit komponentenweiser Verkn"upfung. Die Topologie auf $G$ ist gegeben durch die \emph{eingeschr"ankte Produktopologie}. Diese wird erzeugt durch die Basis der \emph{eingeschr"ankten offenen Rechtecke}
+			\begin{align*}
+				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} H_i,
+			\end{align*}
+			wobei $E \subset I$ eine endliche Teilmenge mit $I_\infty \subset E$ und $U_i \in G_i$ offen f"ur alle $i \in E$ ist.
 		\end{defi}
-		Sei $G$ das eingeschr"ankte direkte Produkt der obigen $G_v$ bez"uglich der $H_v$. 
+		G ist offensichtlich eine Untergruppe des direkten Produkts, die eingeschr"ankte Produkttopologie ist jedoch nicht die Teilraumtopologie.
 		
-		$G$ als topologische Gruppe zu realisieren, geben wir eine Umgebungsbasis der Identit"at an. Diese soll aus den Mengen der Form $\prod_{v \in J}{N_v}$ bestehen, wobei $N_v$ eine Umgebung der Identit"at von $G_v$ ist und zus"tszlich $N_v = H_v$ f"ur fast alle $v\in J$ gelten soll. Die dadurch induzierte Topologie auf $G$ unterscheidet sich im Allgemeinen von der Produkttopologie und wird als \textit{eingeschr"ankte Produkttopologie} bezeichnet.
+		Wir f"uhren nun eine n"utzliche Familie von Untergruppen von G ein. Sei $S$ eine endliche Teilmenge von $I$ mit $I_\infty \in S$. Wir definieren die Untergruppe
+		\begin{align*}
+			G_S := \prod_{i \in S}G_i \times \prod_{i \in I\setminus S} H_i
+		\end{align*}
+		von $G$. Diese ist offensichtlich offen. Nach Lemma \ref{lemma:direktesProduktTopologischerGruppen} und Lemma \ref{Lemma:lokalkompaktProd} ist $G_S$ selbst wieder eine lokalkompakte Gruppe bez"uglich der Produkttopologie. Man sieht aber leicht, dass diese mit der durch $G$ induzierten Teilraumtopologie "ubereinstimmt. Da jeder Punkt $x \in G$ in einer Untergruppe dieser Form liegt folgt sofort, dass $G$ wieder eine lokalkompakte Gruppe ist.
 		
+		Abschließend m"ochten wir noch einen kleinen Satz festhalten.
+		\begin{satz}
+			Eine Teilmenge $Y$ von $G$ hat genau dann kompakten Abschluss, wenn $Y \subseteq \prod{K_i}$ f"ur eine Familie von kompakten Teilmengen $K_i \subseteq G_i$ mit $K_i = H_i$ f"ur fast alle Indizes $i$.
+		\end{satz}
+		\begin{proof}
+			Die R"uckrichtung ist klar, denn jede abgeschlossene Teilmenge eines kompakten Raumes ist wieder kompakt. 
+			F"ur die Hinrichtung sei nun $K$ der Abschluss von $Y$ und kompakt in $G$. 
+			Da die Untergruppen $G_S$ eine offene "Uberdeckung von $G$ bilden, gibt es eine endliche Familie $\{G_{S_n}\}$, die $K$ "uberdecken. 
+			Wir k"onnen sogar noch mehr sagen. Da die die $S_k$ endlich sind, ist $S = \bigcup S_k$ endlich, also wird $K$ sogar von nur einem $G_S$ "uberdeckt. 
+			Sei $K_i$ das Bild von $K$ der nat"urlichen Einbettung nach $G_i$. 
+			Da die Topologie auf $G_S$ gerade der Produkttopologie entspricht und $K\subseteq G_S$ ist diese Abbildung stetig und $K_i$ damit kompakt als stetiges Bild einer kompakten Menge. Außerdem ist $K_i \subseteq H_i$ f"ur alle $i\notin S$, sodass wir hier $K_i$ durch die kompakten $H_i$ ersetzen k"onnen. Dann ist $Y\subseteq K \subseteq \prod{K_i}$ und wir sind fertig.
+		\end{proof}
 		
-	\subsection{Der Adelering $\Aq$}
-	\subsection{Der Idelering $\Iq$}
+		\subsection{Integration auf dem eingeschr"ankten Produkt}
+		Wie wir gesehen haben ist $G=\rdprod{i \in I} G_i$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{satz:LCAMeasure} ein Haar-Maß. Wir wollen dieses geeignet normalisieren.
+		\begin{satz}
+			Sei $G=\rdprod{i \in I} G_i$ das eingeschr"ankte direkte Produkt einer Familie lokalkompakter Gruppen $G_i$ bez"uglich der Untergruppen $H_i \subseteq G_i$. Bezeichne $dg_i$ das Haar-Maß auf $G_i$ mit der Normalisierung
+			\begin{align*}
+				\int_{H_i} dg_i = 1
+			\end{align*}
+			f"ur fast alle $i \notin I_\infty$. Dann gibt es ein eindeutiges Haar-Maß $dg$ auf G, so dass f"ur jede endliche Teilmenge $S\supseteq I_\infty$ der Indexmenge $I$ die Einschr"ankung $dg_S$ von $dg$ auf $G_S$ genau das Produktmaß ist.
+		\end{satz}
+		
+		\begin{proof}
+			Wir vergewissern uns zun"achst, dass die Normalisierung der $dg_i$ m"oglich ist, da per Definiton die Untergruppen $H_i$ offen und kompakt sind und daher positives und endliches Maß haben.
+			
+			Sei $S$ nun eine beliebige Menge wie im Satz beschrieben und definiere $dg_S$ als das Produktm"aß $dg_S :=\left(\prod_{s \in S}dg_i\right) \times dg^S$, wobei $dg^S$ das Haar-Maß auf der kompakten Gruppe $G^S:=\prod_{i \notin S} H_i$ mit $\int_{G^S} dg^S = 1$ ist. 
+			Siehe Folland \ref{folland} Kapitel 7, Satz 7.28 f"ur eine genauere Beschreibung des Maßes $dg^S$. 
+			Als endliches Produkt von Haar-Maßen ist $dg_S$ selbst wieder Haar-Maß und wir k"onnen $dg$ normieren, dass dessen Einschr"ankung auf $G_S$ mit $dg_S$ "ubereinstimmt.
+			Unsere Wahl von der Teilmenge war willkürlich, allerdings k"onnen wir zeigen, dass die gew"ahlte Normierung unabh"angig von $S$ ist. Sei dazu $T\supseteq S$ eine weitere endliche Indexmenge. 
+			Per Definition ist $G_S$ eine Untergruppe von $G_T$. 
+			Wir m"ussen jetzt nur noch zeigen, dass die Einschr"ankung von $dg^T$ auf $G^S$ mit $dg^S$ "ubereinstimmt.
+			Man erkennt, dass $G^S = \left(\prod_{i \in T \setminus S} H_i\right) \times G^T$. Daher bildet $\left(\prod_{i \in T \setminus S} dg_i\right) \times dg^T$.
+			ein Haar-Maß, welches der kompakten Gruppe $G_S$ das oben geforderte Maß $1$ zuweist. Aus der Eindeutigkeit des Haar-Maßes auf (lokal)kompakten Gruppen folgt somit die Gleichheit zu $dg^S$.
+			Sei nun $S'$ eine beliebige weitere Indexmenge, die $I_\infty$ enth"alt. Das normierte Maß $dg$ wird auf $G_{S\cup S'}$ eingeschr"ankt zu einem Maß, welches ein konstantes Vielfaches von $dg_{S\cup S'}$ ist. 
+			Da aber $G_S \subseteq G_{S\cup S'}$ muss diese Konstante $1$ sein, denn nach obigen "Uberlegungen ist die Einschr"ankung von $dg_{S\cup S'}$ auf $G_S$ gerade $dg_{S}$.
+			Umgekehrt ist aber $dg_{S'}$ die die Einschr"ankung von $dg_{S\cup S'}$ auf $G_{S'}$, also ist die Normalisierung unabh"angig von der Wahl unserer Indexmenge $S$.
+		\end{proof}
+		Wir schreiben manchmal $\prod_{i} dg_i$ f"ur das wie oben normierte Maß $dg$.
+		
+		\begin{proposition}
+			Sei $G$ das eingeschr"ankte direkte Produkt mit dem induzierten Maß $dg$
+			\begin{enumerate}[label=(\roman*)]
+				\item Sei $f \in L(G)$ eine integrierbare Funktion auf $G$. Dann gilt
+					\begin{align*}
+						\int_G f(g)dg = \lim_S \int_{G_S} f(g_S) dg_S,
+					\end{align*}
+					wobei $S$ "uber alle endlichen Indexmengen l"auft, die $I_\infty$ enthalten.
+				\item Sei $S_0$ ein beliebige endliche Indexmenge, die $I_\infty$ und alle $i$ enth"alt, f"ur die $\text{Vol}(H_i, dg_i) \not= 1$. 
+					F"ur jeden Index $i$ haben wir eine stetige Funktion $f_i$ auf $G_i$, so dass $f_i |_{H_i} = 1$ f"ur alle $i \notin S_0$. 
+					Wir definieren
+					\begin{align*}
+						f(g) = \prod_{i}f_{i}(g_i),
+					\end{align*}
+					f"ur $g=(g_i) \in G$. 
+					Dann ist $f$ wohldefiniert und stetig auf $G$. 
+					Sind die $f_i$ sogar integrierbar und ist $S$ eine weitere endliche Indexmenge, die $S_0$ enth"ahlt, haben wir
+					\begin{align*}
+						\int_{G_S} f(g_S) dg_S = \prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr).
+					\end{align*}
+					Ist das Produkt
+					\begin{align*}
+						\prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr)
+					\end{align*}
+					sogar endlich, dann ist $f$ insbesondere integrierbar und es gilt
+					\begin{align*}
+						\int_{G} f(g) dg = \prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr).
+					\end{align*}	
+			\end{enumerate}
+		\end{proposition}
+		
+		\begin{proof}
+			(i) Aus der Integrationstheorie ist bekannt, dass
+			\begin{align*}
+				\int_{G} f(g) = \lim_{K} \int_{K} f(g)dg,
+			\end{align*}
+			wobei der Limes"uber immer gr"oßer und gr"oßere kompakte Mengen  $K$ geht. Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
+			
+			(ii) Aus der Bedingung $f_i |_{H_i} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_i)$ f"ur alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Jedes $g$ hat eine Umgebung, die wiederum in einem der $G_S$ und wir k"onnen annehmen, dass $S$ alle Indizes $i$ mit $f_i|_{H_i}\not= 1$ enth"alt. %TODO
+			Wir k"onnen also $f$ lokal als endliches Produkt stetiger Funktionen auffassen. Damit ist $f$ selber stetig.
+		\end{proof}
+%$G$ als topologische Gruppe zu realisieren, geben wir eine Umgebungsbasis der Identit"at an. Diese soll aus den Mengen der Form $\prod_{v \in J}{N_v}$ bestehen, wobei $N_v$ eine Umgebung der Identit"at $e$ von $G_v$ ist und zus"atszlich $N_v = H_v$ f"ur fast alle $v\in J$ gelten soll. Die dadurch induzierte Topologie auf $G$ unterscheidet sich im Allgemeinen von der Produkttopologie und wird als \emph{eingeschr"ankte Produkttopologie} bezeichnet.	
+	\subsection{Der Adelering}
+	\subsection{Der Idelering}
 	

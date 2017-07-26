@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: arbeit.aux
 A level-1 auxiliary file: 000Deckblatt.aux
-I found no \citation commands---while reading file arbeit.aux
-I found no \bibdata command---while reading file arbeit.aux
-I found no \bibstyle command---while reading file arbeit.aux
-(There were 3 error messages)
+The style file: plain.bst
+Database file #1: arbeit.bib
+Warning--empty publisher in rama
+Warning--empty year in rama
+(There were 2 warnings)

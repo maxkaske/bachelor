@@ -12,6 +12,7 @@
 %Listen
 \usepackage{enumitem} 
 
+\usepackage{cite}
 %%%%%%%%%%%%%%%%%%
 % Mathe Packages %
 %%%%%%%%%%%%%%%%%%
@@ -51,11 +52,12 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\I}{\mathbb{I}}
-\newcommand{\K}{K}
+\newcommand{\K}{k}
 \newcommand{\Aq}{\A_\Q}
 \newcommand{\Ak}{\A_\K}
 \newcommand{\Iq}{\I_\Q}
 \newcommand{\kinf}{\K_\infty}
+\newcommand{\Kp}{\K_p}
 \newcommand{\ginf}{g_\infty}
 \newcommand{\tinf}{t_\infty}
 \newcommand{\finf}{f_\infty}
@@ -65,7 +67,8 @@
 
 
 
-\newcommand{\rdprod}[1]{\widehat{\prod\limits_{#1}}}
+\newcommand{\rdprod}[1]{\prod\limits_{#1}'}{%{\widehat{\prod\limits_{#1}}}
+
 \DeclarePairedDelimiter\abso{\lvert}{\rvert}
 
 % Swap the definition of \abs* and \norm*, so that \abs
@@ -91,6 +94,7 @@
 
 \theoremstyle{plain}
 \newtheorem{satz}[defi]{Satz}
+\newtheorem{proposition}[defi]{Satz}
 \newtheorem{lemma}[defi]{Lemma}
 
 
@@ -123,6 +127,9 @@
 
 \input{tateproof}
 \clearpage
+
+\bibliography{arbeit}
+\bibliographystyle{plain}
 
 
 \input{999Eid}

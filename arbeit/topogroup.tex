@@ -1,25 +1,55 @@
 \section{Lokalkompakte Gruppen}
 \begin{defi}
 	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, die die folgenden Eigenschaften erf"ullt:
-	\begin{enumerate}[label=(\roman*), leftmargin=*, align=left, labelsep=1pt]
-		\item Die Gruppenoperation
-			\begin{align*}
-				G \times G &\to G\\
-				(g,h) &\mapsto gh
-			\end{align*}
-		stetig auf der Produkttopologie von $G \times G$
-		\item Die Umkehrabbildung
-			\begin{align*}
-				G &\to G\\
-				g &\mapsto g^{-1}
-			\end{align*}
-			ist stetig
-	\end{enumerate}
-\end{defi}
+		\begin{enumerate}[label=(\roman*), leftmargin=*, align=left, labelsep=1pt]
+			\item Die Gruppenoperation
+				\begin{align*}
+					G \times G &\to G\\
+					(g,h) &\mapsto gh
+				\end{align*}
+			stetig auf der Produkttopologie von $G \times G$
+			\item Die Umkehrabbildung
+				\begin{align*}
+					G &\to G\\
+					g &\mapsto g^{-1}
+				\end{align*}
+				ist stetig
+		\end{enumerate}
+	\end{defi}
+	\begin{lemma}\label{lemma:direktesProduktTopologischerGruppen}
+		Sei $I$ eine Indexmenge und $G_i$ eine topologische Gruppe f"ur alle $i \in I$. Das direkte Produkt $G = \prod_{i \in I} G_i$ versehen mit der Produkttopologie ist  und komponentenweiser Gruppenverkn"upfung ist wieder eine topologische Gruppe.
+	\end{lemma}
+	\begin{proof}
+		%Es reicht f"ur die Stetigkeit der Gruppenoperation und der Umkehrabbildung nachzuweisen, dass die Abbildung $G \times G \to G$ mit $(g,h) \maptso gh^{-1}$ stetig ist.
+		Wir erinnern uns daran, dass eine Basis der Produkttopologie gegeben ist durch Rechtecke der Form
+		\begin{align*}
+			\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i,
+		\end{align*}
+		wobei $E$ eine endliche Teilmenge von $I$ und jedes $U_i$ offen in $G_i$ ist. Ohne Einschr"ankung sei also 
+		\begin{align*}
+			W = \prod_{i \in E} W_i \times \prod_{i \in I\setminus E}  G_i
+		\end{align*}
+		eine offene Umgebung von $gh = (g_i h_i)$. Da die $G_i$ topologische Gruppen sind, finden wir f"ur  alle $i\in E$ offene Umgebungen $U_i$ und $V_i$ von $g_i$ und $h_i$,  sodass  $U_i V_i \subseteq W_i$. Wir behaupten nun, dass
+		\begin{align*}
+			(\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i) \times (\prod_{i \in E} V_i \times \prod_{i \in I\setminus E}  G_i)
+		\end{align*}
+		eine offene Umgebung von $(g, h) \in G \times G$ ist, deren Bild in $W$ liegt. Der erste Aussage ist klar, da beide Faktoren des Produkts offene Basiselemente der Topologie sind. Das Bild unter Gruppenoperation ist gegeben durch
+		\begin{align*}
+			\prod_{i \in E} U_i V_i \times \prod_{i \in I\setminus E}  G_i,
+		\end{align*}
+		was nach unseren "Uberlegungen in $W$ liegt. Der Beweis f"ur die Umkehrabbildung funktioniert analog.
+	\end{proof}
+	\begin{defi}
+		Ein topologischer Raum heißt \highlight{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. Eine \highlight{lokalkompakte Gruppe} ist eine topologische Gruppe, die lokalkompakt und hausdorffsch ist. 
+	\end{defi}
+	\begin{lemma}
+		Seien $G_1$ und $G_2$ zwei lokalkompakte Gruppen. Dann ist $G_1\times G_2$ wieder lokalkompakt. Insbesondere ist also jedes endliche direkte Produkt lokalkompakter Gruppen lokalkompakt.
+	\end{lemma}
+	\begin{proof}
+		Sei $(g_1,g_2) \in G_1\times G_2$. Wegen der Lokalkompaktheit von $G_1$ und $G_2$ finden wir kompakte Umgebungen $K_1$, $K_2$ von $g_1$ bzw. $g_2$. Dann ist aber $K_1 \times K_2$ eine kompakte Umgebung von $(g_1,g_2)$. Weiter ist das direkte Produkt zweier Hausdorff-R"aume wieder hausdorffsch, wodurch $G_1\times G_2$ zu einer lokalkompakten Gruppe wird.
+	\end{proof}
+	Wie wir in \ref{lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
 
-\begin{defi}
-	Ein topologischer Raum heißt \highlight{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. Eine \highlight{lokalkompakte Gruppe} ist eine topologische Gruppe, die lokalkompakt und hausdorffsch ist. 
-\end{defi}
 \subsection{Haarsche Maß}
 	Nun zu etwas Maßtheorie. Wir beginnen mit einer kleinen Auffrischung der wichtigsten Objekte. Eine \emph{$\sigma$-Algebra} auf einer Menge $X$ ist eine Teilmenge $\Omega$ von $P(X)$, so dass
 	\begin{enumerate}[label=(\roman*)]
@@ -46,7 +76,7 @@
 	\begin{align*}
 		\mu(E) = \sup\{\mu(K): K \subseteq E, K \text{ kompakt}\}
 	\end{align*}
-	Umgekehrt heißt $\mu$ von \emph{außen regul"r} auf E, wenn
+	Umgekehrt heißt $\mu$ von \emph{außen regul"ar} auf E, wenn
 	\begin{align*}
 		\mu(E) = \inf\{\mu(U): E \subseteq U, U \text{ offen}\}.
 	\end{align*}
@@ -55,16 +85,38 @@
 	Ein \emph{Radonmaß} auf $X$ ist ein Borelmaß, das endlich auf kompakten Mengen, von innen regul"ar auf allen offenen Mengen und von außen regul"ar auf allen Borelmengen ist.
 	
 	
-	Sei nun $G$ eine topologische Gruppe und $\mu$ ein Borelmaß auf G. Wir k"onnen untersuchen, wie sich das Maß bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}. Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$. Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
+	Sei nun $G$ eine topologische Gruppe und $\mu$ ein Borelmaß auf G. 
+	Wir k"onnen untersuchen, wie sich das Maß bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}. Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$. Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
 	
 	Nun haben wir alle wichtigen Konzepte zusammen f"ur folgende wichtige
-	\begin{defi}[Haarsche Maß]
-		Sei $G$ eine lokalkompakte Gruppe. Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haarsches Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radonmaß, das auf nichtleeren offenen Mengen positiv ist. 
+	\begin{defi}
+		Sei $G$ eine lokalkompakte Gruppe. Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haar-Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radon-Maß, das auf nichtleeren offenen Mengen positiv ist. 
 	\end{defi}
 	\begin{bsp}
 		\begin{enumerate}
-			\item Ist $G$ diskret, dann ist das Z"ahlmaß ein Haarsches Maß.
-			\item F"ur $G=\R^+$ definiert das Lebesguemaß ein Haarsches Maß.
+			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haarsches Maß.
+			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß dx ein Haarsches Maß.
 			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haarsches Maß, wie wir in TODO sehen werden.
 		\end{enumerate}
 	\end{bsp}
+	
+	\begin{satz}[Existenz und Eindeutigkeit des Haar-Maß]\label{satz:LCAMeasure}
+		Sei $G$ eine lokalkompakte Gruppe. Dann existiert ein linksinvariantes Haar-Maß auf $G$. Dieses ist eindeutig bis auf skalares Vielfaches.
+	\end{satz}
+	\begin{proof}
+		Einen ausf"urhlichen Beweis befindet sich in \cite{rama} Kapitel 1.
+	\end{proof}
+	
+	\begin{lemma}F"ur jede Abbildung $f\in L^{1}(G,\mu)$ gilt
+		\begin{enumerate}[label=\emph{(\alph*)}]
+			\item $\int_{G} f(xy)d\mu(x) = \int_{G} f(x)d\mu(x)$
+			\item $\int_{G} f(x^{-1})d\mu(x) = \int_{G} f(x)d\mu(x)$
+		\end{enumerate}
+	\end{lemma}
+	\begin{proof}
+		(a) folgt leicht aus der Definition des Integrals und der Translationsinvarianz des Maßes.
+		
+		F"ur (b) "uberlegen wir uns zun"achst, dass $\tilde{\mu}(E):= \mu(E^{-1})$ ein weiteres Haar Maß auf $G$ definiert. Nach der Eindeutigkeit unterscheiden sich beide Maße nur um eine Konstante $c > 0$. Wir wollen zeigen, dass $c=1$ ist.
+		Sei dazu $K$ eine kompakte Umgebung der $1$. Dann gibt es eine offene Umgebung $U$ der $1$ mit $G \subseteq K$. Definieren wir nun $S := KK^{-1}$, so ist $S$ kompakt, $U \subseteq S$ und es gilt $0 < \mu(U) \leq \mu(S)<\infty$. 
+		Es folgt $ c\cdot \mu(S) = \tilde{\mu}(S) = \mu(S^{-1}) =\mu(S)$ und damit $c=1$. Das Haar-Maß ist also invariant unter der Umkehrabbildung. Der Rest folgt dann aus der Definition des Integrals.
+	\end{proof}

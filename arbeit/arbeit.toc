@@ -1,10 +1,11 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Lokalkompakte Gruppen}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Haarsche Ma\IeC {\ss }}{1}{subsection.1.1}
-\contentsline {section}{\numberline {2}Exkurs: p-adische Zahlen}{3}{section.2}
-\contentsline {section}{\numberline {3}Der Adele- und Idelering}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Eingeschr\IeC {\"a}nktes Direktes Produkt}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Der Adelering $\mathbb {A}_\mathbb {Q}$}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Der Idelering $\mathbb {I}_\mathbb {Q}$}{6}{subsection.3.3}
-\contentsline {section}{\numberline {4}Tates Beweis}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Adelische Poisson Summenformel und der Satz von Riemann-Roch}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {1.1}Haarsche Ma\IeC {\ss }}{2}{subsection.1.1}
+\contentsline {section}{\numberline {2}Exkurs: p-adische Zahlen}{4}{section.2}
+\contentsline {section}{\numberline {3}Der Adele- und Idelering}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Eingeschr\IeC {\"a}nktes Direktes Produkt}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Integration auf dem eingeschr"ankten Produkt}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Der Adelering}{9}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Der Idelering}{9}{subsection.3.4}
+\contentsline {section}{\numberline {4}Tates Beweis}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Adelische Poisson Summenformel und der Satz von Riemann-Roch}{10}{subsection.4.1}
