@@ -1,10 +1,11 @@
 \section{Der Adele- und Idelering}
-	In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln.
+	
 	\subsection{Eingeschränktes Direktes Produkt}
+		In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln. Die naheliegendeste Idee w"are nat"urlich das direkte Produkt, allerdings zeigt folgendes Lemma, dass dieser Versuch fehlschlagen wird.
 		\begin{lemma}\label{Lemma:lokalkompaktProd}
 			Sei $I$ eine Indexmenge und $X_i$ ein lokalkompakter Hausdorff-Raum f"ur alle $i \in I$. Der Raum $X:=\prod_{i \in I} X_i$ ist genau dann lokalkompakt, wenn fast alle $X_i$ kompakt sind.
 		\end{lemma}
-		Wir geben den Beweis von Deitmar \cite{deitmar2010}:
+		Wir geben den Beweis aus Deitmar \cite{deitmar2010}:
 		\begin{proof}
 			Zun"achst eine Beobachtung: Ist $X$ kompakt, so ist auch jedes $X_i$ kompakt als Bild von $X$ unter der (stetigen) Projektion $\pi_i:X \to X_i$.
 			Sei $E \subset I$ eine endliche Teilmenge und $U_i \in X_i$ eine offene Menge f"ur jedes $i \in E$. Wir betrachten die offenen Rechtecke
@@ -13,8 +14,7 @@
 			\end{align*}
 			welche eine Basis der Produkttopologie bilden. Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschlu\ss kompakt ist. Folglich sind fast alle $X_i$ kompakt. Die R"uckrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter R"aume wieder lokalkompakt sind.
 		\end{proof}
-		
-		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. Wir sehen nun aber, was wir zu tun haben damit doch eine runde Sache daraus wird und geben folgende
+		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. Wir sehen jetzt aber, was zu tun ist, damit doch noch eine runde Sache daraus wird und geben folgende
 		\begin{defi}[Eingeschr"ankte direkte Produkt]
 			Sei $I=\{v\}$ eine Indexmenge und f"ur jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
 			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und f"ur jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
@@ -37,7 +37,7 @@
 		von $G$. Diese ist offensichtlich offen. Nach Lemma \ref{lemma:direktesProduktTopologischerGruppen} und Lemma \ref{Lemma:lokalkompaktProd} ist $G_S$ selbst wieder eine lokalkompakte Gruppe bez"uglich der Produkttopologie. Man sieht aber leicht, dass diese mit der durch $G$ induzierten Teilraumtopologie "ubereinstimmt. Da jeder Punkt $x \in G$ in einer Untergruppe dieser Form liegt folgt sofort, dass $G$ wieder eine lokalkompakte Gruppe ist.
 		
 		Abschließend m"ochten wir noch einen kleinen Satz festhalten.
-		\begin{satz}
+		\begin{satz}%Kompakte Mengen in G_S
 			Eine Teilmenge $Y$ von $G$ hat genau dann kompakten Abschluss, wenn $Y \subseteq \prod{K_i}$ f"ur eine Familie von kompakten Teilmengen $K_i \subseteq G_i$ mit $K_i = H_i$ f"ur fast alle Indizes $i$.
 		\end{satz}
 		\begin{proof}
@@ -48,8 +48,47 @@
 			Sei $K_i$ das Bild von $K$ der nat"urlichen Einbettung nach $G_i$. 
 			Da die Topologie auf $G_S$ gerade der Produkttopologie entspricht und $K\subseteq G_S$ ist diese Abbildung stetig und $K_i$ damit kompakt als stetiges Bild einer kompakten Menge. Außerdem ist $K_i \subseteq H_i$ f"ur alle $i\notin S$, sodass wir hier $K_i$ durch die kompakten $H_i$ ersetzen k"onnen. Dann ist $Y\subseteq K \subseteq \prod{K_i}$ und wir sind fertig.
 		\end{proof}
-		
-		\subsection{Integration auf dem eingeschr"ankten Produkt}
+	\subsection{Charaktere}%TODO Lemma genauer, beweis schoener
+		\begin{lemma}
+			Sei $\chi$  ein Charakter $\chi$ auf G. Dann ist $\chi$ trivial auf fast allen $H_i$. Folglich ist f"ur $g\in G$ $\chi(g_i) = 1$ f"ur fast alle $i$ und es gilt
+			\begin{align*}
+				\chi(g) = \prod_i \chi_i(g_i).
+			\end{align*}
+		\end{lemma}
+		\begin{proof}
+			Wir "uberlegen uns zun"achst, dass Abbildungen in der angegebenen Form tats"achlich Charaktere auf $G$ sind. 
+			$\chi$ ist sicherlich wohldefiniert und offensichtlich ein Gruppenhomomorphismus auf $\C^\times$. 
+			Es bleibt noch zu zeigen, dass $\chi$ stetig ist. 
+			Da $G$ und $\C^\times$ topologische Gruppen sind, gen"ugt es sich offene Umgebungen der $1$ anzuschauen. Sei daher $V$ eine offene Umgebung der $1 \in \C^\times$.
+			Sei $S$ die endliche Menge aller Indizes, sodass $\chi$ nicht trivial auf $H_i$ ist, und setze $n = |S|$. 
+			Wir finden eine weitere Umgebung $W$ der $1 \in \C^\times$, so dass das Produkt von $n$ beliebigen Elementen aus $W$ wieder in $V$ liegt. 
+			Da die $\chi_i$ stetig sind, finden wir offene Umgebungen $U_i$ der $1 \in G_i$ mit $\chi_i(N_i) \subseteq W$. 
+			F"ur $i \in S$ k"onnen wir ohne Probleme $U_i = H_i$ setzen. 
+			Dann ist $U = \prod_i U_i$ eine offene Umgebung der $1 \in G$ und f"ur jedes $g \in U$ ist $\chi(g)$ das endliche Produkt von $n$ Faktoren aus $W$, also $\chi(g) \in V$.
+			
+			Nun zur R"uckrichtung sei $\chi$ ein beliebieger Charakter auf $G$. 
+			F"ur beliebige $g_i \in G_i$ definieren wir $\chi_i (g_i) = \chi\circ\iota(g_i))$. 
+			Offensichtlich ist $\chi_i$ ein Gruppenhomomorphismus und stetig als Komposition stetiger Funktionen, also ein Charakter. 
+			Wir m"ussen nun noch zeigen, dass fast alle $chi_i$ trivial auf die Untergruppen $H_i$ wirken. 
+			Dazu w"ahlung wir uns eine offene Umgebung $V$ der $1$ in $\C^\times$, die nur die triviale Untergruppe $\{1\}$ ent"ahlt. 
+			Aufgrund der Stetigkeit von $\chi$ finden wir eine offene Umgebung $U=\prod_i U_i$ der $1$ in $G$ mit $U_i = H_i$ f"ur alle $i$ außerhalb einer endlichen Indexmenge $S$ und $\chi(U)\subseteq V$.
+			Dann gilt aber
+			\begin{align*}
+				(\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i) \subseteq U 
+			\end{align*}
+			und daher
+			\begin{align*}
+				\chi((\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i)) \subseteq V 
+			\end{align*}
+			Die linke Seite ist aber als Bild einer Gruppe unter einem Gruppenhomomorphismus selbst wieder eine Gruppe. Nach unserer Wahl von $V$ folgt also
+			\begin{align*}
+				\chi((\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i)) = \{1\}.
+			\end{align*}
+			Folglich $\chi_i (H_i) = \{1\}$ f"ur alle $i\notin S$. 
+			Damit ist aber klar, dass f"ur jedes $g \in G$ das Produkt $\prod_i \chi_i(g_i)$ endlich ist und $\chi(g)$ entspricht.
+		\end{proof}
+	
+	\subsection{Integration auf dem eingeschr"ankten Produkt}
 		Wie wir gesehen haben ist $G=\rdprod{i \in I} G_i$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{satz:LCAMeasure} ein Haar-Maß. Wir wollen dieses geeignet normalisieren.
 		\begin{satz}
 			Sei $G=\rdprod{i \in I} G_i$ das eingeschr"ankte direkte Produkt einer Familie lokalkompakter Gruppen $G_i$ bez"uglich der Untergruppen $H_i \subseteq G_i$. Bezeichne $dg_i$ das Haar-Maß auf $G_i$ mit der Normalisierung
@@ -74,9 +113,9 @@
 			Da aber $G_S \subseteq G_{S\cup S'}$ muss diese Konstante $1$ sein, denn nach obigen "Uberlegungen ist die Einschr"ankung von $dg_{S\cup S'}$ auf $G_S$ gerade $dg_{S}$.
 			Umgekehrt ist aber $dg_{S'}$ die die Einschr"ankung von $dg_{S\cup S'}$ auf $G_{S'}$, also ist die Normalisierung unabh"angig von der Wahl unserer Indexmenge $S$.
 		\end{proof}
-		Wir schreiben manchmal $\prod_{i} dg_i$ f"ur das wie oben normierte Maß $dg$.
+		%Wir schreiben manchmal $\prod_{i} dg_i$ f"ur das wie oben normierte Maß $dg$.
 		
-		\begin{proposition}
+		\begin{proposition}%integrieren
 			Sei $G$ das eingeschr"ankte direkte Produkt mit dem induzierten Maß $dg$
 			\begin{enumerate}[label=(\roman*)]
 				\item Sei $f \in L(G)$ eine integrierbare Funktion auf $G$. Dann gilt
@@ -93,9 +132,9 @@
 					f"ur $g=(g_i) \in G$. 
 					Dann ist $f$ wohldefiniert und stetig auf $G$. 
 					Sind die $f_i$ sogar integrierbar und ist $S$ eine weitere endliche Indexmenge, die $S_0$ enth"ahlt, haben wir
-					\begin{align*}
+					\begin{align}\label{eq:satz:integration}
 						\int_{G_S} f(g_S) dg_S = \prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr).
-					\end{align*}
+					\end{align}
 					Ist das Produkt
 					\begin{align*}
 						\prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr)
@@ -112,12 +151,63 @@
 			\begin{align*}
 				\int_{G} f(g) = \lim_{K} \int_{K} f(g)dg,
 			\end{align*}
-			wobei der Limes"uber immer gr"oßer und gr"oßere kompakte Mengen  $K$ geht. Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
+			wobei der Limes"uber immer gr"oßer und gr"oßere kompakte Mengen  $K$ geht. Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.\\
 			
-			(ii) Aus der Bedingung $f_i |_{H_i} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_i)$ f"ur alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Jedes $g$ hat eine Umgebung, die wiederum in einem der $G_S$ und wir k"onnen annehmen, dass $S$ alle Indizes $i$ mit $f_i|_{H_i}\not= 1$ enth"alt. %TODO
-			Wir k"onnen also $f$ lokal als endliches Produkt stetiger Funktionen auffassen. Damit ist $f$ selber stetig.
+			\noindent(ii) Aus der Bedingung $f_i |_{H_i} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_i)$ f"ur alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Eine Umgebung von $g$ ist gegeben durch ein offenes beschr"anktes Rechteck. Diese liegen in einem der $G_S$ (versehen mit der Produkttopologie) und wir k"onnen ohne Einschr"ankung $S$ um alle Indizes $i$ mit $f_i|_{H_i}\not= 1$ vergr"oßern.
+			Lokal betrachtet ist $f$ also ein endliches Produkt stetiger Funktionen auffassen und daher $f$ selber stetig.\\
+			F"ur den anderen Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen des Satzes. 
+			Nach der Definition von $G_S$ und den Annahmen $f_i|_{H_i} = 1$, $\text{Vol}(H_i, dg_i) = 1$ f"ur alle $i$ nicht in $S$, ist es klar, dass Gleichung \ref{eq:satz:integration} gilt, denn $dg_S$ war gerade das Produktmaß auf $G_S$. Nehmen wir nun an, dass das Produkt endlich ist. 
+			Dann gilt aber nach (i) und Gleichung \ref{eq:satz:integration}
+			\begin{align*}
+				\prod_{i}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr) = \lim_S \int_{G_S} f(g_S) dg_S = \int_{G} f(g) dg
+			\end{align*}
+			und wir sind fertig.
 		\end{proof}
 %$G$ als topologische Gruppe zu realisieren, geben wir eine Umgebungsbasis der Identit"at an. Diese soll aus den Mengen der Form $\prod_{v \in J}{N_v}$ bestehen, wobei $N_v$ eine Umgebung der Identit"at $e$ von $G_v$ ist und zus"atszlich $N_v = H_v$ f"ur fast alle $v\in J$ gelten soll. Die dadurch induzierte Topologie auf $G$ unterscheidet sich im Allgemeinen von der Produkttopologie und wird als \emph{eingeschr"ankte Produkttopologie} bezeichnet.	
+
 	\subsection{Der Adelering}
+		\begin{satz}
+			\begin{enumerate}[label=\emph{(\alph*)}]
+				\item $\K$ liegt diskret in $\A$.
+				\item $\A/\K$ ist kompakt.
+			\end{enumerate}
+		\end{satz}
+		\begin{proof}
+			F"ur (a) betrachten wir die offene Nullumgebung
+			\begin{align*}
+				U = \prod_{p<\infty}\Z_p \times \left(-\frac{1}{2}, \frac{1}{2}\right).
+			\end{align*}
+			Ist nun $r \in \K \cap U$, so gilt $\abs[r]_p \leq 1$ f"ur alle $p < \infty$, also $r \in \Z$. 
+			Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
+			F"ur einen beliebigen Punkt $x \in \K$ erhalten wir mit $x+U$ eine entsprechende offene Umgebung von $x$.
+			
+			F"ur (b) zeigen wir, dass das Bild der Menge $K:= \prod_{p<\infty} \times [0,1]$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
+			Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
+			Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p | x_p \notin \Z_p\}$.
+			W"ahlen wir ein $p\in S$, $p<\infty$ und schreiben
+			\begin{align*}
+				x_p = \sum_{k=-N}^\infty a_k p^k.
+			\end{align*}
+			Dann ist
+			\begin{align*}
+				x_p - \underbrace{\sum_{k=-N}^{-1}a_k p^k}_{=:r \in \K} \in \Z_p
+			\end{align*}
+			und f"ur jede weitere endliche Stelle $q\not=p$ gilt
+			\begin{align*}
+				\abs[r]_q =\abs[\sum_{k=-N}^{-1}a_k p^k]_q \leq \max\left\{\abs[a_k p^k]_q\right\} \leq 1,
+			\end{align*}
+			also ist $r \in \Z_q$. 
+			Ersetzen wir nun $x$ durch $x-r$, so reduziert sich die Stellenmenge $S$ zu $S\setminus\{p\}$.
+			Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem urspr"unglichen Adel unterscheidet und selbst in $\prod_{p < \infty} \Z_p \times \R$ liegt.
+			Nun k"onnen wir aber noch $x$ modulo $\Z$ nach $\prod_{p < \infty} \Z_p \times [0,1]$.	
+		\end{proof}
 	\subsection{Der Idelering}
+		\begin{satz}
+			\begin{enumerate}[label=\emph{(\alph*)}]
+				\item $\K^\times$ liegt diskret in $\I$.
+				\item $F:=\prod_{p<\infty}\Z_p^\times \times \{1\}$ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
+				\item $\I^1/\K^\times$ ist kompakt.
+				\item Der adelische Betrag induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
+			\end{enumerate}
+		\end{satz}
 	

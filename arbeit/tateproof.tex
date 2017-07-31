@@ -85,6 +85,15 @@
 		\end{align*}
 	\end{satz}
 	\begin{proof}
+\subsection{Die globalen Funktionalgleichungen}
+\begin{satz}%hier: I_k = Rx+ x I_k,1 ->produktmass
+	Sei $\chi=\mu\abs^s$ ein unit"arer Charakter auf $\I$, der trivial auf $\K^\times$ wirkt. Sei $f \in S(\A)$. Dann konvergiert die globale Zeta-Funktion $\zeta(f,\mu,s)$ lokal gleichmäßig f"ur $\text{Re}(s) > 1$ und definiert dort eine holomorphe Funktion, die zu einer meromorphen Funktion auf ganz $\C$ fortgesetzt werden kann. Diese erf"ullt die \emph{globale Funktionalgleichung}
+	\begin{align*}
+		\zeta(f,\mu,s) = \zeta(\hat{f}, \frac{1}{\mu}, 1-s)
+	\end{align*}
+	Diese Funktion ist Funktion ist "uberall holomorph, außer wenn $\mu = \abs^{-i\tau}$, $\tau \in \R$. Dann besitzt sie einen einfachen Pol bei $s= i\tau$ mit Residuum $-f(0)$ und einen einfachen Pol bei $s=1+i\tau$ mit Residuum $\hat{f}(0)$.
+\end{satz}
+
 	Sei $x \in \Iq$ beliebig aber fest. F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y):=f(yx)$. Diese ist wieder in $S(\A)$ und erf"ullt damit die Poisson-Summenformel
 		\begin{align*}
 			\sum_{\gamma \in \K}h(\gamma) = \sum_{\gamma \in \K} \hat{h}(\gamma).
