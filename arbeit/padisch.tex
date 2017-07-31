@@ -1,4 +1,5 @@
-\section{Exkurs: p-adische Zahlen}
+\section{Lokale Betrachtungen}
+	\subsection{Exkurs: $p$-adische Zahlen}
 	Sei $\K$ ein beliebiger K"orper und $\R_+ = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
 	\begin{defi}
 		Ein \emph{Absolutbetrag} auf $\K$ ist eine Abbildung
@@ -48,7 +49,32 @@
 		
 	\end{proof}
 	
-	
+	\subsection{Lokale Fourieranalysis}
+		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		\begin{align*}
+			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
+		\end{align*}
+		erf"ullt.\footnote{Hier ist mit $\abs$ der komplexe Absolutbetrag gemeint.}
+		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal-konstante Funktion mit kompakten Träger.
+		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
+		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
+		F"ur $p=\infty$ gilt nach obiger Bedingung $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\Kp)$
+		
+		\begin{bsp}~ 
+			\begin{enumerate}[label=(\roman*)]
+				\item Im Fall $p=\infty$ ist die Funktion $f_k = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. Die Ableitungen $\frac{d^m}{dx^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschränkt ist.
+				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen in $\Sw(\Kp)$. Beispiele f"ur Kompakta sind Mengen der Form $a+p^k\Zp$ mit $a\in \Kp$ und $k\in \Z$.
+			\end{enumerate}
+		\end{bsp}
+		
+		\begin{lemma}
+			Jede Funktion $f\in \Sw(\Kp)$, $p<\infty$, ist eine endliche Linearkombination von charakteristischen Funktionen der Form $\ind_{a+p^k\Zp}$, wobei $a\in \Kp$ und $k\in \Z$
+		\end{lemma}
+		\begin{proof}
+			Sei $f \in \S(\Kp)$. 
+			Da $f$ lokalkonstant ist, ist f"ur jedes $z\in\C$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
+			Also ist $f^{-1}(0)$ offen, folglich $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher $\text{supp}(f) = \Kp \setminus f^{-1}(0)$
+		\end{proof}
 	
 	\begin{satz}[Ostrowski]
 		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist "aquivalent zu einem der Absolutbetr"age $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
