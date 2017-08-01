@@ -1,4 +1,5 @@
 \section{Lokalkompakte Gruppen}
+
 \begin{defi}
 	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, die die folgenden Eigenschaften erf"ullt:
 		\begin{enumerate}[label=(\roman*), leftmargin=*, align=left, labelsep=1pt]
@@ -48,7 +49,7 @@
 	\begin{proof}
 		Sei $(g_1,g_2) \in G_1\times G_2$. Wegen der Lokalkompaktheit von $G_1$ und $G_2$ finden wir kompakte Umgebungen $K_1$, $K_2$ von $g_1$ bzw. $g_2$. Dann ist aber $K_1 \times K_2$ eine kompakte Umgebung von $(g_1,g_2)$. Weiter ist das direkte Produkt zweier Hausdorff-R"aume wieder hausdorffsch, wodurch $G_1\times G_2$ zu einer lokalkompakten Gruppe wird.
 	\end{proof}
-	Wie wir in \ref{lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
+	Wie wir in Lemma \ref{Lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
 
 \subsection{Haarsche Maß}
 	Nun zu etwas Maßtheorie. Wir beginnen mit einer kleinen Auffrischung der wichtigsten Objekte. Eine \emph{$\sigma$-Algebra} auf einer Menge $X$ ist eine Teilmenge $\Omega$ von $P(X)$, so dass
@@ -72,7 +73,8 @@
 	
 	%%TODO: Borelmass
 	
-	Sei nun $\mu$ ein Borelmaß auf einem lokalkompakten hausdorffschen Raum X und sei $E$ ein eine beliebige Borelmenge von $X$. Wir nennen $\mu$ von \emph{innen regul"ar} auf E, falls
+	Sei nun $\mu$ ein Borelmaß auf einem lokalkompakten hausdorffschen Raum X und sei $E$ ein eine beliebige Borelmenge von $X$.
+	Wir nennen $\mu$ von \emph{innen regul"ar} auf E, falls
 	\begin{align*}
 		\mu(E) = \sup\{\mu(K): K \subseteq E, K \text{ kompakt}\}
 	\end{align*}
@@ -82,29 +84,61 @@
 	\end{align*}
 	
 	
-	Ein \emph{Radonmaß} auf $X$ ist ein Borelmaß, das endlich auf kompakten Mengen, von innen regul"ar auf allen offenen Mengen und von außen regul"ar auf allen Borelmengen ist.
+	\begin{defi}
+		Ein \emph{Radonmaß} auf $X$ ist ein Borelmaß, das endlich auf kompakten Mengen, von innen regul"ar auf allen offenen Mengen und von außen regul"ar auf allen Borelmengen ist.
+	\end{defi}
+	
+	\begin{satz}[Rieszscher Darstellungssatz]
+		Sei $I$ ein positives lineares Funktional auf dem Raum der stetigen Funktionen mit kompakten Trager $C_c(G)$. Dann gibt es ein eindeutiges Radonmaß $\mu$ auf $G$, so dass $I(f) = \int f d\mu$ f"ur alle $C_c(G)$.
+	\end{satz}
+	Dieser Satz ist ein wichtiger Grundstein f"ur viele Sätze "uber Radonmaße.
+	Sind zum Beispiel $X$ und $Y$ zwei lokalkompakte Gruppen mit dazugeh"origen Radonmaßen $\mu$ und $\nu$ so ist im Allgemeinen das Produktmaß $\mu \times \nu$ kein Borel- und daher Radonmaß auf $X \times Y$.
+	Wir definieren daher das Radonprodukt von $\mu$ und $\nu$ als das Radonmaß welches durch das positive Funktional $I(f) = \int f d(\mu \times \nu)$ nach Rieszschen Darstellungssatz gegeben wird.
+	Dieses Produkt wird in Kapitel \ref{kapitel:RDP} eine Rolle spielen. F"ur unsere sp"ateren Berechnungen m"ussen wir uns allerdings keine Sorgen machen, denn erf"ullen $X$ und $Y$ das zweite Abzählbarkeitsaxiom so entspricht das Radonprodukt genau dem Produktmaß. F"ur eine ausf"urhliche Behandlung dieser Konzepte siehe Folland \cite{folland} Kapitel 7.
 	
 	
 	Sei nun $G$ eine topologische Gruppe und $\mu$ ein Borelmaß auf G. 
-	Wir k"onnen untersuchen, wie sich das Maß bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}. Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$. Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
+	Wir k"onnen untersuchen, wie sich das Maß bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. 
+	Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}.
+	Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$.
+	Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
 	
 	Nun haben wir alle wichtigen Konzepte zusammen f"ur folgende wichtige
 	\begin{defi}
-		Sei $G$ eine lokalkompakte Gruppe. Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haar-Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radon-Maß, das auf nichtleeren offenen Mengen positiv ist. 
+		Sei $G$ eine lokalkompakte Gruppe. 
+		Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haar-Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radon-Maß, das auf nichtleeren offenen Mengen positiv ist. 
 	\end{defi}
-	\begin{bsp}
-		\begin{enumerate}
-			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haarsches Maß.
+	\begin{bsp}~ 
+		\begin{enumerate}[label=(\roman*)]
+			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haar-Maß.
 			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß dx ein Haarsches Maß.
-			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haarsches Maß, wie wir in TODO sehen werden.
+			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in TODO sehen werden.
 		\end{enumerate}
 	\end{bsp}
 	
-	\begin{satz}[Existenz und Eindeutigkeit des Haar-Maß]\label{satz:LCAMeasure}
+	\begin{satz}[Existenz und Eindeutigkeit des Haar-Maß]\label{Satz:LCAMeasure}
 		Sei $G$ eine lokalkompakte Gruppe. Dann existiert ein linksinvariantes Haar-Maß auf $G$. Dieses ist eindeutig bis auf skalares Vielfaches.
 	\end{satz}
 	\begin{proof}
 		Einen ausf"urhlichen Beweis befindet sich in \cite{rama} Kapitel 1.
+	\end{proof}
+	
+	\begin{lemma}\label{Lemma:trivialerCharAufKompakt}
+		Sei $K$ eine kompakte Gruppe mit Haar-Maß dx und $\chi: K \to S^1$ ein Charakter. Dann gilt
+		\begin{align*}
+			\int_K \chi(x) dx = 
+				\begin{cases}
+					\text{\emph{Vol}}(K, dx),	& \text{\emph{falls} } \chi\equiv 1\\
+					0,					& \text{\emph{ansonsten.}}
+				\end{cases}
+		\end{align*}
+	\end{lemma}
+	\begin{proof}
+		Der erste Fall ist klar. Im zweiten Fall gibt es ein $x_0 \in K$ mit $\chi(x_0) \not=1$ und mit Translationsinvarianz daher
+		\begin{align*}
+			\int_K \chi(x)dx = \int_K\chi(x_0x)dx = \chi(x_0)\int_K\chi(x)dx.
+		\end{align*}
+		Umstellen und Division durch $\chi(x_0) - 1 \not=0$ ergibt $\int_K \chi(x)dx = 0$.
 	\end{proof}
 	
 	\begin{lemma}F"ur jede Abbildung $f\in L^{1}(G,\mu)$ gilt

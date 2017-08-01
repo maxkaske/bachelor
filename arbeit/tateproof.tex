@@ -121,33 +121,33 @@
 	
 	Nun zur Funktionalgleichung. Aufgrund absoluter Konvergenz auf der Halbebene $\text{Re}(s)>1$ haben wir
 	\begin{align*}
-		\zeta(f,\chi) 	= \int\displaylimits_{\I} f(x) \chi(x) d^\times x 
-						= \iint\displaylimits_{\R^\times_+ \times \I^1} f(t\cdot b) \chi(t\cdot b) (d^\times t\times db)
-						= \int\displaylimits_0^\infty \left[\int\displaylimits_{\I^1} (f(t\cdot b) \chi(t\cdot b) db\right] \frac{dt}{t}
+		\zeta(f,\chi) 	= \int\limits_{\I} f(x) \chi(x) d^\times x 
+						= \iint\limits_{\R^\times_+ \times \I^1} f(t\cdot b) \chi(t\cdot b) (d^\times t\times db)
+						= \int\limits_0^\infty \left[\int\limits_{\I^1} (f(t\cdot b) \chi(t\cdot b) db\right] \frac{dt}{t}
 	\end{align*}
 	Um uns etwas Schreibarbeit zu sparen definieren wir
 	\begin{align*}
-		\zeta_t(f,\chi) := \int\displaylimits_{\I^1} (f(t\cdot b) \chi(t\cdot b) db.
+		\zeta_t(f,\chi) := \int\limits_{\I^1} (f(t\cdot b) \chi(t\cdot b) db.
 	\end{align*}.
 	Wie in Riemanns Beweis teilen wir das Integral auf durch
 	\begin{align*}
-		\zeta(f,\chi) = \int\displaylimits_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
-						+ \int\displaylimits_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
+		\zeta(f,\chi) = \int\limits_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
+						+ \int\limits_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
 	\end{align*}
 	%%%%TODO: erklaerung mit |a|>1 dann |a|^t < |a|^s mit t<s. dann konvergenz auf ganz C da konvergenz >1
 	Das Integral $\int_1^\infty$ macht uns keine Probleme, denn
 	\begin{align*}
-		\int\displaylimits_1^\infty \abs[\zeta_t(f,\chi)] \frac{dt}{t} 
-			\leq \int\displaylimits_1^\infty  \int\displaylimits_{F} \abs[\sum_{a \in \K^\times}  (f(at\cdot b)] db \abs[t]^{s-1} dt
+		\int\limits_1^\infty \abs[\zeta_t(f,\chi)] \frac{dt}{t} 
+			\leq \int\limits_1^\infty  \int\limits_{F} \abs[\sum_{a \in \K^\times}  (f(at\cdot b)] db \abs[t]^{s-1} dt
 	\end{align*}
 	Als n"achstes erinnern wir uns daran, dass wir $\I^1$ als disjunkte Vereinigung $\bigsqcup_{a \in \K^\times} aF$ darstellen konnten, wobei $F= \{1\} \times \prod_{p<\infty}\Z_p$.
 	Kombiniert mit der Translationsinvarianz von $db$ und der Tatsache, dass $\chi$ trivial auf $\K^\times$ wirkt, ergibt sich
 	\begin{align*}
-		\zeta_t(f,\chi)	&= \int\displaylimits_{\I} (f(t\cdot b) \chi(t\cdot b) db 
-						%= \int\displaylimits_{\bigsqcup_{q \in \K^\times} qF} (f(t\cdot b) \chi(t\cdot b) db
-						= \sum_{a \in \K^\times} \int\displaylimits_{aF} (f(t\cdot b) \chi(t\cdot b) db\\
-						&= \sum_{a \in \K^\times} \int\displaylimits_{F} (f(at\cdot b) \chi(t\cdot b) db
-						= \int\displaylimits_{F} \left(\sum_{a \in \K^\times}  (f(at\cdot b)\right) \chi(t\cdot b) db
+		\zeta_t(f,\chi)	&= \int\limits_{\I} (f(t\cdot b) \chi(t\cdot b) db 
+						%= \int\limits_{\bigsqcup_{q \in \K^\times} qF} (f(t\cdot b) \chi(t\cdot b) db
+						= \sum_{a \in \K^\times} \int\limits_{aF} (f(t\cdot b) \chi(t\cdot b) db\\
+						&= \sum_{a \in \K^\times} \int\limits_{F} (f(at\cdot b) \chi(t\cdot b) db
+						= \int\limits_{F} \left(\sum_{a \in \K^\times}  (f(at\cdot b)\right) \chi(t\cdot b) db
 	\end{align*}
 	Die Summe "uber $a$ verleitet uns dazu Riemann-Roch anzuwenden, allerdings ben"otigen wir hierf"ur eine Summe "uber $K$. Das Problem l"asst sich jedoch leicht beheben.
 	\begin{lemma}
@@ -158,48 +158,48 @@
 	\begin{proof}
 		Die Idee ist klar. Wir f"ugen $f(0)\int_F \chi(tx)db$ zu $\zeta_t(f,\chi)$ hinzu, erhalten
 		\begin{align*}
-			\zeta_t(f,\chi) + f(0)\int_F \chi(tb)db= \int\displaylimits_{F} \left(\sum_{a \in \K}  (f(at\cdot b)\right) \chi(t\cdot b) db
+			\zeta_t(f,\chi) + f(0)\int_F \chi(tb)db= \int\limits_{F} \left(\sum_{a \in \K}  (f(at\cdot b)\right) \chi(t\cdot b) db
 		\end{align*}
 		und k"onnen jetzt unsere Version von Riemann-Roch anwenden:
 		\begin{align*}
-			\int\displaylimits_{F} \left(\sum_{a \in \K}  f(at\cdot b)\right) \chi(t\cdot b) db 
-				&= \int\displaylimits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tx]_{\A}} db\\
-				&= \int\displaylimits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \abs[t^{-1}b]_{\A} \chi(t\cdot b) db\\
-				&= \int\displaylimits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \check{\chi}(b/t)db + \hat{f}(0) \hat{f}(0) \int_F \check{\chi} (x/t)db\\
+			\int\limits_{F} \left(\sum_{a \in \K}  f(at\cdot b)\right) \chi(t\cdot b) db 
+				&= \int\limits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tx]_{\A}} db\\
+				&= \int\limits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \abs[t^{-1}b]_{\A} \chi(t\cdot b) db\\
+				&= \int\limits_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \check{\chi}(b/t)db + \hat{f}(0) \hat{f}(0) \int_F \check{\chi} (x/t)db\\
 				&= \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db
 		\end{align*}
 		wobei wir im zweiten Schritt den Variablenwechsel $b\mapsto b^{-1}$ und im dritten Schritt $\chi(x^{-1}) = \chi(x)^{-1}$ ausgenutzt haben.
 	\end{proof}
 	Wir widmen uns nun dem Integral $\int_0^1$. Dank Riemann-Roch k"onnen wir es umformen zu
 	\begin{align*}
-		\int\displaylimits_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
-			= \int\displaylimits_0^1 \left( \zeta_{t^{-1}}(\hat{f},\check{\chi}) 
+		\int\limits_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
+			= \int\limits_0^1 \left( \zeta_{t^{-1}}(\hat{f},\check{\chi}) 
 				+ \hat{f}(0) \check{\chi}(t^{-1}) \int_F \check{\chi} (x)db 
 				- f(0)\chi(t)\int_F \chi(x)db \right)\frac{dt}{t}
 	\end{align*}
 	Mit einem Variablenwechsel $t\mapsto t^{-1}$ im ersten Summanden ergibt sich
 	\begin{align*}
-		\int\displaylimits_0^1  \zeta_{t^{-1}}(\hat{f},\check{\chi}) \frac{dt}{t} = \int\displaylimits_1^\infty  \zeta_{t}(\hat{f},\check{\chi}) \frac{dt}{t}
+		\int\limits_0^1  \zeta_{t^{-1}}(\hat{f},\check{\chi}) \frac{dt}{t} = \int\limits_1^\infty  \zeta_{t}(\hat{f},\check{\chi}) \frac{dt}{t}
 	\end{align*}
 	was nach dem gleichen Argument wie oben auf ganz $\C$ konvergiert. Verbleibt noch der Term
 	\begin{align*}
-		E(f,\chi):= \int\displaylimits_0^1  \hat{f}(0) \check{\chi}(t^{-1}) \left(\int_F \check{\chi} (x)db\right) \frac{dt}{t}
-				- \int\displaylimits_0^1 f(0)\chi(t)\left(\int_F \chi(x)db \right)\frac{dt}{t}
+		E(f,\chi):= \int\limits_0^1  \hat{f}(0) \check{\chi}(t^{-1}) \left(\int_F \check{\chi} (x)db\right) \frac{dt}{t}
+				- \int\limits_0^1 f(0)\chi(t)\left(\int_F \chi(x)db \right)\frac{dt}{t}
 	\end{align*}.
 	Ist $\chi$ nicht trivial auf $\I^1$, so haben wir gesehen, dass $\chi$ nicht trivial auf dem Kompaktum $F$ wirkt. Folglich verschwinden beide Integrale und $E(f,\chi) = 0$
 	%\begin{align*}
-			%\zeta(f,\chi) =  \int\displaylimits_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
-						%+ \int\displaylimits_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
+			%\zeta(f,\chi) =  \int\limits_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
+						%+ \int\limits_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
 	%\end{align*}
 	Ist $\chi = \mu \abs^s$ dagegen trivial auf $\I^1$, dann wissen wir, dass $\chi = \abs^{s'}$, wobei $s'=s-i\tau$ f"ur ein $\tau \in \R$. Also,
 	\begin{align*}
-		E(f,\chi) 	&= \int\displaylimits_0^1  \hat{f}(0) t^{s'-1} \text{Vol}(F,db) - f(0) t^{s'}\text{Vol}(F,db)\frac{dt}{t}\\
+		E(f,\chi) 	&= \int\limits_0^1  \hat{f}(0) t^{s'-1} \text{Vol}(F,db) - f(0) t^{s'}\text{Vol}(F,db)\frac{dt}{t}\\
 					&= \frac{\hat{f}(0)}{s' - 1} - \frac{f(0)}{s'}
 	\end{align*}
 	und wir sehen, dass $E$ in diesem Fall eine rationale Funktion ist. Damit ist
 	\begin{align*}
-		\zeta(f,\chi) =  \int\displaylimits_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
-						+ \int\displaylimits_1^\infty \zeta_t(f,\chi) \frac{dt}{t} + E(f,\chi)
+		\zeta(f,\chi) =  \int\limits_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
+						+ \int\limits_1^\infty \zeta_t(f,\chi) \frac{dt}{t} + E(f,\chi)
 	\end{align*}
 	Eine meromorphe Erweiterung der Funktion auf ganz $\C$. Zudem haben wir gezeigt, dass f"ur $\mu \not=\abs^{-i\tau}$ die Funktion $\zeta$ sogar ganz ist und im Fall $\mu =\abs^{-i\tau}$ ihre einzigen Pole bei $s=i\tau$ und $s=1+i\tau$ liegen mit den Residuen $-f(0)$ bzw. $\hat{f}(0)$.\\
 	%%%
@@ -212,12 +212,12 @@
 	folgt
 	\begin{align*}
 		\zeta(\hat{f},\check{\chi}) 
-			&=  \int\displaylimits_1^\infty \zeta_t(\hat{\hat{f}}, \check{\check{\chi}}) \frac{dt}{t} 
-				+ \int\displaylimits_1^\infty \zeta_t(\hat{f},\check{\chi}) \frac{dt}{t} + E(\hat{f},\check{\chi})\\
-			&= \int\displaylimits_1^\infty \int_{\I^1}f(-tb)\chi(tb)db  \frac{dt}{t} 
-				+ \int\displaylimits_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi)\\
-			&= \int\displaylimits_1^\infty \int_{\I^1}f(tb)\chi(tb)db  \frac{dt}{t} 
-				+ \int\displaylimits_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi) = \zeta(f,\chi)
+			&=  \int\limits_1^\infty \zeta_t(\hat{\hat{f}}, \check{\check{\chi}}) \frac{dt}{t} 
+				+ \int\limits_1^\infty \zeta_t(\hat{f},\check{\chi}) \frac{dt}{t} + E(\hat{f},\check{\chi})\\
+			&= \int\limits_1^\infty \int_{\I^1}f(-tb)\chi(tb)db  \frac{dt}{t} 
+				+ \int\limits_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi)\\
+			&= \int\limits_1^\infty \int_{\I^1}f(tb)\chi(tb)db  \frac{dt}{t} 
+				+ \int\limits_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi) = \zeta(f,\chi)
 	\end{align*}
 	wobei wir im letzten Schritt im ersten Integral die Translationsinvarianz der Haar-Maßes $db$ und die Eigenschaft des Idele-Klassencharakters $\chi(-tx) = \chi(tx)$ ausgenutzt haben.
 \end{proof}

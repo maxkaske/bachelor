@@ -1,6 +1,6 @@
 \section{Der Adele- und Idelering}
 	
-	\subsection{Eingeschränktes Direktes Produkt}
+	\subsection{Eingeschränktes Direktes Produkt}\label{kapitel:RDP}
 		In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln. Die naheliegendeste Idee w"are nat"urlich das direkte Produkt, allerdings zeigt folgendes Lemma, dass dieser Versuch fehlschlagen wird.
 		\begin{lemma}\label{Lemma:lokalkompaktProd}
 			Sei $I$ eine Indexmenge und $X_i$ ein lokalkompakter Hausdorff-Raum f"ur alle $i \in I$. Der Raum $X:=\prod_{i \in I} X_i$ ist genau dann lokalkompakt, wenn fast alle $X_i$ kompakt sind.
@@ -12,7 +12,9 @@
 			\begin{align*}
 				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} X_i,
 			\end{align*}
-			welche eine Basis der Produkttopologie bilden. Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschlu\ss kompakt ist. Folglich sind fast alle $X_i$ kompakt. Die R"uckrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter R"aume wieder lokalkompakt sind.
+			welche eine Basis der Produkttopologie bilden. Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschlu\ss kompakt ist. 
+			Folglich sind fast alle $X_i$ kompakt. 
+			Die R"uckrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter R"aume wieder lokalkompakt sind.
 		\end{proof}
 		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. Wir sehen jetzt aber, was zu tun ist, damit doch noch eine runde Sache daraus wird und geben folgende
 		\begin{defi}[Eingeschr"ankte direkte Produkt]
@@ -89,7 +91,7 @@
 		\end{proof}
 	
 	\subsection{Integration auf dem eingeschr"ankten Produkt}
-		Wie wir gesehen haben ist $G=\rdprod{i \in I} G_i$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{satz:LCAMeasure} ein Haar-Maß. Wir wollen dieses geeignet normalisieren.
+		Wie wir gesehen haben ist $G=\rdprod{i \in I} G_i$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{Satz:LCAMeasure} ein Haar-Maß. Wir wollen dieses geeignet normalisieren.
 		\begin{satz}
 			Sei $G=\rdprod{i \in I} G_i$ das eingeschr"ankte direkte Produkt einer Familie lokalkompakter Gruppen $G_i$ bez"uglich der Untergruppen $H_i \subseteq G_i$. Bezeichne $dg_i$ das Haar-Maß auf $G_i$ mit der Normalisierung
 			\begin{align*}
@@ -102,7 +104,7 @@
 			Wir vergewissern uns zun"achst, dass die Normalisierung der $dg_i$ m"oglich ist, da per Definiton die Untergruppen $H_i$ offen und kompakt sind und daher positives und endliches Maß haben.
 			
 			Sei $S$ nun eine beliebige Menge wie im Satz beschrieben und definiere $dg_S$ als das Produktm"aß $dg_S :=\left(\prod_{s \in S}dg_i\right) \times dg^S$, wobei $dg^S$ das Haar-Maß auf der kompakten Gruppe $G^S:=\prod_{i \notin S} H_i$ mit $\int_{G^S} dg^S = 1$ ist. 
-			Siehe Folland \ref{folland} Kapitel 7, Satz 7.28 f"ur eine genauere Beschreibung des Maßes $dg^S$. 
+			Siehe Folland \cite{folland} Kapitel 7, Satz 7.28 f"ur eine genauere Beschreibung des Maßes $dg^S$. 
 			Als endliches Produkt von Haar-Maßen ist $dg_S$ selbst wieder Haar-Maß und wir k"onnen $dg$ normieren, dass dessen Einschr"ankung auf $G_S$ mit $dg_S$ "ubereinstimmt.
 			Unsere Wahl von der Teilmenge war willkürlich, allerdings k"onnen wir zeigen, dass die gew"ahlte Normierung unabh"angig von $S$ ist. Sei dazu $T\supseteq S$ eine weitere endliche Indexmenge. 
 			Per Definition ist $G_S$ eine Untergruppe von $G_T$. 
