@@ -1,27 +1,28 @@
-\section{Lokale Betrachtungen}
-	\subsection{Exkurs: $p$-adische Zahlen}
-	Sei $\K$ ein beliebiger K"orper und $\R_+ = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
+\section{Exkurs: p-adische Zahlen}
+\subsection{Absolutbetr"age}
+	%padischen absolutbetraege:done
+	Sei $\mathbb{K}$ ein beliebiger K"orper und $\R_+ = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
 	\begin{defi}
-		Ein \emph{Absolutbetrag} auf $\K$ ist eine Abbildung
+		Ein \emph{Absolutbetrag} auf $\mathbb{K}$ ist eine Abbildung
 		\begin{align*}
 			\abs:\K \longrightarrow \R_+
 		\end{align*}
 		welche die folgenden Bedingungen erf"ullt:
 		\begin{enumerate}[label=(\roman*),leftmargin=1.5cm]
 			\item $\abs[x] = 0 \Leftrightarrow x=0$ (Definitheit)
-			\item $\abs[xy] = \abs[x]\abs[y]$ f"ur alle $x, y \in \K$ (Multiplikativit"at)
-			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ f"ur alle $x,y \in \K$ (Dreiecksungleichung)
+			\item $\abs[xy] = \abs[x]\abs[y]$ f"ur alle $x, y \in \mathbb{K}$ (Multiplikativit"at)
+			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ f"ur alle $x,y \in \mathbb{K}$ (Dreiecksungleichung)
 		\end{enumerate}
 		Wir nennen den Absolutbetrag $\abs$ nicht-archimedisch, wenn er zus"atzlich die st"arkere Bedingung
 		\begin{enumerate}[label=(\roman*)$'$,leftmargin=1.5cm]
 			\setcounter{enumi}{2}
-			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ f"ur alle $x, y \in \K$ (versch"arfte Dreiecksungleichung)
+			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ f"ur alle $x, y \in \mathbb{K}$ (versch"arfte Dreiecksungleichung)
 		\end{enumerate}
 		erf"ullt. Anderenfalls sagen wir der Absolutbetrag ist archimedisch.
 	\end{defi}
 	Wir m"ochten zun"achst ein paar allgeimg"ultige Eigenschaften von Absolutbetr"agen im folgenden Lemma festhalten.
 	\begin{lemma}
-		F"ur beliebige Absolutbetr"age $\abs$ auf $\K$ und Elemente $x\in \K$ gilt:
+		F"ur beliebige Absolutbetr"age $\abs$ auf $\mathbb{K}$ und Elemente $x\in \K$ gilt:
 		\begin{enumerate}[label=(\roman*),leftmargin=1.5cm]
 			\item $\abs[1] = 1$
 			\item $\abs[-1] = 1$
@@ -46,100 +47,21 @@
 		$\abs_p$ ist ein nicht-archimedischer Absolutbetrag auf $\Q$
 	\end{lemma}
 	\begin{proof}
-		
-	\end{proof}
-	
-	\subsection{Lokale Fourieranalysis}
-		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		Die Definitheit folgt sofort aus der Definition. 
+		F"ur die Multiplikativit"at schreiben wir $x=p^k \frac{m}{n}$ und $y=p^{k'} \frac{m'}{n'}$ mit $m,m',n,n'$ teilerfremd zu $p$.
+		Dann ist
 		\begin{align*}
-			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
+			\abs[xy]_p = \abs[p^{k+k'}\frac{mm'}{nn'}]_p = p^{-(k+k')} = p^{-k} p^{-k'} = \abs[x]_p \abs[y]_p.
 		\end{align*}
-		erf"ullt.\footnote{Hier ist mit $\abs$ der komplexe Absolutbetrag gemeint.}
-		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Träger.
-		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
-		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
-		F"ur $p=\infty$ gilt nach obiger Bedingung $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\K\infty)$
-		
-		\begin{bsp}~ 
-			\begin{enumerate}[label=(\roman*)]
-				\item Im Fall $p=\infty$ ist die Funktion $f_k = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. 
-				Die Ableitungen $\frac{d^m}{dx^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
-				Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschränkt ist.
-				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen in $\Sw(\Kp)$. 
-				Beispiele f"ur Kompakta sind Mengen der Form $a+p^k\Zp$ mit $a\in \K$ und $k\in \Z$.
-			\end{enumerate}
-		\end{bsp}
-		
-		\begin{lemma}\label{lemma:padischSBF}
-			Jede Funktion $f\in \Sw(\Kp)$, $p<\infty$, ist eine endliche Linearkombination von charakteristischen Funktionen der Form $\ind_{a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$
-		\end{lemma}
-		\begin{proof}
-			Sei $f \in \Sw(\Kp)$. 
-			Da $f$ lokal konstant ist, ist f"ur jedes $z\in\C$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
-			Also ist $f^{-1}(0)$ offen, folglich $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher schon $\text{supp}(f) = \Kp \setminus f^{-1}(0)$. 
-			Per Definition hat die Schwartz-Bruhat Funktion $f$ kompakten Tr"ager, also ist $\Kp \setminus f^{-1}(0)$ kompakt. 
-			Diese Menge wird von den offenen Mengen $f^{-1} (x)$ mit $x\not= 0$ "uberdeckt, wovon nach Kompaktheit schon endlich viele reichen.
-			$f$ hat somit endliches Bild. Weiter ist jede offene Menge $f^{-1} (x)$ eine disjunkte Vereinigung offener B"allen in $\Kp$. 
-			Diese haben aber genau die gesuchte Form $a+p^k\Zp$ wie oben. 
-			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle. Damit folgt auch schon das Lemma.
-		\end{proof}
-		\begin{lemma}
-			Sei $f \in \Sw(\Kp)$.
-			\begin{enumerate}[label=\emph{(\alph*)}]
-				\item Ist $g(x)=f(x)e_p(ax)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)$.
-				\item Ist $g(x)=f(x-a)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)e_p(-ax)$.
-				\item Ist $g(x)=f(\lambda x)$ mit $\lambda \in\Kp^\times$, dann gilt $\hat{g}(x) =\frac{1}{\abs[\lambda]_p} \hat{f}(\frac{x}{\lambda})$.
-			\end{enumerate}
-		\end{lemma}
-		\begin{proof}
-			(a) und (b) sind einfache Folgerungen aus der Definition mit der Multiplikativit"at von $e_p$ und der Translationsinvarianz des Haar-Maß. 
-			Bei (c) spielt unsere Normeriung des Absolutbetrags eine Rolle, denn mit dem Variablenwechsel $y\mapsto \lambda^{-1}y$ erhalten wir
-			\begin{align*}
-				\hat{g}(x) = \int_{\Kp} f(\lambda y) e_p(-xy)dy = \frac{1}{\abs[\lambda]_p} \int_{\Kp} f(y) e_p(-x\lambda^{-1}y)dy = \frac{1}{\abs[\lambda]_p} \hat{f}\left(\frac{x}{\lambda}\right)
-			\end{align*}
-		\end{proof}
-		\begin{satz}\label{Satz:fourierumkehrformel}
-			Ist $p\leq\infty$ und $f\in\Sw(\Kp)$, so ist $\hat{f} \in \Sw(\Kp)$ und es gilt die Umkehrformel
-			\begin{align*}
-				\hat{\hat{f}}(x) = f(-x)
-			\end{align*}
-		\end{satz}
-		\begin{proof}
-			Betrachten wir zuerst den Fall $p<\infty$. Wie wir eben in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. Es reicht also die Aussage f"ur solche $f$ zu zeigen.
-			Sei dazu $h:= \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
-			\begin{align*}
-				\hat(h)(x) = \int_\Kp h(y) e_p (-xy) dy_p = \int_\Zp e_p(-xy) dy_p.
-			\end{align*}
-			Nun ist $\chi(y):=e_p(-xy)$ ein Charakter auf $\Zp$ und genau dann trivial, wenn $x\in\Zp$. 
-			Weiter ist $\Zp$ kompakt. 
-			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $dy_p$ folgt also
-			\begin{align*}
-				\hat(h)(x) = \text{Vol}(\Zp, dy_p) \ind_\Zp = \ind_\Zp = h(x)
-			\end{align*}
-			
-			Wir f"uhren nun folgende Operatoren auf $\Sw(\Kp)$ ein
-			\begin{align*}
-				L_a f(x) = f(x-a), M_\lambda f(x) = f(\lambda x),
-			\end{align*}
-			wobei $a \in \Kp$ und $\lambda \in \Kp^\times$. 
-			Nun k"onnen wir $f$ schreiben als $L_a M_{p^{-k}}h$. 
-			Es folgt
-			\begin{align*}
-				\hat{f} = (L_a M_{p^{-k}}h)\widehat{\phantom{x}} = \Omega_{-a}p^{k}M_{p^k}\hat{h}=\Omega_{-a}p^{-k}M_{p^k}h.
-			\end{align*}
-			Also ist $\hat{f} (x) = e_p(-ax)p^k\ind_{p^{-k}\Zp}(x)$. 
-			Der Charakter $e_p$ ist lokal konstant, $\hat{f}$ als das Produkt lokal konstanter Funktionen selbst wieder lokal konstant und damit in $\Sw(\Kp)$. 
-			Damit haben wir den ersten Teil der Aussage gezeigt.
-			
-			F"ur den zweiten Teil sehen wir
-			\begin{align*}
-				\hat{\hat{f}} = (L_a M_{p^{-k}}h)\widehat{\widehat{\phantom{x}}} = L_{-a} (M_{p^k}h)\widehat{\widehat{\phantom{x}}}=L_{-a}M_{p^k}\hat{h} =L_{-a}M_{p^k}h,
-			\end{align*}
-			also $\hat{\hat{f}} (x) = \ind_{-a+p^k\Zp} (x) = \ind_{a+p^k\Zp} (-x) = f(-x)$. 
-			Hier haben wir $p^k\Zp = - p^k\Zp$ ausgenutzt. 
-			Damit haben wir die Umkehrformel f"ur den $p$-adischen Fall gezeigt. 
-			F"ur $p=\infty$ ist die Formel bereits aus der klassischen Fourieranalysis bekannt.
-		\end{proof}
+		Zuletzt zur versch"arften Dreiecksungleichung. 
+		Mit $x$ und $y$ wie eben k"onnen wir ohne Einschr"ankung annehmen, dass $k\leq k'$. 
+		Es gilt
+		\begin{align*}
+			x+y = p^k\frac{mn' + p^{k'-k}nm'}{nn'}.
+		\end{align*}
+		F"ur $\abs[x]_p \not=\abs[y]_p$ ist $k'>k$, also $mn' + p^{k'-k}nm'$ teilerfremd zu $p$ und es folgt $\abs[x+y]_p = p^{-k} = \max(\abs[x]_p,\abs[y]_p)$. 
+		Ist dagegen $\abs[x]_p \not=\abs[y]_p$, so kann $p$ ein Teiler des Z"ahlers sein und wir erhalten $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$
+	\end{proof}
 	
 	\begin{satz}[Ostrowski]
 		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist "aquivalent zu einem der Absolutbetr"age $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
@@ -212,4 +134,88 @@
 			\end{align*}
 			Mit den gleichen "Uberlegungen aus dem ersten Fall folgt damit die Behauptung.
 		\end{enumerate}
+	\end{proof}
+
+\subsection{Vervollst"andigungen von $\K$}
+	%offene Mengen in Q_p
+%konstruktion erwaehnen
+%eindeutigkeit
+%Z_p
+	
+
+\subsection{Potenzreihen}
+%Zeige potenzreihen konvergieren in Q_p: done
+%Zeige jede zahl in Q_p darstellbar als Potenzreihe: done
+	Wie auch schon im Fall der Vervollst"andigung von $\Q$ bez"uglich $\abs_\infty$ ist diese Konstruktion etwas schwierig zu handhaben.
+	In $\R$ hatten wir die Dezimalbruchentwicklung  $x=\pm\sum_{k=-\infty}^{n}x_k 10^{k}$, $x_k\in\{0,\dots,9\}$ oder etwas allgemeiner die $b$-adische Darstellung $x =\pm \sum_{k=-\infty}^{n}x_k b^{k}$, $x_k\in\{0,\dots,b-1\}$ f"ur eine nat"urliche Zahl $b>1$, die zwar nicht unbedingt eindeutig ist ($0,999\dots = 1,000\dots$) aber leichter zu handhaben als Äquivalenzklassen von Cauchy-Folgen.
+	Zu unserer Freude werden wir feststellen, dass auch in $\Q_p$ eine "ahnliche Darstellung gibt. Diese ist im Gegensatz zu der in $\R$ eindeutig und besitzt nur endlich viele Nachkommastellen, allerdings nicht unbedingt endlich viele Vorkommastellen.
+	\begin{satz}
+		Jede Element $x\in\Kp$ l"asst sich eindeutig als eine Potenzreihe 
+		\begin{align*}
+			x= \sum_{k=N}^{\infty} x_k p^k
+		\end{align*}
+		mit $x_k\in\{0,\dots,p-1\}$, $x_n\not= 0$ und $n\in\Z$ darstellen. 
+		Insbesondere gilt $\abs[x]_p = p^{-n}$.
+	\end{satz}
+	\begin{proof}
+		Wir zeigen zun"achst das die Folge der Partialsummen $S_n=\sum_{k=N}^{n} x_k p^k$ in $\Kp$ konvergiert.
+		Sei dazu $\epsilon>0$. Wir finden ein $n_0 \in \Z$ mit $p^{-n_0} < \epsilon$. Dann gilt f"ur alle $m\geq n\geq n_0$
+		\begin{align*}
+			\abs[S_m - S_n]_p 
+			= \abs[\sum_{k=n}^{m} x_k p^k]_p \leq \max_{n\leq k\leq m}\left(\abs[x_k p^k]_p\right) 
+			= \max_{n\leq k\leq m}\left(p^{-k}\right) 
+			= p^{-n} \leq p^{-n_0} <\epsilon
+		\end{align*}
+		und wir haben gezeigt, dass die Partialsummen eine Cauchy-Folge bilden.
+		Da $\Kp$ vollst"andig ist konvergiert diese gegen einen Wert f"ur den wir $\sum_{k=N}^{\infty} x_k p^k$ schreiben.
+		
+		Als n"achstes sei $x\in\Zp$.
+		Wir konstruieren nun eine Folge $(x_k)$ mit $x_k\in\{0,\dots,p-1\}$, so dass die Partialsummen $S_n = \sum_{k=0}^{n} x_k p^k$ gegen $x$ konvergieren.
+		Da $\Q$ dicht in $\Kp$ liegt finden wir f"ur jedes $n\in\N_0$ einen vollst"andig gek"urzten Bruch $\frac{a}{b}\in\Q$ der 
+		\begin{align*}
+			\abs[x-\frac{a}{b}]_p \leq p^{-n} < 1
+		\end{align*}
+		In der Tat finden wir sogar eine ganze Zahl. 
+		Denn f"ur $\frac{a}{b}$ wie oben haben wir
+		\begin{align*}
+			\abs[\frac{a}{b}]_p \leq \max\left\{\abs[x]_p, \abs[x-\frac{a}{b}]_p\right\} \leq 1,
+		\end{align*}
+		was zeigt, dass $p$ kein Teiler von $b$ ist. 
+		Wir finden daher eine Bezout-Darstellung $1=b'b + p'p^{n}$, also $b'b \equiv 1 \pmod{p^n}$ f"ur  $b', p' \in \Z$.
+		Es folgt
+		\begin{align*}
+			\abs[\frac{a}{b} - ab']_p 
+			= \abs[\frac{a(1-bb')}{b}]_p 
+			=\abs[\frac{a(p'p^n)}{b}]_p \leq p^{-n}
+		\end{align*}
+		und nat"urlich $ab' \in \Z$. Wir definieren nun $y_n\in\Z$ als die eindeutige Zahl, so dass
+		\begin{align*}
+			0\leq y_n \leq p^n-1  \text{ und }  y_n \equiv ab' \pmod{p^n}.
+		\end{align*}
+		Wir folgern analog zu eben
+		\begin{align*}
+			\abs[x-y_n]_p 
+			= \abs[x-\frac{a}{b} + \frac{a}{b} - ab']_p 
+			\leq \max\left\{\abs[x-\frac{a}{b}]_p, \abs[\frac{a}{b} - y_n]_p\right\}
+			= p^{-n}
+		\end{align*}
+		und folglich konvergiert die Folge $(y_n)$ gegen $x$.
+		Wir zeigen, dass diese Folge eindeutig ist. 
+		Sei dazu $y_n'$ eine weiter Zahl mit $0\leq y_n' \leq p^n-1$ und $\abs[x-y_n']_p\leq p^{-n}$.
+		Dann gilt aber wie eben
+		\begin{align*}
+			\abs[y_n - y_n']_p = \abs[y_n - x + x - y_n']_p \leq p^{-n},
+		\end{align*}
+		also ist $p^n$ ein Teiler von $y_n - y_n'$ und folglich $y_n -y_n' = 0$.
+		Aus dieser Eindeutigkeit folgt unter anderem auch, dass $y_n \equiv y_{n-1} \pmod{p^{n-1}}$, denn
+		\begin{align*}
+			\abs[y_n - y_{n-1}]_p = \abs[y_n - x + x - y_{n-1}]_p \leq \max\left\{\abs[y_n-x]_p, \abs[x- y_{n-1}]_p\right\} = p^{-n+1},
+		\end{align*}
+		und folglich $p^{n-1}$ ein Teiler von $y_n - y_{n-1}$.
+		Die eindeutigen $p$-adischen Entwicklungen dieser $y_n$ sind genau die gesuchten Partialsummen $S_n$ und definieren die $x_k$ daher induktiv.
+		
+		F"ur jedes beliebige $x\in \Q_p$ finden wir ein $n\in\N_0$, so dass $p^{n}x \in \Zp$ und damit eine Entwicklung $p^{n}x = \sum_{k=0}^{\infty} x_kp^k$. Also haben wir 
+		\begin{align*}
+			x = \sum_{k=-n}^{\infty} x_{k+n}p^k
+		\end{align*}
 	\end{proof}

@@ -1,92 +1,95 @@
-\section{Formeln und Definitionen}
+\section{Riemanns Beweis der Funktionalgleichung}
 \label{sec:riemann2}
-
-\begin{defi}
-	\label{def:zeta}
-	Die Riemannsche Zeta-Funktion $\zeta(s)$  ist für $Re(s)>1$ definiert als
-	\begin{align}
-		\zeta (s) = \sum_{n\in \N} \frac{1}{n^s}
-	\end{align}
-\end{defi}
-Sie kann meromorph auf ganz $\C$ fortgesetzt werden und erfüllt die Funktionalgleichung.
-\begin{satz}
-	\label{eq:funktionalgleichung}
-	\begin{align}
-		 \Xi(s) = \Xi(1-s)
-	\end{align}
-\end{satz}
-
-
-\begin{defi}
-	\label{def:xi}
-	\begin{align}
-		\Xi(s) := \Gamma_\infty(s) \zeta(s)
-	\end{align}
-\end{defi}
+%Riemanns klassischer BEweis
+%Beweis der klassischen poisson
+	\begin{defi}
+		\label{def:zeta}
+		Die Riemannsche Zeta-Funktion $\zeta(s)$  ist für $Re(s)>1$ definiert als
+		\begin{align}
+			\zeta (s) = \sum_{n\in \N} \frac{1}{n^s}
+		\end{align}
+	\end{defi}
+	Sie kann meromorph auf ganz $\C$ fortgesetzt werden und erfüllt die Funktionalgleichung.
+	\begin{satz}
+		\label{eq:funktionalgleichung}
+		\begin{align}
+			 \Xi(s) = \Xi(1-s)
+		\end{align}
+	\end{satz}
 
 
+	\begin{defi}
+		\label{def:xi}
+		\begin{align}
+			\Xi(s) := \Gamma_\infty(s) \zeta(s)
+		\end{align}
+	\end{defi}
 
-\begin{defi}
-	\label{def:gamma_infty}
-	\begin{align}
-		\Gamma_\infty(s) := \pi^{-s/2} \Gamma(s/2)
-	\end{align}
-\end{defi}
 
-\begin{satz}[Poisson Summenformel]
-	\label{satz:poisson}
-	F"ur $\kinf$ und $\tinf \in \kinf^*$, $\finf$ Schwartzfunktion, $|\tinf|_\infty := |\tinf|$ Absolutbetrag und $\finft$ Fourier-transformierte von $\finf$ gilt:
-	\begin{align}
-		\sum_{a \in \Z} \finf (a \tinf) = \frac{1}{|\tinf|_\infty} \sum_{a \in \Z} \finft \left( \frac{a} {\tinf} \right)
-	\end{align}
-\end{satz}
 
-\begin{defi}[Fouriertransformation]
-	\label{def:fourier}
-	\begin{align}
-		\finft(\xiinf) := \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
-	\end{align}
-\end{defi}
+	\begin{defi}
+		\label{def:gamma_infty}
+		\begin{align}
+			\Gamma_\infty(s) := \pi^{-s/2} \Gamma(s/2)
+		\end{align}
+	\end{defi}
 
-%%% Gaussfunktion Fourier %%%
-\begin{satz}
-	Die (archimedische) Gaussche Funktion
-	\begin{align}
-		g_\infty(\xinf) := e^{-\pi |\xinf|^2}
-	\end{align}
-	ist ihre eigene Fouriertransformierte.
-\end{satz}
+	\begin{satz}[Poisson Summenformel]
+		\label{satz:poisson}
+		F"ur $\kinf$ und $\tinf \in \kinf^*$, $\finf$ Schwartzfunktion, $|\tinf|_\infty := |\tinf|$ Absolutbetrag und $\finft$ Fourier-transformierte von $\finf$ gilt:
+		\begin{align}
+			\sum_{a \in \Z} \finf (a \tinf) = \frac{1}{|\tinf|_\infty} \sum_{a \in \Z} \finft \left( \frac{a} {\tinf} \right)
+		\end{align}
+	\end{satz}
 
-\begin{proof}
-	Die Fouriertransformation von $g_\infty(x)$ ist definiert als
-	\begin{align*}
-		\hat{g}_\infty (\xi) = \int_{-\infty}^{\infty}{g(x)e^{-2\pi i x \xi}dx}
-	\end{align*}
-	Betrachten wir zunächst den Integranden etwas genauer sehen wir, dass wir dank
-	\begin{align*}
-		g(x)e^{-2\pi i x \xi} = e^{-\pi(x^2 +2 i x \xi - \xi ^2)}e^{-\pi \xi^2} = e^{-pi (x + i \xi)^2} g(\xi)
-	\end{align*}
-	die Fouriertransformierte $\hat{g} (\xi)$ umschreiben können zu
-	\begin{align*}
-		\hat{g}(\xi) = g(\xi) \int_{-\infty}^{\infty} {e^{-\pi(x+i\xi)^2}dx}
-	\end{align*}
-	Fuer den Beweis reicht es also zu zeigen, dass das verbleibende Integral gleich $1$ ist.
-	Wir berechnen zun"achst
-	\begin{align*}
-		g(x)e^{-2\pi i x \xi} = e^{-\pi(x^2 +2 i x \xi - \xi ^2)}e^{-\pi \xi^2} = e^{-pi (x + i \xi)^2} g(\xi)
-	\end{align*}
-	und stellen erfreut fest, dass die Fouriertransformierte von $g$ gerade
-	\begin{align*}
-		\hat{g}(\xi) = g(\xi) \int_{-\infty}^{\infty} e^{-\pi(x+i\xi)^2}dx
-	\end{align*}
-	ist. Es reicht also zu zeigen, dass das zweite Integral 1 ist.\\
-	Sei zun"achst $\gamma$ eine Kurve entlang des Rechtecks mit den Ecken $-R$, $R$, $R+i\eta$ und $-R+i\eta$. Nach dem Cauchy Integralsatz gilt f"ur unsere ganze Funktion $g(z)$
-	\begin{align*}
-		0 = \int_{-R}^{R} {g(z)dz} + \int_{R}^{R+i\eta} {g(z)dz}  + \int_{R+i\eta}^{-R+i\eta} {g(z)dz}  + \int_{-R+i\eta}^{-R} {g(z)dz} 
-	\end{align*}
-	Weiter gilt $|g(z)|=e^{-\pi (R^2 - y^2)}$ f"ur $z=\pm R + i y$ und $0\leq y \leq \eta$ und so verschwinden das zweite und vierte Integral f"ur $R\rightarrow \infty$. Nach Umstellen der verbleibenden Integrale und genauen hinsehen stellen wir fest, dass
-	\begin{align*}
-		\int_\R{e^{-\pi (x + i\xi)^2}} = \int_\R {e^{-\pi x^2} = 1}
-	\end{align*}
-\end{proof}
+	\begin{defi}[Fouriertransformation]
+		\label{def:fourier}
+		\begin{align}
+			\finft(\xiinf) := \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
+		\end{align}
+	\end{defi}
+
+	%%% Gaussfunktion Fourier %%%
+	\begin{satz}
+		Die (archimedische) Gaussche Funktion
+		\begin{align}
+			g_\infty(\xinf) := e^{-\pi |\xinf|^2}
+		\end{align}
+		ist ihre eigene Fouriertransformierte.
+	\end{satz}
+
+	\begin{proof}
+		Die Fouriertransformation von $g_\infty(x)$ ist definiert als
+		\begin{align*}
+			\hat{g}_\infty (\xi) = \int_{-\infty}^{\infty}{g(x)e^{-2\pi i x \xi}dx}
+		\end{align*}
+		Betrachten wir zunächst den Integranden etwas genauer sehen wir, dass wir dank
+		\begin{align*}
+			g(x)e^{-2\pi i x \xi} = e^{-\pi(x^2 +2 i x \xi - \xi ^2)}e^{-\pi \xi^2} = e^{-pi (x + i \xi)^2} g(\xi)
+		\end{align*}
+		die Fouriertransformierte $\hat{g} (\xi)$ umschreiben können zu
+		\begin{align*}
+			\hat{g}(\xi) = g(\xi) \int_{-\infty}^{\infty} {e^{-\pi(x+i\xi)^2}dx}
+		\end{align*}
+		Fuer den Beweis reicht es also zu zeigen, dass das verbleibende Integral gleich $1$ ist.
+		Wir berechnen zun"achst
+		\begin{align*}
+			g(x)e^{-2\pi i x \xi} = e^{-\pi(x^2 +2 i x \xi - \xi ^2)}e^{-\pi \xi^2} = e^{-pi (x + i \xi)^2} g(\xi)
+		\end{align*}
+		und stellen erfreut fest, dass die Fouriertransformierte von $g$ gerade
+		\begin{align*}
+			\hat{g}(\xi) = g(\xi) \int_{-\infty}^{\infty} e^{-\pi(x+i\xi)^2}dx
+		\end{align*}
+		ist. Es reicht also zu zeigen, dass das zweite Integral 1 ist.\\
+		Sei zun"achst $\gamma$ eine Kurve entlang des Rechtecks mit den Ecken $-R$, $R$, $R+i\eta$ und $-R+i\eta$. 
+		Nach dem Cauchy Integralsatz gilt f"ur unsere ganze Funktion $g(z)$
+		\begin{align*}
+			0 = \int_{-R}^{R} {g(z)dz} + \int_{R}^{R+i\eta} {g(z)dz}  + \int_{R+i\eta}^{-R+i\eta} {g(z)dz}  + \int_{-R+i\eta}^{-R} {g(z)dz} 
+		\end{align*}
+		Weiter gilt $|g(z)|=e^{-\pi (R^2 - y^2)}$ f"ur $z=\pm R + i y$ und $0\leq y \leq \eta$ und so verschwinden das zweite und vierte Integral f"ur $R\rightarrow \infty$. 
+		Nach Umstellen der verbleibenden Integrale und genauen hinsehen stellen wir fest, dass
+		\begin{align*}
+			\int_\R{e^{-\pi (x + i\xi)^2}} = \int_\R {e^{-\pi x^2} = 1}
+		\end{align*}
+	\end{proof}
 

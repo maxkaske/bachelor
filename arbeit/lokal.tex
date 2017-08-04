@@ -1,0 +1,219 @@
+\section{Lokale Betrachtungen}
+\subsection{Lokale K"orper}
+	Wir betrachten im Folgenden alle 
+	%Q_p topologischer Ring: done
+	%Skalierung der Mengen durch multiplikation: done
+	%Haarmass auf Q_p^\times: done
+	%normierung des mult masses
+	%annulus
+	\begin{satz}\label{satz:QpIstLokalKompakt}
+		F"ur alle Stellen $p\leq\infty$ gilt
+		\begin{enumerate}[label=(\roman*)]
+		\item $(\Kp, +)$ ist eine lokalkompakte Gruppe.
+		\item $(\K_p^\times, \cdot)$ ist eine lokalkompakte Gruppe.
+		\end{enumerate}
+	\end{satz}
+	\begin{proof}
+	%%% hier normierung des haar masses auf Qp
+	
+		Zu (i): Wir weisen zun?chst die Stetigkeit der Addition und der Negierung nach. 
+		Seien $x_n \to x$ und $y_n \to y$ konvergente Folgen in $\Kp$. 
+		Es ist zu zeigen, dass $x_n+y_n$ gegen $x+y$ konvergiert. 
+		Nach der Dreiecksungleichung gilt
+		\begin{align*}
+			\abs[(x_n+y_n) - (x+y)]_p = \abs[(x_n - x) + (y_n - y)]_p \leq \abs[(x_n - x)]_p + \abs[(y_n - y)]_p.
+		\end{align*}
+		Die rechte Seite konvergiert gegen $0$, also ist die linke eine Nullfolge und die Stetigkeit der Addition folgt.
+		"Ahnlich zeigen wir $-x_n \to -x$, denn $\abs[(-x_n) - (-x)]_p = \abs[x_n-x]_p$.
+		Damit ist $\Kp$ eine topologische Gruppe. 
+		
+		Da die Topologie von einer Metrik induziert wird, ist diese hausdorffsch.
+		Wir m"ussen folglich nur noch die Lokalkompaktheit zeigen.
+		Wegen der Stetigkeit der Addition reicht es dazu eine kompakte Umgebung der $0$ zu finden, denn sei $K$ eine kompakte Nullumgebung, so ist $a+K$ f"ur beliebige $a\in \Kp$ eine kompakte Umgebung von $a$.
+		Wir behaupten, dass die Umgebung
+		\begin{align*}
+			\Zp = \{x \in \Kp : \abs[x]_p \leq 1\}
+		\end{align*}
+		kompakt ist.
+		F"ur $p=\infty$ ist $\Z_\infty = [-1,1]$ also kompakt.
+		F"ur $p<\infty$ gen"ugt es zu zeigen, dass $\Zp$ vollst"andig und totalbeschr"ankt ist. 
+		Ersteres folgt daraus, dass $\Zp$ als abgeschlossene Menge des vollst"andigen Raumes $\Kp$ selber vollst"andig ist.
+		Eine Menge hei?t totalbeschr"ankt, wenn wir sie f"ur jedes $\epsilon > 0$ mit endlich vielen $\epsilon$-B"allen "uberdecken k"onnen.
+		Wir k"onnen uns auf $\epsilon$ der Form $p^{-k}$, $k\geq 0$ beschr"anken, da unsere Metrik nur den diskreten Wertebereich $p^\Z$ hat.
+		Es ist $p^{k+1}\Zp$ eine Untergruppe von $\Zp$ und f"ur den Index gilt $[\Zp : p^{k+1}\Zp] = p^{k+1}$. Das bedeutet, dass die $p^{-k}$-B"alle
+		\begin{align*}
+			a + p^{k+1}\Zp = \{y\in \Zp : \abs[y-a]_p \leq p^{-k-1}\} = \{y\in \Zp : \abs[y-a]_p < p^{-k}\} = B_{p^{-k}}(a)
+		\end{align*}
+		mit $a=0\dots p^{k+1}-1$ die Menge $\Zp$ "uberdecken. Als vollst"andige und totalbeschr"ankte Menge ist $\Zp$ somit kompakt.
+		
+		
+		Zu (ii): $\K_p^\times = \Kp\setminus \{0\}$ ist ein offener Teilraum von $\Kp$ und somit selbst wieder hausdorffsch und lokalkompakt.
+		F"ur die Stetigkeit seien $x_n \to x$ und $y_n \to y$ zwei konvergente Folgen in $\K_p^\times$. 
+		Wir zeigen, dass $x_ny_n$ gegen $xy$ konvergiert.
+		Dies folgt aus der Absch"atzung
+		\begin{align*}
+			\abs[x_n y_n - xy]_p 
+			&= \abs[x_n y_n -x_ny + x_n y- xy]_p  \\
+			&\leq \abs[x_n y_n -x_ny]_p + \abs[x_n y- xy]_p \\
+			&= \underbrace{\abs[x_n]_p}_{\text{beschr"ankt}} \underbrace{\abs[y_n -y]_p}_{\to 0} + \underbrace{\abs[x_n- x]_p}_{\to 0} \abs[y]_p \to 0
+		\end{align*}
+		Weiter zur Invertierung. Wegen
+		\begin{align*}
+			\abs[\frac{1}{x_n} - \frac{1}{x}]_p = \frac{\abs[x_n - x]_p}{\abs[x_nx]_p} \to 0
+		\end{align*}
+		folgt, dass $x_n^{-1}$ gegen $x^{-1}$ konvergiert und die Stetigkeit ist gezeigt.
+	\end{proof}
+	
+	\begin{satz}\label{satz:multiplikativesHaarMass}
+		F"ur jede messbare Menge $A\subset \Kp$ und jedes $x\in \Kp$ gilt
+		\begin{align*}
+			\mu(xA) = \abs[x]_p \mu(A).
+		\end{align*}
+		Insbesondere folgt f"ur jedes $f \in L^1(\Kp)$ und $x\not= 0$:
+		\begin{align*}
+			\int_\Kp f(x^{-1}y)d\mu(y) = \abs[x]_p \int_\Kp f(y)d\mu(y).
+		\end{align*}
+	\end{satz}
+	\begin{proof}
+		Sei $x\in \K_p^\times$. Das Funktion $\mu_x$ definiert durch
+		\begin{align*}
+			\mu_x (A) = \mu(xA)
+		\end{align*}
+		definiert wieder ein Haar-Ma? auf $\Kp$ und unterscheidet sich daher nur durch Skalierung mit einer positiven Konstante $c>0$ von $\mu$.
+		Ziel wird es nun sein $c=\abs[x]_p$ zu zeigen. 
+		Dies ist klar im Fall $p=\infty$. 
+		F"ur $p<\infty$ reicht es dank unserer Normierung $\mu(x\Zp) = \abs[x]_p$ zu zeigen.
+		Sei dazu $\abs[x]_p = p^{-k}$.
+		Dann ist $x=p^ky$ mit $y\in \Zp$ und $x\Zp = p^k\Zp$.
+		Daher reduziert sich unsere Betrachtung auf $\mu(p^k\Zp) = p^{-k}$.
+		Beginnen wir mit dem Fall $k\geq 0$. Dann ist $p^k\Zp$ eine Untergruppe von $\Zp$ und f"ur den Index gilt $[\Zp : p^k\Zp] = p^k$.
+		Wir haben also eine disjunkte Zerlegung $\Zp = \bigsqcup_{a=0}^{p^{k}-1} a + p^k\Zp$.
+		Aus der Translationsinvarianz folgern wir dann
+		\begin{align*}
+			1 = \mu (\Zp) = \sum_{a=0}^{p^{k}-1} \mu(a + p^k\Zp) =\sum_{a=0}^{p^{k}-1} \mu(p^k\Zp) = p^k \mu(p^k\Zp).
+		\end{align*}
+		Die Behauptung folgt dann durch einfaches Umformen. 
+		Im anderen Fall $k<0$ ist umgekehrt $\Zp$ eine Untergruppe von $p^k\Zp$ mit Index $[p^k\Zp:\Zp]= p^{-k}$ und die Behauptung folgt analog.
+	\end{proof}
+	
+	\begin{satz}
+		Ist $dx$ ein additives Haar-Ha? auf $\Kp$, so definiert $\frac{dx}{\abs[x]_p}$ ein multiplikatives Haar-Ma? $d^\times x$ auf $\K_p^\times$.
+		Insbesondere gilt dann f"ur alle $g \in L^1(\K_p^\times)$
+		\begin{align*}
+			\int_{\K_p^\times} g(x) d^\times x = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}
+		\end{align*}
+	\end{satz}
+	\begin{proof}
+		Wir haben bereits gezeigt, dass $\K_p^\times$ eine lokalkompakte Gruppe ist und folglich ein Haar-Ma? besitzt.
+		Wenn wir nun ein positives, lineares Funktional auf $C_c(\K_p^\times)$ angeben, erhalten wir nach Rieszschen Darstellungssatz ein Radonma?, welches diesem Funktional entspricht. 
+		Ist nun $g \in C_c(\K_p^\times)$, so ist $g\abs_p^{-1} \in C_c(\Kp\setminus\{0\})$. 
+		Dies ist in der Tat eine eins-zu-eins Zuweisung.
+		Wir definieren nun das Funktional
+		\begin{align*}
+			\Phi(g) = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}.
+		\end{align*}
+		Dieses ist offensichtlich ein positives, nicht-triviales, lineares Funktional auf $ C_c(\K_p^\times)$. Dieses ist translationsinvariant, denn
+		\begin{align*}
+			\int_{\Kp \setminus \{0\}} g(y^{-1}x) \frac{dx}{\abs[x]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{\abs[y]_pdx}{\abs[yx]_p}=\int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p},
+		\end{align*}
+		folglich kommt es von einem Haar-Ma? $d^\times x$. 
+		Der zweite Teil der Behauptung folgt aus der Tatsache, dass die Funktionen in $C_c$ dicht in $L^1$ liegen.
+		Daher ist es m"oglich "uber Grenzwerte die Gleichung $\int_{\K_p^\times} g(x) d^\times x = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}$ auf Funktionen in $L^1$ zu erweitern.
+	\end{proof}
+\subsection{Lokale Fourieranalysis}
+%Pontryagin-Duale Gruppe
+%selbstdual
+%fouriertransformation: done
+%schwartz-bruhat und deren form: done
+%fourierumkehrformel: done
+		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		\begin{align*}
+			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
+		\end{align*}
+		erf"ullt.\footnote{Hier ist mit $\abs$ der komplexe Absolutbetrag gemeint.}
+		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Tr?ger.
+		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
+		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
+		F"ur $p=\infty$ gilt nach obiger Bedingung $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\K\infty)$
+		
+		\begin{bsp}~ 
+			\begin{enumerate}[label=(\roman*)]
+				\item Im Fall $p=\infty$ ist die Funktion $f_k = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. 
+				Die Ableitungen $\frac{d^m}{dx^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
+				Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschr?nkt ist.
+				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen in $\Sw(\Kp)$. 
+				Beispiele f"ur Kompakta sind Mengen der Form $a+p^k\Zp$ mit $a\in \K$ und $k\in \Z$.
+			\end{enumerate}
+		\end{bsp}
+		
+		\begin{lemma}\label{lemma:padischSBF}
+			Jede Funktion $f\in \Sw(\Kp)$, $p<\infty$, ist eine endliche Linearkombination von charakteristischen Funktionen der Form $\ind_{a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$
+		\end{lemma}
+		\begin{proof}
+			Sei $f \in \Sw(\Kp)$. 
+			Da $f$ lokal konstant ist, ist f"ur jedes $z\in\C$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
+			Also ist $f^{-1}(0)$ offen, folglich $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher schon $\text{supp}(f) = \Kp \setminus f^{-1}(0)$. 
+			Per Definition hat die Schwartz-Bruhat Funktion $f$ kompakten Tr"ager, also ist $\Kp \setminus f^{-1}(0)$ kompakt. 
+			Diese Menge wird von den offenen Mengen $f^{-1} (x)$ mit $x\not= 0$ "uberdeckt, wovon nach Kompaktheit schon endlich viele reichen.
+			$f$ hat somit endliches Bild. Weiter ist jede offene Menge $f^{-1} (x)$ eine disjunkte Vereinigung offener B"allen in $\Kp$. 
+			Diese haben aber genau die gesuchte Form $a+p^k\Zp$ wie oben. 
+			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle. Damit folgt auch schon das Lemma.
+		\end{proof}
+		\begin{lemma}
+			Sei $f \in \Sw(\Kp)$.
+			\begin{enumerate}[label=\emph{(\alph*)}]
+				\item Ist $g(x)=f(x)e_p(ax)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)$.
+				\item Ist $g(x)=f(x-a)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)e_p(-ax)$.
+				\item Ist $g(x)=f(\lambda x)$ mit $\lambda \in\Kp^\times$, dann gilt $\hat{g}(x) =\frac{1}{\abs[\lambda]_p} \hat{f}(\frac{x}{\lambda})$.
+			\end{enumerate}
+		\end{lemma}
+		\begin{proof}
+			(a) und (b) sind einfache Folgerungen aus der Definition mit der Multiplikativit"at von $e_p$ und der Translationsinvarianz des Haar-Ma?. 
+			Bei (c) spielt unsere Normeriung des Absolutbetrags eine Rolle, denn mit dem Variablenwechsel $y\mapsto \lambda^{-1}y$ erhalten wir
+			\begin{align*}
+				\hat{g}(x) = \int_{\Kp} f(\lambda y) e_p(-xy)dy = \frac{1}{\abs[\lambda]_p} \int_{\Kp} f(y) e_p(-x\lambda^{-1}y)dy = \frac{1}{\abs[\lambda]_p} \hat{f}\left(\frac{x}{\lambda}\right)
+			\end{align*}
+		\end{proof}
+		\begin{satz}\label{Satz:fourierumkehrformel}
+			Ist $p\leq\infty$ und $f\in\Sw(\Kp)$, so ist $\hat{f} \in \Sw(\Kp)$ und es gilt die Umkehrformel
+			\begin{align*}
+				\hat{\hat{f}}(x) = f(-x)
+			\end{align*}
+		\end{satz}
+		\begin{proof}
+			Betrachten wir zuerst den Fall $p<\infty$. Wie wir eben in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. Es reicht also die Aussage f"ur solche $f$ zu zeigen.
+			Sei dazu $h:= \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
+			\begin{align*}
+				\hat{h}(x) = \int_\Kp h(y) e_p (-xy) dy_p = \int_\Zp e_p(-xy) dy_p.
+			\end{align*}
+			Nun ist $\chi(y):=e_p(-xy)$ ein Charakter auf $\Zp$ und genau dann trivial, wenn $x\in\Zp$. 
+			Weiter ist $\Zp$ kompakt. 
+			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $dy_p$ folgt also
+			\begin{align*}
+				\hat(h)(x) = \text{Vol}(\Zp, dy_p) \ind_\Zp = \ind_\Zp = h(x)
+			\end{align*}
+			
+			Wir f"uhren nun folgende Operatoren auf $\Sw(\Kp)$ ein
+			\begin{align*}
+				L_a f(x) = f(x-a), M_\lambda f(x) = f(\lambda x),
+			\end{align*}
+			wobei $a \in \Kp$ und $\lambda \in \Kp^\times$. 
+			Nun k"onnen wir $f$ schreiben als $L_a M_{p^{-k}}h$. 
+			Es folgt
+			\begin{align*}
+				\hat{f} = (L_a M_{p^{-k}}h)\widehat{\phantom{x}} = \Omega_{-a}p^{k}M_{p^k}\hat{h}=\Omega_{-a}p^{-k}M_{p^k}h.
+			\end{align*}
+			Also ist $\hat{f} (x) = e_p(-ax)p^k\ind_{p^{-k}\Zp}(x)$. 
+			Der Charakter $e_p$ ist lokal konstant, $\hat{f}$ als das Produkt lokal konstanter Funktionen selbst wieder lokal konstant und damit in $\Sw(\Kp)$. 
+			Damit haben wir den ersten Teil der Aussage gezeigt.
+			
+			F"ur den zweiten Teil sehen wir
+			\begin{align*}
+				\hat{\hat{f}} = (L_a M_{p^{-k}}h)\widehat{\widehat{\phantom{x}}} = L_{-a} (M_{p^k}h)\widehat{\widehat{\phantom{x}}}=L_{-a}M_{p^k}\hat{h} =L_{-a}M_{p^k}h,
+			\end{align*}
+			also $\hat{\hat{f}} (x) = \ind_{-a+p^k\Zp} (x) = \ind_{a+p^k\Zp} (-x) = f(-x)$. 
+			Hier haben wir $p^k\Zp = - p^k\Zp$ ausgenutzt. 
+			Damit haben wir die Umkehrformel f"ur den $p$-adischen Fall gezeigt. 
+			F"ur $p=\infty$ ist die Formel bereits aus der klassischen Fourieranalysis bekannt.
+		\end{proof}
+	
