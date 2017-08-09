@@ -1,5 +1,5 @@
 \section{Exkurs: p-adische Zahlen}
-\subsection{Absolutbetr"age}
+\subsection{Absolutbeträge}
 	%padischen absolutbetraege:done
 	Sei $\mathbb{K}$ ein beliebiger K"orper und $\R_+ = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
 	\begin{defi}
@@ -7,22 +7,22 @@
 		\begin{align*}
 			\abs:\K \longrightarrow \R_+
 		\end{align*}
-		welche die folgenden Bedingungen erf"ullt:
+		welche die folgenden Bedingungen erfüllt:
 		\begin{enumerate}[label=(\roman*),leftmargin=1.5cm]
 			\item $\abs[x] = 0 \Leftrightarrow x=0$ (Definitheit)
-			\item $\abs[xy] = \abs[x]\abs[y]$ f"ur alle $x, y \in \mathbb{K}$ (Multiplikativit"at)
-			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ f"ur alle $x,y \in \mathbb{K}$ (Dreiecksungleichung)
+			\item $\abs[xy] = \abs[x]\abs[y]$ für alle $x, y \in \mathbb{K}$ (Multiplikativität)
+			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ für alle $x,y \in \mathbb{K}$ (Dreiecksungleichung)
 		\end{enumerate}
-		Wir nennen den Absolutbetrag $\abs$ nicht-archimedisch, wenn er zus"atzlich die st"arkere Bedingung
+		Wir nennen den Absolutbetrag $\abs$ nicht-archimedisch, wenn er zusätzlich die stärkere Bedingung
 		\begin{enumerate}[label=(\roman*)$'$,leftmargin=1.5cm]
 			\setcounter{enumi}{2}
-			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ f"ur alle $x, y \in \mathbb{K}$ (versch"arfte Dreiecksungleichung)
+			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ für alle $x, y \in \mathbb{K}$ (verschärfte Dreiecksungleichung)
 		\end{enumerate}
-		erf"ullt. Anderenfalls sagen wir der Absolutbetrag ist archimedisch.
+		erfüllt. Anderenfalls sagen wir der Absolutbetrag ist archimedisch.
 	\end{defi}
-	Wir m"ochten zun"achst ein paar allgeimg"ultige Eigenschaften von Absolutbetr"agen im folgenden Lemma festhalten.
+	Wir m"ochten zunächst ein paar allgeimgültige Eigenschaften von Absolutbeträgen im folgenden Lemma festhalten.
 	\begin{lemma}
-		F"ur beliebige Absolutbetr"age $\abs$ auf $\mathbb{K}$ und Elemente $x\in \K$ gilt:
+		Für beliebige Absolutbeträge $\abs$ auf $\mathbb{K}$ und Elemente $x\in \K$ gilt:
 		\begin{enumerate}[label=(\roman*),leftmargin=1.5cm]
 			\item $\abs[1] = 1$
 			\item $\abs[-1] = 1$
@@ -35,45 +35,45 @@
 	\begin{align*}
 		x = \prod_{p} p^{v_p},
 	\end{align*}
-	wobei das Produkt "uber alle Primzahlen $p \in \N$ geht und $v_p \in \Z$ f"ur fast alle $p$ gleich $0$ ist. Legen wir uns auf ein $p$ fest, so erm"oglicht sich die 
+	wobei das Produkt über alle Primzahlen $p \in \N$ geht und $v_p \in \Z$ für fast alle $p$ gleich $0$ ist. Legen wir uns auf ein $p$ fest, so erm"oglicht sich die 
 	\begin{defi}
-		F"ur beliebige $x \in \Q$ sei der \emph{p-adische Absolutbetrag} von $x$ gegeben durch
+		Für beliebige $x \in \Q$ sei der \emph{p-adische Absolutbetrag} von $x$ gegeben durch
 		\begin{align*}
 			\abs[x]_p = p^{-v_p}
 		\end{align*}
-		f"ur $x\neq 0$ und $v_p \in \Z$ wie oben. Durch $\abs[0]_p := 0$ vervollst"andigen wir die Definition.
+		für $x\neq 0$ und $v_p \in \Z$ wie oben. Durch $\abs[0]_p := 0$ vervollständigen wir die Definition.
 	\end{defi}
 	\begin{lemma}
 		$\abs_p$ ist ein nicht-archimedischer Absolutbetrag auf $\Q$
 	\end{lemma}
 	\begin{proof}
 		Die Definitheit folgt sofort aus der Definition. 
-		F"ur die Multiplikativit"at schreiben wir $x=p^k \frac{m}{n}$ und $y=p^{k'} \frac{m'}{n'}$ mit $m,m',n,n'$ teilerfremd zu $p$.
+		Für die Multiplikativität schreiben wir $x=p^k \frac{m}{n}$ und $y=p^{k'} \frac{m'}{n'}$ mit $m,m',n,n'$ teilerfremd zu $p$.
 		Dann ist
 		\begin{align*}
 			\abs[xy]_p = \abs[p^{k+k'}\frac{mm'}{nn'}]_p = p^{-(k+k')} = p^{-k} p^{-k'} = \abs[x]_p \abs[y]_p.
 		\end{align*}
-		Zuletzt zur versch"arften Dreiecksungleichung. 
-		Mit $x$ und $y$ wie eben k"onnen wir ohne Einschr"ankung annehmen, dass $k\leq k'$. 
+		Zuletzt zur verschärften Dreiecksungleichung. 
+		Mit $x$ und $y$ wie eben k"onnen wir ohne Einschränkung annehmen, dass $k\leq k'$. 
 		Es gilt
 		\begin{align*}
 			x+y = p^k\frac{mn' + p^{k'-k}nm'}{nn'}.
 		\end{align*}
-		F"ur $\abs[x]_p \not=\abs[y]_p$ ist $k'>k$, also $mn' + p^{k'-k}nm'$ teilerfremd zu $p$ und es folgt $\abs[x+y]_p = p^{-k} = \max(\abs[x]_p,\abs[y]_p)$. 
-		Ist dagegen $\abs[x]_p \not=\abs[y]_p$, so kann $p$ ein Teiler des Z"ahlers sein und wir erhalten $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$
+		Für $\abs[x]_p \not=\abs[y]_p$ ist $k'>k$, also $mn' + p^{k'-k}nm'$ teilerfremd zu $p$ und es folgt $\abs[x+y]_p = p^{-k} = \max(\abs[x]_p,\abs[y]_p)$. 
+		Ist dagegen $\abs[x]_p \not=\abs[y]_p$, so kann $p$ ein Teiler des Zählers sein und wir erhalten $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$
 	\end{proof}
 	
 	\begin{satz}[Ostrowski]
-		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist "aquivalent zu einem der Absolutbetr"age $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
+		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist äquivalent zu einem der Absolutbeträge $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
 	\end{satz}
 	\begin{proof}
-		Sei $\abs$ ein beliebiger nicht-trivialer Absolutbetrag auf $\Q$. Wir untersuchen die zwei m"oglichen F"alle.
+		Sei $\abs$ ein beliebiger nicht-trivialer Absolutbetrag auf $\Q$. Wir untersuchen die zwei m"oglichen Fälle.
 		\begin{enumerate}[align=left, leftmargin=0cm, labelsep=0cm, label=\alph*)\ ]
 		\item $\abs$ ist archimedisch.
-			Sei dann $n_0\in \N$ die kleinste nat"urliche Zahl mit $\abs[n_0] > 1$.
+			Sei dann $n_0\in \N$ die kleinste natürliche Zahl mit $\abs[n_0] > 1$.
 			Dann gibt es ein $\alpha \in \R^+$ mit $\abs[n_0]^{\alpha}=n_0$.
-			Wir wollen nun zeigen, dass $\abs[n]=\abs[n]_\infty^\alpha$ f"ur alle $n \in \N$ gilt. Der allgemeine Fall f"ur $\Q$ folgt dann aus den Eigenschaften des Betrags.
-			Dazu bedienen wir uns eines kleinen Tricks: F"ur $n \in \N$ nehmen wir die Darstellung zur Basis $n_0$, d.h.
+			Wir wollen nun zeigen, dass $\abs[n]=\abs[n]_\infty^\alpha$ für alle $n \in \N$ gilt. Der allgemeine Fall für $\Q$ folgt dann aus den Eigenschaften des Betrags.
+			Dazu bedienen wir uns eines kleinen Tricks: Für $n \in \N$ nehmen wir die Darstellung zur Basis $n_0$, d.h.
 			\begin{align*}
 				n = \sum_{i=0}^{k} a_i n_0^i
 			\end{align*}
@@ -89,7 +89,7 @@
 			\begin{align*}
 				\abs[n]\leq C n_0^{k\alpha}\leq C n^\alpha
 			\end{align*}
-			f"ur beliebige $n \in \N$, also insbesondere auch
+			für beliebige $n \in \N$, also insbesondere auch
 			\begin{align*}
 				|n^N|\leq C n^{N\alpha}.
 			\end{align*}
@@ -97,15 +97,15 @@
 			\begin{align*}
 				\abs[n] \leq n^\alpha
 			\end{align*}
-			Damit w"are die erste H"alfte geschafft. Gehen wir nun z"uruck zu unserer Basisdarstellung
+			Damit wäre die erste Hälfte geschafft. Gehen wir nun züruck zu unserer Basisdarstellung
 			\begin{align*}
 				n = \sum_{i=0}^{k} a_i n_0^i.
 			\end{align*}
-			Da $n < n_0^{k+1}$ erhalten wir die Absch"atzung
+			Da $n < n_0^{k+1}$ erhalten wir die Abschätzung
 			\begin{align*}
 				n_0^{(k+1)\alpha}=|n_0^{k+1}| = |n + n_0^{k+1} - n| \leq \abs[n] + |n_0^{k+1} -n|.
 			\end{align*}
-			 mit dem Ergebnis aus der ersten H"alfte des Beweises und $n\geq n_0^k$ sehen wir
+			 mit dem Ergebnis aus der ersten Hälfte des Beweises und $n\geq n_0^k$ sehen wir
 			\begin{align*}
 				\abs[n] &\geq n_0^{(k+1)\alpha} - |n_0^{k+1} -n| 
 					\geq n_0^{(k+1)\alpha} - (n_0^{k+1} -n)^\alpha
@@ -117,40 +117,114 @@
 			\begin{align*} 
 				\abs[n]\geq n^\alpha
 			\end{align*}
-			und daher $\abs[n]=n^\alpha$. Damit haben wir gezeigt, dass $\abs$ "aquivalent zum klassischen Absolutbetrag $\abs_\infty$ ist.
+			und daher $\abs[n]=n^\alpha$. Damit haben wir gezeigt, dass $\abs$ äquivalent zum klassischen Absolutbetrag $\abs_\infty$ ist.
 		\item $\abs$ ist nicht archimedisch.
-			Dann ist $\abs[n_0]\leq 1$ f"ur alle $n \in \N$ und, da $\abs$ nicht-trivial ist, muss es eine kleinste Zahl $n_0$ geben mit $\abs[n_0]<1$. Insbesondere muss $n_0$ eine Primzahl sein, denn sei $p \in \N$ ein Primteiler von $n_0$, also $n_0=p \cdot n'$ mit $n' \in \N$ und $n' < n$, dann gilt nach unserer Wahl von $n_0$
+			Dann ist $\abs[n_0]\leq 1$ für alle $n \in \N$ und, da $\abs$ nicht-trivial ist, muss es eine kleinste Zahl $n_0$ geben mit $\abs[n_0]<1$. Insbesondere muss $n_0$ eine Primzahl sein, denn sei $p \in \N$ ein Primteiler von $n_0$, also $n_0=p \cdot n'$ mit $n' \in \N$ und $n' < n$, dann gilt nach unserer Wahl von $n_0$
 			\begin{align*}
 				|p| = |p|\cdot |n'| =|p \cdot n'| = \abs[n_0] < 1.
 			\end{align*}
-			Folglich muss schon $p=n_0$ gelten. Ziel wird es jetzt nat"urlich sein zu zeigen, dass $\abs$ "aquivalent zum $p$-adischen Absolutbetrag ist.
-			Zun"achst finden wir ein $\alpha \in \R^+$ mit $|p| = |p|_p^{\alpha} = \frac{1}{p^{\alpha}}$ . Sei als n"achstes $n\in \Z$ mit $p \not | n$. Wir schreiben
+			Folglich muss schon $p=n_0$ gelten. Ziel wird es jetzt natürlich sein zu zeigen, dass $\abs$ äquivalent zum $p$-adischen Absolutbetrag ist.
+			Zunächst finden wir ein $\alpha \in \R^+$ mit $|p| = |p|_p^{\alpha} = \frac{1}{p^{\alpha}}$. 
+			Sei als nächstes $n\in \Z$ mit $p \centernot\mid n$. Wir schreiben
 			\begin{align*}
 				n= rp + s, r \in \Z, 0<s<p
 			\end{align*}
-			Nach unserer Wahl von $p=n_0$ gilt $|s|=1$ und $|rp|<1$. Es folgt $\abs[n]=\text{max}\{|rp|,|s|\}=1$. Sei nun $n\in \Z$ beliebig. Wir schreiben $n=p^{v}n'$ mit $p\not | n'$ und sehen
+			Nach unserer Wahl von $p=n_0$ gilt $|s|=1$ und $|rp|<1$. 
+			Es folgt 
+			\begin{align*}
+				\abs[n]=\text{max}\{|rp|,|s|\}=1.
+			\end{align*}
+			Sei nun $n\in \Z$ beliebig. 
+			Wir schreiben $n=p^{v}n'$ mit $p \centernot\mid n'$ und sehen
 			\begin{align*}
 				\abs[n] = |p|^{v}|n'| = |p|^v = (|p|_p^{\alpha})^{v}=\abs[n]_p^{\alpha}.
 			\end{align*}
-			Mit den gleichen "Uberlegungen aus dem ersten Fall folgt damit die Behauptung.
+			Mit den gleichen Überlegungen aus dem ersten Fall folgt damit die Behauptung.
 		\end{enumerate}
 	\end{proof}
 
-\subsection{Vervollst"andigungen von $\K$}
-	%offene Mengen in Q_p
-%konstruktion erwaehnen
-%eindeutigkeit
-%Z_p
+\subsection{Vervollständigungen von \texorpdfstring{$\K$}{Q}}
+	Eine M"oglichkeit die reellen Zahlen $\R$ zu definieren war über die \emph{Vervollständigung} der rationalen Zahlen $\K$ bezüglich des Absolutbetrags $\abs_\infty$.
+	Wir werden diese Konstruktion für unsere $p$-adischen Beträge $\abs_p$ benutzen und geben daher im folgenden Abschnitt eine kurze Wiederholung der wichtigsten Konzepte.
 	
+	Ein \emph{metrischer Raum} ist ein Paar $(X, d)$ bestehen aus einer nichtleeren Menge $X$ und einer Abbildung $d: X\times X\to\R$, die
+	\begin{itemize}
+		\item $d(x,y) = 0 \Leftrightarrow x = y$
+		\item $d(x,y) = d(y,x)$
+		\item $d(x,y) \leq d(x,z) + d(z,y)$
+	\end{itemize}
+	erfüllt.
+	Eine Folge $(x_n)$ in $X$ heißt \emph{konvergent} gegen $x \in X$, wenn die reelle Folge $(d(x_n,x))$ eine Nullfolge ist.
+	Eine \emph{Cauchy-Folge} in dem metrischen Raum $X$ ist eine Folge $(x_n)$ in $X$, so dass für alle $\epsilon >0$ ein $n_0\in \N$ gibt, so dass $d(x_n,x_m) < \epsilon$ für alle $n,m\geq n_0$ gilt. 
+	Im nicht-archimedischen Fall vereinfacht sich diese Definition etwas.
+	\begin{lemma}
+		Eine Folge $(x_n)$ rationaler Zahlen ist genau dann bezüglich eines nicht-archimedischen Absolutbetrags $\abs$ eine Cauchy-Folge, wenn
+		\begin{align*}
+			\lim_{n\to\infty}\abs[x_{n+1} - x_n] = 0
+		\end{align*}
+	\end{lemma}
+	\begin{proof}
+		Wenn $m  > n$, so haben wir
+		\begin{align*}
+			\abs[x_m - x_n] = \abs[\sum_{k=n}^{m-1} x_{k+1} - x_k] \leq \max\{\abs[x_m - x_{m-1}], \dots, \abs[x_{n+1} - x_{n}]\}
+		\end{align*}
+		und das Lemma folgt sofort aus den Definitionen.
+	\end{proof}
+	Man sieht leicht, dass jede konvergente Folge auch eine Cauchy-Folge ist. 
+	Die Umkehrung gilt allerdings im Allgemeinen nicht.
+	Ist jede Cauchy-Folge konvergent, so nennen wir den metrischen Raum $(X,d)$ \emph{vollständig}.
+	
+	Die Absolutbeträge $\abs_p$ induzieren durch $d_p(x,y)=\abs[x-y]_p$ eine Metrik auf $\K$. Es ist bereits bekannt, dass $(\K, d_\infty)$ nicht vollständig ist. Für $p<\infty$ haben wir folgendes
+	\begin{lemma}
+		Der metrische Raum $(\K, d_p)$ ist nicht vollständig. 
+	\end{lemma}
+	\begin{proof}
+		Wir geben einen kurzen Beweis für $p>3$ und verweisen auf Gouvea \cite{gouv} Lemma 3.2.3 für die verbleibenden zwei Fälle.
+		
+		Betrachten wir die Folge $(x_n) = (a^{p^n})$, wobei $1<a<p-1$ eine natürliche Zahl ist.
+		Es gilt
+		\begin{align*}
+			\abs[a^{p^{n+1}} - a^{p^n}]_p = \abs[a^{p^{n}} ( a^{p^n(p-1)} - 1)]_p.
+		\end{align*}
+		Nach dem kleinen Satz von Fermat wissen wir $a^{p^n(p-1)} - 1 \equiv 0 \pmod{p^n}$, also ist $p^n$ ein Teiler von $a^{p^n(p-1)} - 1$ und es folgt
+		\begin{align*}
+			\abs[x_{n+1} - x_n]_p = \abs[a^{p^{n}}]_p \cdot\abs[( a^{p^n(p-1)} - 1)]_p \leq p^{-n}\to 0.
+		\end{align*}
+		Damit ist $(x_n)$ eine Cauchy-Folge. Angenommen $(x_n)$ konvergiert gegen ein $x\in\K$. Dann haben wir
+		\begin{align*}
+			x = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} x_{n+1}^p = x^p
+		\end{align*}
+		und folglich $x=1$ oder $x=-1$.
+		Für $n$ genügend groß gilt
+		\begin{align*}
+			\abs[x-a]_p 
+			&= \abs[x-x_n + x_n -a]_p 
+			\leq \max\{\abs[x-x_n]_p, \abs[x_n-a]_p\} \\
+			&= \abs[x_n - a]_p 
+			= \underbrace{\abs[a]_p}_{\leq 1}\cdot\abs[ a^{p^n-1} - 1]_p 
+			\leq \abs[ a^{p^n-1} - 1]_p < 1,
+		\end{align*}
+		am Ende wieder nach dem kleinen Satz von Fermat. 
+		Also ist $p$ ein Teiler von $x-a$. Wegen $x=\pm 1$ und der Wahl von $a$ ist aber $0<x-a<p$. Ein Widerspruch.
+	\end{proof}
 
+	\begin{satz}
+		Für jedes $p\leq\infty$ auf $\K$ gibt es eine Vervollständigung $\Kp$ und ein Absolutbetrag $\abs_p$ mit folgenden Eigenschaften:
+		\begin{enumerate}
+			\item Es gibt eine Inklusion $\K \hookrightarrow \Kp$ und der durch $\abs_p$ auf $\K$ induzierte Betrag ist der $p$-adische bzw. reelle Absolutbetrag.
+			\item Das Bild von $\K$ bezüglich diser Inklusion ist dicht in $\Kp$.
+			\item $\Kp$ ist vollständig bezüglich des Absolutbetrags $\abs_p$.
+		\end{enumerate}
+		Der K"orper $\Kp$ mit diesen Eigenschaften ist eindeutig bis auf isometrische Isomorphie.
+	\end{satz}
 \subsection{Potenzreihen}
 %Zeige potenzreihen konvergieren in Q_p: done
 %Zeige jede zahl in Q_p darstellbar als Potenzreihe: done
-	Wie auch schon im Fall der Vervollst"andigung von $\Q$ bez"uglich $\abs_\infty$ ist diese Konstruktion etwas schwierig zu handhaben.
-	In $\R$ hatten wir die Dezimalbruchentwicklung  $x=\pm\sum_{k=-\infty}^{n}x_k 10^{k}$, $x_k\in\{0,\dots,9\}$ oder etwas allgemeiner die $b$-adische Darstellung $x =\pm \sum_{k=-\infty}^{n}x_k b^{k}$, $x_k\in\{0,\dots,b-1\}$ f"ur eine nat"urliche Zahl $b>1$, die zwar nicht unbedingt eindeutig ist ($0,999\dots = 1,000\dots$) aber leichter zu handhaben als Äquivalenzklassen von Cauchy-Folgen.
-	Zu unserer Freude werden wir feststellen, dass auch in $\Q_p$ eine "ahnliche Darstellung gibt. Diese ist im Gegensatz zu der in $\R$ eindeutig und besitzt nur endlich viele Nachkommastellen, allerdings nicht unbedingt endlich viele Vorkommastellen.
+	Wie auch schon im Fall der Vervollständigung von $\Q$ bezüglich $\abs_\infty$ ist diese Konstruktion etwas schwieriger zu handhaben.
+	In $\R$ hatten wir die Dezimalbruchentwicklung  $x=\pm\sum_{k=-\infty}^{n}x_k 10^{k}$, $x_k\in\{0,\dots,9\}$ oder etwas allgemeiner die $b$-adische Darstellung $x =\pm \sum_{k=-\infty}^{n}x_k b^{k}$, $x_k\in\{0,\dots,b-1\}$ für eine natürliche Zahl $b>1$, die zwar nicht unbedingt eindeutig ist ($0,999\dots = 1,000\dots$) aber leichter zu handhaben als Äquivalenzklassen von Cauchy-Folgen.
+	Zu unserer Freude werden wir feststellen, dass auch in $\Q_p$ eine ähnliche Darstellung gibt. Diese ist im Gegensatz zu der in $\R$ eindeutig und besitzt nur endlich viele Nachkommastellen, allerdings nicht unbedingt endlich viele Vorkommastellen.
 	\begin{satz}
-		Jede Element $x\in\Kp$ l"asst sich eindeutig als eine Potenzreihe 
+		Jede Element $x\in\Kp$ lässt sich eindeutig als eine Potenzreihe 
 		\begin{align*}
 			x= \sum_{k=N}^{\infty} x_k p^k
 		\end{align*}
@@ -158,37 +232,34 @@
 		Insbesondere gilt $\abs[x]_p = p^{-n}$.
 	\end{satz}
 	\begin{proof}
-		Wir zeigen zun"achst das die Folge der Partialsummen $S_n=\sum_{k=N}^{n} x_k p^k$ in $\Kp$ konvergiert.
-		Sei dazu $\epsilon>0$. Wir finden ein $n_0 \in \Z$ mit $p^{-n_0} < \epsilon$. Dann gilt f"ur alle $m\geq n\geq n_0$
+		Wir zeigen zunächst das die Folge der Partialsummen $S_n=\sum_{k=N}^{n} x_k p^k$ in $\Kp$ konvergiert.
 		\begin{align*}
-			\abs[S_m - S_n]_p 
-			= \abs[\sum_{k=n}^{m} x_k p^k]_p \leq \max_{n\leq k\leq m}\left(\abs[x_k p^k]_p\right) 
-			= \max_{n\leq k\leq m}\left(p^{-k}\right) 
-			= p^{-n} \leq p^{-n_0} <\epsilon
+			\abs[S_{n} - S_{n-1}]_p 
+			= \abs[x_{n}p^{n}]_p \leq p^{-n} \to 0
 		\end{align*}
-		und wir haben gezeigt, dass die Partialsummen eine Cauchy-Folge bilden.
-		Da $\Kp$ vollst"andig ist konvergiert diese gegen einen Wert f"ur den wir $\sum_{k=N}^{\infty} x_k p^k$ schreiben.
+		und damit haben wir schon gezeigt, dass die Partialsummen eine Cauchy-Folge bilden.
+		Da $\Kp$ vollständig ist konvergiert diese gegen einen Wert für den wir $\sum_{k=N}^{\infty} x_k p^k$ schreiben.
 		
-		Als n"achstes sei $x\in\Zp$.
+		Als nächstes sei $x\in\Zp$.
 		Wir konstruieren nun eine Folge $(x_k)$ mit $x_k\in\{0,\dots,p-1\}$, so dass die Partialsummen $S_n = \sum_{k=0}^{n} x_k p^k$ gegen $x$ konvergieren.
-		Da $\Q$ dicht in $\Kp$ liegt finden wir f"ur jedes $n\in\N_0$ einen vollst"andig gek"urzten Bruch $\frac{a}{b}\in\Q$ der 
+		Da $\Q$ dicht in $\Kp$ liegt finden wir für jedes $n\in\N_0$ einen vollständig gekürzten Bruch $\frac{a}{b}\in\Q$ der 
 		\begin{align*}
 			\abs[x-\frac{a}{b}]_p \leq p^{-n} < 1
 		\end{align*}
 		In der Tat finden wir sogar eine ganze Zahl. 
-		Denn f"ur $\frac{a}{b}$ wie oben haben wir
+		Denn für $\frac{a}{b}$ wie oben haben wir
 		\begin{align*}
 			\abs[\frac{a}{b}]_p \leq \max\left\{\abs[x]_p, \abs[x-\frac{a}{b}]_p\right\} \leq 1,
 		\end{align*}
 		was zeigt, dass $p$ kein Teiler von $b$ ist. 
-		Wir finden daher eine Bezout-Darstellung $1=b'b + p'p^{n}$, also $b'b \equiv 1 \pmod{p^n}$ f"ur  $b', p' \in \Z$.
+		Wir finden daher eine Bezout-Darstellung $1=b'b + p'p^{n}$, also $b'b \equiv 1 \pmod{p^n}$ für  $b', p' \in \Z$.
 		Es folgt
 		\begin{align*}
 			\abs[\frac{a}{b} - ab']_p 
 			= \abs[\frac{a(1-bb')}{b}]_p 
 			=\abs[\frac{a(p'p^n)}{b}]_p \leq p^{-n}
 		\end{align*}
-		und nat"urlich $ab' \in \Z$. Wir definieren nun $y_n\in\Z$ als die eindeutige Zahl, so dass
+		und natürlich $ab' \in \Z$. Wir definieren nun $y_n\in\Z$ als die eindeutige Zahl, so dass
 		\begin{align*}
 			0\leq y_n \leq p^n-1  \text{ und }  y_n \equiv ab' \pmod{p^n}.
 		\end{align*}
@@ -214,7 +285,7 @@
 		und folglich $p^{n-1}$ ein Teiler von $y_n - y_{n-1}$.
 		Die eindeutigen $p$-adischen Entwicklungen dieser $y_n$ sind genau die gesuchten Partialsummen $S_n$ und definieren die $x_k$ daher induktiv.
 		
-		F"ur jedes beliebige $x\in \Q_p$ finden wir ein $n\in\N_0$, so dass $p^{n}x \in \Zp$ und damit eine Entwicklung $p^{n}x = \sum_{k=0}^{\infty} x_kp^k$. Also haben wir 
+		Für jedes beliebige $x\in \Q_p$ finden wir ein $n\in\N_0$, so dass $p^{n}x \in \Zp$ und damit eine Entwicklung $p^{n}x = \sum_{k=0}^{\infty} x_kp^k$. Also haben wir 
 		\begin{align*}
 			x = \sum_{k=-n}^{\infty} x_{k+n}p^k
 		\end{align*}

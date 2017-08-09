@@ -1,20 +1,24 @@
 \BOOKMARK [1][-]{section.1}{Riemanns Beweis der Funktionalgleichung}{}% 1
-\BOOKMARK [1][-]{section.2}{Lokalkompakte Gruppen}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Charaktere}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Das Haar-Ma\337}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Exkurs: p-adische Zahlen}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Absolutbetr\344ge}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Vervollst\344ndigungen von Q}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.3}{Potenzreihen}{section.3}% 8
-\BOOKMARK [1][-]{section.4}{Lokale Betrachtungen}{}% 9
+\BOOKMARK [1][-]{section.2}{Exkurs: p-adische Zahlen}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Absolutbetr\344ge}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Vervollst\344ndigungen von Q}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Potenzreihen}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Lokalkompakte Gruppen}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Charaktere}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Das Haar-Ma\337}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Die lokale Theorie}{}% 9
 \BOOKMARK [2][-]{subsection.4.1}{Lokale K\366rper}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Lokale Fourieranalysis}{section.4}% 11
-\BOOKMARK [1][-]{section.5}{Der Adele- und Idelering}{}% 12
-\BOOKMARK [2][-]{subsection.5.1}{Eingeschr\344nktes Direktes Produkt}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.2}{Charaktere}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.3}{Integration auf dem eingeschr\344nkten Produkt}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.4}{Der Adelering}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.5}{Der Idelering}{section.5}% 17
-\BOOKMARK [1][-]{section.6}{Tates Beweis der Funktionalgleichung}{}% 18
-\BOOKMARK [2][-]{subsection.6.1}{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{section.6}% 19
-\BOOKMARK [2][-]{subsection.6.2}{Die globalen Funktionalgleichungen}{section.6}% 20
+\BOOKMARK [2][-]{subsection.4.2}{Etwas Fourieranalysis}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Die lokale Funktionsgleichung}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Die Berechnungen}{section.4}% 13
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Der Fall p gleich unendlich}{subsection.4.4}% 14
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Die F\344lle p kleiner unendlich}{subsection.4.4}% 15
+\BOOKMARK [1][-]{section.5}{Der Adele- und Idelering}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Eingeschr\344nktes Direktes Produkt}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Charaktere}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Integration auf dem eingeschr\344nkten Produkt}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{Der Adelering}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.5}{Der Idelering}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{Tates Beweis der Funktionalgleichung}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.2}{Die globale Funktionalgleichung}{section.6}% 24

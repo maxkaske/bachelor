@@ -148,13 +148,12 @@
 					\end{align*}	
 			\end{enumerate}
 		\end{proposition}
-		
 		\begin{proof}
-			(i) Aus der Integrationstheorie (z.B. Folland \ref{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass %vllt auch nicht TODO
+			(i) Aus der Integrationstheorie (z.B. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass %vllt auch nicht TODO
 			\begin{align*}
 				\int_{G} f(g) = \lim_{K} \int_{K} f(g)dg,
 			\end{align*}
-			wobei der Limes über immer größer und größere kompakte Mengen  $K$ geht. Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.\\
+			wobei der Limes über immer größer und größere kompakte Mengen $K$ geht. Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
 			
 			\noindent(ii) Aus der Bedingung $f_i |_{H_i} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_i)$ für alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Eine Umgebung von $g$ ist gegeben durch ein offenes beschränktes Rechteck. Diese liegen in einem der $G_S$ (versehen mit der Produkttopologie) und wir können ohne Einschränkung $S$ um alle Indizes $i$ mit $f_i|_{H_i}\not= 1$ vergrößern.
 			Lokal betrachtet ist $f$ also ein endliches Produkt stetiger Funktionen auffassen und daher $f$ selber stetig.\\
@@ -186,7 +185,7 @@
 			
 			Für (b) zeigen wir, dass das Bild der Menge $K:= \prod_{p<\infty} \times [0,1]$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
 			Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
-			Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p | x_p \notin \Z_p\}$.
+			Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p : x_p \notin \Z_p\}$.
 			Wählen wir ein $p\in S$, $p<\infty$ und schreiben
 			\begin{align*}
 				x_p = \sum_{k=-N}^\infty a_k p^k.
@@ -201,8 +200,8 @@
 			\end{align*}
 			also ist $r \in \Z_q$. 
 			Ersetzen wir nun $x$ durch $x-r$, so reduziert sich die Stellenmenge $S$ zu $S\setminus\{p\}$.
-			Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem ursprünglichen Adel unterscheidet und selbst in $\prod_{p < \infty} \Z_p \times \R$ liegt.
-			Nun können wir aber noch $x$ modulo $\Z$ nach $\prod_{p < \infty} \Z_p \times [0,1]$.	
+			Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem ursprünglichen Adel unterscheidet und selbst in $\R \times \prod_{p < \infty} \Z_p$ liegt.
+			Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$.	
 		\end{proof}
 \subsection{Der Idelering}
 		\begin{satz}
@@ -210,7 +209,7 @@
 				\item $\K^\times$ liegt diskret in $\I$.
 				\item $F:=\prod_{p<\infty}\Z_p^\times \times \{1\}$ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
 				\item $\I^1/\K^\times$ ist kompakt.
-				\item Der adelische Betrag induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
+				\item Der adelische Betrag $\abs_\A$ induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
 			\end{enumerate}
 		\end{satz}
 	

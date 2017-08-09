@@ -1,21 +1,25 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Riemanns Beweis der Funktionalgleichung}{1}{section.1}
-\contentsline {section}{\numberline {2}Lokalkompakte Gruppen}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Charaktere}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Das Haar-Ma\IeC {\ss }}{4}{subsection.2.2}
-\contentsline {section}{\numberline {3}Exkurs: p-adische Zahlen}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Absolutbetr"age}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Vervollst"andigungen von $\mathbb {Q}$}{9}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Potenzreihen}{9}{subsection.3.3}
-\contentsline {section}{\numberline {4}Lokale Betrachtungen}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}Lokale K"orper}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Lokale Fourieranalysis}{13}{subsection.4.2}
-\contentsline {section}{\numberline {5}Der Adele- und Idelering}{15}{section.5}
-\contentsline {subsection}{\numberline {5.1}Eingeschr\IeC {\"a}nktes Direktes Produkt}{15}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Charaktere}{16}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Integration auf dem eingeschr\IeC {\"a}nkten Produkt}{17}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Der Adelering}{19}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Der Idelering}{19}{subsection.5.5}
-\contentsline {section}{\numberline {6}Tates Beweis der Funktionalgleichung}{20}{section.6}
-\contentsline {subsection}{\numberline {6.1}Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{20}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Die globalen Funktionalgleichungen}{22}{subsection.6.2}
+\contentsline {section}{\numberline {2}Exkurs: p-adische Zahlen}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Absolutbetr\IeC {\"a}ge}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Vervollst\IeC {\"a}ndigungen von $\mathbb {Q}$}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Potenzreihen}{7}{subsection.2.3}
+\contentsline {section}{\numberline {3}Lokalkompakte Gruppen}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Charaktere}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Das Haar-Ma\IeC {\ss }}{10}{subsection.3.2}
+\contentsline {section}{\numberline {4}Die lokale Theorie}{13}{section.4}
+\contentsline {subsection}{\numberline {4.1}Lokale K"orper}{13}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Etwas Fourieranalysis}{15}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Die lokale Funktionsgleichung}{16}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Die Berechnungen}{19}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Der Fall $p = \infty $}{19}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Die F"alle $p < \infty $}{20}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}Der Adele- und Idelering}{23}{section.5}
+\contentsline {subsection}{\numberline {5.1}Eingeschr\IeC {\"a}nktes Direktes Produkt}{23}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Charaktere}{24}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Integration auf dem eingeschr\IeC {\"a}nkten Produkt}{25}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Der Adelering}{27}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Der Idelering}{27}{subsection.5.5}
+\contentsline {section}{\numberline {6}Tates Beweis der Funktionalgleichung}{28}{section.6}
+\contentsline {subsection}{\numberline {6.1}Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{28}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Die globale Funktionalgleichung}{30}{subsection.6.2}
