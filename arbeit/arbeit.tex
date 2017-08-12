@@ -4,6 +4,7 @@
 \usepackage[ngerman]{babel}% deutsche Trennregeln
 \usepackage[T1]{fontenc}% wichtig für Trennung von Wörtern mit Umlauten
 \usepackage{lmodern}
+\usepackage{bibgerm}
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
@@ -23,6 +24,10 @@
 \usepackage{mathtools}
 \usepackage{bbm}
 \usepackage{centernot}
+
+%footnotes
+\usepackage{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 
 %Links
@@ -55,12 +60,14 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\I}{\mathbb{I}}
-\newcommand{\K}{\Q}
+
 \newcommand{\Kpx}{\K_p^\times}
 \newcommand{\Sw}{S}
 \newcommand{\Aq}{\A_\Q}
 \newcommand{\Ak}{\A_\K}
 \newcommand{\Iq}{\I_\Q}
+\newcommand{\K}{\Q}
+\newcommand{\Kx}{\K^\times}
 \newcommand{\Kinf}{\K_\infty}
 \newcommand{\Kinfx}{\K_\infty^\times}
 \newcommand{\Kp}{{\K_p}}
@@ -80,6 +87,7 @@
 \newcommand{\dxx}[1][x]{d^\times {#1}}
 \newcommand{\dx}[1][x]{d{#1}}
 \newcommand{\Vol}{\text{Vol}}
+
 
 \newcommand{\rdprod}[1]{\prod\limits_{#1}'}{%{\widehat{\prod\limits_{#1}}}
 
@@ -146,8 +154,11 @@
 \input{tateproof}
 \clearpage
 
+\input{anhang}
+\clearpage
+
 \bibliography{arbeit}
-\bibliographystyle{plain}
+\bibliographystyle{gerplain}
 
 \clearpage
 

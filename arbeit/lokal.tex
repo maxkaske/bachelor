@@ -16,7 +16,8 @@
 	\begin{proof}
 	%%% hier normierung des haar masses auf Qp
 	
-		Zu (i): Wir weisen zun?chst die Stetigkeit der Addition und der Negierung nach. 
+		Zu (i): Die Stetigkeit der Addition und der Negierung sind eigentlich direkte Folgen der Konstruktion der Vervollst"andigung.
+		Als kleine Auffrischung zeigen wir sie trotzdem.
 		Seien $x_n \to x$ und $y_n \to y$ konvergente Folgen in $\Kp$. 
 		Es ist zu zeigen, dass $x_n+y_n$ gegen $x+y$ konvergiert. 
 		Nach der Dreiecksungleichung gilt
@@ -38,8 +39,8 @@
 		F"ur $p=\infty$ ist $\Z_\infty = [-1,1]$ also kompakt.
 		F"ur $p<\infty$ gen"ugt es zu zeigen, dass $\Zp$ vollst"andig und totalbeschr"ankt ist. 
 		Ersteres folgt daraus, dass $\Zp$ als abgeschlossene Menge des vollst"andigen Raumes $\Kp$ selber vollst"andig ist.
-		Eine Menge hei?t totalbeschr"ankt, wenn wir sie f"ur jedes $\epsilon > 0$ mit endlich vielen $\epsilon$-B"allen "uberdecken k"onnen.
-		Wir k"onnen uns auf $\epsilon$ der Form $p^{-k}$, $k\geq 0$ beschr"anken, da unsere Metrik nur den diskreten Wertebereich $p^\Z$ hat.
+		Eine Menge heißt totalbeschr"ankt, wenn wir sie f"ur jedes $\varepsilon > 0$ mit endlich vielen $\varepsilon$-B"allen "uberdecken k"onnen.
+		Wir k"onnen uns auf $\varepsilon$ der Form $p^{-k}$, $k\geq 0$ beschr"anken, da unsere Metrik nur den diskreten Wertebereich $p^\Z$ hat.
 		Es ist $p^{k+1}\Zp$ eine Untergruppe von $\Zp$ und f"ur den Index gilt $[\Zp : p^{k+1}\Zp] = p^{k+1}$. Das bedeutet, dass die $p^{-k}$-B"alle
 		\begin{align*}
 			a + p^{k+1}\Zp = \{y\in \Zp : \abs[y-a]_p \leq p^{-k-1}\} = \{y\in \Zp : \abs[y-a]_p < p^{-k}\} = B_{p^{-k}}(a)
@@ -75,7 +76,7 @@
 		\end{align*}
 	\end{satz}
 	\begin{proof}
-		Sei $x\in \K_p^\times$. Das Funktion $\mu_x$ definiert durch
+		Sei $x\in \K_p^\times$. Die Funktion $\mu_x$ definiert durch
 		\begin{align*}
 			\mu_x (A) = \mu(xA)
 		\end{align*}
@@ -104,7 +105,7 @@
 		\end{align*}
 	\end{satz}
 	\begin{proof}
-		Wir haben bereits gezeigt, dass $\K_p^\times$ eine lokalkompakte Gruppe ist und folglich ein Haar-Ma? besitzt.
+		Wir haben bereits gezeigt, dass $\K_p^\times$ eine lokalkompakte Gruppe ist und folglich ein Haar-Maß besitzt.
 		Wenn wir nun ein positives, lineares Funktional auf $C_c(\K_p^\times)$ angeben, erhalten wir nach Rieszschen Darstellungssatz ein Radonmaß, welches diesem Funktional entspricht. 
 		Ist nun $g \in C_c(\K_p^\times)$, so ist $g\abs_p^{-1} \in C_c(\Kp\setminus\{0\})$. 
 		Dies ist in der Tat eine eins-zu-eins Zuweisung.
@@ -121,10 +122,9 @@
 		Beim "Ubergang zum Grenzwert erhalten wir die Gleichung auf Funktionen in $L^1$.
 	\end{proof}
 \subsection{Etwas Fourieranalysis}
-%Pontryagin-Duale Gruppe kommt in topo groupe
-%hier den additiven charakter besprechen und kurz bedeutung erklaeren
+%hier den additiven charakter besprechen und kurz bedeutung erklaeren: done
 %selbstdual:ist eigentlich fourierumkehrformel.
-%fouriertransformation: done
+%fouriertransformation: done TODO: def
 %schwartz-bruhat und deren form: done
 %fourierumkehrformel: done
 		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
@@ -160,6 +160,90 @@
 			Diese haben aber genau die gesuchte Form $a+p^k\Zp$ wie oben. 
 			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle. Damit folgt auch schon das Lemma.
 		\end{proof}
+		
+		Bevor wir mit etwas klassischer Fourieranalysis beginnen wollen wir den Kreis zur abstrakten Variante schließen.
+		Daf"ur definieren wir z"unachst f"ur jede Stelle $p$ einen nicht-trivialen, unit"aren Charakter $e_p$ auf der additiven Gruppe $\K_p^+$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
+		\begin{defi}
+			Wir definieren den \emph{Standardcharakter} $e_p:\K_p^+ \to S^1$ wie folgt:
+			\begin{itemize}
+				\item [$p=\infty$:] $e_p(x) = \exp(-2\pi i x)$
+				\item [$p<\infty$:] Hier wird die Definition etwas aufwendiger. Zun"achst haben wir eine nat"urliche Projektion $\Kp \twoheadrightarrow \Kp/\Zp$.
+				Die "Aquivalenzklassen von $\Kp/\Zp$ werden nach unseren "Uberlegungen zur Potenzreihendarstellung eindeutig repräsentiert durch Zahlen der Form $\sum_{k=-n}^{-1} a_kp^k$ mit $a_k \in \Z$ und $0\leq a_k\leq p-1$.
+				Wir definieren den stetigen Homomorphismus $\Kp/\Zp \to \K/\Z$ indem wir diese Repräsentanten als summen in $\K$ interpretieren. 
+				Zu guter Letzt schicken wir diese Summe in $\K/\Z$ durch $e: \$\K/\Z \to S^1, x \mapsto \exp(2\pi i x)$ in den Einheitskreis. 
+				Alle diese Abbildungen sind stetige Gruppenhomomorphismen, bilden also selber wieder einen stetigen Gruppenhomomorphismus, den wir mit $e_p$ bezeichnen.
+				Interpretieren wir die Potenzreihenentwicklung der $p$-adischen Zahlen als nicht unbedingt konvergente Summe in $\Q$, so k"onnen wir (etwas unsch"on) schreiben
+				\begin{align*}
+					e_p\left(\sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{-1} a_kp^k\right)
+				\end{align*}
+			\end{itemize}
+		\end{defi}
+		Sei $\psi$ ein unitärer Charakter auf $\K_p^+$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
+		Aufgrund der Stetigkeit von $\psi$ gibt es dann eine offene Umgebung $V$ der $0\in\K_p^+$ mit $\psi(V)\subseteq U$. 
+		Ohne Einschr"ankung ist $V$ eine Untergruppe der Form $p^k\Zp$ f"ur ein $k\in\Z$. 
+		Dann ist aber $\psi(V)$ eine Untergruppe von $S^1$ und somit gleich $1$.
+		Die kleinste Untegruppe $p^k\Zp$ nennen wir den \emph{Konduktor} von $\psi$.
+	
+		
+		\begin{lemma}
+			Jeder unit"are Charakter $\psi: \Kp \to S^1$ ist von der Form $x \mapsto e_p(ax)$ f"ur ein $a \in \Kp$.
+		\end{lemma}
+		\begin{proof}
+			Der Beweis teilt sich auf in die F"alle $p=\infty$ und $p<\infty$.
+			Zuerst zu $p=\infty$: Sei $\psi: \K_\infty \to S^1$ ein Charakter.
+			Wegen der Stetigkeit von $\psi$ existiert ein $\varepsilon > 0$, so dass $\psi((-\varepsilon, \varepsilon)) \subset \{z\in S^1: \Re(z)>0\}$.
+			W"ahlen wir $\varepsilon$ noch etwas kleiner k"onnen wir sogar $\psi([-\varepsilon, \varepsilon)]) \subset \{z\in S^1: \Re(z)>0\}$ garantieren.
+			Wir definieren nun $a$ als das eindeutig bestimmte Element aus $[-\frac{1}{4\varepsilon},\frac{1}{4\varepsilon}]$
+			\footnote{Also der Logarithmuszweig, dass $-\pi/2<\varepsilon a<\pi/2$}, so dass $\psi (\varepsilon) = \exp(2\pi i a \varepsilon)$.
+			Als n"achstes behaupten wir, dass auch
+			\begin{align*}
+				\psi \left(\frac{\varepsilon}{2}\right) =  \exp\left(2\pi i  a \frac{\varepsilon}{2}\right)
+			\end{align*}
+			gilt.
+			Wegen $\psi (\frac{\varepsilon}{2})^2 = \psi (\varepsilon) = \exp(2\pi i a \varepsilon)$ ist $\psi (\frac{\varepsilon}{2}) = \pm \exp(2\pi i  a \frac{\varepsilon}{2})$.
+			Da aber $\psi (\frac{\varepsilon}{2})$ nach der Wahl von $\varepsilon$ positiven Realteil hat, kommt nur $ \exp(2\pi i  a \frac{\varepsilon}{2})$ in Frage.
+			Durch Iteration des Arguments erhalten wir $\psi (\frac{\varepsilon}{2^n}) = \exp(2\pi i  a \frac{\varepsilon}{2^n})$ f"ur $n\in \N_0$.
+			
+			Setzen wir jetzt $\varepsilon = 2^{-n_0}$ f"ur ein geeignetes  $n_0\in\N$.
+			Dann ist $\varepsilon^{-1}$ eine nat"urliche Zahl und f"ur beliebige $k\in\Z$ haben wir
+			\begin{align*}
+				\psi \left(\frac{k} {2^{n}}\right) &= \psi \left(\frac{k\varepsilon} {2^{n}\varepsilon}\right) 
+										= \psi \left(\frac{\varepsilon} {2^{n}}\right) ^{\frac{k}{\varepsilon}} 
+										\\&= \exp\left(2\pi i  a \frac{\varepsilon}{2^n}\right) ^{\frac{k}{\varepsilon}}
+										= \exp\left(2\pi i  a \frac{k}{2^n}\right)
+			\end{align*}
+			Die Menge aller $\frac{k}{2^n}$ mit $k\in \Z$ und $n\in \N_0$ liegt nun aber dicht in $\R$ und wir k"onnen aus der Stetigkeit $\chi(x) = \exp(2\pi i a x)$ schließen.
+			Um die Eindeutigkeit von $a$ zu sehen, reicht es die Ableitung  von $x \mapsto \exp(2\pi i a x)$ zu berechnen und an der Stelle $x=0$ auszuwerten.
+			Der Wert betr"agt gerade $2\pi i a$.
+			
+			Kommen wir nun zum Fall $p<\infty$. 
+			Sei $\psi$ ein unit"arer Charakter auf $\K_p^+$ und sei $p^k\Zp$ dessen Konduktor.
+			F"ur $k\leq0$ gilt offensichtlich $\psi(\Zp)=1$.
+			Ohne Beschr"ankung der Allgemeinheit betrachten wir nur solche Charaktere, denn im Fall $k>0$ k"onnen wir auch den Charakter $x\mapsto \psi(p^kx)$ betrachten und die Aussage folgt aus $\psi(p^kx) = \psi(x)^{(p^k)}$.
+			
+			Wir suchen nun ein geeignetes $a\in\Kp$. 
+			Dabei f"allt uns zun"achst auf, dass der Charakter bereits eindeutig durch seine Werte fur $p^{-k}$, $k \in \N$ bestimmt wird.
+			Da $\psi(\Zp)=1$ gilt n"amlich
+			\begin{align*}
+				\psi \left( \sum_{k=-n}^\infty x_k p^k \right) = \sum_{k=-n}^{-1} \psi \left(p^k \right)^{x_k}.
+			\end{align*}
+			Es reicht also ein geeignetes $a$ f"ur diese Potenzen zu finden.
+			Schauen wir uns $\psi{p^{-1}}$ genauer an, so erkennen wir, dass dies eine $p$-te Einheitswurzel sein muss.
+			Damit ist $\psi(p^{-1}) = \exp(2\pi i \frac{a_1}{p})$ f"ur ein eindeutig bestimmtes nat"urliches $0\leq a_1 \leq p - 1$.
+			Analog argumentieren wir auch $\psi(p^{-k}) = \exp(2\pi i \frac{a_k}{p^k})$ mit $0\leq a_k \leq p^k - 1$.
+			Zudem gilt 
+			\begin{align*}
+				\exp\left(2\pi i \frac{a_{k+1}}{p^{k}}\right) = \exp\left(2\pi i \frac{a_{k+1}}{p^{k+1}}\right)^{p}= \psi(p^{-k-1})^p = \psi(p^{-k}) = \exp\left(2\pi i \frac{a_k}{p^k}\right).
+			\end{align*}
+			F"ur unsere Folge heißt das aber gerade $a_k \equiv a_{k+1} \pmod{p^k}$.
+			Nach unseren "Uberlegunen zu den Potenzreihen definiert eine solche Folge aber gerade eine eindeutig bestimmte $p$-adische Zahl $a$ mit $a \equiv a_k \pmod{p^k}$ und es gilt
+			\begin{align*}
+				e_p\left( \frac{a}{p^{k}} \right) = \exp\left( 2\pi i \frac{a_k}{p^k} \right) = \psi \left( \frac{1}{p^k} \right)
+			\end{align*}
+			Damit sind wir dann aber auch schon fertig.
+		\end{proof}
+		
+		
 		\begin{lemma}
 			Sei $f \in \Sw(\Kp)$.
 			\begin{enumerate}[label=\emph{(\alph*)}]
@@ -505,21 +589,21 @@
 	\end{align*}
 	Ein Integral der Form $g(\omega, \lambda) = \int_{\Zpx} \omega(x)\lambda(x) \dxx$ mit multiplikativen Charakter $\omega: \Zpx \to S^1$ und additiven Charakter $\lambda: \Zp \to S^1$ wird \emph{Gauß-Summe} genannt.
 	Mit $e_{p,k} (x) = e_p(p^kx)$ haben wir dann
-	\begin{align*}
+	\begin{align}\label{eq:ZetaSumme}
 		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}).
-	\end{align*}
+	\end{align}
 	F"ur die weitere Berechnung definieren wir $U_k:= 1+p^k\Zp$ und beweisen ein kleines Lemma "uber Gauß-Summen.
-	\begin{lemma}
+	\begin{lemma}\label{lemma:gausssumme}
 		Seien $\gamma$ und $\lambda$ wie oben. 
 		Seien $n$ und $r$ die kleinsten Zahlen mit $\gamma(1+p^n\Zp) = 1$ und $\lambda(p^r\Zp)=1$, d.h. $p^n$ und $p^r$ sind die Konduktoren von $\gamma$ bzw. $\lambda$.
 		Es gelten folgende Aussagen:  
 		\begin{enumerate}[label=(\roman*)]
-			\item Wenn $n>r$, dann $g(\omega,\lambda) = 0$.
-			\item Wenn $n=r$, dann $\abs[g(\omega,\lambda]^2 = c\Vol(\Zp,\dx)\Vol(U_n, \dxx)$.
-			\item Wenn $n<r$, dann $\abs[g(\omega,\lambda]^2 = c\Vol(\Zp,\dx)\left[\Vol(U_n, \dxx) - p^{1}\Vol(U_{r-1}, \dxx)\right]$.
+			\item Wenn $n>r$, dann $g(\omega,\lambda) = 0$. \label{lemma:gausssummei}
+			\item Wenn $n=r$, dann $\abs[g(\omega,\lambda]^2 = c^2p^{-n}$.
+			\item Wenn $n<r$, dann $\abs[g(\omega,\lambda]^2 = c^2\left[p^{-n} - p^{-r}\right]$.
 		\end{enumerate}
 	\end{lemma}
-	Wir werden Aussage (iii) hier nicht brauchen und verweisen daher f"ur den Beweis auf Ramakrishnan \cite{rama} Lemma 7-4.
+	%Wir werden Aussage (iii) hier nicht brauchen und verweisen daher f"ur den Beweis auf Ramakrishnan \cite{rama} Lemma 7-4.
 	\begin{proof}
 		F"ur (i) zerlegen wir $\Zpx$ in die Nebenklassen, die von $U_r=1+p^r\Zp$ erzeugt werden.
 		Ein generisches Element aus $aU_r$ hat die Form $a(1+p^rb)$, wobei $a$ ein Repräsentant der Nebenklasse und $b$ aus $\Zp$ ist. 
@@ -530,15 +614,64 @@
 		\end{align*}
 		Da aber $n>r$ wirkt $\omega$ nicht trivial auf $U_r$ und somit verschwindet das Integral.
 		
-		Weiter zur Aussage (ii): Sei also $n=r$. Wir rechnen
+		Weiter zur Aussage (ii) und (iii): Sei also $n\leq r$. Wir rechnen
 		\begin{align*}
 			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)\lambda(x)\dxx \cdot \conj{\int_{\Zpx} \omega(x)\lambda(x)\dxx}\\
-										&= \int_{\Zpx}\int_{\Zpx} \omega(xy^{-1})\lambda(x-y) \dxx\dxx[y]\\
-										&= \int_{\Zpx}\int_{\Zpx} \omega(x)h(x)\dxx
+										&= \int_{\Zpx} \int_{\Zpx} \omega(xy^{-1})\lambda(x-y) \dxx\dxx[y]\\
+										&= \int_{\Zpx} \omega(x)h(x)\dxx
 		\end{align*}
 		wobei wir im letzten Schritt zum einen die Translation $x \mapsto xy$ und zum anderen die Funktion
 		\begin{align*}
 			h(x) = \int_{\Zpx} \lambda(xy-y)) \dxx[y] = c \int_{\Zpx} \lambda(y(x-1)) \frac{\dx[y]}{\abs[y]_p} = c \int_{\Zpx} \lambda(y(x-1))\dx[y]
 		\end{align*}
-		eingef"uhrt haben.
+		eingef"uhrt haben. Wegen $\Zpx = \Zp - p\Zp$ k"onnen wir das Integral weiter aufspalten.
+		\begin{align*}
+			h(x) =  c \int_{\Zp - p\Zp} \lambda(y(x-1))\dx[y] = c \int_{\Zp} \lambda(y(x-1))\dx[y] - c \int_{p\Zp} \lambda(y(x-1))\dx[y].
+		\end{align*}
+		Nun haben wir wieder den Fall von Lemma \ref{Lemma:trivialerCharAufKompakt}. 
+		$y\mapsto \lambda(y(x-1))$ ist trivial auf $\Zp$ genau dann wenn $x-1 \in p^r\Zp$, d.h. wenn $x \in U_r$.
+		"Ahnlich verh"alt es sich mit $y\mapsto \lambda(y(x-1))$ auf $p\Zp$, wobei dieser genau dann trivial ist, wenn $x\in U_{r-1}$.
+		Es gilt also
+		\begin{align*}
+			h(x) 	=&  c \Vol(\Zp,\dx)\ind_{U_r} - c \Vol(p\Zp, \dx) \ind_{U_{r-1}} \\
+					=& c \Vol(\Zp,\dx)\ind_{U_r} - c p^{-1} \Vol(\Zp, \dx) \ind_{U_{r-1}}
+		\end{align*}
+		Einf"ugen in $\abs[g(\omega,\lambda)]^2$ ergibt dann
+		\begin{align*}
+			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)h(x)\dxx \\
+										&= c\Vol(\Zp,\dx) \int_{U_r} \omega(x)\dxx - c p^{-1}\Vol(\Zp, \dx) \int_{U_{r-1}} \omega(x)\dxx.
+		\end{align*}
+		Im Fall (ii) haben wir $n=r$. Damit ist der erste Integrand trivial, der zweite jedoch nicht.
+		Folglich verschwindet das zweite Integral.
+		Wir haben
+		\begin{align*}
+			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx)\Vol(U_n,\dxx)
+		\end{align*}
+		und sind somit fertig.
+		Im Fall (iii) ist $n<r$. Beide Integranden sind trivial und es folgt mit
+		\begin{align*}
+			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx)\Vol(U_r,\dxx) - cp^{-1}\Vol(\Zp, \dx)\Vol(U_{r-1}, \dxx)
+		\end{align*}
+		die Behauptung. Damit ist das Lemma bewiesen.
 	\end{proof}
+	Zur"uck zur Berechnung der Zeta-Funktion.
+	Der multiplikative Charakter $\mu$ hat den Konduktor $p^n$, w"ahrend die additiven Charaktere $e_{p,k}(x) = e_p(p^kx)$ offensichtlich den Konduktor $p^{-k}$ haben.
+	Nach Lemma \ref{lemma:gausssummei} (i) verschwinden in \ref{eq:ZetaSumme} fast alle Summanden und wir erhalten
+	\begin{align*}
+		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}) = p^{ns} g(\mu,e_{p,-n})
+	\end{align*}
+	Die verbleibende Gauß-Summe konvergiert dann nach Aussage (ii) des Lemmas.
+	
+	F"ur die Berechnung der zweiten Zeta-Funktion bemerken wir zun"achst, dass $\mu^{-1}= 1/\mu = \conj{\mu}/(\mu \conj{\mu}) = \conj{\mu}$ den gleichen Konduktor wie $\mu$ hat.
+	\begin{align*}
+		Z(\hat{f}_n, \check{\chi}) 	&= Z(\hat{f}_n, \conj{\mu}\abs_p^{1-s})
+									= p^n \int_{1+p^n\Zp}  \conj{\mu}(\tilde{x}) \abs[x]_p^{1-s} \dxx
+									\\&= p^n \int_{1+p^n\Zp} \dxx
+									= p^n c \int_{p^n\Zp} \dx
+									= c.
+	\end{align*}
+	Zu guter Letzt der erhalten wir den holomorphen Faktor
+	\begin{align*}
+		\gamma(\mu\abs_p^s, e_p, \dx) = \frac{c}{p^{ns} g(\mu,e_{p,-n})} = \frac{cp^{-ns} \conj{g(\mu,e_{p,-n})}}{c^2p^{-n}} = c^{-1} p^{n(1-s)} \conj{g(\mu,e_{p,-n})}
+	\end{align*}
+	%%%TODO: volumen berechnunen fuer U_n einmal explizit am anfang.

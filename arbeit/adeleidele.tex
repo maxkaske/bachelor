@@ -1,7 +1,9 @@
 \section{Der Adele- und Idelering}
 	
 \subsection{Eingeschränktes Direktes Produkt}\label{kapitel:RDP}
-		In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln. Die erste Idee wäre natürlich das direkte Produkt, allerdings zeigt folgendes Lemma, dass dieser Versuch fehlschlagen wird.
+		In der vorherigen Sektion haben wir uns die Lokalisierungen $\Kp$ im einzelnen angeschaut. 
+		Jetzt wollen wir einen Schritt weiter gehen und alle $\Kp$ auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln. 
+		Die erste Idee wäre natürlich das direkte Produkt, allerdings zeigt folgendes Lemma, dass dieser Versuch fehlschlagen wird.
 		\begin{lemma}\label{Lemma:lokalkompaktProd}
 			Sei $I$ eine Indexmenge und $X_i$ ein lokalkompakter Hausdorff-Raum für alle $i \in I$. Der Raum $X:=\prod_{i \in I} X_i$ ist genau dann lokalkompakt, wenn fast alle $X_i$ kompakt sind.
 		\end{lemma}
@@ -16,7 +18,8 @@
 			Folglich sind fast alle $X_i$ kompakt. 
 			Die Rückrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter Räume wieder lokalkompakt sind.
 		\end{proof}
-		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. Wir sehen jetzt aber, was zu tun ist, damit doch noch eine runde Sache daraus wird und geben folgende
+		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. 
+		Wir sehen jetzt aber, was zu tun ist, damit doch noch eine runde Sache daraus wird und geben folgende
 		\begin{defi}[Eingeschränkte direkte Produkt]
 			Sei $I=\{v\}$ eine Indexmenge und für jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
 			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
@@ -24,7 +27,8 @@
 			\begin{align*}
 				G = \rdprod{v \in I} G_v := \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ für alle bis auf endlich viele } v \}.
 			\end{align*}
-			mit komponentenweiser Verknüpfung. Die Topologie auf $G$ ist gegeben durch die \emph{eingeschränkte Produktopologie}. Diese wird erzeugt durch die Basis der \emph{eingeschränkten offenen Rechtecke}
+			mit komponentenweiser Verknüpfung. Die Topologie auf $G$ ist gegeben durch die \emph{eingeschränkte Produktopologie}. 
+			Diese wird erzeugt durch die Basis der \emph{eingeschränkten offenen Rechtecke}
 			\begin{align*}
 				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} H_i,
 			\end{align*}
@@ -36,7 +40,10 @@
 		\begin{align*}
 			G_S := \prod_{i \in S}G_i \times \prod_{i \in I\setminus S} H_i
 		\end{align*}
-		von $G$. Diese ist offensichtlich offen. Nach Lemma \ref{lemma:direktesProduktTopologischerGruppen} und Lemma \ref{Lemma:lokalkompaktProd} ist $G_S$ selbst wieder eine lokalkompakte Gruppe bezüglich der Produkttopologie. Man sieht aber leicht, dass diese mit der durch $G$ induzierten Teilraumtopologie übereinstimmt. Da jeder Punkt $x \in G$ in einer Untergruppe dieser Form liegt folgt sofort, dass $G$ wieder eine lokalkompakte Gruppe ist.
+		von $G$. Diese ist offensichtlich offen. 
+		Nach Lemma \ref{lemma:direktesProduktTopologischerGruppen} und Lemma \ref{Lemma:lokalkompaktProd} ist $G_S$ selbst wieder eine lokalkompakte Gruppe bezüglich der Produkttopologie.
+		Man sieht aber leicht, dass diese mit der durch $G$ induzierten Teilraumtopologie übereinstimmt.
+		Da jeder Punkt $x \in G$ in einer Untergruppe dieser Form liegt folgt sofort, dass $G$ wieder eine lokalkompakte Gruppe ist.
 		
 		Abschließend möchten wir noch einen kleinen Satz festhalten.
 		\begin{satz}%Kompakte Mengen in G_S
@@ -168,7 +175,7 @@
 %$G$ als topologische Gruppe zu realisieren, geben wir eine Umgebungsbasis der Identität an. Diese soll aus den Mengen der Form $\prod_{v \in J}{N_v}$ bestehen, wobei $N_v$ eine Umgebung der Identität $e$ von $G_v$ ist und zusätszlich $N_v = H_v$ für fast alle $v\in J$ gelten soll. Die dadurch induzierte Topologie auf $G$ unterscheidet sich im Allgemeinen von der Produkttopologie und wird als \emph{eingeschränkte Produkttopologie} bezeichnet.	
 
 \subsection{Der Adelering}
-		\begin{satz}
+		\begin{satz}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K$ liegt diskret in $\A$.
 				\item $\A/\K$ ist kompakt.
@@ -177,7 +184,7 @@
 		\begin{proof}
 			Für (a) betrachten wir die offene Nullumgebung
 			\begin{align*}
-				U = \prod_{p<\infty}\Z_p \times \left(-\frac{1}{2}, \frac{1}{2}\right).
+				U = \left(-\frac{1}{2}, \frac{1}{2}\right) \times \prod_{p<\infty}\Z_p  .
 			\end{align*}
 			Ist nun $r \in \K \cap U$, so gilt $\abs[r]_p \leq 1$ für alle $p < \infty$, also $r \in \Z$. 
 			Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
@@ -204,12 +211,54 @@
 			Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$.	
 		\end{proof}
 \subsection{Der Idelering}
-		\begin{satz}
+		\begin{satz}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
-				\item $F:=\prod_{p<\infty}\Z_p^\times \times \{1\}$ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
+				\item $F:=\{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
 				\item $\I^1/\K^\times$ ist kompakt.
 				\item Der adelische Betrag $\abs_\A$ induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
 			\end{enumerate}
 		\end{satz}
+		\begin{proof}
+			Zu (a): Wir w"ahlen ein beliebiges $0<\epsilon<1$ und setzen
+			\begin{align*}
+				U := (1-\epsilon, 1+\epsilon) \times \prod_{p<\infty} \Zpx.
+			\end{align*}
+			Dann ist $U$ offensichtlich eine offene Umgebung der $1$ in $\I$. 
+			Wir wollen nun zeigen, dass $U$ keine weitere rationale Zahl enth"alt.
+			Sei dazu $r\in \Kx \cap \I$.
+			Das bedeutet, dass $r \in \Zpx$, also $\abs[r]_p=1$, f"ur alle Primzahlen $p<\infty$.
+			Dann muss $r$ aber schon eine ganze Zahl sein. 
+			F"ur diese gilt zudem $r\in (1-\epsilon, 1+\epsilon)$.
+			Folglich ist $r=1$.
+			
+			Zu (b): Wir definieren die Abbildung 
+			\begin{align*}%%TODO sieht shitty aus
+				\eta: F 	\to& \I^1/\Kx\\
+						(1,x)	\mapsto& (1,x)\Kx
+			\end{align*}
+			und behaupten, dass diese Isomorphismus topologischer Gruppen ist.
+			Zun"achst sehen wir, dass $\eta=\pi \circ \iota$ als Komposition stetiger Gruppenhomomorphismen wieder ein stetiger Gruppenhomomorphismus ist.
+			Zudem k"onnen wir direkt eine Umkehrabbildung angeben durch $x = (x_p) \mapsto (x_\infty^{-1}x_p)$.
+			Wir vergewissern uns, dass diese Abbildung wohldefiniert ist.
+			Zum einen folgt aus $x\in \I^1$ schon, dass $x_\infty \in \Kx$, denn $\abs[x_\infty]_\infty = (\prod_{p<\infty}\abs[x_p]_p)^{-1} \in \Kpx$.
+			Also kann uns nur noch die Wahl des Repräsentanten Probleme machen.
+			Wir stellen aber erfreut fest, dass wir $rx = (rx_p)$ abgebildet wird auf $((rx_\infty)^{-1}rx_p) = (x_\infty^{-1}x_p)$ f"ur beliebige $r\in\Kpx$ haben.
+			Des weiteren ist sie stetig, denn sie l"asst sich schreiben als $x\mapsto \iota(\pi_\infty(x))^{-1} \cdot x$.
+			Damit ist dann $\eta$ also ein topologischer Isomorphismus.
+			
+			Zu (c): Dies ist eine einfache Folgerung aus (b), da $F$ als Produkt kompakter Untergruppen wieder kompakt ist.
+			
+			Zu (d): Der Isomorphismus von $\I^1\times \R_+^\times$  wird definiert durch die Abbildung $x \mapsto \tilde{x}$, wobei 
+			\begin{align*}
+				\tilde{x} = (\tilde{x}_p) = 
+					\begin{cases}
+						x_p& \text{falls } p<\infty\\
+						\frac{x_\infty}{\abs[x]_\A}& \text{sonst}.
+					\end{cases}
+			\end{align*}
+			Es ist klar, dass dies ein Gruppenhomomorphismus ist.
+			Um die Stetigkeit zu sehen schreiben wir die Abbildung als $x \mapsto \iota_\infty(\abs[x]_\A)^{-1} \cdot x$.
+			Die Umkehrabbildung ist dann gegeben durch $(x,r) \mapsto \iota_\infty(r) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
+		\end{proof}
 	

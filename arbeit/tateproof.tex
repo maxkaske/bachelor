@@ -1,105 +1,120 @@
 \section{Tates Beweis der Funktionalgleichung}
+\subsection{Globale Fourieranalysis}
+
 \subsection{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}
-%poisson
-%riemann-roch (einfach)
+%poisson done
+%riemann-roch (einfach) done
 %beweisskizze fuer tate
+	\begin{lemma}
+		Jede faktorisierbare adelische Schwartz-Bruhat Funktion $f$ hat die Form
+		\begin{align*}
+			f = f_\infty\prod_{p<\infty} \ind_{a+p^{k_p}\Zp},
+		\end{align*}
+		wobei $a\in\K$ und $k_p\in \Z$ f"ur fast alle Stellen $p$ verschwindet.
+	\end{lemma}
+	\begin{proof}
+		Der wichtige Unterschied zur Definition der faktorisierbaren Schwartz-Bruhat Funktionen liegt in der Tatsache, dass der Faktor $a$ unabh"angig von der jeweiligen Stelle ist.
+		F"ur fast alle $p$ ist $a\in \Zp$ und $k_p=0$, also $\ind_{a+p^k_p\Zp} = \ind_{\Zp}$ fast "uberall.
+		Damit ist klar, dass Funktionen dieser Form in $\Sw(\A)$ liegen. 
+		Sei nun $f = \prod_{p\leq\infty} f_p\in\Sw(\A)$ und $S$ die Menge der Stellen mit $k_p\not=0$.
+		F"ur alle $p \in S$ ist der Faktor $f_p$ gleich $\ind_{a_p+p^k_p\Zp}$ f"ur ein $a_p \in \K$.
+		Sind wir vorerst optimistisch und nehmen an, dass $k_p>0$ und die $a_p$ bereits ganze Zahlen sind.
+		Ziel ist es jetzt eine ganze Zahl $a$ zu finden, die $a \equiv a_p \pmod{p^{k_p}}$ f"ur alle $p\in S$ erf"ullt.
+		Das liefert uns aber gerade der chinesische Restsatz.
+		Damit w"are $a_p+p^k_p\Zp = a+p^k_p\Zp$ und wir w"aren fertig.
+		
+		Bleiben wir optimistisch und versuchen die Funktionen geeignet umzuformen.
+		Sei dazu $N$ der Hauptnenner der nun wieder rationalen Zahlen $a_p$ und sei $M=\prod_{p\in S} p^{\abs[k_p]+1}$.
+		Dann ist $NM(a_p+p^k_p\Zp) = a_p'+p^{k_p'}\Zp$ mit $a_p'\in \Z$ und $k'>0$.
+		Folglich finden wir ein $a' \in \Z$ mit $NM(a_p+p^{k_p}\Zp) = a'+p^{k_p'}\Zp$.
+		Jetzt setzen wir alles zusammen durch
+		\begin{align*}
+			a_p+p^{k_p}\Zp &= (NM)^{-1}NM(a_p+p^{k_p}\Zp) 
+			\\&= (NM)^{-1}(a'+p^{k_p'}\Zp)  = (NM)^{-1}a'+p^{k_p}\Zp
+		\end{align*}
+		f"ur alle $p\in S$.
+		Setzen wir also $a:=(NM)^{-1}a'$ folgt die Behauptung.
+	\end{proof}
+
+
 	\begin{satz}[Poisson Summenformel]\label{satz:adelic-poisson}
 		Sei $f \in S(\A)$. Dann gilt:
 		\begin{align}
-			\sum_{\gamma \in \K} {f(\gamma + x)} = \sum_{\gamma \in \K}{\hat{f}(\gamma + x)}
+			\sum_{\gamma \in \K} {f(\gamma)} = \sum_{\gamma \in \K}{\hat{f}(\gamma)}.
 		\end{align}
-		f"ur alle $x \in \A$.
 	\end{satz}
+	Wir geben es zu. Der folgende Beweis kann nicht auf den allgemeineren Fall "ubertragen.
 	\begin{proof}
-		Jede $\K$-invariante Funktion $\phi$ auf $\A$ induziert eine Funktion auf $\A/\K$, welche wir wieder $\phi$ nennen.
-		Wir k"onnen dann die Fouriertransformation von $\phi: \A/\K \rightarrow \C$ als Funktion auf $\K$ betrachten, da $\K$ gerade die duale Gruppe von $\A/\K$ ist. Dazu setzen wir
+		Es gen"ugt wieder die Aussage f"ur faktorisierbare Schwartz-Bruhat Funktionen $f \in S(\A)$ zu zeigen.
+		Bevor wir damit aber anfangen machen wir uns ein paar Gedanken.
+		Nach vorherigem Lemma haben diese die Form
+		\begin{align}\label{eq:schwartzform}
+			f = f_\infty\prod_{p<\infty} \ind_{a+p^{k_p}\Zp}.
+		\end{align}
+		Erinnern wir uns nochmals an die Operatoren aus dem Beweis der lokalen Umkehrformeln in Satz \ref{Satz:fourierumkehrformel}.
+		Dort haben wir die Notation $L_a f(x) = f(x-a)$ und $M_\lambda f(x) = f(\lambda x)$ eingef"uhrt, welche jetzt nochmals n"utzlich wird.
+		Definieren wir $N= \prod_{p<\infty} p^{k_p}$. Damit k"onnen wir Gleichung \ref{eq:schwartzform} umschreiben als
 		\begin{align*}
-			\hat{\phi}(x) = \int_{\A/\K}\phi(t)\Psi(tx)\overline{dt}
+			f = L_a M_{1/N}\left( \left(M_{N} L_{-a} f_\infty\right) \prod_{p<\infty}\ind_{\Zp}\right).
 		\end{align*}
-		wobei $\overline{dt}$ das Quotientenma\ss auf $\A/\K$ ist, welches von dem Ma\ss $dt$ auf $\A$ induziert wird. Dieses Haarma\ss ist charakterisiert durch
-		\begin{align*}
-			\int_{\A/\K}\tilde{f}(t)\overline{dt} =
-			\int_{\A/\K}\sum{\gamma \in \K}f(\gamma+t)\overline{dt} =
-			\int_{\A} f(t)dt
-		\end{align*}
-		f"ur alle stetigen Funktionen $f$ auf $\A$ mit geeigneten Konvergenzeigenschaften (z.b. $f\in S(\A)$). F"ur den eigentlichen Beweis ben"otigen wir zwei
+		Damit er"offnet sich nun folgende Beweisidee. 
+		Wir zeigen zuerst, dass die obige Gleichung (falls sie denn tats"achlich gilt) stabil unter den Operatoren $L_a$ und $M_\lambda$ ist.
+		Anschließend zeigen wir sie f"ur den einfacheren Fall $f=f_\infty \prod_{p<\infty}\ind_{\Zp}$.
+		Zusammen mit den obigen "Uberlegungen folgt dann damit aber der Beweis.
 		
-		\begin{lemma}
-			F"ur jede Funktion $f \in S(\A)$ gilt:
-			\begin{align*}
-				\hat{f}|_\K = \hat{\tilde{f}}|_\K.
-			\end{align*}
-		\end{lemma}
-		\begin{proof}
-			Sei $x \in \K$ beliebig aber fest. Wir beobachten zun"achst, dass wir wegen $\Psi|_\K =1$
-			\begin{align*}
-				\Psi(tx)= \Psi(tx)\Psi(\gamma x)=\Psi((\gamma + t) x)
-			\end{align*}
-			f"ur alle $\gamma \in \K$ und $t\in \A$ haben. Per Definition der Fouriertransformation
-			\begin{align*}
-				\hat{\tilde{f}}(x)	&= \int_{\A / \K} {\hat{f}(t)\Psi(tx)\overline{dt}} 
-									 = \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + t)}\right)\Psi(tx)\overline{dt} =\\
-									&= \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + t)}\Psi((\gamma + t)x)\right)\overline{dt}
-									 = \int_{\A} f(t)\Psi(tx)dt = \hat{f}(x)
-			\end{align*}
-			wobei wir im vorletzten Schritt die oben besprochene Charakterisierung des Quotientenmaßes $\overline{dt}$ ausgenutzt haben.
-		\end{proof}
+		Gelte also $\sum_{\gamma \in \K} {f(\gamma)} = \sum_{\gamma \in \K}{\hat{f}(\gamma)}$ und sei $a\in\K$.
+		Dann haben wir 
+		\begin{align*}
+			\sum_{\gamma \in \K} L_a {f(\gamma)} = \sum_{\gamma \in \K} {f(\gamma -a)} = \sum_{\gamma \in \K} {f(\gamma)}.
+		\end{align*}
+		Da unser additiver Charakter $e$ allerdings trivial auf $\K$ wirkt, ist dies gleich
+		\begin{align*}
+			\sum_{\gamma \in \K} {\hat{f}(\gamma)} 	&= \sum_{\gamma \in \K} e(-a\gamma)\hat{f}(\gamma)\\
+													&= \sum_{\gamma \in \K} \Omega_{-a}\hat{f}(\gamma)
+													= \sum_{\gamma \in \K} (L_a f)\widehat{\phantom{x}}(\gamma).
+		\end{align*}
+		Nutzen wir aus, dass $\abs[\lambda]_\A = 1$ f"ur alle $\lambda \in \Kx$, so erhalten wir
+		\begin{align*}
+			\sum_{\gamma \in \K} M_\lambda {f(\gamma)} 	&= \sum_{\gamma \in \K} {f(\lambda\gamma)} 
+														= \sum_{\gamma \in \K} \hat{f}(\lambda\gamma) \\
+														&= \sum_{\gamma \in \K} \frac{1}{\abs[\lambda]_\A} \hat{f}(\lambda^{-1}\gamma) 
+														= \sum_{\gamma \in \K}  (M_\lambda f)\widehat{\phantom{x}} (\gamma).
+		\end{align*}	
+		Damit haben wir auch schon den ersten Teil der Beweisidee verwirklicht.
 		
-		\begin{lemma}
-			F"ur jede Funktion $f \in S(\A)$ und jedes $x\in \K$ gilt
-			\begin{align*}
-				\tilde{f}(x) = \sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
-			\end{align*}
-		\end{lemma}
-		\begin{proof}
-			Wie wir eben bewiesen haben gilt $\hat{f}|_\K = \hat{\tilde{f}}|_\K$ und daher
-			\begin{align*}
-				\left| \sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}\right| = 
-				\left| \sum_{\gamma \in \K} {\hat{f}(\gamma)\overline{\Psi}(\gamma x)}\right| 
-				\leq \sum_{\gamma \in \K} {|\hat{f}(\gamma)|}
-			\end{align*}
-			unter Ausnutzen der Tatsache, dass $\Psi$ unit"ar ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\A)$. Analog folgt, dass auch $\sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. Wir erinnern uns, dass das Pontryagin Duale $\widehat{\A/\K}$ als topologische Gruppe isomorph zu $\K$\footnote{Achtung: Hier ist $Q$ versehen mit der diskreten Topologie gemeint} ist. Also $\hat{\tilde{f}} \in L^1(\K)$ und
-			\begin{align*}
-				\sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
-			\end{align*}
-			ist die Fouriertransformierte\footnote{Wir erinnern uns, dass in diesem Fall das Z"ahlma\ss ein Haar-Ma\ss ist} von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$. Nach Fourierinversionsformel erhalten wir also
-			\begin{align*}
-				\tilde{f}(x) = \hat{\hat{\tilde{f}}}(-x) = \sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
-			\end{align*}
-			und damit das Lemma.
-		\end{proof}
-		Zur"uck zum Beweis der Summenformel. Wir erhalten aufgrund des zweiten Lemmas mit $x=0$ und anschlie\ss enden Anwenden des Ersten
+		Der zweite Teil ist weniger Arbeit.
+		F"ur $f=f_\infty \prod_{p<\infty}\ind_{\Zp}$ haben wir zum einen, dass $\hat{f} = \hat{f}_\infty \prod_{p<\infty}\ind_{\Zp}$. 
+		Zum anderen ist
 		\begin{align*}
-			\tilde{f}(0) = 	\sum_{\gamma \in \K} \hat{\tilde{f}}(\gamma) \bar{\Psi}(0) =
-							\sum_{\gamma \in \K} \hat{\tilde{f}}(\gamma) =
-							\sum_{\gamma \in \K} \hat{f}
+			\sum_{\gamma \in \K}{f(\gamma)} = \sum_{\gamma \in \K} f_\infty(\gamma) \prod_{p<\infty}\ind_{\Zp}(\gamma) =\sum_{\gamma \in \Z} f_\infty(\gamma),
 		\end{align*}
-		Aber per Definition gilt gerade $\tilde{f}(0) = \sum_{\gamma \in \K}f(\gamma)$, also
-		\begin{align*}
-			\sum_{\gamma \in \K}f(\gamma) = \sum_{\gamma \in \K} \hat{f}
-		\end{align*}
-		und wir sind fertig.
+		denn das Produkt "uber alle verschwindet genau dann nicht, wenn $\gamma$ eine ganze Zahl ist.
+		Wir m"ussen also nur $\sum_{\gamma \in \Z} f_\infty(\gamma) = \sum_{\gamma \in \Z} \hat{f}_\infty(\gamma)$ zeigen.
+		Aber das sagt uns gerade die klassische Poisson-Summenformel.
 	\end{proof}
-	
+	Ausger"ustet mit der adelischen Summenformel kommen wir zu einem weiteren wichtigen Eckpunkt un Tates Beweis.
 	\begin{satz}[Riemann-Roch]
-		Sei $x \in \Iq$ ein Idel von $\K$ und sei $f\in S(\A)$. Dann
+		Sei $x \in \I$ ein Idel und $f\in S(\A)$. Dann
 		\begin{align*}
 			\sum_{\gamma \in \K} {f(\gamma x)} = \frac{1}{|x|_{\A}}\sum_{\gamma \in \K} {\hat{f}(\gamma x^{-1})}
 		\end{align*}
 	\end{satz}
 	\begin{proof}
-	Sei $x \in \Iq$ beliebig aber fest. F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y):=f(yx)$. Diese ist wieder in $S(\A)$ und erf"ullt damit die Poisson-Summenformel
+		Sei $x \in \I$ beliebig aber fest. 
+		F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y):=f(yx)$. Diese ist dann wieder in $S(\A)$ und erf"ullt damit die Poisson-Summenformel
 		\begin{align*}
 			\sum_{\gamma \in \K}h(\gamma) = \sum_{\gamma \in \K} \hat{h}(\gamma).
 		\end{align*}
-		Berechnen wir allerdings die Fouriertransformation von $h$ erhalten wir mit Translation um $x^{-1}$
+		Berechnen wir allerdings die Fouriertransformation von $h$ erhalten wir mit einer Translation um $x^{-1}$
 		\begin{align*}
 			\hat{h}(\gamma) &= \int_{\A}h(y)\Psi(\gamma y)dy \\
 							 &= \int_{\A}f(yx)\Psi(\gamma y)dy \\
 							 &= \frac{1}{|x|_{\A}} \int_{\A}f(y)\Psi(\gamma y x^{-1})dy \\
 							 &= \frac{1}{|x|_{\A}} \hat{f}(\gamma x^{-1}).
 		\end{align*}
+		Damit sind wir auch schon fertig.
 	\end{proof}
+	
 \subsection{Die globale Funktionalgleichung}
 %Hauptsatz gegliedert wie Riemann beweis
 %Riemanns zeta als spezialfall
@@ -245,3 +260,5 @@
 	\end{align*}
 	wobei wir im letzten Schritt im ersten Integral die Translationsinvarianz der Haar-Maßes $db$ und die Eigenschaft des Idele-Klassencharakters $\chi(-tx) = \chi(tx)$ ausgenutzt haben.
 \end{proof}
+\subsection{Anwendungsbeispiel: Die Riemannsche Zeta-Funktion}
+Hi!

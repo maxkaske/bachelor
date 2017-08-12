@@ -1,24 +1,24 @@
 \begin{thebibliography}{1}
 
 \bibitem{deitmar2010}
-Anton~Deitmar (auth.).
-\newblock {\em Automorphe Formen}.
+{\sc Deitmar, Anton}: {\em Automorphe Formen}.
 \newblock Springer-Lehrbuch Masterclass 0. Springer-Verlag Berlin Heidelberg,
-  1. edition, 2010.
-
-\bibitem{folland}
-Gerald~B. Folland.
-\newblock {\em Real Analysis: Modern Techniques and Their Applications}.
-\newblock Pure and Applied Mathematics: A Wiley-Interscience Series of Texts,
-  Monographs and Tracts. Wiley-Interscience, 2nd edition, 1999.
-
-\bibitem{gouv}
-Fernando~Quadros Gouvea.
-\newblock {\em p-adic numbers: An introduction}.
-\newblock Universitext. Springer, 2nd edition, 1997.
+  1. \btxeditionlong{}, 2010.
 
 \bibitem{rama}
-Rama.
-\newblock {\em Fourier}.
+{\sc Dinakar~Ramakrishnan, Robert J.~Valenza}: {\em Fourier Analysis on Number
+  Fields}, \btxvolumelong{}\ 186 \btxofserieslong{}\ {\em Graduate Texts in
+  Mathematics}.
+\newblock Springer, 1. \btxeditionlong{}, 1998.
+
+\bibitem{folland}
+{\sc Folland, Gerald~B.}: {\em Real Analysis: Modern Techniques and Their
+  Applications}.
+\newblock Pure and Applied Mathematics: A Wiley-Interscience Series of Texts,
+  Monographs and Tracts. Wiley-Interscience, 2. \btxeditionlong{}, 1999.
+
+\bibitem{gouv}
+{\sc Gouvea, Fernando~Quadros}: {\em p-adic numbers: An introduction}.
+\newblock Universitext. Springer, 2. \btxeditionlong{}, 1997.
 
 \end{thebibliography}
