@@ -7,22 +7,23 @@
 \BOOKMARK [2][-]{subsection.3.1}{Das Haar-Ma\337}{section.3}% 7
 \BOOKMARK [2][-]{subsection.3.2}{Charaktere}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.3}{Abstrakte Fourieranalysis}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Die lokale Theorie}{}% 10
-\BOOKMARK [2][-]{subsection.4.1}{Lokale K\366rper}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.2}{Etwas Fourieranalysis}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.3}{Die lokale Funktionsgleichung}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.4}{Die Berechnungen}{section.4}% 14
+\BOOKMARK [1][-]{section.4}{Lokale...}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{... K\366rper}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{... Fourieranalysis}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{... Funktionalgleichung}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.4}{... Berechnungen}{section.4}% 14
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Der Fall p gleich unendlich}{subsection.4.4}% 15
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Die F\344lle p kleiner unendlich}{subsection.4.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Der Fall p kleiner unendlich}{subsection.4.4}% 16
 \BOOKMARK [1][-]{section.5}{Der Adele- und Idelering}{}% 17
 \BOOKMARK [2][-]{subsection.5.1}{Eingeschr\344nktes Direktes Produkt}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.2}{Charaktere}{section.5}% 19
-\BOOKMARK [2][-]{subsection.5.3}{Integration auf dem eingeschr\344nkten Produkt}{section.5}% 20
-\BOOKMARK [2][-]{subsection.5.4}{Der Adelering}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.5}{Der Idelering}{section.5}% 22
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Charaktere}{subsection.5.1}% 19
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Integration}{subsection.5.1}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Der Adelering}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.3}{Der Idelering}{section.5}% 22
 \BOOKMARK [1][-]{section.6}{Tates Beweis der Funktionalgleichung}{}% 23
 \BOOKMARK [2][-]{subsection.6.1}{Globale Fourieranalysis}{section.6}% 24
 \BOOKMARK [2][-]{subsection.6.2}{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{section.6}% 25
 \BOOKMARK [2][-]{subsection.6.3}{Die globale Funktionalgleichung}{section.6}% 26
 \BOOKMARK [2][-]{subsection.6.4}{Anwendungsbeispiel: Die Riemannsche Zeta-Funktion}{section.6}% 27
-\BOOKMARK [1][-]{section.7}{Anhang}{}% 28
+\BOOKMARK [1][-]{section.7}{Ausblicke: Hecke L-Funktionen}{}% 28
+\BOOKMARK [1][-]{appendix.A}{Appendix: Tates Beweis der Poisson-Summenformel}{}% 29

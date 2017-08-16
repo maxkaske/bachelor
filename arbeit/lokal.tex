@@ -1,5 +1,5 @@
-\section{Die lokale Theorie}
-\subsection{Lokale K"orper}
+\section{Lokale...}
+\subsection{... K"orper}
 	Wir betrachten im Folgenden alle 
 	%Q_p topologischer Ring: done
 	%Skalierung der Mengen durch multiplikation: done
@@ -8,7 +8,7 @@
 	%annulus
 	\begin{satz}\label{satz:QpIstLokalKompakt}
 		F"ur alle Stellen $p\leq\infty$ gilt
-		\begin{enumerate}[label=(\roman*)]
+		\begin{enumerate}[label=\emph{(\roman*)}]
 		\item $(\Kp, +)$ ist eine lokalkompakte Gruppe.
 		\item $(\K_p^\times, \cdot)$ ist eine lokalkompakte Gruppe.
 		\end{enumerate}
@@ -97,7 +97,7 @@
 		Im anderen Fall $k<0$ ist umgekehrt $\Zp$ eine Untergruppe von $p^k\Zp$ mit Index $[p^k\Zp:\Zp]= p^{-k}$ und die Behauptung folgt analog.
 	\end{proof}
 	
-	\begin{satz}
+	\begin{satz}\label{satz:lokal:multiplikativesmass}
 		Ist $dx$ ein additives Haar-Maß auf $\Kp$, so definiert $\frac{dx}{\abs[x]_p}$ ein multiplikatives Haar-Maß $d^\times x$ auf $\K_p^\times$.
 		Insbesondere gilt dann f"ur alle $g \in L^1(\K_p^\times)$
 		\begin{align*}
@@ -121,17 +121,17 @@
 		Der zweite Teil der Behauptung folgt aus der Tatsache, dass die Funktionen in $C_c(\K_p^\times)$ dicht in $L^1(\K_p^\times)$ liegen.
 		Beim "Ubergang zum Grenzwert erhalten wir die Gleichung auf Funktionen in $L^1$.
 	\end{proof}
-\subsection{Etwas Fourieranalysis}
+\subsection{... Fourieranalysis}
 %hier den additiven charakter besprechen und kurz bedeutung erklaeren: done
-%selbstdual:ist eigentlich fourierumkehrformel.
-%fouriertransformation: done TODO: def
+%selbstdual:ist eigentlich fourierumkehrformel: done
+%fouriertransformation: done
 %schwartz-bruhat und deren form: done
 %fourierumkehrformel: done
 		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
 		\begin{align*}
 			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
 		\end{align*}
-		erf"ullt.\footnote{Hier ist mit $\abs$ der komplexe Absolutbetrag gemeint.}
+		erf"ullt.
 		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Tr?ger.
 		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
 		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
@@ -165,7 +165,7 @@
 		Daf"ur definieren wir z"unachst f"ur jede Stelle $p$ einen nicht-trivialen, unit"aren Charakter $e_p$ auf der additiven Gruppe $\K_p^+$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
 		\begin{defi}
 			Wir definieren den \emph{Standardcharakter} $e_p:\K_p^+ \to S^1$ wie folgt:
-			\begin{itemize}
+			\begin{itemize}[itemindent=3em]
 				\item [$p=\infty$:] $e_p(x) = \exp(-2\pi i x)$
 				\item [$p<\infty$:] Hier wird die Definition etwas aufwendiger. Zun"achst haben wir eine nat"urliche Projektion $\Kp \twoheadrightarrow \Kp/\Zp$.
 				Die "Aquivalenzklassen von $\Kp/\Zp$ werden nach unseren "Uberlegungen zur Potenzreihendarstellung eindeutig repräsentiert durch Zahlen der Form $\sum_{k=-n}^{-1} a_kp^k$ mit $a_k \in \Z$ und $0\leq a_k\leq p-1$.
@@ -242,10 +242,25 @@
 			\end{align*}
 			Damit sind wir dann aber auch schon fertig.
 		\end{proof}
-		
-		
+		Der Beweis liefert uns sogar einen kleinen Bonus.
+		\begin{korollar}\label{kor:lokal:charTrivialZp}
+			Wirkt $\chi:\Kp\to S^1$ im endlichen Fall trivial auf $\Zp$, so gilt $\chi(x) = e_p(ax)$ mit $a\in \Zp$.
+		\end{korollar}
+		\begin{proof}
+			Wie wir im Beweis der Potenzreihendarstellung gesehen haben, konvergiert eine solche Folge von rationalen Zahlen $a_k$ gegen einen Wert aus $\Zp$.
+		\end{proof}
+		Somit k"onnen wir auch mit gutem Gewissen Folgendes definieren.
+		\begin{defi}[Lokale Fouriertransformation]
+			Sei $f\in L^1(\Kp)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \Kp \to \C$ von $f$ durch die Formel
+		\begin{align*}
+			\hat{f}(\xi) = \int_{\Kp} f(x)e_p(-\xi x)  \dx
+		\end{align*}
+		f"ur alle $\xi \in \Kp$.
+		\end{defi}
+		Diese Definition entspricht im Fall $p=\infty$ gerade der klassischen Fouriertransformation bis auf eventuelle Normierung.
+		Von daher m"ochten wir auch einige klassische Ergebnisse festhalten und beweisen.
 		\begin{lemma}
-			Sei $f \in \Sw(\Kp)$.
+			Sei $f \in L^1(\Kp)$.
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item Ist $g(x)=f(x)e_p(ax)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)$.
 				\item Ist $g(x)=f(x-a)$ mit $a\in\Kp$, dann gilt $\hat{g}(x) = \hat{f}(x-a)e_p(-ax)$.
@@ -259,8 +274,11 @@
 				\hat{g}(x) = \int_{\Kp} f(\lambda y) e_p(-xy)dy = \frac{1}{\abs[\lambda]_p} \int_{\Kp} f(y) e_p(-x\lambda^{-1}y)dy = \frac{1}{\abs[\lambda]_p} \hat{f}\left(\frac{x}{\lambda}\right)
 			\end{align*}
 		\end{proof}
-		\begin{satz}\label{Satz:fourierumkehrformel}
-			Ist $p\leq\infty$ und $f\in\Sw(\Kp)$, so ist $\hat{f} \in \Sw(\Kp)$ und es gilt die Umkehrformel
+		Beschr"anken wir uns jetzt auf die Fouriertransformation von Schwartz-Bruhat Funktionen.
+		Diese besitzen, wie wir noch feststellen werden, besonders gutes Konvergenzverhalten. 
+		So ist zum Beispiel folgendes Ergebnis bereits aus der Fourieranalysis in $\R$ bekannt und kann jetzt auf die $p$-adischen Zahlen "ubertragen werden.
+		\begin{satz}\label{satz:lokal:umkehrformel}
+			Ist $p\leq\infty$ und $f\in\Sw(\Kp)$, so ist $\hat{f} \in \Sw(\Kp)$ und es gilt die \emph{Umkehrformel}
 			\begin{align*}
 				\hat{\hat{f}}(x) = f(-x)
 			\end{align*}
@@ -302,7 +320,7 @@
 			F"ur $p=\infty$ ist die Formel bereits aus der klassischen Fourieranalysis bekannt.
 		\end{proof}
 		
-\subsection{Die lokale Funktionsgleichung}
+\subsection{... Funktionalgleichung}
 %unverzweigte charactere: done
 %deren form: done
 %lokale funktionalgleichung: done
@@ -345,7 +363,7 @@
 		Der Fall $p<\infty$ ist etwas leichter. Wir definieren dieses mal $s:=\frac{\log(\chi(p))}{\log(p)}$, so dass $\chi(p) = p^s$. Da der Wertebereich aber gerade $p^\Z$ war, folgt die Behauptung sofort.
 	\end{proof}
 	%%% Filler: allgemeine charaktere sehen dann so aus blabla
-	\begin{satz}
+	\begin{satz}\label{satz:lokal:stdchar}
 		Jeder Charakter $\chi$ von $\K_p^\times$ hat die Form
 		\begin{align*}
 			\chi(x) = \mu(\tilde{x})\abs[x]_p^s,
@@ -362,6 +380,7 @@
 	Aus $\abs[\mu(\tilde{x})\abs[x]_p^s] = \abs[x]_p^\sigma$ folgt, dass der Realteil $\sigma=\text{Re}(s)$ eindeutig bestimmt ist. Er wird auch \emph{Exponent} des Charakters $\chi$ genannt.
 		%%%Filler: wie sehen charaktere auf R aus (vllt auch Qp) wann sind sie aquivalent was ist eine klasse von charakteren
 	Wir kommen zum ersten Ergbnis aus Tates Doktorarbeit
+	
 	\begin{satz}[Lokale Funktionalgleichung]
 		Sei $f_p \in \Sw(K_p)$ und $\chi = \mu \abs_p^s$. Sei weiter $\sigma = \text{Re}(s)$. Dann gelten die folgenden Aussagen:
 		\begin{enumerate}[label=\emph{(\roman*)}]
@@ -434,7 +453,7 @@
 		\end{align*}
 		%%%%TODO: FILLER laber darueber dass es solche funktionen gibt, dass diese meromorph sind und dass wir die faktoren explizit ausrechnen
 	\end{proof}
-\subsection{Die Berechnungen}
+\subsection{... Berechnungen}
 
 \subsubsection{Der Fall \texorpdfstring{$p = \infty$}{p gleich unendlich}}
 	Wir betrachten zuerst die Klasse $\chi = \abs_\infty^s$ und nehmen die Schwartz-Bruhat Funktion
@@ -444,22 +463,22 @@
 	Wir behaupten, dass $f$ ihre eigene Fouriertransformierte ist. Dazu rechnen wir
 	\begin{align*}
 		\hat{f}(\xi) 	&= \int_{\K_\infty} e^{-\pi x^2} e_\infty(-x\xi)dx 
-					= \int_{\K_\infty} e^{-\pi x^2} e^{-2\pi ix\xi}dx
-					\\&= \int_{\K_\infty} e^{-\pi (x^2 + 2ix\xi - \xi^2)} e^{-\pi \xi^2}dx
-					= f(\xi) \int_{\K_\infty} e^{-\pi (x + i\xi)^2} dx.
+					= \int_{\K_\infty} e^{-\pi x^2} e^{2\pi ix\xi}dx
+					\\&= \int_{\K_\infty} e^{-\pi (x^2 - 2ix\xi - \xi^2)} e^{-\pi \xi^2}dx
+					= f(\xi) \int_{\K_\infty} e^{-\pi (x - i\xi)^2} dx.
 	\end{align*}
 	Es gen"ugt also zu zeigen, dass das Integral gleich $1$ ist. Dazu nutzen wir das bekannte Integral $\int_{\K_\infty} e^{-\pi x^2} dx = 1$ und etwas Kontourintegration.
-	Sei $\gamma$ das Rechteck von $-r$ nach $r$ auf der reellen Achse, dann hoch zu $r+i\xi$, horizontal zu $-r+i\xi$ und wieder zuruck zu $-r$.
+	Sei $\gamma$ das Rechteck von $-r$ nach $r$ auf der reellen Achse, dann runter zu $r-i\xi$, horizontal zu $-r-i\xi$ und wieder zur"uck zu $-r$.
 	Da $f$ eine ganze Funktion ist, gilt $\int_\gamma f(z) dz = 0$. 
-	Die Integrale an der linken und rechten Seite des Rechtecks konvergieren gegen $0$ wenn $r$ anw"achst, denn f"ur $z = \pm r + iy$ und $0\leq y\leq \xi$ gilt
+	Die Integrale an der linken und rechten Seite des Rechtecks konvergieren gegen $0$ wenn $r$ anw"achst, denn f"ur $z = \pm r - iy$ und $0\leq y\leq \xi$ gilt
 	\begin{align*}
-		\abs[f(z)] = \abs[e^{-\pi (\pm r+iy)^2}] = e^{-\pi (r^2 - y^2)}
+		\abs[f(z)] = \abs[e^{-\pi (\pm r-iy)^2}] = e^{-\pi (r^2 - y^2)}
 	\end{align*}
 	und wir haben die Absch"atzung
 	\begin{align*}
-		\abs[\int_{\pm r}^{\pm r+i\xi} f(z)dz] = \abs[\int_{0}^{\xi} f(\pm r+ iy)dy] \leq e^{-\pi r^2} \int_{0}^{\xi} e^{\pi y^2}dy \xrightarrow[]{r\to \infty} 0.
+		\abs[\int_{\pm r}^{\pm r-i\xi} f(z)dz] = \abs[\int_{0}^{\xi} f(\pm r - iy)dy] \leq e^{-\pi r^2} \int_{0}^{\xi} e^{\pi y^2}dy \xrightarrow[]{r\to \infty} 0.
 	\end{align*}
-	Folglich muss schon $\int_{\K_\infty} f(x+i\xi) dx = \int_{\K_\infty} f(x)dx = 1$ gelten und wir sind fertig mit der Fouriertransformation.
+	Folglich muss schon $\int_{\K_\infty} f(x-i\xi) dx = \int_{\K_\infty} f(x)dx = 1$ gelten und wir sind fertig mit der Fouriertransformation.
 	
 	Nun zu den Zeta-Funktionen:
 	\begin{align*}
@@ -518,7 +537,7 @@
 		\gamma(\sgn\abs_\infty^s, e_\infty, \dx) = i\frac{\pi^{-\frac{2-s}{2}} \Gamma\left(\frac{2-s}{2}\right)}{\pi^{-\frac{s+1}{2}} \Gamma\left(\frac{s+1}{2}\right)}
 	\end{align*}
 	der nach der gleichen Begr"undung wie oben meromorph ist.
-\subsubsection{Die F"alle \texorpdfstring{$p < \infty$}{p kleiner unendlich}}
+\subsubsection{Der Fall \texorpdfstring{$p < \infty$}{p kleiner unendlich}}
 	Wir beginnen wieder mit dem unverzweigten Fall $\chi = \abs_p$ und definieren unsere Schwartz-Bruhat Funktion
 	\begin{align*}
 		f_0(x) = \ind_{\Zp}(x).
@@ -656,7 +675,7 @@
 	\end{proof}
 	Zur"uck zur Berechnung der Zeta-Funktion.
 	Der multiplikative Charakter $\mu$ hat den Konduktor $p^n$, w"ahrend die additiven Charaktere $e_{p,k}(x) = e_p(p^kx)$ offensichtlich den Konduktor $p^{-k}$ haben.
-	Nach Lemma \ref{lemma:gausssummei} (i) verschwinden in \ref{eq:ZetaSumme} fast alle Summanden und wir erhalten
+	Nach Lemma \ref{lemma:gausssumme} (i) verschwinden in \ref{eq:ZetaSumme} fast alle Summanden und wir erhalten
 	\begin{align*}
 		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}) = p^{ns} g(\mu,e_{p,-n})
 	\end{align*}

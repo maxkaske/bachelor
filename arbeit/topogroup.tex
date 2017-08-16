@@ -2,10 +2,10 @@
 %topologische Gruppe: done
 %charaktere:partly
 %haar masse: done
-%fouriertransformation
-%pontryagin erwaehnen
+%fouriertransformation:done
+%pontryagin erwaehnen: done
 \begin{defi}
-	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, die die folgenden Eigenschaften erf"ullt:
+	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, welche die folgenden Eigenschaften erf"ullt:
 		\begin{enumerate}[label=(\roman*), leftmargin=*, align=left, labelsep=1pt]
 			\item Die Gruppenoperation
 				\begin{align*}
@@ -20,42 +20,77 @@
 				\end{align*}
 				ist stetig.
 		\end{enumerate}
-	\end{defi}
-	\begin{lemma}\label{lemma:direktesProduktTopologischerGruppen}
+	Ein \emph{Homomorphismus topologischer Gruppen} $G_1$ und $G_2$ ist eine stetiger Gruppenhomomorphismus $G_1 \to G_2$.
+	Ist dieser bijektiv und die Umkehrabbildung wieder ein Homomorphismus topologischer Gruppen, so sprechen wir von einem \emph{Isomorphismus topologischer Gruppen}.
+\end{defi}
+	
+	Man sieht sofort, dass die Translationen um ein beliebiges Gruppenelement ein Homeomorphismus $G \to G$ bilden.
+	Die Topologie ist also \emph{translationsinvariant} in dem Sinne, dass f"ur alle $g \in G$ und jede Mengen $U$ die "Aquivalenzen
+	\begin{align*}
+		U \text{ ist offen} \Leftrightarrow gU = \{gu \in G: u\in U\} \text{ ist offen} \Leftrightarrow Ug = \{ug \in G: u\in U\} \text{ ist offen}
+	\end{align*}
+	gelten.
+	Analog verh"alt es sich f"ur die Umkehrabbildung. Sie ist ein Homeomorphismus und $U$ ist genau dann offen, wenn $U^{-1}=\{u^{-1}\in G: u \in U\}$ offen ist.
+	
+	Die Translationsinvarianz der Topologie hat nun einige nette Vorteile.
+	Zum Beispiel wird bereits die ganze Topologie durch die Umgebungsbasis des neutralen Elements definiert.
+	Durch Translation erhalten wir Umgebungsbasen beliebiger anderer Elemente und damit zwangsl"aufig die komplette Topologie.
+	F"ur ein weiteres Beispiel erinnern wir uns an die Definition der Stetigkeit in topologischen R"aumen.
+	Eine Abbildung $f: G_1 \to G_2$ zwischen zweier topologischer R"aume heißt stetig, wenn f"ur alle $g\in G_1$ und jede offene Umgebung $U$ von $f(g)$ eine offene Umgebung $V$ von $g$ existiert, sodass $f(V)\subseteq U$.
+	Sind $G_1$ und $G_2$ nun topologische Gruppen und ist $f$ ein (nicht unbedingt topologischer) Gruppenhomomorphismus reicht es jetzt die Stetigkeit in dem neutralen Element $e_1$ der Gruppe $G_1$ nachzuweisen.
+	Denn ist $f$ stetig in $e_1$ und sei $g$ ein beliebiges weiteres Element der Gruppe, so ist f"ur jede offene Umgebung U von $f(g)$ ist $U':=f(g)^{-1}U$ eine offene Umgebung des neutralen Elements $e_2$. 
+	Wegen Stetigkeit gibt es dann eine offene Umgebung $V'$ mit $f(V') \subseteq U'$.
+	Nun ist aber $V:= gV'$ eine offene Umgebung von $g$ und da $f$ ein Gruppenhomomorphismus ist, haben wir
+	\begin{align*}
+		f(V) = f(gV') = f(g)f(V') \subseteq f(g) U' =f(g)f(g)^{-1} U = U,
+	\end{align*}
+	also ist die Abbildung stetig.
+	
+	Haben wir wieder zwei topologische Gruppen $G_1$ und $G_1$, so ist deren direktes Produkt $G_1\times G_2$, wie man leicht sieht, wieder eine topologische Gruppe.
+	Dieses Ergebnis l"asst sich nuch auf endliche, abz"ahlbare und sogar beliebige Indexmengen "ubertragen. 
+	\begin{lemma}
+	\label{lemma:direktesProduktTopologischerGruppen}
 		Sei $I$ eine Indexmenge und $G_i$ eine topologische Gruppe f"ur alle $i \in I$. 
-		Das direkte Produkt $G = \prod_{i \in I} G_i$ versehen mit der Produkttopologie ist  und komponentenweiser Gruppenverkn"upfung ist wieder eine topologische Gruppe.
+		Das direkte Produkt $G = \prod_{i \in I} G_i$ versehen mit der Produkttopologie ist und komponentenweiser Gruppenverkn"upfung ist wieder eine topologische Gruppe.
 	\end{lemma}
 	\begin{proof}
-		%Es reicht f"ur die Stetigkeit der Gruppenoperation und der Umkehrabbildung nachzuweisen, dass die Abbildung $G \times G \to G$ mit $(g,h) \maptso gh^{-1}$ stetig ist.
 		Wir erinnern uns daran, dass eine Basis der Produkttopologie gegeben ist durch Rechtecke der Form
 		\begin{align*}
 			\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i,
 		\end{align*}
-		wobei $E$ eine endliche Teilmenge von $I$ und jedes $U_i$ offen in $G_i$ ist. Ohne Einschr"ankung sei also 
+		wobei $E$ eine endliche Teilmenge von $I$ und jedes $U_i$ offen in $G_i$ ist. 
+		Ohne Einschr"ankung sei also 
 		\begin{align*}
 			W = \prod_{i \in E} W_i \times \prod_{i \in I\setminus E}  G_i
 		\end{align*}
-		eine offene Umgebung von $gh = (g_i h_i)$. Da die $G_i$ topologische Gruppen sind, finden wir f"ur  alle $i\in E$ offene Umgebungen $U_i$ und $V_i$ von $g_i$ und $h_i$,  sodass  $U_i V_i \subseteq W_i$. Wir behaupten nun, dass
+		eine offene Umgebung von $gh = (g_i h_i)$. 
+		Da die $G_i$ topologische Gruppen sind, finden wir f"ur  alle $i\in E$ offene Umgebungen $U_i$ und $V_i$ von $g_i$ und $h_i$,  sodass  $U_i V_i \subseteq W_i$. Wir behaupten nun, dass
 		\begin{align*}
-			(\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i) \times (\prod_{i \in E} V_i \times \prod_{i \in I\setminus E}  G_i)
+			(\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i) \times (\prod_{i \in E} V_i \times \prod_{i \in I\setminus E}  G_i) \subseteq G \times G
 		\end{align*}
-		eine offene Umgebung von $(g, h) \in G \times G$ ist, deren Bild in $W$ liegt. Der erste Aussage ist klar, da beide Faktoren des Produkts offene Basiselemente der Topologie sind. Das Bild unter Gruppenoperation ist gegeben durch
+		eine offene Umgebung von $(g, h) \in G \times G$ ist, deren Bild in $W$ liegt. 
+		Der erste Aussage ist klar, beide Faktoren des Produkts sind offene Basiselemente der Topologie und enthalten jeweils $g$ bzw. $h$.
+		Weiter ist das Bild unter Gruppenoperation gegeben durch
 		\begin{align*}
 			\prod_{i \in E} U_i V_i \times \prod_{i \in I\setminus E}  G_i,
 		\end{align*}
-		was nach unseren "Uberlegungen in $W$ liegt. Der Beweis f"ur die Umkehrabbildung funktioniert analog.
+		was nach obigen "Uberlegungen in $W$ liegt.
+		Somit folgt die Stetigkeit der Gruppenverkn"upfung.
+		Der Beweis f"ur die Stetigkeit der Umkehrabbildung funktioniert analog.
 	\end{proof}
+	
 	\begin{defi}
 		Ein topologischer Raum heißt \highlight{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. 
 		Eine \highlight{lokalkompakte Gruppe} ist eine topologische Gruppe, die lokalkompakt und hausdorffsch ist. 
 	\end{defi}
+	
 	\begin{lemma}
 		Seien $G_1$ und $G_2$ zwei lokalkompakte Gruppen. Dann ist $G_1\times G_2$ wieder lokalkompakt. Insbesondere ist also jedes endliche direkte Produkt lokalkompakter Gruppen lokalkompakt.
 	\end{lemma}
 	\begin{proof}
 		Sei $(g_1,g_2) \in G_1\times G_2$. Wegen der Lokalkompaktheit von $G_1$ und $G_2$ finden wir kompakte Umgebungen $K_1$, $K_2$ von $g_1$ bzw. $g_2$. Dann ist aber $K_1 \times K_2$ eine kompakte Umgebung von $(g_1,g_2)$. Weiter ist das direkte Produkt zweier Hausdorff-R"aume wieder hausdorffsch, wodurch $G_1\times G_2$ zu einer lokalkompakten Gruppe wird.
 	\end{proof}
-	Wie wir in Lemma \ref{Lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
+	Wie wir sp"ater in Lemma \ref{Lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
 
 \subsection{Das Haar-Maß}
 	Nun zu etwas Maßtheorie. Wir beginnen mit einer kleinen Auffrischung der wichtigsten Objekte. 
@@ -125,38 +160,25 @@
 		\begin{enumerate}[label=(\roman*)]
 			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haar-Maß.
 			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß dx ein Haarsches Maß.
-			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in TODO sehen werden.
+			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in Satz \ref{satz:lokal:multiplikativesmass}sehen werden.
 		\end{enumerate}
 	\end{bsp}
 	
-	\begin{satz}[Existenz und Eindeutigkeit des Haar-Maß]\label{Satz:LCAMeasure}
+	Einer der Hauptgr"unde, warum wir uns mit lokalkompakten Gruppen besch"aftigen ist folgender Satz.
+	\begin{satz}[Existenz und Eindeutigkeit des Haar-Maß]
+	\label{satz:topo:haarmeasure}
 		Sei $G$ eine lokalkompakte Gruppe. Dann existiert ein linksinvariantes Haar-Maß auf $G$. Dieses ist eindeutig bis auf skalares Vielfaches.
 	\end{satz}
 	\begin{proof}
 		Einen ausf"urhlichen Beweis befindet sich in \cite{rama} Kapitel 1.
 	\end{proof}
+	Dies ist die bestm"ogliche Situation die man erwarten kann, denn offensichtlich ist f"ur jedes Haar-Maß $\mu$ und eine Konstante $c>0$ das Maß $c\cdot \mu$ wieder ein Haar-Maß.
+	Da wir nun auf jeder lokalkompakten Gruppe ein sch"ones Maß haben k"onnen wir auch etwas Integrationstheorie betreiben.
 	
-	\begin{lemma}\label{Lemma:trivialerCharAufKompakt}
-		Sei $K$ eine kompakte Gruppe mit Haar-Maß dx und $\chi: K \to S^1$ ein Charakter. Dann gilt
-		\begin{align*}
-			\int_K \chi(x) dx = 
-				\begin{cases}
-					\text{\emph{Vol}}(K, dx),	& \text{\emph{falls} } \chi\equiv 1\\
-					0,					& \text{\emph{ansonsten.}}
-				\end{cases}
-		\end{align*}
-	\end{lemma}
-	\begin{proof}
-		Der erste Fall ist klar. Im zweiten Fall gibt es ein $x_0 \in K$ mit $\chi(x_0) \not=1$ und mit Translationsinvarianz daher
-		\begin{align*}
-			\int_K \chi(x)dx = \int_K\chi(x_0x)dx = \chi(x_0)\int_K\chi(x)dx.
-		\end{align*}
-		Umstellen und Division durch $\chi(x_0) - 1 \not=0$ ergibt $\int_K \chi(x)dx = 0$.
-	\end{proof}
 	
 	\begin{lemma}F"ur jede Abbildung $f\in L^{1}(G,\mu)$ gilt
 		\begin{enumerate}[label=\emph{(\alph*)}]
-			\item $\int_{G} f(xy)d\mu(x) = \int_{G} f(x)d\mu(x)$
+			\item $\int_{G} f(zx)d\mu(x) = \int_{G} f(x)d\mu(x)$
 			\item $\int_{G} f(x^{-1})d\mu(x) = \int_{G} f(x)d\mu(x)$
 		\end{enumerate}
 	\end{lemma}
@@ -186,6 +208,24 @@
 		\end{itemize}
 	\end{bsp}
 	
+	\begin{lemma}\label{Lemma:trivialerCharAufKompakt}
+		Sei $K$ eine kompakte Gruppe mit Haar-Maß dx und $\chi: K \to S^1$ ein Charakter. Dann gilt
+		\begin{align*}
+			\int_K \chi(x) dx = 
+				\begin{cases}
+					\text{\emph{Vol}}(K, dx),	& \text{\emph{falls} } \chi\equiv 1\\
+					0,					& \text{\emph{ansonsten.}}
+				\end{cases}
+		\end{align*}
+	\end{lemma}
+	\begin{proof}
+		Der erste Fall ist klar. Im zweiten Fall gibt es ein $x_0 \in K$ mit $\chi(x_0) \not=1$ und mit Translationsinvarianz daher
+		\begin{align*}
+			\int_K \chi(x)dx = \int_K\chi(x_0x)dx = \chi(x_0)\int_K\chi(x)dx.
+		\end{align*}
+		Umstellen und Division durch $\chi(x_0) - 1 \not=0$ ergibt $\int_K \chi(x)dx = 0$.
+	\end{proof}
+	
 	
 \subsection{Abstrakte Fourieranalysis}
 	 Die unit"aren Charaktere einer topologischen Gruppe $G$ bilden mit der punktweisen Multiplikation $\chi\psi (x) = \chi(x) \psi (x)$ selbst wieder eine Gruppe, welche als die \emph{duale Gruppe $\hat{G}$} bezeichnet wird.
@@ -200,7 +240,8 @@
 	Diese Formel macht Sinn, denn f"ur alle $x \in G$ hat $\chi(x)$ den Betrag $1$. 
 	Ist also $f$ integrierbar, so ist es auch das Produkt im Integranden.
 	Da $\hat{G}$ selber wieder lokalkompakt ist, besitzt das Duale ein Haar-Maß und es macht Sinn die Fouriertransformation auf $\hat{G}$ betrachten.
-	Dabei stoßen wir auf folgenden Satz.
+	Dabei stoßen wir auf folgenden Satz der f"ur den Tates Beweis der adelischen Poisson-Summenformel eine wichtige Rolle spielt.
+	Wir  werden ihn auf etwas niedrigerem Abstraktionsgrad in Kapitel TODO beweisen.
 	\begin{satz}[Fourier-Umkehrformel f"ur lokalkompakte Gruppen]
 		Es gibt ein Haar-Maß $\dx[\chi]$ auf $\hat{G}$, so dass alle $f \in L^1(G)$ stetig mit $\hat{f} \in L^1(\hat{G})$, die Gleichung
 		\begin{align*}
