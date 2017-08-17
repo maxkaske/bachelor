@@ -21,4 +21,9 @@
 {\sc Gouvea, Fernando~Quadros}: {\em p-adic numbers: An introduction}.
 \newblock Universitext. Springer, 2. \btxeditionlong{}, 1997.
 
+\bibitem{tate}
+{\sc Tate, John}: {\em Fourier analysis in number fields, and Hecke's
+  zeta-functions}.
+\newblock \btxphdthesis{}, Princeton, 1950.
+
 \end{thebibliography}

@@ -1,74 +1,49 @@
 \section{Lokale...}
+	Nach unserem kurzen Ausflug in die ungewohnte Welt der $p$-adischen Zahlen machen wir uns wieder auf den Weg zu Tates Beweis.
+	Eingen wir uns zuerst auf etwas Notation.
+	Eine \emph{Stelle} von $\K$ ist eine Primzahl oder $\infty$.
+	Erstere werden auch \emph{endliche Stellen} oder in Anlehnung an ihre Absolutbetr"age \emph{nicht-archimedische Stellen}.
+	Analog bezeichnen wir $\infty$ als die \emph{unendliche} oder auch \emph{archimedische Stelle}.
+	Im Folgenden werden wir immer $p$ f"ur eine Stelle verwenden.
+	Es wird also keine Verwirrung stiften, wenn wir $p<\infty$ schreiben und damit meinen, dass $p$ eine Primzahl ist.
+	Umgekehrt schreiben wir $p\leq\infty$ wenn eine beliebige Stelle gemeint ist.
+	Setzt man zudem noch $\K_\infty := \R$ haben wir einen K"orper $\K_p$ f"ur jede Stelle, der aus der Vervollst"andigung von $\K$ bez"uglich $\abs_p$ hervorgeht.
+	
+	Im letzten Abschnitt haben wir gesehen, dass die endliche Stellen gewisse "Ahnlichkeiten mit der lokalen Betrachtung meromorpher Funktionen als Laurent-Reihe haben.
+	Wir werden also im folgenden Abschnitt den K"orper $\K$ \glqq lokal\grqq{} an den Stellen $p\leq \infty$ genauer untersuchen. 
+	Dabei richten wir uns an einer Mischung aus Tates Doktorarbeit \cite{tate} und deren Behandlung durch Ramakrishnan und Valenza\cite{rama} und Deitmar \cite{deitmar2010}.
+	
 \subsection{... K"orper}
-	Wir betrachten im Folgenden alle 
+	
+	Halten wir zun"achst ein wichtiges Ergebnis des letzten Abschnitts fest.
+	\begin{satz}
+		F"ur alle Stellen $p\leq \infty$ haben wir:
+		\begin{enumerate}
+			\item $\K_p^+$ ist eine lokalkompakte Gruppe.
+			\item $\Kpx$ ist eine lokalkompakte Gruppe.
+		\end{enumerate}
+	\end{satz}
+	Ein K"orper, dessen additive und multiplikativen Gruppen lokalkompakt sind, nennt man auch \emph{Lokaler K"orper}.
+	\begin{proof}
+		F"ur $p=\infty$ sind diese Aussagen bereits bekannt. 
+		F"ur $p<\infty$ m"ussen wir nur kurz argumentieren, dass $\K_p^+$ und $\Kpx$  hausdorffsch sind.
+		Dies ist aber klar, da $\K_p^+$ ein metrischer Raum und $\Kpx$ eine offene Teilmenge von $\K_p^+$ ist.
+		Die restlichen Eigenschaften haben wir im letzten Abschnitt gezeigt.	
+	\end{proof}
 	%Q_p topologischer Ring: done
 	%Skalierung der Mengen durch multiplikation: done
 	%Haarmass auf Q_p^\times: done
-	%normierung des mult masses
-	%annulus
-	\begin{satz}\label{satz:QpIstLokalKompakt}
-		F"ur alle Stellen $p\leq\infty$ gilt
-		\begin{enumerate}[label=\emph{(\roman*)}]
-		\item $(\Kp, +)$ ist eine lokalkompakte Gruppe.
-		\item $(\K_p^\times, \cdot)$ ist eine lokalkompakte Gruppe.
-		\end{enumerate}
-	\end{satz}
-	\begin{proof}
-	%%% hier normierung des haar masses auf Qp
+	%normierung des mult masses: done
 	
-		Zu (i): Die Stetigkeit der Addition und der Negierung sind eigentlich direkte Folgen der Konstruktion der Vervollst"andigung.
-		Als kleine Auffrischung zeigen wir sie trotzdem.
-		Seien $x_n \to x$ und $y_n \to y$ konvergente Folgen in $\Kp$. 
-		Es ist zu zeigen, dass $x_n+y_n$ gegen $x+y$ konvergiert. 
-		Nach der Dreiecksungleichung gilt
-		\begin{align*}
-			\abs[(x_n+y_n) - (x+y)]_p = \abs[(x_n - x) + (y_n - y)]_p \leq \abs[(x_n - x)]_p + \abs[(y_n - y)]_p.
-		\end{align*}
-		Die rechte Seite konvergiert gegen $0$, also ist die linke eine Nullfolge und die Stetigkeit der Addition folgt.
-		"Ahnlich zeigen wir $-x_n \to -x$, denn $\abs[(-x_n) - (-x)]_p = \abs[x_n-x]_p$.
-		Damit ist $\Kp$ eine topologische Gruppe. 
-		
-		Da die Topologie von einer Metrik induziert wird, ist diese hausdorffsch.
-		Wir m"ussen folglich nur noch die Lokalkompaktheit zeigen.
-		Wegen der Stetigkeit der Addition reicht es dazu eine kompakte Umgebung der $0$ zu finden, denn sei $K$ eine kompakte Nullumgebung, so ist $a+K$ f"ur beliebige $a\in \Kp$ eine kompakte Umgebung von $a$.
-		Wir behaupten, dass die Umgebung
-		\begin{align*}
-			\Zp = \{x \in \Kp : \abs[x]_p \leq 1\}
-		\end{align*}
-		kompakt ist.
-		F"ur $p=\infty$ ist $\Z_\infty = [-1,1]$ also kompakt.
-		F"ur $p<\infty$ gen"ugt es zu zeigen, dass $\Zp$ vollst"andig und totalbeschr"ankt ist. 
-		Ersteres folgt daraus, dass $\Zp$ als abgeschlossene Menge des vollst"andigen Raumes $\Kp$ selber vollst"andig ist.
-		Eine Menge heißt totalbeschr"ankt, wenn wir sie f"ur jedes $\varepsilon > 0$ mit endlich vielen $\varepsilon$-B"allen "uberdecken k"onnen.
-		Wir k"onnen uns auf $\varepsilon$ der Form $p^{-k}$, $k\geq 0$ beschr"anken, da unsere Metrik nur den diskreten Wertebereich $p^\Z$ hat.
-		Es ist $p^{k+1}\Zp$ eine Untergruppe von $\Zp$ und f"ur den Index gilt $[\Zp : p^{k+1}\Zp] = p^{k+1}$. Das bedeutet, dass die $p^{-k}$-B"alle
-		\begin{align*}
-			a + p^{k+1}\Zp = \{y\in \Zp : \abs[y-a]_p \leq p^{-k-1}\} = \{y\in \Zp : \abs[y-a]_p < p^{-k}\} = B_{p^{-k}}(a)
-		\end{align*}
-		mit $a=0\dots p^{k+1}-1$ die Menge $\Zp$ "uberdecken. Als vollst"andige und totalbeschr"ankte Menge ist $\Zp$ somit kompakt.
-		
-		
-		Zu (ii): $\K_p^\times = \Kp\setminus \{0\}$ ist ein offener Teilraum von $\Kp$ und somit selbst wieder hausdorffsch und lokalkompakt.
-		F"ur die Stetigkeit seien $x_n \to x$ und $y_n \to y$ zwei konvergente Folgen in $\K_p^\times$. 
-		Wir zeigen, dass $x_ny_n$ gegen $xy$ konvergiert.
-		Dies folgt aus der Absch"atzung
-		\begin{align*}
-			\abs[x_n y_n - xy]_p 
-			&= \abs[x_n y_n -x_ny + x_n y- xy]_p  \\
-			&\leq \abs[x_n y_n -x_ny]_p + \abs[x_n y- xy]_p \\
-			&= \underbrace{\abs[x_n]_p}_{\text{beschr"ankt}} \underbrace{\abs[y_n -y]_p}_{\to 0} + \underbrace{\abs[x_n- x]_p}_{\to 0} \abs[y]_p \to 0
-		\end{align*}
-		Weiter zur Invertierung. Wegen
-		\begin{align*}
-			\abs[\frac{1}{x_n} - \frac{1}{x}]_p = \frac{\abs[x_n - x]_p}{\abs[x_nx]_p} \to 0
-		\end{align*}
-		folgt, dass $x_n^{-1}$ gegen $x^{-1}$ konvergiert und die Stetigkeit ist gezeigt.
-	\end{proof}
+	Als lokalkompakte Gruppe exisitert nach Satz \ref{satz:topo:haarmeasure} ein Haar-Maß auf $\K_p^+$, welches wir mit $\dx_p$ bezeichnen.
+	Im Fall $p=\infty$ k"onnen wir als $\dx_\infty$ einfach das Lebesgue-Maß nehmen und ersparen uns bei jeder Integration umdenken zu m"ussen.
+	$p<\infty$ dagegen ist Neuland f"ur uns und daher nicht beeinflusst von Gewohnheiten.
+	Der folgende Satz wird allerdings zeigen, dass es sinnvoll ist die Normierung mit $\Vol(\Zp, \dx_p) = 1$ zu w"ahlen. 
 	
-	\begin{satz}\label{satz:multiplikativesHaarMass}
+	\begin{satz}\label{satz:lokal:translationDesMasses}
 		F"ur jede messbare Menge $A\subset \Kp$ und jedes $x\in \Kp$ gilt
 		\begin{align*}
-			\mu(xA) = \abs[x]_p \mu(A).
+			\mu(xA) = \abs[x]_p \cdot \mu(A).
 		\end{align*}
 		Insbesondere folgt f"ur jedes $f \in L^1(\Kp)$ und $x\not= 0$:
 		\begin{align*}
@@ -76,13 +51,14 @@
 		\end{align*}
 	\end{satz}
 	\begin{proof}
-		Sei $x\in \K_p^\times$. Die Funktion $\mu_x$ definiert durch
+		Sei $x\in \K_p^\times$. 
+		Die Funktion $\mu_x$ definiert durch
 		\begin{align*}
 			\mu_x (A) = \mu(xA)
 		\end{align*}
 		definiert wieder ein Haar-Maß auf $\Kp$ und unterscheidet sich daher nur durch Skalierung mit einer positiven Konstante $c>0$ von $\mu$.
-		Ziel wird es nun sein $c=\abs[x]_p$ zu zeigen. 
-		Dies ist klar im Fall $p=\infty$. 
+		Ziel wird es nun sein $c=\abs[x]_p$ zu zeigen. Dies ist klar im Fall $p=\infty$. 
+		
 		F"ur $p<\infty$ reicht es dank unserer Normierung $\mu(x\Zp) = \abs[x]_p$ zu zeigen.
 		Sei dazu $\abs[x]_p = p^{-k}$.
 		Dann ist $x=p^ky$ mit $y\in \Zp$ und $x\Zp = p^k\Zp$.
@@ -97,11 +73,15 @@
 		Im anderen Fall $k<0$ ist umgekehrt $\Zp$ eine Untergruppe von $p^k\Zp$ mit Index $[p^k\Zp:\Zp]= p^{-k}$ und die Behauptung folgt analog.
 	\end{proof}
 	
+	Damit haben wir ein sinnvolle Normierung des additiven Maßes $\dx_p$ gefunden.
+	Wie sieht es auf den multiplikativen Gruppen $\Kpx$ aus?
+	Zun"achst k"onnen wir einen Bezug zwischen additiven und multiplikativen Maßen herstellen.
+	
 	\begin{satz}\label{satz:lokal:multiplikativesmass}
-		Ist $dx$ ein additives Haar-Maß auf $\Kp$, so definiert $\frac{dx}{\abs[x]_p}$ ein multiplikatives Haar-Maß $d^\times x$ auf $\K_p^\times$.
+		Ist $\dx_p$ ein additives Haar-Maß auf $\Kp$, so definiert $\frac{dx}{\abs[x]_p}$ ein multiplikatives Haar-Maß $\dxx$ auf $\K_p^\times$.
 		Insbesondere gilt dann f"ur alle $g \in L^1(\K_p^\times)$
 		\begin{align*}
-			\int_{\K_p^\times} g(x) d^\times x = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}
+			\int_{\K_p^\times} g(x) \dxx_p = \int_{\Kp \setminus \{0\}} g(x) \frac{\dx_p}{\abs[x]_p}
 		\end{align*}
 	\end{satz}
 	\begin{proof}
@@ -113,26 +93,58 @@
 		\begin{align*}
 			\Phi(g) = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}.
 		\end{align*}
-		Dieses ist offensichtlich ein positives, nicht-triviales, lineares Funktional auf $ C_c(\K_p^\times)$. Es ist translationsinvariant, denn
+		Dieses ist offensichtlich ein positives, nicht-triviales, lineares Funktional auf $ C_c(\K_p^\times)$. 
+		Es ist translationsinvariant, denn
 		\begin{align*}
 			\int_{\Kp \setminus \{0\}} g(y^{-1}x) \frac{dx}{\abs[x]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{\abs[y]_pdx}{\abs[yx]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p},
 		\end{align*}
-		folglich kommt es von einem Haar-Maß $d^\times x$. 
+		folglich kommt es von einem Haar-Maß $\dxx_p$. 
 		Der zweite Teil der Behauptung folgt aus der Tatsache, dass die Funktionen in $C_c(\K_p^\times)$ dicht in $L^1(\K_p^\times)$ liegen.
 		Beim "Ubergang zum Grenzwert erhalten wir die Gleichung auf Funktionen in $L^1$.
 	\end{proof}
+	
+	Wir k"onnen also die Normierung abh"anging von $\dx_p$ machen.
+	F"ur $p=\infty$ spricht nichts dagegen einfach $\dxx_\infty = \frac{\dx_\infty}{\abs[x]_\infty}$ beizubehalten.
+	Im endlichen Fall machen wir uns etwas mehr Gedanken.
+	Wir haben die multiplikative Untergruppe $\Zpx$ kennengelernt und gesehen, dass $\Kpx = \bigcup_{k\in\Z} p^k\Zpx$.
+	Aufgrund der (multiplikativen) Translationsinvarianz ist $\Vol(p^k\Zpx, \frac{\dx_p}{\abs[x]_p}) = \Vol(\Zpx, \frac{\dx_p}{\abs[x]_p})$.
+	Es ist daher interessant zu erfahren, welchen Wert $\Vol(\Zpx, \frac{\dx_p}{\abs[x]_p})$ annimmt.
+	Da $\Zpx$ kompakt ist, muss er endlich sein.
+	Wir rechnen
+	\begin{align*}
+		\Vol(\Zpx, \frac{\dx_p}{\abs[x]_p}) = \int_{\Zpx}\frac{\dx_p}{\abs[x]_p}
+											= \int_{\Zpx}\dx_p
+											= \Vol(\Zpx, \dx_p).										
+	\end{align*}
+	Nun k"onnen wir aber $\Zpx$ disjunkt zerlegen durch
+	\begin{align*}
+		\Zpx = \bigcup_{k=1}^{p-1} (k + p\Zp)
+	\end{align*}
+	und haben daher
+	\begin{align*}
+		\Vol(\Zpx, \dx_p) = \sum_{k=1}^{p-1} \Vol(k + p\Zp, \dx_p) = (p-1) \Vol(p\Zp, \dx_p) = \frac{p-1}{p},
+	\end{align*}
+	wobei wir im letzten Schritt $\Vol(p\Zp, \dx_p) = \abs[p]_p \Vol(p\Zp, \dx_p)$ ausgenutzt haben.
+	
+	Wir normieren $\dxx_p$ im Fall $p<\infty$ durch $\dxx_p = \frac{p}{p-1} \cdot \frac{\dx_p}{\abs[x]_p}$, also gerade die Normierung, so dass $\Zpx$ das Maß Eins hat.
+	
 \subsection{... Fourieranalysis}
 %hier den additiven charakter besprechen und kurz bedeutung erklaeren: done
 %selbstdual:ist eigentlich fourierumkehrformel: done
 %fouriertransformation: done
 %schwartz-bruhat und deren form: done
 %fourierumkehrformel: done
-		F"ur die unendliche Stelle $p=\infty$ definieren wir die \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		Im Kapitel "uber topologische Gruppen haben wir bereits einen Ausblick auf die abstrakte Fourieranalysis gegeben.
+		Im Folgenden verfolgen wir einen naiveren Ansatz und entwickeln unsere eigene Variante auf den lokalen K"orpern $\Kp$, wobei wir im unendlichen Fall uns nicht groß von der klassischen Theorie entfernen.
+		Zudem achten wir auch darauf eine Br"ucke zur abstrakten Theorie zu schlagen, so dass sich die hier behandelten Konzepte leicht auch auf den allgemeineren Fall "ubertragen lassen.
+		
+		Wir beginnen damit eine Klasse von Funktionen zu definieren, die besonders gutes Konvergenzverhalten f"ur unsere Berechnungen aufweist.
+		F"ur die unendliche Stelle $p=\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
 		\begin{align*}
 			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
 		\end{align*}
-		erf"ullt.
-		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Tr?ger.
+		erf"ullt. Dieses entspricht der Definition der klassischen Schwarty-Funktion.
+		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Tr"ager.
 		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
 		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
 		F"ur $p=\infty$ gilt nach obiger Bedingung $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\K\infty)$
@@ -419,7 +431,7 @@
 		\end{lemma}
 		\begin{proof}
 			Nach (i) haben wir absolute Konvergenz der Integrale f"ur Exponenten $\sigma > 0$. 
-			Zudem ist $\check{\chi} = \abs[x]_p\chi^{-1} = \abs[x]_p^{1-s} \mu^{-1}$, also haben wir in diesem Fall Konvergenz f"ur $\sigma <1$.
+			Zudem ist $\check{\chi} = \abs_p\chi^{-1} = \abs_p^{1-s} \mu^{-1}$, also haben wir in diesem Fall Konvergenz f"ur $\sigma <1$.
 			Damit sind die obigen Zeta-Funktionen wohldefiniert auf dem Streifen den wir betrachten.
 			Wir schreiben das Produkt als Doppelintegral "uber $\K_p^\times \times \K_p^\times$
 			\begin{align*}
