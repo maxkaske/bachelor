@@ -138,12 +138,27 @@
 		Im Folgenden verfolgen wir einen naiveren Ansatz und entwickeln unsere eigene Variante auf den lokalen K"orpern $\Kp$, wobei wir im unendlichen Fall uns nicht groß von der klassischen Theorie entfernen.
 		Zudem achten wir auch darauf eine Br"ucke zur abstrakten Theorie zu schlagen, so dass sich die hier behandelten Konzepte leicht auch auf den allgemeineren Fall "ubertragen lassen.
 		
-		Wir beginnen damit eine Klasse von Funktionen zu definieren, die besonders gutes Konvergenzverhalten f"ur unsere Berechnungen aufweist.
-		F"ur die unendliche Stelle $p=\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		Fassen wir die Normierungen des letzten Abschnitts in einer Definition zusammen.
+		\begin{defi}
+			Das normalisierte additive Haar-Maß $\dx_p$ auf $\K_p^+$ ist definiert durch
+			\begin{itemize}
+				\item $\dx_\infty$ entspricht dem Lebesgue-Maß auf $\R$.
+				\item $\dx_p$ so normiert, dass $\Vol(\Zp, \dx_p) = 1$ f"ur $p<\infty$.
+			\end{itemize}
+			Das normalisierte multiplikative Haar-Maß $\dxx_p$ auf $\K_p^\times$ ist definiert durch
+			\begin{itemize}
+				\item $\dxx_\infty = \frac{\dx}{\abs[x]_\infty}$ .
+				\item $\dxx_p =  \frac{p}{p-1} \cdot \frac{\dx_p}{\abs[x]_p}$ f"ur $p<\infty$.
+			\end{itemize}
+		\end{defi}
+		
+		Wir beginnen nun damit eine Klasse von Funktionen zu definieren, die besonders gutes Konvergenzverhalten bei der Integration aufweist.
+		F"ur die unendliche Stelle $p=\infty$ definieren wir eine \emph{lokale Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
 		\begin{align*}
 			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
 		\end{align*}
-		erf"ullt. Dieses entspricht der Definition der klassischen Schwarty-Funktion.
+		erf"ullt. 
+		Das entspricht der Definition der klassischen Schwartz-Funktion.
 		F"ur die endlichen Stellen $p<\infty$ definieren wir eine \emph{Schwartz-Bruhat Funktion} als eine lokal konstante Funktion mit kompakten Tr"ager.
 		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
 		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
@@ -160,8 +175,9 @@
 		\end{bsp}
 		
 		\begin{lemma}\label{lemma:padischSBF}
-			Jede Funktion $f\in \Sw(\Kp)$, $p<\infty$, ist eine endliche Linearkombination von charakteristischen Funktionen der Form $\ind_{a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$
+			F"ur jede endliche Stelle $p<\infty$ sind die lokalen Schwartz-Bruhat Funktion $f\in \Sw(\Kp)$ endliche Linearkombinationen von charakteristischen Funktionen der Mengen ${a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$.
 		\end{lemma}
+		Damit sieht man auch leicht ein, dass solche Schwartz-Bruhat Funktionen integrierbar sind.
 		\begin{proof}
 			Sei $f \in \Sw(\Kp)$. 
 			Da $f$ lokal konstant ist, ist f"ur jedes $z\in\C$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
@@ -173,39 +189,43 @@
 			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle. Damit folgt auch schon das Lemma.
 		\end{proof}
 		
-		Bevor wir mit etwas klassischer Fourieranalysis beginnen wollen wir den Kreis zur abstrakten Variante schließen.
-		Daf"ur definieren wir z"unachst f"ur jede Stelle $p$ einen nicht-trivialen, unit"aren Charakter $e_p$ auf der additiven Gruppe $\K_p^+$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
+		
+		Bevor wir nun die Fouriertransformation definieren, schauen wir uns im Sinne der harmonischen Analysis die Charaktere auf $\K_p^+$ an.
+		Wir beginnen mit der Definition eines nicht-trivialen Charakters $e_p$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
 		\begin{defi}
 			Wir definieren den \emph{Standardcharakter} $e_p:\K_p^+ \to S^1$ wie folgt:
-			\begin{itemize}[itemindent=3em]
-				\item [$p=\infty$:] $e_p(x) = \exp(-2\pi i x)$
-				\item [$p<\infty$:] Hier wird die Definition etwas aufwendiger. Zun"achst haben wir eine nat"urliche Projektion $\Kp \twoheadrightarrow \Kp/\Zp$.
+			\begin{itemize}%[itemindent=3em]
+				\item F"ur die unendliche Stelle setzten wir $e_\infty(x) = \exp(-2\pi i x)$
+				\item Im endlichen Fall wird die Definition etwas aufwendiger. Zun"achst haben wir eine nat"urliche Projektion $\Kp \twoheadrightarrow \Kp/\Zp$.
 				Die "Aquivalenzklassen von $\Kp/\Zp$ werden nach unseren "Uberlegungen zur Potenzreihendarstellung eindeutig repräsentiert durch Zahlen der Form $\sum_{k=-n}^{-1} a_kp^k$ mit $a_k \in \Z$ und $0\leq a_k\leq p-1$.
 				Wir definieren den stetigen Homomorphismus $\Kp/\Zp \to \K/\Z$ indem wir diese Repräsentanten als summen in $\K$ interpretieren. 
-				Zu guter Letzt schicken wir diese Summe in $\K/\Z$ durch $e: \$\K/\Z \to S^1, x \mapsto \exp(2\pi i x)$ in den Einheitskreis. 
+				Zu guter Letzt schicken wir diese Summe in $\K/\Z$ durch $e: \K/\Z \to S^1, x \mapsto \exp(2\pi i x)$ in den Einheitskreis. 
 				Alle diese Abbildungen sind stetige Gruppenhomomorphismen, bilden also selber wieder einen stetigen Gruppenhomomorphismus, den wir mit $e_p$ bezeichnen.
 				Interpretieren wir die Potenzreihenentwicklung der $p$-adischen Zahlen als nicht unbedingt konvergente Summe in $\Q$, so k"onnen wir (etwas unsch"on) schreiben
 				\begin{align*}
-					e_p\left(\sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{-1} a_kp^k\right)
+					e_p\left(\sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{\infty} a_kp^k\right) = \exp\left(2\pi i \sum_{k=-n}^{-1} a_kp^k\right).
 				\end{align*}
 			\end{itemize}
 		\end{defi}
-		Sei $\psi$ ein unitärer Charakter auf $\K_p^+$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
+		Sei nun $\psi$ ein beliebiger weiterer Charakter auf $\K_p^+$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
 		Aufgrund der Stetigkeit von $\psi$ gibt es dann eine offene Umgebung $V$ der $0\in\K_p^+$ mit $\psi(V)\subseteq U$. 
-		Ohne Einschr"ankung ist $V$ eine Untergruppe der Form $p^k\Zp$ f"ur ein $k\in\Z$. 
+		Ohne Einschr"ankung ist $V$ eine offene Untergruppe der Form $p^k\Zp$ f"ur ein $k\in\Z$. 
 		Dann ist aber $\psi(V)$ eine Untergruppe von $S^1$ und somit gleich $1$.
-		Die kleinste Untegruppe $p^k\Zp$ nennen wir den \emph{Konduktor} von $\psi$.
+		Die kleinste solche Untergruppe $p^k\Zp$ nennen wir den \emph{Konduktor} des additiven Charakters $\psi$.
+		Dieser wird uns im folgenden Lemma zur Hilfe kommen.
 	
-		
 		\begin{lemma}
-			Jeder unit"are Charakter $\psi: \Kp \to S^1$ ist von der Form $x \mapsto e_p(ax)$ f"ur ein $a \in \Kp$.
+			Jeder Charakter $\psi: \Kp \to S^1$ ist von der Form $x \mapsto e_p(ax)$ f"ur ein $a \in \Kp$.
 		\end{lemma}
 		\begin{proof}
-			Der Beweis teilt sich auf in die F"alle $p=\infty$ und $p<\infty$.
-			Zuerst zu $p=\infty$: Sei $\psi: \K_\infty \to S^1$ ein Charakter.
-			Wegen der Stetigkeit von $\psi$ existiert ein $\varepsilon > 0$, so dass $\psi((-\varepsilon, \varepsilon)) \subset \{z\in S^1: \Re(z)>0\}$.
-			W"ahlen wir $\varepsilon$ noch etwas kleiner k"onnen wir sogar $\psi([-\varepsilon, \varepsilon)]) \subset \{z\in S^1: \Re(z)>0\}$ garantieren.
-			Wir definieren nun $a$ als das eindeutig bestimmte Element aus $[-\frac{1}{4\varepsilon},\frac{1}{4\varepsilon}]$
+			Kl"aren wir zuerst den Fall $p=\infty$. Sei $\psi: \K_\infty \to S^1$ ein beliebiger Charakter.
+			Wegen der Stetigkeit von $\psi$ existiert ein $\varepsilon > 0$, so dass $\psi((-\varepsilon, \varepsilon)) \subseteq \{z\in S^1: \Re(z)>0\}$.
+			Machen wir $\varepsilon$ noch etwas kleiner k"onnen wir sogar 
+			\begin{align}\label{eq:lokal:formAdditivierCharakter1}
+				\psi([-\varepsilon, \varepsilon]) \subseteq \{z\in S^1: \Re(z)>0\}
+			\end{align}
+			garantieren.
+			Definiere nun $a$ als das eindeutig bestimmte Element aus $[-\frac{1}{4\varepsilon},\frac{1}{4\varepsilon}]$
 			\footnote{Also der Logarithmuszweig, dass $-\pi/2<\varepsilon a<\pi/2$}, so dass $\psi (\varepsilon) = \exp(2\pi i a \varepsilon)$.
 			Als n"achstes behaupten wir, dass auch
 			\begin{align*}
@@ -213,8 +233,8 @@
 			\end{align*}
 			gilt.
 			Wegen $\psi (\frac{\varepsilon}{2})^2 = \psi (\varepsilon) = \exp(2\pi i a \varepsilon)$ ist $\psi (\frac{\varepsilon}{2}) = \pm \exp(2\pi i  a \frac{\varepsilon}{2})$.
-			Da aber $\psi (\frac{\varepsilon}{2})$ nach der Wahl von $\varepsilon$ positiven Realteil hat, kommt nur $ \exp(2\pi i  a \frac{\varepsilon}{2})$ in Frage.
-			Durch Iteration des Arguments erhalten wir $\psi (\frac{\varepsilon}{2^n}) = \exp(2\pi i  a \frac{\varepsilon}{2^n})$ f"ur $n\in \N_0$.
+			Da aber $\psi (\frac{\varepsilon}{2})$ wegen (\ref{eq:lokal:formAdditivierCharakter1}) positiven Realteil haben muss, kommt nur $ \exp(2\pi i  a \frac{\varepsilon}{2})$ in Frage.
+			Durch Iteration des Arguments erhalten wir $\psi \left(\frac{\varepsilon}{2^n}\right) = \exp(2\pi i  a \frac{\varepsilon}{2^n})$ f"ur $n\in \N_0$.
 			
 			Setzen wir jetzt $\varepsilon = 2^{-n_0}$ f"ur ein geeignetes  $n_0\in\N$.
 			Dann ist $\varepsilon^{-1}$ eine nat"urliche Zahl und f"ur beliebige $k\in\Z$ haben wir
@@ -224,7 +244,7 @@
 										\\&= \exp\left(2\pi i  a \frac{\varepsilon}{2^n}\right) ^{\frac{k}{\varepsilon}}
 										= \exp\left(2\pi i  a \frac{k}{2^n}\right)
 			\end{align*}
-			Die Menge aller $\frac{k}{2^n}$ mit $k\in \Z$ und $n\in \N_0$ liegt nun aber dicht in $\R$ und wir k"onnen aus der Stetigkeit $\chi(x) = \exp(2\pi i a x)$ schließen.
+			Die Menge aller $\frac{k}{2^n}$ mit $k\in \Z$ und $n\in \N_0$ liegt dicht in $\R$ und wir k"onnen aus der Stetigkeit $\chi(x) = \exp(2\pi i a x)$ schließen.
 			Um die Eindeutigkeit von $a$ zu sehen, reicht es die Ableitung  von $x \mapsto \exp(2\pi i a x)$ zu berechnen und an der Stelle $x=0$ auszuwerten.
 			Der Wert betr"agt gerade $2\pi i a$.
 			
@@ -233,14 +253,14 @@
 			F"ur $k\leq0$ gilt offensichtlich $\psi(\Zp)=1$.
 			Ohne Beschr"ankung der Allgemeinheit betrachten wir nur solche Charaktere, denn im Fall $k>0$ k"onnen wir auch den Charakter $x\mapsto \psi(p^kx)$ betrachten und die Aussage folgt aus $\psi(p^kx) = \psi(x)^{(p^k)}$.
 			
-			Wir suchen nun ein geeignetes $a\in\Kp$. 
-			Dabei f"allt uns zun"achst auf, dass der Charakter bereits eindeutig durch seine Werte fur $p^{-k}$, $k \in \N$ bestimmt wird.
-			Da $\psi(\Zp)=1$ gilt n"amlich
+			Suchen wir ein geeignetes $a\in\Kp$. 
+			Uns f"allt zun"achst auf, dass der Charakter bereits eindeutig durch seine Werte an $p^{-k}$ mit $k \in \N$ bestimmt wird.
+			Da $\psi$ trivial auf $\Zp$ wirkt, gilt n"amlich
 			\begin{align*}
-				\psi \left( \sum_{k=-n}^\infty x_k p^k \right) = \sum_{k=-n}^{-1} \psi \left(p^k \right)^{x_k}.
+				\psi \left( \sum_{k=-n}^\infty x_k p^k \right) = \sum_{k=-n}^{\infty} \psi \left(p^k \right)^{x_k} = \sum_{k=-n}^{-1} \psi \left(p^k \right)^{x_k}.
 			\end{align*}
 			Es reicht also ein geeignetes $a$ f"ur diese Potenzen zu finden.
-			Schauen wir uns $\psi{p^{-1}}$ genauer an, so erkennen wir, dass dies eine $p$-te Einheitswurzel sein muss.
+			Schauen wir uns $\psi(p^{-1})$ genauer an, so erkennen wir, dass dies eine $p$-te Einheitswurzel sein muss.
 			Damit ist $\psi(p^{-1}) = \exp(2\pi i \frac{a_1}{p})$ f"ur ein eindeutig bestimmtes nat"urliches $0\leq a_1 \leq p - 1$.
 			Analog argumentieren wir auch $\psi(p^{-k}) = \exp(2\pi i \frac{a_k}{p^k})$ mit $0\leq a_k \leq p^k - 1$.
 			Zudem gilt 
@@ -248,20 +268,24 @@
 				\exp\left(2\pi i \frac{a_{k+1}}{p^{k}}\right) = \exp\left(2\pi i \frac{a_{k+1}}{p^{k+1}}\right)^{p}= \psi(p^{-k-1})^p = \psi(p^{-k}) = \exp\left(2\pi i \frac{a_k}{p^k}\right).
 			\end{align*}
 			F"ur unsere Folge heißt das aber gerade $a_k \equiv a_{k+1} \pmod{p^k}$.
-			Nach unseren "Uberlegunen zu den Potenzreihen definiert eine solche Folge aber gerade eine eindeutig bestimmte $p$-adische Zahl $a$ mit $a \equiv a_k \pmod{p^k}$ und es gilt
+			Im Beweis der Potenzreihendarstellung haben wir aber gesehen, dass eine solche Folge gerade eine eindeutig bestimmte $p$-adische Zahl $a$ definiert, die $a \equiv a_k \pmod{p^k}$ erf"ullt.
+			Wir haben also
 			\begin{align*}
-				e_p\left( \frac{a}{p^{k}} \right) = \exp\left( 2\pi i \frac{a_k}{p^k} \right) = \psi \left( \frac{1}{p^k} \right)
+				e_p\left( \frac{a}{p^{k}} \right) = \exp\left( 2\pi i \frac{a_k}{p^k} \right) = \psi \left( \frac{1}{p^k} \right).
 			\end{align*}
 			Damit sind wir dann aber auch schon fertig.
 		\end{proof}
 		Der Beweis liefert uns sogar einen kleinen Bonus.
 		\begin{korollar}\label{kor:lokal:charTrivialZp}
-			Wirkt $\chi:\Kp\to S^1$ im endlichen Fall trivial auf $\Zp$, so gilt $\chi(x) = e_p(ax)$ mit $a\in \Zp$.
+			Wirkt $\psi:\Kp\to S^1$ trivial auf $\Zp$, so gilt $\psi(x) = e_p(ax)$ mit $a\in \Zp$.
 		\end{korollar}
 		\begin{proof}
-			Wie wir im Beweis der Potenzreihendarstellung gesehen haben, konvergiert eine solche Folge von rationalen Zahlen $a_k$ gegen einen Wert aus $\Zp$.
+			Das ist wieder eien Folgerung aus Satz \ref{satz:padisch:potenzreihen} zur Potenzreihendarstellung.
+			Demnach konvergiert die im vorherigen Beweis definierte Folge gegen einen Wert aus $\Zp$.
 		\end{proof}
-		Somit k"onnen wir auch mit gutem Gewissen Folgendes definieren.
+		
+		Die Standard-Charaktere induzieren gewissermaßen einen Isomorphismus zwischen der additiven Gruppe $\K_p^+$ und deren Dualgruppe $\widehat{\K_p^+}$. 
+		Wir k"onnen also gutem Gewissens die Fouriertransformation als eine Funktion auf $\K_p^+$ zu definieren.
 		\begin{defi}[Lokale Fouriertransformation]
 			Sei $f\in L^1(\Kp)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \Kp \to \C$ von $f$ durch die Formel
 		\begin{align*}
@@ -269,7 +293,7 @@
 		\end{align*}
 		f"ur alle $\xi \in \Kp$.
 		\end{defi}
-		Diese Definition entspricht im Fall $p=\infty$ gerade der klassischen Fouriertransformation bis auf eventuelle Normierung.
+		Diese Definition entspricht im Fall $p=\infty$ der klassischen Fouriertransformation (bis auf eventuelle Normierung und komplexen Konjugation des Charakters).
 		Von daher m"ochten wir auch einige klassische Ergebnisse festhalten und beweisen.
 		\begin{lemma}
 			Sei $f \in L^1(\Kp)$.
@@ -281,14 +305,17 @@
 		\end{lemma}
 		\begin{proof}
 			(a) und (b) sind einfache Folgerungen aus der Definition mit der Multiplikativit"at von $e_p$ und der Translationsinvarianz des Haar-Maß. 
-			Bei (c) spielt unsere Normeriung des Absolutbetrags eine Rolle, denn mit dem Variablenwechsel $y\mapsto \lambda^{-1}y$ erhalten wir
+			Bei (c) spielt unsere Normierung des Maßes eine Rolle, denn mit der Translation $y\mapsto \lambda^{-1}y$ erhalten wir
 			\begin{align*}
 				\hat{g}(x) = \int_{\Kp} f(\lambda y) e_p(-xy)dy = \frac{1}{\abs[\lambda]_p} \int_{\Kp} f(y) e_p(-x\lambda^{-1}y)dy = \frac{1}{\abs[\lambda]_p} \hat{f}\left(\frac{x}{\lambda}\right)
 			\end{align*}
 		\end{proof}
-		Beschr"anken wir uns jetzt auf die Fouriertransformation von Schwartz-Bruhat Funktionen.
-		Diese besitzen, wie wir noch feststellen werden, besonders gutes Konvergenzverhalten. 
-		So ist zum Beispiel folgendes Ergebnis bereits aus der Fourieranalysis in $\R$ bekannt und kann jetzt auf die $p$-adischen Zahlen "ubertragen werden.
+		Beschr"anken wir uns jetzt auf die Fouriertransformation von lokalen Schwartz-Bruhat Funktionen.
+		Aus der klassischen Fourieranalysis auf $\R$ ist bekannt, dass f"ur jede Schwartz Funktion $f$ deren Fouriertransformierte $\hat{f}$ wieder eine Schwartz Funktion ist.
+		Man kann dann $\hat{\hat{f}}$ betrachten und sieht, dass diese Funktion in einem engen Bezug zu $f$ steht. 
+		F"ur eine geeignete Normierung des Haar-Maßes haben wir die Umkehrformel  $\hat{\hat{f}}(x)=f(-x)$.
+		Wir nennen ein so normiertes Haar-Maß \emph{selbst-dual}.
+		"Ubertragen wir dies nun auf den $p$-adischen Fall.
 		\begin{satz}\label{satz:lokal:umkehrformel}
 			Ist $p\leq\infty$ und $f\in\Sw(\Kp)$, so ist $\hat{f} \in \Sw(\Kp)$ und es gilt die \emph{Umkehrformel}
 			\begin{align*}
@@ -296,21 +323,27 @@
 			\end{align*}
 		\end{satz}
 		\begin{proof}
-			Betrachten wir zuerst den Fall $p<\infty$. Wie wir eben in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. Es reicht also die Aussage f"ur solche $f$ zu zeigen.
+			Im Fall $p=\infty$ folgt $\hat{f} \in \Sw(\Kp)$ und die Umkehrformel (mal einer Konstanten) aus der klassischen Analysis.
+			Um zu sehen, dass unsere Normierung von $\dx_\infty$ tats"achlich selbst-dual ist, reicht es eine geeignete Funktion zu betrachten und zu zeigen, dass die Konstante gleich $1$ ist. 
+			Daf"ur verweisen wir auf die Berechnungen am Ende des Kapitels.
+			
+			Kommen wir zum Fall $p<\infty$. 
+			Wie wir eben in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. 
+			Es reicht also die Aussage f"ur solche $f$ zu zeigen.
 			Sei dazu $h:= \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
 			\begin{align*}
 				\hat{h}(x) = \int_\Kp h(y) e_p (-xy) dy_p = \int_\Zp e_p(-xy) dy_p.
 			\end{align*}
 			Nun ist $\chi(y):=e_p(-xy)$ ein Charakter auf $\Zp$ und genau dann trivial, wenn $x\in\Zp$. 
 			Weiter ist $\Zp$ kompakt. 
-			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $dy_p$ folgt also
+			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $\dx[y]_p$ folgt also
 			\begin{align*}
-				\hat(h)(x) = \text{Vol}(\Zp, dy_p) \ind_\Zp = \ind_\Zp = h(x)
+				\hat{h}(x) = \text{Vol}(\Zp, dy_p) \ind_\Zp = \ind_\Zp = h(x)
 			\end{align*}
 			
 			Wir f"uhren nun folgende Operatoren auf $\Sw(\Kp)$ ein
 			\begin{align*}
-				L_a f(x) = f(x-a), M_\lambda f(x) = f(\lambda x),
+				L_a f(x) = f(x-a),& &M_\lambda f(x) = f(\lambda x),
 			\end{align*}
 			wobei $a \in \Kp$ und $\lambda \in \Kp^\times$. 
 			Nun k"onnen wir $f$ schreiben als $L_a M_{p^{-k}}h$. 
@@ -319,8 +352,9 @@
 				\hat{f} = (L_a M_{p^{-k}}h)\widehat{\phantom{x}} = \Omega_{-a}p^{k}M_{p^k}\hat{h}=\Omega_{-a}p^{-k}M_{p^k}h.
 			\end{align*}
 			Also ist $\hat{f} (x) = e_p(-ax)p^k\ind_{p^{-k}\Zp}(x)$. 
-			Der Charakter $e_p$ ist lokal konstant, $\hat{f}$ als das Produkt lokal konstanter Funktionen selbst wieder lokal konstant und damit in $\Sw(\Kp)$. 
-			Damit haben wir den ersten Teil der Aussage gezeigt.
+			Der Charakter $e_p$ ist lokal konstant.
+			Somit ist $\hat{f}$ als das Produkt lokal konstanter Funktionen selbst wieder lokal konstant und daher in $\Sw(\Kp)$. 
+			Wir haben also den ersten Teil der Aussage gezeigt.
 			
 			F"ur den zweiten Teil sehen wir
 			\begin{align*}
@@ -329,7 +363,6 @@
 			also $\hat{\hat{f}} (x) = \ind_{-a+p^k\Zp} (x) = \ind_{a+p^k\Zp} (-x) = f(-x)$. 
 			Hier haben wir $p^k\Zp = - p^k\Zp$ ausgenutzt. 
 			Damit haben wir die Umkehrformel f"ur den $p$-adischen Fall gezeigt. 
-			F"ur $p=\infty$ ist die Formel bereits aus der klassischen Fourieranalysis bekannt.
 		\end{proof}
 		
 \subsection{... Funktionalgleichung}
@@ -337,7 +370,7 @@
 %deren form: done
 %lokale funktionalgleichung: done
 %FILLER
-	Die Einheiten $K_p^\times$ der lokalen K"orper $\Kp$ k"onnen dargestellt werden als direktes Produkt $\dedekind_p^\times \times V(\Kp)$, wobei $\dedekind_p^\times$ die Untergruppe der Elemente von $\K_p^\times$ mit Absolutbetrag $1$ und 
+	Die Einheiten $\K_p^\times$ der lokalen K"orper $\Kp$ k"onnen dargestellt werden als direktes Produkt $\dedekind_p^\times \times V(\Kp)$, wobei $\dedekind_p^\times$ die Untergruppe der Elemente von $\K_p^\times$ mit Absolutbetrag $1$ und 
 	\begin{align*}
 		V(\Kp) := \abs[\K_p^\times]
 	\end{align*}
@@ -391,10 +424,25 @@
 	\end{proof}
 	Aus $\abs[\mu(\tilde{x})\abs[x]_p^s] = \abs[x]_p^\sigma$ folgt, dass der Realteil $\sigma=\text{Re}(s)$ eindeutig bestimmt ist. Er wird auch \emph{Exponent} des Charakters $\chi$ genannt.
 		%%%Filler: wie sehen charaktere auf R aus (vllt auch Qp) wann sind sie aquivalent was ist eine klasse von charakteren
-	Wir kommen zum ersten Ergbnis aus Tates Doktorarbeit
+	Wir definieren nun das lokale Analogon zur Mellin-Transformation,dh. eine multiplikative Variante der Fourier-Transformation.
+	\begin{defi}
+		F"ur jede lokale Schwartz-Bruhat Funktion $f\in \Sw(\K_p)$ und multiplikativen Quasi-Charakter $\chi$ mit Exponenten $\sigma >0$ sei
+		\begin{align*}
+			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxx_p
+		\end{align*}
+		eine \emph{lokale Zeta-Funktion} auf $\Kp$.
+	\end{defi}
+	Fixieren wir einen multiplikativen Charakter $\mu$ auf $\dedekind_p^\times$, so k"onnen wir $Z(f, \mu \abs_p^s)$ als eine Funktion in der komplexen Variable $s$ ansehen.
 	
+	
+	Bevor wir gleich zum ersten großen Ergebnis aus Tates Doktorarbeit kommen, definieren wir f"ur jeden Quasi-Charakter $\chi$ noch mittels
+	\begin{align*}
+		\check{\chi}(x) = \frac{\abs[x]_p}{\chi(x)},
+	\end{align*}
+	das \emph{verschobene Dual} des Charakters.
+	Damit etablieren wir nun:
 	\begin{satz}[Lokale Funktionalgleichung]
-		Sei $f_p \in \Sw(K_p)$ und $\chi = \mu \abs_p^s$. Sei weiter $\sigma = \text{Re}(s)$. Dann gelten die folgenden Aussagen:
+		Sei $f_p \in \Sw(\K_p)$ und $\chi = \mu \abs_p^s$. Sei weiter $\sigma = \text{Re}(s)$ der Exponent von $\chi$. Dann gelten die folgenden Aussagen:
 		\begin{enumerate}[label=\emph{(\roman*)}]
 			\item $Z(f,\chi) = Z(f, \mu, s)$ ist holomorph und absolut konvergent f"ur $\sigma > 0$
 			\item Auf dem Streifen $0 < \sigma < 1$ haben wir eine Funktionalgleichung
@@ -407,18 +455,35 @@
 	\begin{proof}
 		(i) Es reicht im Allgemeinen zu zeigen, dass das Integral
 		\begin{align*}
-			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} dx
+			 \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p}
+													= \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p
 		\end{align*}
-		endlich ist, denn das Haar-Maß $d^\times x$ ist ein konstantes vielfaches von $dx$.
+		endlich ist, denn $\dxx_p$ ist ein konstantes Vielfaches von $\dx_p$.
 		
 		Sei zun"achst $p=\infty$. 
-		Wir k"onnen $\abs[f_p]$  absch"atzen durch ein skalares Vielfaches von $\frac{1}{1+\abs[x]_\infty^n}$, wobei $n \in \N$ mit $n > \sigma$.
-		Zusammen haben wir dann
+		Wir w"ahlen $\varepsilon>0$ beliebig und setzen $K=[-\varepsilon, \varepsilon]$.
+		Nun teilen wir das Integral auf in
 		\begin{align*}
-			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} dx \leq C\cdot \int_{\Kp} \frac{\abs[x]_p^{\sigma-1}}{1+\abs[x]_\infty^n}dx < \infty.
+			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
+				= \int_{K\setminus\{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p
+					+ \int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p.
 		\end{align*}
-		%%%EVTL TODO: Erklaerung warum endlich: Dazu aufteilen in kompaktum K und R\K. Einmal stetig kompakt also beschr, andere mal abschaetzen durch 1/x^2
+		Nun ist $f$ stetig und damit beschr"ankt auf $K$.
+		F"ur den ersten Summanden m"ussen wir also nur die Integrierbarkeit von $\abs[x]_p^{\sigma-1}$ nahe $0$ "uberpr"ufen.
+		Aus der Analysis folgt diese f"ur $\sigma-1>-1$, also umgeformt $\sigma>0$. 
+		Im zweiten Summanden k"onnen wir den Integranden geeignet absch"atzen.
+		Da $f$ eine Schwartz Funktion ist,  haben wir zum Beispiel $\abs[f(x)]_p \leq \frac{C}{\abs[x]_p^n}$, wobei $n \in \N$ mit $n > 1+\sigma$ und $C$ eine positive reelle Zahl ist.
+		Einsetzen in den Summanden ergibt
+		\begin{align*}
+			\int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
+				\leq C\cdot \int_{\Kp \setminus K} \frac{\abs[x]_p^{\sigma-1}}{\abs[x]_p^n}\dx_p 
+				\leq C\cdot \int_{\Kp \setminus K} \frac{1}{\abs[x]_p^2}\dx_p< \infty.
+		\end{align*}
+		Es folgt die absolute Konvergenz.
+		
 		Im endlichen Fall
+		
+		Folgt
 		
 		%%%TODO
 		
