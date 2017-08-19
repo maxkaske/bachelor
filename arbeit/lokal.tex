@@ -423,7 +423,7 @@
 		Damit definiert der stetige Homomorphismus $x\mapsto \chi(x)\mu(\tilde{x})^{-1}$ einen unverzweigten Charakter auf $\K_p^\times$, hat also nach vorherigem Lemma die Form $\chi(x)\mu(\tilde{x})^{-1} = \abs[x]_p^s$ f"ur ein $s\in\C$. Der Satz folgt sofort.
 	\end{proof}
 	Aus $\abs[\mu(\tilde{x})\abs[x]_p^s] = \abs[x]_p^\sigma$ folgt, dass der Realteil $\sigma=\text{Re}(s)$ eindeutig bestimmt ist. Er wird auch \emph{Exponent} des Charakters $\chi$ genannt.
-		%%%Filler: wie sehen charaktere auf R aus (vllt auch Qp) wann sind sie aquivalent was ist eine klasse von charakteren
+	
 	Wir definieren nun das lokale Analogon zur Mellin-Transformation,dh. eine multiplikative Variante der Fourier-Transformation.
 	\begin{defi}
 		F"ur jede lokale Schwartz-Bruhat Funktion $f\in \Sw(\K_p)$ und multiplikativen Quasi-Charakter $\chi$ mit Exponenten $\sigma >0$ sei
@@ -481,11 +481,32 @@
 		\end{align*}
 		Es folgt die absolute Konvergenz.
 		
-		Im endlichen Fall
-		
-		Folgt
-		
-		%%%TODO
+		Kommen wir zum endlichen Fall. 
+		Die lokale Schwartz-Bruhat Funktion ist dann eine Linearkombination von Funktionen der Form $f = \ind_{a+p^n\Zp}$.
+		Es reicht also nur solche zu betrachten.
+		Wir rechnen
+		\begin{align*}
+			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
+				&= \int_{{a+p^n\Zp} \setminus \{0\}} \abs[x]_p^{\sigma-1} \dx_p
+				= \int_{{p^n\Zp}\setminus \{0\}} \abs[x-a]_p^{\sigma-1} \dx_p\\
+				&\leq \int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p} + \abs[a]_p^{\sigma-1} \Vol(p^n\Zp, \dx_p),
+		\end{align*}
+		wobei wir im letzten Schritt die (normale) Dreiecksungleichung verwendet haben.
+		Der zweite Summand ist endlich, da $p^n\Zp$ kompakt ist.
+		Schauen wir uns also den ersten Summanden an.
+		Wir nutzen nun einen kleinen Trick.
+		Der Betrag ist konstant auf den Kreislinien $p^k\Zpx$.
+		Zudem hatten hatten mit $\Kp\setminus \{0\} = \bigcup_{k\in \Z} p^k\Zpx$ eine disjunkte Zerlegung von $\Kpx$ in genau diese Kreislinien.
+		"Ubertragen wir den Gedanken nun auf das Integral erhalten wir
+		\begin{align*}
+			\int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p} 
+				= \sum_{k=n}^{\infty} \int_{p^k\Zpx} \abs[x]_p^\sigma \frac{\dx_p}{\abs[x]_p}  
+				= \sum_{k=n}^{\infty} \int_{\Zpx} \abs[p^kx]_p^{\sigma} \frac{\dx_p}{\abs[x]_p}
+				= \sum_{k=n}^{\infty} p^{-k \sigma} \int_{\Zpx}  \frac{\dx_p}{\abs[x]_p}
+		\end{align*}
+		Das Integral haben wir bereits bestimmt. Es ist gleich $\frac{p-1}{p}$. 
+		"Ubrig bleibt also nur eine geometrische Reihe, diese konvergiert aber gerade f"ur $\sigma>0$.
+		Damit haben wir absolute Konvergenz im endlichen gezeigt und kommen nun zur Funktionalgleichung.
 		
 		(ii) Wir folgen Tate und beweisen ein kleines Lemma.
 		\begin{lemma}
@@ -520,18 +541,22 @@
 			\end{align*}
 			wobei wieder Fubini das Vertauschen der Reihenfolge bei der Integration erlaubt.
 		\end{proof}
-		Damit sind wir auch schon fast mit dem eigentlichen Beweis fertig. Wir fixieren eine geeignete Schwartz-Bruhat Funktion $g\in \Sw(\Kp)$ und setzen
+		Damit sind wir auch schon fast fertig. 
+		Wir versprechen nun die Existenz geeigneter Funktionen $g\in \Sw(\Kp)$, so dass der Ausdruck
 		\begin{align*}
 			\gamma(\chi, e_p, dx) := \frac{Z(\hat g, \check{\chi})}{Z(g, \chi)}.
 		\end{align*}
-		Aus dem Lemma folgt, dass dieser Quotient sicherlich unabh"angig von der Wahl von $g$ ist, und, dass
+		wohldefiniert ist. 
+		Aus dem gerade bewiesenen Lemma folgt, dass dieser Quotient unabh"angig von der Wahl von $g$ ist.
+		Zu guter Letzt erhalten wir die lokale Funktionalgleichung
 		\begin{align*}
-			Z(\hat f, \check{\chi}) = \gamma(\chi, e_p, dx) Z(f, \chi).
+			Z(\hat f, \check{\chi}) = \gamma(\chi, e_p, \dx_p) Z(f, \chi).
 		\end{align*}
-		%%%%TODO: FILLER laber darueber dass es solche funktionen gibt, dass diese meromorph sind und dass wir die faktoren explizit ausrechnen
 	\end{proof}
 \subsection{... Berechnungen}
-
+	In diesem Abschnitt kommen wir dem Versprechen des letzten Beweises nach und werden nicht nur die Funktionen angeben, sondern auch die $\gamma$-Faktoren explizit berechnen.
+	Die Berechnungen werden sich in die F"alle $p=\infty$ und $p<\infty$ und dort jeweils in $\chi$ verzweigt und $\chi$ unverzweigt aufteilen.
+	Wir m"ochten hier noch besonders die unverzweigten Berechnungen hervorheben, da sie hoffentlich einen Bezug zum eigentlichen Ziel dieser Arbeit erahnen lassen.
 \subsubsection{Der Fall \texorpdfstring{$p = \infty$}{p gleich unendlich}}
 	Wir betrachten zuerst die Klasse $\chi = \abs_\infty^s$ und nehmen die Schwartz-Bruhat Funktion
 	\begin{align*}
@@ -674,7 +699,7 @@
 	\begin{align*}
 		\hat{f}_n(\xi) 	= \text{Vol}(p^{-n}\Zp, dx) \ind_{1+p^n\Zp}(\xi) =p^n \ind_{1+p^n\Zp}(\xi).
 	\end{align*}
-	blablabla zeta funktion
+	Weiter zur Zeta-Funktion:
 	\begin{align*}
 		Z(f_n, \chi) &= Z(f_n, \mu\abs_p^s) 	
 											= \int_{\Kpx} f_n(x) \mu(\tilde{x}) \abs[x]_p^s \dxx
@@ -688,25 +713,30 @@
 	\begin{align}\label{eq:ZetaSumme}
 		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}).
 	\end{align}
-	F"ur die weitere Berechnung definieren wir $U_k:= 1+p^k\Zp$ und beweisen ein kleines Lemma "uber Gauß-Summen.
+	F"ur die weitere Berechnung beweisen wir ein kleines Lemma "uber Gauß-Summen.
 	\begin{lemma}\label{lemma:gausssumme}
-		Seien $\gamma$ und $\lambda$ wie oben. 
-		Seien $n$ und $r$ die kleinsten Zahlen mit $\gamma(1+p^n\Zp) = 1$ und $\lambda(p^r\Zp)=1$, d.h. $p^n$ und $p^r$ sind die Konduktoren von $\gamma$ bzw. $\lambda$.
+		Seien $\omega$ und $\lambda$ wie oben.
+		Seien weiter $p^n$ und $p^r$ die Konduktoren von $\omega$ bzw. $\lambda$.
 		Es gelten folgende Aussagen:  
-		\begin{enumerate}[label=(\roman*)]
+		\begin{enumerate}[label=\emph{(\roman*)}]
 			\item Wenn $n>r$, dann $g(\omega,\lambda) = 0$. \label{lemma:gausssummei}
-			\item Wenn $n=r$, dann $\abs[g(\omega,\lambda]^2 = c^2p^{-n}$.
-			\item Wenn $n<r$, dann $\abs[g(\omega,\lambda]^2 = c^2\left[p^{-n} - p^{-r}\right]$.
+			\item Wenn $n=r$, dann $\abs[g(\omega,\lambda)]^2 = c^2p^{-n}$.
+			\item Wenn $n<r$, dann $\abs[g(\omega,\lambda)]^2 = c^2\left[p^{-n} - p^{-r}\right]$.
 		\end{enumerate}
 	\end{lemma}
 	%Wir werden Aussage (iii) hier nicht brauchen und verweisen daher f"ur den Beweis auf Ramakrishnan \cite{rama} Lemma 7-4.
 	\begin{proof}
-		F"ur (i) zerlegen wir $\Zpx$ in die Nebenklassen, die von $U_r=1+p^r\Zp$ erzeugt werden.
-		Ein generisches Element aus $aU_r$ hat die Form $a(1+p^rb)$, wobei $a$ ein Repräsentant der Nebenklasse und $b$ aus $\Zp$ ist. 
-		Wir haben $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
-		Daher %%%REpresentantensystem ueberlegen
+		Zwei Kleinigkeiten vorneweg: $r$ und $n$ sind nicht-negative ganze Zahlen, da wir nur Charaktere auf $\Zp$ bzw. $\Zpx$ betrachten.
+		Weiter definieren wir im Folgenden $U_k=1+p^k\Zp$ f"ur $k\in \N$ und setzen $U_0 = \Zpx$.
+		
+		F"ur (i) zerlegen wir $\Zpx$ in Nebenklassen, die von $U_r=1+p^r\Zp$ erzeugt werden.
+		Diese haben mit $R=\{1,\dots, p^r-1\}$ ein endliches Repräsentantensystem.
+		F"ur ein $a \in R$ k"onnen wir die zugeh"orige Nebenklassen schreiben als $aU_r$.
+		Insbesondere haben deren Elemente die Form $a(1+p^rb)$. 
+		Wir erhalten $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
+		Daher
 		\begin{align*}
-			g(\omega,\lambda) = \sum_{aU_r}  \int_{aU_r} \omega(x)\lambda(x) \dxx = \sum_{aU_r} \omega(a)\lambda(a) \int_{U_r} \omega(x)\dxx.
+			g(\omega,\lambda) = \sum_{aU_r}  \int_{aU_r} \omega(x)\lambda(x) \dxx = \sum_{aU_r} \omega(a)\lambda(a) \int_{U_r} \omega(x)\dxx_p.
 		\end{align*}
 		Da aber $n>r$ wirkt $\omega$ nicht trivial auf $U_r$ und somit verschwindet das Integral.
 		
