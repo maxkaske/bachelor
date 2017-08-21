@@ -1,189 +1,19 @@
 \section{Adele und Idele}
-	
-\subsection{Eingeschränktes Direktes Produkt}\label{kapitel:RDP}
-		In der vorherigen Sektion haben wir uns die lokalek K"orper $\Kp$ immer nur einzelnen angeschaut. 
-		Jetzt wollen wir einen Schritt weiter gehen und alle auf einmal betrachten, indem wir sie in einem neuen Objekt einkapseln. 
-		Dieses m"ochten auf diesem Objekt wieder integrieren, fourier-transformieren und sogar Zeta-Funktionen definieren.
-		Daf"ur m"ochten wir wieder eine lokalkompakte Gruppe bilden, welche alle lokalen lokalkompakten Gruppen umfasst. 
-		Ein erster Ansatz wäre natürlich "uber das direkte Produkt, allerdings zeigt folgendes Lemma, dass dieser Versuch in unserem Fall fehlschlagen wird.
-		\begin{lemma}\label{Lemma:lokalkompaktProd}
-			Sei $I$ eine Indexmenge und $X_i$ ein lokalkompakter Hausdorff-Raum für alle $i \in I$. Der Raum $X:=\prod_{i \in I} X_i$ ist genau dann lokalkompakt, wenn fast alle $X_i$ kompakt sind.
-		\end{lemma}
-		Wir geben den Beweis aus Deitmar \cite{deitmar2010}:
-		\begin{proof}
-			Zunächst eine Beobachtung: Ist $X$ kompakt, so ist auch jedes $X_i$ kompakt als Bild von $X$ unter der (stetigen) Projektion $\pi_i:X \to X_i$.
-			Sei $E \subset I$ eine endliche Teilmenge und $U_i \in X_i$ eine offene Menge für jedes $i \in E$. Wir betrachten die offenen Rechtecke
-			\begin{align*}
-				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} X_i,
-			\end{align*}
-			welche eine Basis der Produkttopologie bilden. Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschlu\ss kompakt ist. 
-			Folglich sind fast alle $X_i$ kompakt. 
-			Die Rückrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter Räume wieder lokalkompakt sind.
-		\end{proof}
-		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. 
-		Wir sehen jetzt aber, was zu tun ist, damit doch noch eine runde Sache daraus wird und geben folgende
-		\begin{defi}[Eingeschränkte direkte Produkt]
-			Sei $I=\{v\}$ eine Indexmenge und für jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
-			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
-			Das \emph{eingeschränkte direkte Produkt} der $G_v$ bezüglich $H_v$ ist definiert als 
-			\begin{align*}
-				G = \rdprod{v \in I} G_v := \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ für alle bis auf endlich viele } v \}.
-			\end{align*}
-			mit komponentenweiser Verknüpfung. Die Topologie auf $G$ ist gegeben durch die \emph{eingeschränkte Produktopologie}. 
-			Diese wird erzeugt durch die Basis der \emph{eingeschränkten offenen Rechtecke}
-			\begin{align*}
-				\prod_{i \in E} U_i \times \prod_{i \in I\setminus E} H_i,
-			\end{align*}
-			wobei $E \subset I$ eine endliche Teilmenge mit $I_\infty \subset E$ und $U_i \in G_i$ offen für alle $i \in E$ ist.
-		\end{defi}
-		G ist offensichtlich eine Untergruppe des direkten Produkts, die eingeschränkte Produkttopologie ist jedoch nicht die Teilraumtopologie.
-		
-		Wir führen nun eine nützliche Familie von Untergruppen von G ein. Sei $S$ eine endliche Teilmenge von $I$ mit $I_\infty \in S$. Wir definieren die Untergruppe
+\subsection{Die Adelegruppe}
+		Wir definieren die \emph{Adelegruppe} $\A$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\K_p^+$ bez"uglich der Untergruppen $\Zp$, d.h.
 		\begin{align*}
-			G_S := \prod_{i \in S}G_i \times \prod_{i \in I\setminus S} H_i
+			\A = \rdprod{p\leq\infty} \Kpp = \{ (x_p): x_p \in \K_p^+ \text{ und } x_p \in \Zp \text{ f"ur fast alle } p<\infty\}
 		\end{align*}
-		von $G$. Diese ist offensichtlich offen. 
-		Nach Lemma \ref{lemma:direktesProduktTopologischerGruppen} und Lemma \ref{Lemma:lokalkompaktProd} ist $G_S$ selbst wieder eine lokalkompakte Gruppe bezüglich der Produkttopologie.
-		Man sieht aber leicht, dass diese mit der durch $G$ induzierten Teilraumtopologie übereinstimmt.
-		Da jeder Punkt $x \in G$ in einer Untergruppe dieser Form liegt folgt sofort, dass $G$ wieder eine lokalkompakte Gruppe ist.
-		
-		Abschließend möchten wir noch einen kleinen Satz festhalten.
-		\begin{satz}%Kompakte Mengen in G_S
-			Eine Teilmenge $Y$ von $G$ hat genau dann kompakten Abschluss, wenn $Y \subseteq \prod{K_i}$ für eine Familie von kompakten Teilmengen $K_i \subseteq G_i$ mit $K_i = H_i$ für fast alle Indizes $i$.
-		\end{satz}
-		\begin{proof}
-			Die Rückrichtung ist klar, denn jede abgeschlossene Teilmenge eines kompakten Raumes ist wieder kompakt. 
-			Für die Hinrichtung sei nun $K$ der Abschluss von $Y$ und kompakt in $G$. 
-			Da die Untergruppen $G_S$ eine offene "Uberdeckung von $G$ bilden, gibt es eine endliche Familie $\{G_{S_n}\}$, die $K$ überdecken. 
-			Wir können sogar noch mehr sagen. Da die die $S_k$ endlich sind, ist $S = \bigcup S_k$ endlich, also wird $K$ sogar von nur einem $G_S$ überdeckt. 
-			Sei $K_i$ das Bild von $K$ der natürlichen Einbettung nach $G_i$. 
-			Da die Topologie auf $G_S$ gerade der Produkttopologie entspricht und $K\subseteq G_S$ ist diese Abbildung stetig und $K_i$ damit kompakt als stetiges Bild einer kompakten Menge. Außerdem ist $K_i \subseteq H_i$ für alle $i\notin S$, sodass wir hier $K_i$ durch die kompakten $H_i$ ersetzen können. Dann ist $Y\subseteq K \subseteq \prod{K_i}$ und wir sind fertig.
-		\end{proof}
- 
-\subsubsection{Charaktere}%TODO Lemma genauer, beweis schoener
-		\begin{lemma}\label{lemma:rdp:char}
-			Sei $\chi$ ein Charakter auf $G$. Dann ist $\chi$ trivial auf fast allen $H_i$. Folglich ist für $g\in G$ $\chi(g_i) = 1$ für fast alle $i$ und es gilt
-			\begin{align*}
-				\chi(g) = \prod_i \chi_i(g_i).
-			\end{align*}
-		\end{lemma}
-		\begin{proof}
-			Wir überlegen uns zunächst, dass Abbildungen in der angegebenen Form tatsächlich Charaktere auf $G$ sind. 
-			$\chi$ ist sicherlich wohldefiniert und offensichtlich ein Gruppenhomomorphismus auf $\C^\times$. 
-			Es bleibt noch zu zeigen, dass $\chi$ stetig ist. 
-			Da $G$ und $\C^\times$ topologische Gruppen sind, genügt es sich offene Umgebungen der $1$ anzuschauen. Sei daher $V$ eine offene Umgebung der $1 \in \C^\times$.
-			Sei $S$ die endliche Menge aller Indizes, sodass $\chi$ nicht trivial auf $H_i$ ist, und setze $n = |S|$. 
-			Wir finden eine weitere Umgebung $W$ der $1 \in \C^\times$, so dass das Produkt von $n$ beliebigen Elementen aus $W$ wieder in $V$ liegt. 
-			Da die $\chi_i$ stetig sind, finden wir offene Umgebungen $U_i$ der $1 \in G_i$ mit $\chi_i(N_i) \subseteq W$. 
-			Für $i \in S$ können wir ohne Probleme $U_i = H_i$ setzen. 
-			Dann ist $U = \prod_i U_i$ eine offene Umgebung der $1 \in G$ und für jedes $g \in U$ ist $\chi(g)$ das endliche Produkt von $n$ Faktoren aus $W$, also $\chi(g) \in V$.
-			
-			Nun zur Rückrichtung sei $\chi$ ein beliebiger Charakter auf $G$. 
-			Für beliebige $g_i \in G_i$ definieren wir $\chi_i (g_i) = \chi\circ\iota(g_i))$. 
-			Offensichtlich ist $\chi_i$ ein Gruppenhomomorphismus und stetig als Komposition stetiger Funktionen, also ein Charakter. 
-			Wir müssen nun noch zeigen, dass fast alle $chi_i$ trivial auf die Untergruppen $H_i$ wirken. 
-			Dazu wählen wir uns eine offene Umgebung $V$ der $1$ in $\C^\times$, die nur die triviale Untergruppe $\{1\}$ enthält. 
-			Aufgrund der Stetigkeit von $\chi$ finden wir eine offene Umgebung $U=\prod_i U_i$ der $1$ in $G$ mit $U_i = H_i$ für alle $i$ außerhalb einer endlichen Indexmenge $S$ und $\chi(U)\subseteq V$.
-			Dann gilt aber
-			\begin{align*}
-				(\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i) \subseteq U 
-			\end{align*}
-			und daher
-			\begin{align*}
-				\chi((\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i)) \subseteq V 
-			\end{align*}
-			Die linke Seite ist aber als Bild einer Gruppe unter einem Gruppenhomomorphismus selbst wieder eine Gruppe. Nach unserer Wahl von $V$ folgt also
-			\begin{align*}
-				\chi((\prod_{i \in S} 1) \times (\prod_{i \notin S} H_i)) = \{1\}.
-			\end{align*}
-			Folglich $\chi_i (H_i) = \{1\}$ für alle $i\notin S$. 
-			Damit ist aber klar, dass für jedes $g \in G$ das Produkt $\prod_i \chi_i(g_i)$ endlich ist und $\chi(g)$ entspricht.
-		\end{proof}
-	
-\subsubsection{Integration}
-		Wie wir gesehen haben ist $G=\rdprod{i \in I} G_i$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{satz:topo:haarmeasure} ein Haar-Maß. Wir wollen dieses geeignet normalisieren.
-		\begin{satz}
-			Sei $G=\rdprod{i \in I} G_i$ das eingeschränkte direkte Produkt einer Familie lokalkompakter Gruppen $G_i$ bezüglich der Untergruppen $H_i \subseteq G_i$. Bezeichne $dg_i$ das Haar-Maß auf $G_i$ mit der Normalisierung
-			\begin{align*}
-				\int_{H_i} dg_i = 1
-			\end{align*}
-			für fast alle $i \notin I_\infty$. Dann gibt es ein eindeutiges Haar-Maß $dg$ auf G, so dass für jede endliche Teilmenge $S\supseteq I_\infty$ der Indexmenge $I$ die Einschränkung $dg_S$ von $dg$ auf $G_S$ genau das Produktmaß ist.
-		\end{satz}
-		
-		\begin{proof}
-			Wir vergewissern uns zunächst, dass die Normalisierung der $dg_i$ möglich ist, da per Definiton die Untergruppen $H_i$ offen und kompakt sind und daher positives und endliches Maß haben.
-			
-			Sei $S$ nun eine beliebige Menge wie im Satz beschrieben und definiere $dg_S$ als das Produktmäß $dg_S :=\left(\prod_{s \in S}dg_i\right) \times dg^S$, wobei $dg^S$ das Haar-Maß auf der kompakten Gruppe $G^S:=\prod_{i \notin S} H_i$ mit $\int_{G^S} dg^S = 1$ ist. 
-			Siehe Folland \cite{folland} Kapitel 7, Satz 7.28 für eine genauere Beschreibung des Maßes $dg^S$. 
-			Als endliches Produkt von Haar-Maßen ist $dg_S$ selbst wieder Haar-Maß und wir können $dg$ normieren, dass dessen Einschränkung auf $G_S$ mit $dg_S$ übereinstimmt.
-			Unsere Wahl der Teilmenge war $S$ willkürlich. 
-			Allerdings können wir zeigen, dass die gewählte Normierung unabhängig von $S$ ist. 
-			Sei dazu $T\supseteq S$ eine weitere endliche Indexmenge. 
-			Per Definition ist $G_S$ eine Untergruppe von $G_T$. 
-			Wir müssen jetzt nur noch zeigen, dass die Einschränkung von $dg^T$ auf $G^S$ mit $dg^S$ übereinstimmt.
-			Man erkennt, dass $G^S = \left(\prod_{i \in T \setminus S} H_i\right) \times G^T$.
-			Daher bildet $\left(\prod_{i \in T \setminus S} dg_i\right) \times dg^T$.
-			ein Haar-Maß, welches der kompakten Gruppe $G_S$ das oben geforderte Maß $1$ zuweist.
-			Aus der Eindeutigkeit des Haar-Maßes auf (lokal)kompakten Gruppen folgt somit die Gleichheit zu $dg^S$.
-			Sei nun $S'$ eine beliebige weitere Indexmenge, die $I_\infty$ enthält. Das normierte Maß $dg$ wird auf $G_{S\cup S'}$ eingeschränkt zu einem Maß, welches ein konstantes Vielfaches von $dg_{S\cup S'}$ ist. 
-			Da aber $G_S \subseteq G_{S\cup S'}$ muss diese Konstante $1$ sein, denn nach obigen "Uberlegungen ist die Einschränkung von $dg_{S\cup S'}$ auf $G_S$ gerade $dg_{S}$.
-			Umgekehrt ist aber $dg_{S'}$ die die Einschränkung von $dg_{S\cup S'}$ auf $G_{S'}$, also ist die Normalisierung unabhängig von der Wahl unserer Indexmenge $S$.
-		\end{proof}
-		%Wir schreiben manchmal $\prod_{i} dg_i$ für das wie oben normierte Maß $dg$.
-		
-		\begin{proposition}\label{prop:integrieren}
-			Sei $G$ das eingeschränkte direkte Produkt mit dem induzierten Maß $dg$
-			\begin{enumerate}[label=\emph{(\roman*)}]
-				\item Sei $f \in L(G)$ eine integrierbare Funktion auf $G$. Dann gilt
-					\begin{align*}
-						\int_G f(g)dg = \lim_S \int_{G_S} f(g_S) dg_S,
-					\end{align*}
-					wobei $S$ über alle endlichen Indexmengen läuft, die $I_\infty$ enthalten.
-				\item Sei $S_0$ ein beliebige endliche Indexmenge, die $I_\infty$ und alle $i$ enthält, für die $\text{Vol}(H_i, dg_i) \not= 1$. 
-					Für jeden Index $i$ haben wir eine stetige Funktion $f_i$ auf $G_i$, so dass $f_i |_{H_i} = 1$ für alle $i \notin S_0$. 
-					Wir definieren
-					\begin{align*}
-						f(g) = \prod_{i}f_{i}(g_i),
-					\end{align*}
-					für $g=(g_i) \in G$. 
-					Dann ist $f$ wohldefiniert und stetig auf $G$. 
-					Sind die $f_i$ sogar integrierbar und ist $S$ eine weitere endliche Indexmenge, die $S_0$ enthählt, haben wir
-					\begin{align}\label{eq:satz:integration}
-						\int_{G_S} f(g_S) dg_S = \prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr).
-					\end{align}
-					Ist das Produkt
-					\begin{align*}
-						\prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr)
-					\end{align*}
-					sogar endlich, dann ist $f$ insbesondere integrierbar und es gilt
-					\begin{align*}
-						\int_{G} f(g) dg = \prod_{i \in S}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr).
-					\end{align*}	
-			\end{enumerate}
-		\end{proposition}
-		\begin{proof}
-			(i) Wir halten z"unachst fest was "uberhaupt mit dem Ausdruck $\lim_S \phi(S) = \phi_0$ f"ur eine Funktion $\phi$ auf den endlichen Indexmengen $S$ mit Werten in einem abgeschlossenen topologischen Raum gemeint ist: Gegeben eine beliebige Umgebung $V$ von $\phi_0$, dann gibt es eine Indexmenge $S(V)$, sodass f"ur alle weiteren Indexmengen $S \supseteq S(V)$ der Wert $\phi(S)$ in $V$ liegt. Intuitiv ist also  $\lim_S \phi(S)$ der Limes von $\phi(S)$ "uber gr"oßer und gr"oßere $S$.
-			
-			Zur"uck zum Beweis der Aussage.
-			Aus der Integrationstheorie (z.B. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass %vllt auch nicht TODO
-			\begin{align*}
-				\int_{G} f(g) = \sup_{K \text{ kompakt}} \left\{ \int_{K} f(g)dg \right\}.
-			\end{align*}
-			Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
-			
-			\noindent(ii) Aus der Bedingung $f_i |_{H_i} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_i)$ für alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Eine Umgebung von $g$ ist gegeben durch ein offenes beschränktes Rechteck. Diese liegen in einem der $G_S$ (versehen mit der Produkttopologie) und wir können ohne Einschränkung $S$ um alle Indizes $i$ mit $f_i|_{H_i}\not= 1$ vergrößern.
-			Lokal betrachtet ist $f$ also ein endliches Produkt stetiger Funktionen auffassen und daher $f$ selber stetig.\\
-			Für den anderen Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen des Satzes. 
-			Nach der Definition von $G_S$ und den Annahmen $f_i|_{H_i} = 1$, $\text{Vol}(H_i, dg_i) = 1$ für alle $i$ nicht in $S$, ist es klar, dass Gleichung \ref{eq:satz:integration} gilt, denn $dg_S$ war gerade das Produktmaß auf $G_S$. Nehmen wir nun an, dass das Produkt endlich ist. 
-			Dann gilt aber nach (i) und Gleichung \ref{eq:satz:integration}
-			\begin{align*}
-				\prod_{i}\Bigl(\int_{G_i} f_i (g_i)dg_i\Bigr) = \lim_S \int_{G_S} f(g_S) dg_S = \int_{G} f(g) dg
-			\end{align*}
-			und wir sind fertig.
-		\end{proof}
-%$G$ als topologische Gruppe zu realisieren, geben wir eine Umgebungsbasis der Identität an. Diese soll aus den Mengen der Form $\prod_{v \in J}{N_v}$ bestehen, wobei $N_v$ eine Umgebung der Identität $e$ von $G_v$ ist und zusätszlich $N_v = H_v$ für fast alle $v\in J$ gelten soll. Die dadurch induzierte Topologie auf $G$ unterscheidet sich im Allgemeinen von der Produkttopologie und wird als \emph{eingeschränkte Produkttopologie} bezeichnet.	
-
-\subsection{Der Ring der Adele}
+		und nennen ein Element $x\in\A$ dieser Gruppe ein \emph{Adele}.
+		Es gibt eine algebraische (aber nicht topologische) Einbettung
+		\begin{align*}
+			\K &\longrightarrow \A \\
+			x &\longmapsto (x,x,x,\dots)
+		\end{align*}
+		der rationalen Zahlen in die Adele.
+		Dies ist tats"achlich wohldefiniert, denn f"ur fast alle Stellen $p<\infty$ ist $\abs[x]_p = 1$ und damit $x\in \Zp$. 
+		Es wird also keine Verwirrung stiften, wenn wir (algebraisch) $\K$ mit dieser Einbettung identifizieren.
+		Wie sieht aber die Topologie dann aus?
 		\begin{satz}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K$ liegt diskret in $\A$.
@@ -219,7 +49,23 @@
 			Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem ursprünglichen Adel unterscheidet und selbst in $\R \times \prod_{p < \infty} \Z_p$ liegt.
 			Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$.	
 		\end{proof}
+	
+		
 \subsection{Die Idele}
+			Wir definieren die \emph{Idelegruppe} $\I$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\Kpx$ bez"uglich der Untergruppen $\Zpx$, d.h.
+		\begin{align*}
+			\I = \rdprod{p\leq\infty} \Kpx = \{ (x_p): x_p \in \Kpx \text{ und } x_p \in \Zpx \text{ f"ur fast alle } p<\infty\}
+		\end{align*}
+		und nennen ein Element $x\in\I$ dieser Gruppe ein \emph{Idel}.
+		Es gibt eine algebraische (aber nicht topologische) Einbettung
+		\begin{align*}
+			\K &\longrightarrow \I \\
+			x &\longmapsto (x,x,x,\dots)
+		\end{align*}
+		der rationalen Zahlen in die Idele.
+
+
+
 		\begin{satz}\label{satz:global:ideleiso}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
@@ -267,7 +113,7 @@
 					\end{cases}
 			\end{align*}
 			Es ist klar, dass dies ein Gruppenhomomorphismus ist.
-			Um die Stetigkeit zu sehen schreiben wir die Abbildung als $x \mapsto \iota_\infty(\abs[x]_\A)^{-1} \cdot x$.
+			Um die Stetigkeit zu sehen schreiben wir die Abbildung als $x \mapsto \iota_\infty(\abs[x]_\A)^{-1} \cdot x$.% wobei $\iota: \K \to \I$ die Inklusion von $\K$ in $\I$ ist.
 			Die Umkehrabbildung ist dann gegeben durch $(x,r) \mapsto \iota_\infty(r) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
 		\end{proof}
 	
