@@ -1,75 +1,137 @@
 \section{Adele und Idele}
-\subsection{Die Adelegruppe}
-		Wir definieren die \emph{Adelegruppe} $\A$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\K_p^+$ bez"uglich der Untergruppen $\Zp$, d.h.
+	F"ur die lokalen Funktionalgleichungen haben wir im wesentlichen zwei Sachen ben"otigt.
+	Zum einen die Fouriertransformation: ein Integral bez"uglich des additiven Haar-Maßes, welches als Funktion auf den additiven Charakteren definiert war.
+	Zum anderen die Zeta-Funktion, das multiplikative Gegenst"uck zur Fouriertransformation: eine Funktion auf den multiplikativen Quasi-Charakteren, definiert als Integral bez"uglich des multiplikativen Maßes.
+	Dieses Zusammenspiel von additiven und multiplikativen Strukturen ziehen wir in den n"achsten zwei Sektionen in die globale Welt des eingeschr"ankten direkten Produkts und beginnen mit der Betrachtung zweier lokalkompakter Gruppen: die additiven Adele und die multiplikativen Idele.
+\subsection{Die Gruppe der Adele}
+	Wir definieren die \emph{Adelegruppe} $\A$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\K_p^+$ bez"uglich der Untergruppen $\Zp$, d.h.
+	\begin{align*}
+		\A = \rdprod{p\leq\infty} \Kpp = \{ (x_p): x_p \in \K_p^+ \text{ und } x_p \in \Zp \text{ f"ur fast alle } p<\infty\}
+	\end{align*}
+	und nennen ein Element $x\in\A$ dieser Gruppe ein \emph{Adele}.
+	Es gibt eine algebraische (aber nicht topologische) Einbettung
+	\begin{align*}
+		\K &\longrightarrow \A \\
+		x &\longmapsto (x,x,x,\dots)
+	\end{align*}
+	der rationalen Zahlen in die Adele.
+	Diese ist tats"achlich wohldefiniert, denn f"ur fast alle Stellen $p<\infty$ ist $\abs[x]_p = 1$ und damit $x\in \Zp$. 
+	Es wird also keine Verwirrung stiften, wenn wir (algebraisch) $\K$ mit dieser Einbettung identifizieren.
+	Wie sieht aber die Topologie dann aus?
+	\begin{satz}~
+		\begin{enumerate}[label=\emph{(\alph*)}]
+			\item $\K$ liegt diskret in $\A$.
+			\item $\A/\K$ ist kompakt.
+		\end{enumerate}
+	\end{satz}
+	\begin{proof}
+		Für (a) betrachten wir die offene Nullumgebung
 		\begin{align*}
-			\A = \rdprod{p\leq\infty} \Kpp = \{ (x_p): x_p \in \K_p^+ \text{ und } x_p \in \Zp \text{ f"ur fast alle } p<\infty\}
+			U = \left(-\frac{1}{2}, \frac{1}{2}\right) \times \prod_{p<\infty}\Z_p  .
 		\end{align*}
-		und nennen ein Element $x\in\A$ dieser Gruppe ein \emph{Adele}.
-		Es gibt eine algebraische (aber nicht topologische) Einbettung
+		Ist nun $r \in \K \cap U$, so gilt $\abs[r]_p \leq 1$ für alle $p < \infty$, also $r \in \Z$. 
+		Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
+		Für einen beliebigen Punkt $x \in \K$ erhalten wir mit $x+U$ eine entsprechende offene Umgebung von $x$.
+		
+		Für (b) zeigen wir, dass das Bild der Menge $K:=[0,1]\times \prod_{p<\infty} \Kp$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
+		Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
+		Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p : x_p \notin \Z_p\}$.
+		Wählen wir ein $p\in S$, $p<\infty$ und schreiben
 		\begin{align*}
-			\K &\longrightarrow \A \\
-			x &\longmapsto (x,x,x,\dots)
+			x_p = \sum_{k=-N}^\infty a_k p^k.
 		\end{align*}
-		der rationalen Zahlen in die Adele.
-		Dies ist tats"achlich wohldefiniert, denn f"ur fast alle Stellen $p<\infty$ ist $\abs[x]_p = 1$ und damit $x\in \Zp$. 
-		Es wird also keine Verwirrung stiften, wenn wir (algebraisch) $\K$ mit dieser Einbettung identifizieren.
-		Wie sieht aber die Topologie dann aus?
-		\begin{satz}~
-			\begin{enumerate}[label=\emph{(\alph*)}]
-				\item $\K$ liegt diskret in $\A$.
-				\item $\A/\K$ ist kompakt.
-			\end{enumerate}
-		\end{satz}
-		\begin{proof}
-			Für (a) betrachten wir die offene Nullumgebung
-			\begin{align*}
-				U = \left(-\frac{1}{2}, \frac{1}{2}\right) \times \prod_{p<\infty}\Z_p  .
-			\end{align*}
-			Ist nun $r \in \K \cap U$, so gilt $\abs[r]_p \leq 1$ für alle $p < \infty$, also $r \in \Z$. 
-			Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
-			Für einen beliebigen Punkt $x \in \K$ erhalten wir mit $x+U$ eine entsprechende offene Umgebung von $x$.
-			
-			Für (b) zeigen wir, dass das Bild der Menge $K:= \prod_{p<\infty} \times [0,1]$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
-			Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
-			Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p : x_p \notin \Z_p\}$.
-			Wählen wir ein $p\in S$, $p<\infty$ und schreiben
-			\begin{align*}
-				x_p = \sum_{k=-N}^\infty a_k p^k.
-			\end{align*}
-			Dann ist
-			\begin{align*}
-				x_p - \underbrace{\sum_{k=-N}^{-1}a_k p^k}_{=:r \in \K} \in \Z_p
-			\end{align*}
-			und für jede weitere endliche Stelle $q\not=p$ gilt
-			\begin{align*}
-				\abs[r]_q =\abs[\sum_{k=-N}^{-1}a_k p^k]_q \leq \max\left\{\abs[a_k p^k]_q\right\} \leq 1,
-			\end{align*}
-			also ist $r \in \Z_q$. 
-			Ersetzen wir nun $x$ durch $x-r$, so reduziert sich die Stellenmenge $S$ zu $S\setminus\{p\}$.
-			Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem ursprünglichen Adel unterscheidet und selbst in $\R \times \prod_{p < \infty} \Z_p$ liegt.
-			Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$.	
-		\end{proof}
+		Dann ist
+		\begin{align*}
+			x_p - \underbrace{\sum_{k=-N}^{-1}a_k p^k}_{=:r \in \K} \in \Z_p
+		\end{align*}
+		und für jede weitere endliche Stelle $q\not=p$ gilt
+		\begin{align*}
+			\abs[r]_q =\abs[\sum_{k=-N}^{-1}a_k p^k]_q \leq \max\left\{\abs[a_k p^k]_q\right\} \leq 1,
+		\end{align*}
+		also ist $r \in \Z_q$. 
+		Ersetzen wir nun $x$ durch $x-r$, so reduziert sich die Stellenmenge $S$ zu $S\setminus\{p\}$.
+		Dieses Argument setzen wir induktiv bis $S=\{\infty\}$ fort und erhalten damit ein $x$, welches sich nur um eine Zahl aus $\K$ von dem ursprünglichen Adel unterscheidet und selbst in $\R \times \prod_{p < \infty} \Z_p$ liegt.
+		Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$ verschieben und sind fertig.	
+	\end{proof}
+	
+	\begin{satz}[Integration einfacher Funktionen]
+		Sei $f: \A \to \C$ eine einfache integrierbare Funktion auf den Adelen. Es gilt die Produktformel
+		\begin{align*}
+			\int_\A f(x) \dx = \prod_{p\leq \infty} \int_{\Kp} f_p(x_p) \dx_p
+		\end{align*}
+	\end{satz}
+	\begin{proof}
+		Dies ist eine Folgerung aus Satz \ref{prop:rdp:integrieren}, denn f"ur einfache Funktionen ist nach unserer Normierung das Produkt auf der rechten Seite endlich.
+	\end{proof}
+	
+	Die Gruppe der Adele erh"alt über die komponentenweise Multiplikation eine Ringstruktur.
+	Diese ist nicht nullteilerfrei, denn zum Beispiel gilt f"ur zwei verschiedene Stellen $p,q\leq\infty$, dass $\iota_p(1) \cdot \iota_q(1)=0$.
+	Zudem ist in $\A^\times$ versehen mit der Teilraumtopologie die Inversenbildung nicht stetig, folglich bildet $\A^\times$ bez"uglich der Multiplikation keine topologische Gruppe.
+	Um dieses Problem zu umgehen wiederholen wir in der n"achsten Untersektion  die Konstruktion, jedoch diesmal mit den multiplikativen Gruppen $\Kpx$.
 	
 		
-\subsection{Die Idele}
-			Wir definieren die \emph{Idelegruppe} $\I$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\Kpx$ bez"uglich der Untergruppen $\Zpx$, d.h.
+\subsection{Die Gruppe der Idele}
+		Analog zu den Adelen definieren wir die \emph{Idelegruppe} $\I$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\Kpx$ bez"uglich der Untergruppen $\Zpx$, d.h.
 		\begin{align*}
 			\I = \rdprod{p\leq\infty} \Kpx = \{ (x_p): x_p \in \Kpx \text{ und } x_p \in \Zpx \text{ f"ur fast alle } p<\infty\}
 		\end{align*}
 		und nennen ein Element $x\in\I$ dieser Gruppe ein \emph{Idel}.
-		Es gibt eine algebraische (aber nicht topologische) Einbettung
+		Wieder gibt es die algebraische Einbettung
 		\begin{align*}
-			\K &\longrightarrow \I \\
+			\K^\times &\longrightarrow \I \\
 			x &\longmapsto (x,x,x,\dots)
 		\end{align*}
-		der rationalen Zahlen in die Idele.
-
-
-
+		der rationalen Einheiten in die Idele, denn wie bereits bei den Adelen gesehen haben, ist f"ur fast jede Stelle $\abs[x]_p = 1$ und somit $x\in \Zpx$.
+		
+		Wir haben uns bereits zweimal die lokalen Betr"age auf dem eigneschr"ankten direkten Produkt angeschaut. 
+		Die Definition der Idele erlaubt es uns diese miteinander zu einem globalen Absolutbetrag zu multiplizeren.
+		\begin{defi}
+			Wir definieren den \emph{adelischen (globalen) Absolutbetrag} $\abs_\A: \I \to \R_+^\times$ durch das wohldefinierte Produkt
+			\begin{align*}
+				\abs[x]_\A = \prod_{p\leq \infty} \abs[x_p]_p
+			\end{align*}
+		\end{defi}
+		Der Begriff "Betrag" sollte hier vorsichtig behandelt werden, denn streng genommen ist $\abs_\A$ auf keinem K"orper definiert.
+		Das soll uns aber nicht weiter st"oren, denn mit ihm lassen sich Aussagen aus dem Lokalen in das Globale "ubertragen.
+		\begin{lemma}
+			F"ur das additive Haar-Maß $\dx$ auf $\A$ und jedes Idel $\lambda \in \I$ gilt
+			\begin{align*}
+				\dx[{(\lambda x)}] = \abs[\lambda]_\A\cdot \dx
+			\end{align*}
+		\end{lemma}
+		\begin{proof}
+			Der Beweis funktioniert analog zu und mit  Satz \ref{satz:lokal:translationDesMasses} im Lokalen.
+			Wir betrachten dazu die kompakte Menge $K=[0,1]\times \prod_{p<\infty} \Zp$. Dann sehen wir, dass $\lambda K = [0,\lambda_\infty] \times \prod_{p<\infty} \lambda_p\Zp$ wieder kompakt ist (insbesondere sind fast alle Komponenten gleich $\Zp$) und rechnen
+			\begin{align*}
+				\int_{\lambda K} \dx 	&= \int_{[0,\lambda_\infty]}\dx_\infty \cdot \prod_{p<\infty} \int_{\lambda_p\Zp} \dx_p  \\
+										&= \abs[\lambda_\infty]_\infty \int_{[0,1]}\dx_\infty \cdot \prod_{p<\infty}\abs[\lambda_p]_p \int_{\Zp} \dx_p 
+										= \abs[\lambda]_\A \int_{K}\dx,
+			\end{align*}
+			wobei wir in der dritten Gleichung Satz \ref{satz:lokal:translationDesMasses} benutzt haben.
+		\end{proof}
+		Halten wir eine weitere wichtige Aussage "uber diesen Betrag fest.
+		\begin{satz}[Artins Produktformel]
+			F"ur alle $x \in \K^\times$ gilt $\abs[x]_\A = 1$.
+		\end{satz}
+		\begin{proof}
+			Aufgrund der Multiplikativit"at von $\abs_\A$ reicht es die Aussage f"ur Primzahlen $q$ zu zeigen. 
+			$q$ hat aber an nur zwei Stellen nichtrivialen Betrag und daher
+			\begin{align*}
+				\abs[q]_\A = \abs[q]_\infty \cdot \abs[q]_q =q \cdot q^{-1} = 1.
+			\end{align*}
+		\end{proof}
+		Analog zu $\Zpx = \{ x \in \Kp: \abs[x]_p = 1\}$ k"onnen wir auch auf den Idelen die Untergruppe
+		\begin{align*}
+			\I^1 = \{ x \in \I: \abs[x]_\A = 1\}
+		\end{align*}
+		der \emph{Betrag-Eins Idele} betrachten. 
+		Die obige Produktformel sagt uns gerade, dass $\K^\times$ eine Teilmenge von $\I^1$ ist.
+		Damit haben wir die n"otigen Definitionen zusammen um den folgenden Satz zu beweisen.
 		\begin{satz}\label{satz:global:ideleiso}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
-				\item $F:=\{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
+				\item $F:=\{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. 
+					Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
 				\item $\I^1/\K^\times$ ist kompakt.
 				\item Der adelische Betrag $\abs_\A$ induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
 			\end{enumerate}
@@ -89,8 +151,8 @@
 			
 			Zu (b): Wir definieren die Abbildung 
 			\begin{align*}%%TODO sieht shitty aus
-				\eta: F 	\longrightarrow \I^1/\Kx\\
-						(1,x)	\mapsto (1,x)\Kx
+				\eta: F 	&\longrightarrow \I^1/\Kx\\
+						(1,x)	&\longmapsto (1,x)\Kx
 			\end{align*}
 			und behaupten, dass diese Isomorphismus topologischer Gruppen ist.
 			Zun"achst sehen wir, dass $\eta=\pi \circ \iota$ als Komposition stetiger Gruppenhomomorphismen wieder ein stetiger Gruppenhomomorphismus ist.
@@ -116,4 +178,3 @@
 			Um die Stetigkeit zu sehen schreiben wir die Abbildung als $x \mapsto \iota_\infty(\abs[x]_\A)^{-1} \cdot x$.% wobei $\iota: \K \to \I$ die Inklusion von $\K$ in $\I$ ist.
 			Die Umkehrabbildung ist dann gegeben durch $(x,r) \mapsto \iota_\infty(r) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
 		\end{proof}
-	

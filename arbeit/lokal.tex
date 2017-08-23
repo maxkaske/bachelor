@@ -41,6 +41,7 @@
 	Der folgende Satz wird allerdings zeigen, dass es sinnvoll ist die Normierung mit $\Vol(\Zp, \dx_p) = 1$ zu w"ahlen. 
 	
 	\begin{satz}\label{satz:lokal:translationDesMasses}
+		Schreiben $\mu$ f"ur das Maß $\dx$.
 		F"ur jede messbare Menge $A\subset \Kp$ und jedes $x\in \Kp$ gilt
 		\begin{align*}
 			\mu(xA) = \abs[x]_p \cdot \mu(A).
@@ -714,23 +715,28 @@
 		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}).
 	\end{align}
 	F"ur die weitere Berechnung beweisen wir ein kleines Lemma "uber Gauß-Summen.
+	Weiter definieren wir im Folgenden $U_k=1+p^k\Zp$ f"ur $k\in \N$ und setzen $U_0 = \Zpx$.
 	\begin{lemma}\label{lemma:gausssumme}
 		Seien $\omega$ und $\lambda$ wie oben.
 		Seien weiter $p^n$ und $p^r$ die Konduktoren von $\omega$ bzw. $\lambda$.
 		Es gelten folgende Aussagen:  
 		\begin{enumerate}[label=\emph{(\roman*)}]
 			\item Wenn $n>r$, dann $g(\omega,\lambda) = 0$. \label{lemma:gausssummei}
-			\item Wenn $n=r$, dann $\abs[g(\omega,\lambda)]^2 = c^2p^{-n}$.
-			\item Wenn $n<r$, dann $\abs[g(\omega,\lambda)]^2 = c^2\left[p^{-n} - p^{-r}\right]$.
+			\item Wenn $n=r$, dann 
+				\begin{align*}
+					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dx_p) \Vol(U_n, \dxx_p)
+				\end{align*}
+			\item Wenn $n<r$, dann 
+				\begin{align*}
+					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dx_p)\left[\Vol(U_n, \dxx_p) - p^{-1}\Vol(U_{r-1}\dxx_p)\right]
+				\end{align*}
 		\end{enumerate}
 	\end{lemma}
 	%Wir werden Aussage (iii) hier nicht brauchen und verweisen daher f"ur den Beweis auf Ramakrishnan \cite{rama} Lemma 7-4.
 	\begin{proof}
-		Zwei Kleinigkeiten vorneweg: $r$ und $n$ sind nicht-negative ganze Zahlen, da wir nur Charaktere auf $\Zp$ bzw. $\Zpx$ betrachten.
-		Weiter definieren wir im Folgenden $U_k=1+p^k\Zp$ f"ur $k\in \N$ und setzen $U_0 = \Zpx$.
-		
+		Eine Kleinigkeiten vorneweg: $r$ und $n$ sind nicht-negative ganze Zahlen, da wir nur Charaktere auf $\Zp$ bzw. $\Zpx$ betrachten.
 		F"ur (i) zerlegen wir $\Zpx$ in Nebenklassen, die von $U_r=1+p^r\Zp$ erzeugt werden.
-		Diese haben mit $R=\{1,\dots, p^r-1\}$ ein endliches Repräsentantensystem.
+		Diese haben mit $R=\{x \in \{ 1,\dots,p^{r}-1\}: x \not\equiv 0 \pmod{p}\}$ ein endliches Repräsentantensystem.
 		F"ur ein $a \in R$ k"onnen wir die zugeh"orige Nebenklassen schreiben als $aU_r$.
 		Insbesondere haben deren Elemente die Form $a(1+p^rb)$. 
 		Wir erhalten $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
@@ -771,7 +777,7 @@
 		Folglich verschwindet das zweite Integral.
 		Wir haben
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx)\Vol(U_n,\dxx)
+			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx_p)\Vol(U_n,\dxx_p)
 		\end{align*}
 		und sind somit fertig.
 		Im Fall (iii) ist $n<r$. Beide Integranden sind trivial und es folgt mit
@@ -800,4 +806,3 @@
 	\begin{align*}
 		\gamma(\mu\abs_p^s, e_p, \dx) = \frac{c}{p^{ns} g(\mu,e_{p,-n})} = \frac{cp^{-ns} \conj{g(\mu,e_{p,-n})}}{c^2p^{-n}} = c^{-1} p^{n(1-s)} \conj{g(\mu,e_{p,-n})}
 	\end{align*}
-	%%%TODO: volumen berechnunen fuer U_n einmal explizit am anfang.

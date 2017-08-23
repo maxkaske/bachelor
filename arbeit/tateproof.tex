@@ -1,5 +1,6 @@
 \section{Tates Beweis der Funktionalgleichung}
 \subsection{Globale Fourieranalysis}
+
 	Um auch bei unserer Definition der Fouriertransformation im Globalen ein gutes Gewissen zu haben geben wir den Adelen einen Standardcharakter.
 	Dieser wird definiert durch
 	\begin{align*}
@@ -58,8 +59,7 @@
 			\psi(x) = \prod_{p\leq\infty} \psi_p (x_p) = \prod_{p\leq\infty} e_p (a_px_p) = e(ax).
 		\end{align*}
 	\end{proof}
-	
-	Damit haben wir nun alles zusammen und kommen zur zentralen Definitions dieses Abschnitts.
+	Damit haben wir nun alles zusammen und kommen zur zentralen Definition dieses Abschnitts.
 	
 	\begin{defi}[Globale Fouriertransformation]
 		Sei $f\in L^1(\A)$. Wir definieren dann die \emph{adelische Fouriertransformation} $\hat{f}: \A \to \C$ von $f$ durch die Formel
@@ -68,6 +68,18 @@
 	\end{align*}
 	f"ur alle $\xi \in \A$.
 	\end{defi}
+	
+	Lokal haben wir gesehen, dass die Schwartz-Bruhat Funktionen $\Sw(\Kp)$ sich besonders f"ur die Fourieranalysis geeignet haben. 
+	Was ist das "aquivalent im Globalen?
+	Wir definieren eine \emph{faktorisierbare Schwartz-Bruhat Funktion} $f=\prod_{p\leq \infty} f_p$ als ein Produkt lokaler Schwartz-Bruhat Funktionen $f_p$, wobei f"ur fast alle Stellen $p<\infty$ der Faktor die charakteristische Funktion von $\Zp$ ist.
+	Mit unserer Charakterisierung der lokalen Schwartz-Bruhat Funktionen "uber den endlichen Stellen k"onnen die Faktorisierbaren auch schreiben als
+	\begin{align}
+		f(x) = f_\infty(x) \prod_{p<\infty} \ind_{a_p+p^{k_p}\Zp}
+	\end{align}
+	mit $a_p \in \Zp$ (oder alternativ: f"ur ein $a \in \A$) und $k_p =0$ f"ur fast alle Stellen.
+	Die \emph{adelischen Schwartz-Bruhat Funktion} sind endliche Linearkombinationen dieser "uber $\C$.
+	Wir notieren sie wieder mit $\Sw(\A)$.
+	Damit k"onnen wir wieder folgenden Satz beweisen.
 	
 	\begin{satz}
 		F"ur jede Funktion $f\in\Sw(\A)$ ist die Fouriertransformation wohldefiniert und liegt wieder in $\Sw(\A)$.
@@ -85,6 +97,15 @@
 		\end{align*}
 		Die Umkehrformel folgt damit direkt aus den lokalen Umkehrformeln.
 	\end{proof}
+	
+	\begin{korollar}
+		Sei $f \in S^1(\A)$.
+		\begin{enumerate}[label=\emph{(\alph*)}]
+			\item Ist $g(x)=f(x)e(ax)$ mit $a\in\A$, dann gilt $\hat{g}(x) = \hat{f}(x-a)$.
+			\item Ist $g(x)=f(x-a)$ mit $a\in\A$, dann gilt $\hat{g}(x) = \hat{f}(x-a)e(-ax)$.
+			\item Ist $g(x)=f(\lambda x)$ mit $\lambda \in \I$, dann gilt $\hat{g}(x) =\frac{1}{\abs[\lambda]_\A} \hat{f}(\frac{x}{\lambda})$.
+		\end{enumerate}
+	\end{korollar}
 	
 	
 \subsection{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}
@@ -236,7 +257,7 @@
 	Berechnen wir es schnell.
 	Mit der Normierung des Maßes $\dxx$ haben wir
 	\begin{align*}
-		1 = \Vol((0,e)\times \prod_{p<\infty}\Zpx), \dxx) = \Vol(F, \dx[b]) \Vol( (0,e), \frac{\dx[t]}{t}) = \Vol(F, \dx[b]) 
+		1 = \Vol((0,e)\times \prod_{p<\infty}\Zpx, \dxx) = \Vol(F, \dx[b]) \Vol( (0,e), \frac{\dx[t]}{t}) = \Vol(F, \dx[b]) 
 	\end{align*}
 %%%
 %%% Die Globale Funktionalgleichung
@@ -248,7 +269,7 @@
 			\zeta(f,\mu,s) = \zeta(\hat{f}, \frac{1}{\mu}, 1-s)
 		\end{align*}
 		erf"ullt.
-		Diese Funktion ist Funktion ist "uberall holomorph, außer wenn $\mu = \abs^{-i\tau}$, $\tau \in \R$. 
+		Diese Funktion ist Funktion ist "uberall holomorph, außer wenn $\mu = \abs_\A^{-i\tau}$, $\tau \in \R$. 
 		Dann besitzt sie einen einfachen Pol bei $s= i\tau$ mit Residuum $-f(0)$ und einen einfachen Pol bei $s=1+i\tau$ mit Residuum $\hat{f}(0)$.
 	\end{satz}
 	\begin{proof}
@@ -289,7 +310,7 @@
 		\end{align*}
 		Um uns etwas Schreibarbeit zu sparen definieren wir
 		\begin{align*}
-			\zeta_t(f,\chi) := \int_{\I^1} (f(t\cdot b) \chi(t\cdot b) db.
+			\zeta_t(f,\chi) := \int_{\I^1} f(t\cdot b) \chi(t\cdot b) db.
 		\end{align*}.
 		Wie in Riemanns Beweis teilen wir das Integral auf durch
 		\begin{align*}
@@ -312,7 +333,7 @@
 							&= \sum_{a \in \K^\times} \int_{F} (f(at\cdot b) \chi(t\cdot b) db
 							= \int_{F} \left(\sum_{a \in \K^\times}  (f(at\cdot b)\right) \chi(t\cdot b) db
 		\end{align*}
-		Die Summe "uber $a$ verleitet uns dazu Riemann-Roch anzuwenden, allerdings ben"otigen wir hierf"ur eine Summe "uber $K$. Das Problem l"asst sich jedoch leicht beheben.
+		Die Summe "uber $a$ verleitet uns dazu Riemann-Roch anzuwenden, allerdings ben"otigen wir hierf"ur eine Summe "uber $\K$. Das Problem l"asst sich jedoch leicht beheben.
 		\begin{lemma}
 			\begin{align*}
 				\zeta_t(f,\chi) = \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db - f(0)\int_F \chi(tx)db.
@@ -386,7 +407,7 @@
 		\end{align*}
 		wobei wir im letzten Schritt im ersten Integral die Translationsinvarianz der Haar-Maßes $db$ und die Eigenschaft des Idele-Klassencharakters $\chi(-tx) = \chi(tx)$ ausgenutzt haben.
 	\end{proof}
-\subsection{Anwendungsbeispiel: Die Riemannsche Zeta-Funktion}
+\subsection{Globale Berechnung: Die Riemannsche Zeta-Funktion}
 	Wir wollen jetzt zeigen, dass unsere Berechnungen im letzten Abschnitt nicht ohne Inhalt sind.
 	Immerhin besteht immer noch die Gefahr, dass wir gerade $0 = 0$ gezeigt haben.
 	Betrachten wir also die adelische Schwartz-Bruhat Funktion

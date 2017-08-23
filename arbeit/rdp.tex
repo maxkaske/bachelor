@@ -1,6 +1,6 @@
 \section{Eingeschr"ankte direkte Produkt abstrakter Gruppen}
 	Ziel dieser Sektion ist es, die n"otigen Grundlagen zu schaffen um alle bisherigen lokalen fourieranalytischen Berechnung in einer einzigen globalen fourieranalytischen Berechnung zu vereinen. 
-	Wir werden erkl"aren, warum der Ans"atze mit bekannten Objekten schiefgehen und f"uhren dann das eingeschr"ankte direkte Produkt und die dazugeh"orige Topologie ein.
+	Wir werden erkl"aren, warum der naive Ansatz über das direkte Produkt schiefgeht und f"uhren dann das eingeschr"ankte direkte Produkt und die dazugeh"orige eingeschr"ankte Produkttopologie ein.
 	Anschließend schauen wir uns die Besonderheiten der Charaktere und der Integration an. 
 	Wir halten uns dabei an Ramakrishnans und Valenzas Definitionen in \cite{rama}, die sich wiederum an Tates Eigenen orientieren.
 	F"ur eine etwas alternative Definition siehe zum Beispiel Deitmar \cite{deitmar2010}
@@ -30,7 +30,7 @@
 		%%%%%%%%%%%%%%%%%%
 		\begin{defi}[Eingeschränkte direkte Produkt]
 			Sei $I=\{v\}$ eine Indexmenge und für jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
-			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene Untergruppe. 
+			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene (und damit abgeschlossene) Untergruppe. 
 			Das \emph{eingeschränkte direkte Produkt} der $G_v$ bezüglich $H_v$ ist definiert als 
 			\begin{align*}
 				G = \rdprod{v \in I} G_v := \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ für alle bis auf endlich viele } v \}.
@@ -90,7 +90,7 @@
 			Jede kompakte Teilmenge $K$ von $G$ liegt in einer der Untergruppen $G_S$.
 		\end{korollar}
  
-\subsection{(Quasi-)Charaktere}%TODO Lemma genauer, beweis schoener
+\subsection{(Quasi-)Charaktere}
 		Machen wir uns einige Gedanken "uber die (Quasi-)Charaktere auf dem eingeschr"ankten direkten Produkt.
 		Jede stetige Abbildung $f$ auf $G$ induziert durch die Inklusion $\iota_\nu: G_\nu \to G$ eine stetige Abbildung  $f_\nu = f \circ \iota_\nu$ auf der Komponente $G_\nu$.
 		Analog ist $f_\nu$ ein Homomorphismus auf $G_\nu$, wenn $f$ selbst ein Homomorphismus auf $G$ ist.
@@ -180,50 +180,59 @@
 		\end{proof}
 		%Wir schreiben manchmal $\prod_{i} dg_\nu$ für das wie oben normierte Maß $dg$.
 		Als n"achstes lernen wir, wie man einfache Funktionen auf $G$ bez"uglich $dg$ integriert.
-		\begin{proposition}\label{prop:integrieren}
+		\begin{proposition}\label{prop:rdp:integrieren}
 			Sei $G$ das eingeschränkte direkte Produkt mit dem induzierten Maß $dg$
 			\begin{enumerate}[label=\emph{(\roman*)}]
 				\item Sei $f \in L(G)$ eine integrierbare Funktion auf $G$. Dann gilt
 					\begin{align*}
 						\int_G f(g)dg = \lim_S \int_{G_S} f(g_S) dg_S,
 					\end{align*}
-					wobei $S$ über alle endlichen Indexmengen läuft, die $I_\infty$ enthalten.
-				\item Sei $S_0$ ein beliebige endliche Indexmenge, die $I_\infty$ und alle $i$ enthält, für die $\text{Vol}(H_\nu, dg_\nu) \not= 1$. 
-					Für jeden Index $i$ haben wir eine stetige Funktion $f_\nu$ auf $G_\nu$, so dass $f_\nu |_{H_\nu} = 1$ für alle $i \notin S_0$. 
-					Wir definieren
+					Nehmen wir nur an, dass $f$ stetig ist, so gilt diese formale Identit"at immer noch, wenn wir den unendliche Werte erlauben.
+				\item Sei $S_0$ ein beliebige endliche Indexmenge, die $I_\infty$ und alle $\nu$ enthält, für die $\text{Vol}(H_\nu, dg_\nu) \not= 1$. 
+					Für jeden Index $\nu$ sei eine stetige Funktion $f_\nu$ auf $G_\nu$, so dass $f_\nu |_{H_\nu} = 1$ für alle $\nu \notin S_0$. 
+					Wir definieren nun f"ur alle $g\in G$ 
 					\begin{align*}
-						f(g) = \prod_{i}f_{i}(g_\nu),
-					\end{align*}
-					für $g=(g_\nu) \in G$. 
+						f(g) = \prod_{\nu}f_\nu(g_\nu).
+					\end{align*} 
 					Dann ist $f$ wohldefiniert und stetig auf $G$. 
-					Sind die $f_\nu$ sogar integrierbar und ist $S$ eine weitere endliche Indexmenge, die $S_0$ enthählt, haben wir
+					Ist $S$ eine beliebige endliche Indexmenge, die $S_0$ enthählt, so haben wir
 					\begin{align}\label{eq:satz:integration}
 						\int_{G_S} f(g_S) dg_S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr).
 					\end{align}
-					Ist das Produkt
+					Ist ferner das Produkt
 					\begin{align*}
 						\prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr)
 					\end{align*}
-					sogar endlich, dann ist $f$ insbesondere integrierbar und es gilt
+					sogar endlich, dann ist $f$ insbesondere integrierbar und es gilt sogar
 					\begin{align*}
 						\int_{G} f(g) dg = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr).
 					\end{align*}	
 			\end{enumerate}
 		\end{proposition}
 		\begin{proof}
-			(i) Wir halten z"unachst fest was "uberhaupt mit dem Ausdruck $\lim_S \phi(S) = \phi_0$ f"ur eine Funktion $\phi$ auf den endlichen Indexmengen $S$ mit Werten in einem abgeschlossenen topologischen Raum gemeint ist: Gegeben eine beliebige Umgebung $V$ von $\phi_0$, dann gibt es eine Indexmenge $S(V)$, sodass f"ur alle weiteren Indexmengen $S \supseteq S(V)$ der Wert $\phi(S)$ in $V$ liegt. Intuitiv ist also  $\lim_S \phi(S)$ der Limes von $\phi(S)$ "uber gr"oßer und gr"oßere $S$.
+			(i) Wir halten z"unachst fest was "uberhaupt mit dem Ausdruck $\lim\limits_S \phi(S) = \phi_0$ f"ur eine Funktion $\phi$ auf den endlichen Indexmengen $S$ mit Werten in einem abgeschlossenen topologischen Raum gemeint ist: Gegeben eine beliebige Umgebung $V$ von $\phi_0$, dann gibt es eine Indexmenge $S(V)$, sodass f"ur alle weiteren Indexmengen $S \supseteq S(V)$ der Wert $\phi(S)$ in $V$ liegt. Intuitiv ist also  $\lim\limits_S \phi(S)$ der Limes von $\phi(S)$ "uber gr"oßer und gr"oßere $S$.
 			
-			Zur"uck zum Beweis der Aussage.
-			Aus der Integrationstheorie (z.B. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass %vllt auch nicht TODO
+			Damit kommen wir zum Beweis der Aussage.
+			Aus der Integrationstheorie (vgl. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass 
 			\begin{align*}
 				\int_{G} f(g) = \sup_{K \text{ kompakt}} \left\{ \int_{K} f(g)dg \right\}.
 			\end{align*}
 			Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
 			
-			\noindent(ii) Aus der Bedingung $f_\nu |_{H_\nu} = 1$ folgt, dass das Produkt $f(g) = \prod_{i}f_{i}(g_\nu)$ für alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. Eine Umgebung von $g$ ist gegeben durch ein offenes beschränktes Rechteck. Diese liegen in einem der $G_S$ (versehen mit der Produkttopologie) und wir können ohne Einschränkung $S$ um alle Indizes $i$ mit $f_\nu|_{H_\nu}\not= 1$ vergrößern.
-			Lokal betrachtet ist $f$ also ein endliches Produkt stetiger Funktionen auffassen und daher $f$ selber stetig.\\
-			Für den anderen Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen des Satzes. 
-			Nach der Definition von $G_S$ und den Annahmen $f_\nu|_{H_\nu} = 1$, $\text{Vol}(H_\nu, dg_\nu) = 1$ für alle $i$ nicht in $S$, ist es klar, dass Gleichung \ref{eq:satz:integration} gilt, denn $dg_S$ war gerade das Produktmaß auf $G_S$. Nehmen wir nun an, dass das Produkt endlich ist. 
+			\noindent(ii) Aus der Bedingung $f_\nu |_{H_\nu} = 1$ folgt, dass das Produkt $f(g) = \prod_{\nu}f_{\nu}(g_\nu)$ für alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. 
+			Um die Stetigkeit zu zeigen schauen wir uns die offenen Umgebungen von $g$ an.
+			Als Basis haben wir die offenen Rechtecke $\prod N_\nu \times \prod H_\nu$, wobei in dem ersten endlichen Produkt die $N_\nu$ offene Umgebungen von $g_\nu$ sind.  
+			Dies bleibt auch eine Basis wenn wir zus"atzlich noch verlangen, dass das erste Produkt auch die Indizes enth"alt, f"ur die $f_\nu$ nicht trivial auf $H_\nu$ wirkt.
+			Lokal betrachtet ist $f$ also nicht weiter als das endliches Produkt stetiger Funktionen und daher selbst stetig.
+			
+			Für den zweiten Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen von Teil (ii). 
+			Unter der Annahme $\text{Vol}(H_\nu, dg_\nu) = 1$ haben wir auf $G_S$ das Produktmaß auf  $dg_S =\left(\prod_{s \in S}dg_\nu\right) \times dg^S$
+			und wegen $f_\nu|_{H_\nu} = 1$ f"ur $\nu \notin S$ hat $f$ dort die Form $\prod_{\nu\in S}f_\nu(g_\nu) \cdot \prod_{\nu\notin S}1$. Es folgt
+			\begin{align*}
+				\int_{G_S} f(g_S) dg_S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr) \cdot \int_{G^S} dg^S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr)
+			\end{align*}
+			
+			Nehmen wir nun an, dass das Produkt endlich ist. 
 			Dann gilt aber nach (i) und Gleichung \ref{eq:satz:integration}
 			\begin{align*}
 				\prod_{i}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr) = \lim_S \int_{G_S} f(g_S) dg_S = \int_{G} f(g) dg
