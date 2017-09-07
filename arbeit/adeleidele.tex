@@ -1,4 +1,4 @@
-\section{Adele und Idele}
+\section{Adele und Idele}\label{sec:adeleidele} 
 	F"ur die lokalen Funktionalgleichungen haben wir im wesentlichen zwei Sachen ben"otigt.
 	Zum einen die Fouriertransformation: ein Integral bez"uglich des additiven Haar-Maßes, welches als Funktion auf den additiven Charakteren definiert war.
 	Zum anderen die Zeta-Funktion, das multiplikative Gegenst"uck zur Fouriertransformation: eine Funktion auf den multiplikativen Quasi-Charakteren, definiert als Integral bez"uglich des multiplikativen Maßes.
@@ -33,7 +33,7 @@
 		Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
 		Für einen beliebigen Punkt $x \in \K$ erhalten wir mit $x+U$ eine entsprechende offene Umgebung von $x$.
 		
-		Für (b) zeigen wir, dass das Bild der Menge $K:=[0,1]\times \prod_{p<\infty} \Kp$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
+		Für (b) zeigen wir, dass das Bild der Menge $K\coloneqq [0,1]\times \prod_{p<\infty} \Kp$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
 		Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
 		Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p : x_p \notin \Z_p\}$.
 		Wählen wir ein $p\in S$, $p<\infty$ und schreiben
@@ -55,7 +55,7 @@
 	\end{proof}
 	
 	\begin{satz}[Integration einfacher Funktionen]
-		Sei $f: \A \to \C$ eine einfache integrierbare Funktion auf den Adelen. Es gilt die Produktformel
+		Sei $f: \A \to \Komplex$ eine einfache integrierbare Funktion auf den Adelen. Es gilt die Produktformel
 		\begin{align*}
 			\int_\A f(x) \dx = \prod_{p\leq \infty} \int_{\Kp} f_p(x_p) \dx_p
 		\end{align*}
@@ -130,7 +130,7 @@
 		\begin{satz}\label{satz:global:ideleiso}~
 			\begin{enumerate}[label=\emph{(\alph*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
-				\item $F:=\{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. 
+				\item $F\coloneqq \{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. 
 					Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
 				\item $\I^1/\K^\times$ ist kompakt.
 				\item Der adelische Betrag $\abs_\A$ induziert einen Isomorphismus topologischer Gruppen $\I \cong \I^1 \times \R^\times_+$.
@@ -139,7 +139,7 @@
 		\begin{proof}
 			Zu (a): Wir w"ahlen ein beliebiges $0<\epsilon<1$ und setzen
 			\begin{align*}
-				U := (1-\epsilon, 1+\epsilon) \times \prod_{p<\infty} \Zpx.
+				U \coloneqq  (1-\epsilon, 1+\epsilon) \times \prod_{p<\infty} \Zpx.
 			\end{align*}
 			Dann ist $U$ offensichtlich eine offene Umgebung der $1$ in $\I$. 
 			Wir wollen nun zeigen, dass $U$ keine weitere rationale Zahl enth"alt.
@@ -150,23 +150,28 @@
 			Folglich ist $r=1$.
 			
 			Zu (b): Wir definieren die Abbildung 
-			\begin{align*}%%TODO sieht shitty aus
-				\eta: F 	&\longrightarrow \I^1/\Kx\\
-						(1,x)	&\longmapsto (1,x)\Kx
+			\begin{align*}
+				\eta:\quad F	&\longrightarrow \I^1/\Kx\\
+						x	&\longmapsto [x]
 			\end{align*}
-			und behaupten, dass diese Isomorphismus topologischer Gruppen ist.
-			Zun"achst sehen wir, dass $\eta=\pi \circ \iota$ als Komposition stetiger Gruppenhomomorphismen wieder ein stetiger Gruppenhomomorphismus ist.
-			Zudem k"onnen wir direkt eine Umkehrabbildung angeben durch $x = (x_p) \mapsto (x_\infty^{-1}x_p)$.
+			und behaupten, dass dies ein Isomorphismus topologischer Gruppen ist.
+			Zun"achst sehen wir, dass $\eta$ als Komposition von Inklusion in $\I^1$ und Projektion in den Quotienten wieder ein stetiger Gruppenhomomorphismus ist.
+			Zudem k"onnen wir direkt eine Umkehrabbildung angeben durch 
+			\begin{align*}
+				\eta^{-1}:\quad \I^1/\Kx	&\longrightarrow F\\
+				[x] &\longmapsto x_\infty^{-1}\cdot x
+			\end{align*}
 			Wir vergewissern uns, dass diese Abbildung wohldefiniert ist.
-			Zum einen folgt aus $x\in \I^1$ schon, dass $x_\infty \in \Kx$, denn $\abs[x_\infty]_\infty = (\prod_{p<\infty}\abs[x_p]_p)^{-1} \in \Kpx$.
+			Zum einen folgt aus $x\in \I^1$ schon, dass $x_\infty \in \Kx$, denn $\abs[x_\infty]_\infty = (\prod_{p<\infty}\abs[x_p]_p)^{-1} \in \Kx$.
+			Aufgrund der Eindeutigkeit der Primfaktorzerlegung von $x_\infty$ und $\abs[x]_\A = 1$ muss dann schon $\abs[x_p/x_\infty]_p =1$ folgen.
 			Also kann uns nur noch die Wahl des Repräsentanten Probleme machen.
-			Wir stellen aber erfreut fest, dass wir $rx = (rx_p)$ abgebildet wird auf $((rx_\infty)^{-1}rx_p) = (x_\infty^{-1}x_p)$ f"ur beliebige $r\in\Kpx$ haben.
-			Des weiteren ist sie stetig, denn sie l"asst sich schreiben als $x\mapsto \iota(\pi_\infty(x))^{-1} \cdot x$.
+			Wir stellen aber erfreut fest, dass $rx = (rx_p)$ abgebildet wird auf $((rx_\infty)^{-1}rx_p) = (x_\infty^{-1}x_p)$ f"ur beliebige $r\in\Kx$.
+			Des weiteren ist sie stetig, denn sie l"asst sich schreiben als $\eta^{-1}(x) = \iota(\pi_\infty(x))^{-1} \cdot x$. 
 			Damit ist dann $\eta$ also ein topologischer Isomorphismus.
 			
 			Zu (c): Dies ist eine einfache Folgerung aus (b), da $F$ als Produkt kompakter Untergruppen wieder kompakt ist.
 			
-			Zu (d): Der Isomorphismus von $\I^1\times \R_+^\times$  wird definiert durch die Abbildung $x \mapsto \tilde{x}$, wobei 
+			Zu (d): Der Isomorphismus von $\I$ nach $\I^1\times \R_+^\times$  wird definiert durch die Abbildung $x \mapsto (\tilde{x}, \abs[x]_\A)$, wobei 
 			\begin{align*}
 				\tilde{x} = (\tilde{x}_p) = 
 					\begin{cases}
@@ -174,7 +179,6 @@
 						\frac{x_\infty}{\abs[x]_\A}& \text{sonst}.
 					\end{cases}
 			\end{align*}
-			Es ist klar, dass dies ein Gruppenhomomorphismus ist.
-			Um die Stetigkeit zu sehen schreiben wir die Abbildung als $x \mapsto \iota_\infty(\abs[x]_\A)^{-1} \cdot x$.% wobei $\iota: \K \to \I$ die Inklusion von $\K$ in $\I$ ist.
-			Die Umkehrabbildung ist dann gegeben durch $(x,r) \mapsto \iota_\infty(r) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
+			Um zu sehen, dass die Abbildung ein topologischer Gruppenhomomorphismus ist, schreiben wir sie als $x \mapsto (\iota_\infty(\abs[x]_\A)^{-1} \cdot x, \abs[x]_\A)$.
+			Die Umkehrabbildung ist dann gegeben durch $(x,y) \mapsto \iota_\infty(y) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
 		\end{proof}

@@ -1,4 +1,15 @@
 \documentclass[11pt]{article} % use larger type; default would be 10pt
+%\documentclass[paper=a4, 	% Seitenformat
+		%fontsize=11pt, 		% Schriftgr\"o\ss{}e
+ 		%bibtotoc, 	% Literaturverzeichnis in das Inhaltsverzeichnis
+ 		%bibtotocnumbered, % Literaturverzeichnis mit Nummer in das Inhaltsverzeichnis
+		%twoside, 	% doppelseitig
+ 		%idxtotoc, 	% Index in das Inhaltsverzeichnis
+		%abstracton, 	% mit Abstrakt
+		%headsepline, 	% Trennlinie f\"ur die Kopfzeile
+		%footnosepline,	% Trennlinie f\"ur die Fu\ss{}zeile
+		%notitlepage	% keine extra Titelseite
+		%]{scrartcl}
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 
 \usepackage[ngerman]{babel}% deutsche Trennregeln
@@ -8,7 +19,7 @@
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
-\geometry{a4paper, left=30mm, right=40mm, top=25mm, bottom=20mm}
+\geometry{a4paper, left=30mm, right=30mm, top=25mm, bottom=20mm}
 
 %Listen
 \usepackage{enumitem} 
@@ -26,7 +37,7 @@
 \usepackage{centernot}
 
 %footnotes
-\usepackage{footmisc}
+\usepackage[perpage]{footmisc}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 
@@ -56,7 +67,7 @@
 \newcommand{\Zp}{{\Z_p}}
 \newcommand{\Zpx}{\Z_p^\times}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\Komplex}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\I}{\mathbb{I}}
@@ -86,6 +97,10 @@
 %%%%%Integration
 
 \newcommand{\dxx}[1][x]{d^\times {#1}}
+\newcommand{\dxxp}[1][x]{d^\times {#1}_p}
+\newcommand{\dxxinfty}[1][x]{d^\times {#1}_\infty}
+\newcommand{\dxp}[1][x]{d{#1}_p}
+\newcommand{\dxinfty}[1][x]{d{#1}_\infty}
 \newcommand{\dx}[1][x]{d{#1}}
 \newcommand{\Vol}{\text{Vol}}
 
@@ -103,8 +118,6 @@
 \def\abso{\@ifstar{\oldabs}{\oldabs*}}
 
 \newcommand{\abs}[1][\,\cdot\,]{\abso{#1}}
-
-\newcommand{\highlight}[1]{\textit{#1}}
 
 %%%%%%%%%%%%
 % Theoreme %
@@ -131,6 +144,8 @@
 %%%Deckblatt
 %\include{000Deckblatt}
 %%% Inhaltsverzeichnis
+\input{abstract}
+\newpage
 \tableofcontents
 \clearpage
 
@@ -139,7 +154,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%Beginn
-\input{Kapitel2}
+\input{einleitung}
 \clearpage
 
 

@@ -1,6 +1,6 @@
-\section{Tates Beweis der Funktionalgleichung}
+\section{Tates Beweis der Funktionalgleichung}\label{sec:tateproof}
+	Wir kommen nun zum Kernst"uck dieser Arbeit.
 \subsection{Globale Fourieranalysis}
-
 	Um auch bei unserer Definition der Fouriertransformation im Globalen ein gutes Gewissen zu haben geben wir den Adelen einen Standardcharakter.
 	Dieser wird definiert durch
 	\begin{align*}
@@ -62,7 +62,7 @@
 	Damit haben wir nun alles zusammen und kommen zur zentralen Definition dieses Abschnitts.
 	
 	\begin{defi}[Globale Fouriertransformation]
-		Sei $f\in L^1(\A)$. Wir definieren dann die \emph{adelische Fouriertransformation} $\hat{f}: \A \to \C$ von $f$ durch die Formel
+		Sei $f\in L^1(\A)$. Wir definieren dann die \emph{adelische Fouriertransformation} $\hat{f}: \A \to \Komplex$ von $f$ durch die Formel
 	\begin{align*}
 		\hat{f}(\xi) = \int_{\A} f(x)e(-\xi x)  \dx
 	\end{align*}
@@ -77,7 +77,7 @@
 		f(x) = f_\infty(x) \prod_{p<\infty} \ind_{a_p+p^{k_p}\Zp}
 	\end{align}
 	mit $a_p \in \Zp$ (oder alternativ: f"ur ein $a \in \A$) und $k_p =0$ f"ur fast alle Stellen.
-	Die \emph{adelischen Schwartz-Bruhat Funktion} sind endliche Linearkombinationen dieser "uber $\C$.
+	Die \emph{adelischen Schwartz-Bruhat Funktion} sind endliche Linearkombinationen dieser "uber $\Komplex$.
 	Wir notieren sie wieder mit $\Sw(\A)$.
 	Damit k"onnen wir wieder folgenden Satz beweisen.
 	
@@ -111,7 +111,7 @@
 \subsection{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}
 %poisson done
 %riemann-roch (einfach) done
-%beweisskizze fuer tate
+%beweisskizze fuer beweis nach tate: anhang
 	\begin{lemma}
 	\label{lemma:global:sbf}
 		Jede faktorisierbare adelische Schwartz-Bruhat Funktion $f$ hat die Form
@@ -141,7 +141,7 @@
 			\\&= (NM)^{-1}(a'+p^{k_p'}\Zp)  = (NM)^{-1}a'+p^{k_p}\Zp
 		\end{align*}
 		f"ur alle $p\in S$.
-		Setzen wir also $a:=(NM)^{-1}a'$ folgt die Behauptung.
+		Setzen wir also $a\coloneqq (NM)^{-1}a'$ folgt die Behauptung.
 	\end{proof}
 
 
@@ -161,7 +161,7 @@
 			f = f_\infty\prod_{p<\infty} \ind_{a+p^{k_p}\Zp}.
 		\end{align}
 		f"ur ein $a \in \K$ und $k_p = 0$ f"ur fast alle Stellen $p$.
-		Mit $N:=\prod_{p<\infty} p^{-k_p} \in \K$ haben wir dann
+		Mit $N\coloneqq \prod_{p<\infty} p^{-k_p} \in \K$ haben wir dann
 		\begin{align*}
 			\sum_{\gamma \in \K} {f(\gamma)} 	&= 	\sum_{\gamma \in \K} f(\gamma - a)
 												= 	\sum_{\gamma \in \K} f(N(\gamma - a)) \\
@@ -225,7 +225,7 @@
 	\end{satz}
 	\begin{proof}
 		Sei $x \in \I$ beliebig aber fest. 
-		F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y):=f(yx)$. Diese ist wieder in $S(\A)$, erf"ullt damit die Poisson-Summenformel
+		F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y)\coloneqq f(yx)$. Diese ist wieder in $S(\A)$, erf"ullt damit die Poisson-Summenformel
 		\begin{align*}
 			\sum_{\gamma \in \K}h(\gamma) = \sum_{\gamma \in \K} \hat{h}(\gamma)
 		\end{align*}
@@ -242,34 +242,84 @@
 	
 \subsection{Die globale Funktionalgleichung}
 %Hauptsatz gegliedert wie Riemann beweis
-%Riemanns zeta als spezialfall
+%Zeta funktion und idele class char einfuehren
 %%%
 %%%	Fubini und das Volumen von des Fundamentalbereichs F
 %%%
 	In Satz \ref{satz:global:ideleiso} haben wir gesehen, dass $\I$ sich schreiben l"asst als direktes Produkt $\I^1\times\R_+^\times$.
-	Um nun auf $\I^1$ ein (multiplikatives) Haar-Maß $\dx[b]$ zu fixieren, nehmen wir auf $\R_+^\times$ das Maß $\frac{\dx[t]}{t}$ und verlangen $\dxx = \dx[b] \times \frac{\dx[t]}{t}$.
+	Um nun auf $\I^1$ ein (multiplikatives) Haar-Maß $\dxx[b]$ zu fixieren, nehmen wir auf $\R_+^\times$ das Maß $\frac{\dx[t]}{t}$ und verlangen $\dxx = \dxx[b] \times \frac{\dx[t]}{t}$.
 	F"ur die Berechnungen haben wir dann ganz im Sinne von Fubini
 	\begin{align*}
-		\int_\I f(x) \dxx = \int_0^\infty \left[\int_{\I^1} f(tb) \dx[b]\right]  \frac{\dx[t]}{t} =  \int_{\I^1} \left[\int_0^\infty f(tb) \frac{\dx[t]}{t}\right] \dx[b].
+		\int_\I f(x) \dxx = \int_0^\infty \left[\int_{\I^1} f(tb) \dxx[b]\right]  \frac{\dx[t]}{t} =  \int_{\I^1} \left[\int_0^\infty f(tb) \frac{\dx[t]}{t}\right] \dxx[b].
 	\end{align*}
-	Im gleichen Satz haben wir auch den Fundamentalbereich $F=\{1\}\times \prod_{p<\infty}\Zpx$ der Wirkung von $\Kx$ auf $\I$ als eine kompakte Untergruppe von $\I^1$ kennengelernt.
-	Das Volumen von $F$ bez"uglich $\dx[b]$ wird f"ur unsere Berechnung eine Rolle spielen.
+	Die Notation $tb$ ist dabei als Multiplikation $\iota_\infty(t) \cdot b$ zu verstehen. 
+	Es folgt sofort, dass $\abs[tb]_\A = \abs[t]_\infty$ gilt. 
+	Weiter haben wir in Satz \ref{satz:global:ideleiso} auch den Fundamentalbereich $F=\{1\}\times \prod_{p<\infty}\Zpx$ der Wirkung von $\Kx$ auf $\I^1$ kennengelernt.
+	Das Volumen von $F$ bez"uglich $\dxx[b]$ wird f"ur unsere Berechnung eine Rolle spielen.
 	Berechnen wir es schnell.
 	Mit der Normierung des Maßes $\dxx$ haben wir
 	\begin{align*}
-		1 = \Vol((0,e)\times \prod_{p<\infty}\Zpx, \dxx) = \Vol(F, \dx[b]) \Vol( (0,e), \frac{\dx[t]}{t}) = \Vol(F, \dx[b]) 
+		1 = \Vol\left((0,e)\times \prod_{p<\infty}\Zpx, \dxx\right) = \Vol\left(F, \dxx[b]\right) \cdot \Vol\left( (0,e), \frac{\dx[t]}{t}\right) = \Vol(F, \dxx[b]) 
 	\end{align*}
+	
+	Bevor wir jetzt die die globalen Zeta-Funktionen einf"uhren ben"otigen wir noch geeignete multiplikative Charaktere.
+	Es wird sich als sinnvoll erweisen die sogenannten \emph{Idelklassencharaktere}\footnote{Der Name r"uhrt aus der Tatsache, dass diese die Charaktere auf der \emph{Idelklassengruppe $\I/\Kx$} sind (vgl. \cite{neukirch} S.375)} zu betrachten.
+	Dies sind, wie der Name tr"ugerisch verschweigt, Quasi-Charaktere auf $\I$, die trivial auf die Untergruppe $\Kx$ wirken.
+	Im Gegensatz zu unseren lokalen multiplikativen Charakteren fangen wir zuerst mit der Form an.
+	\begin{satz}
+		Jeder Idelklassencharakter $\chi$ hat die Form 
+		\begin{align*}
+			\chi(x) = \mu(\tilde{x}) \abs[x]_\A^s
+		\end{align*}
+		wobei $\mu$ ein unit"arer Charakter auf $\I^1$ und $\tilde{\cdot}:\I\to \I^1$ der stetige Homomorphismus nach Satz \ref{satz:global:ideleiso} (d) ist.
+	\end{satz}
+	\begin{proof}
+		Wir schreiben wie oben $x\in \I$ als eindeutiges Produkt $tb$ mit $t=\abs[x]_\A\in \R^\times_+$ und $b\in \I^1$.
+		Dies ergibt die Zerlegung $\chi(x) = \chi_\infty(t) \cdot \chi(b)$.
+		Da $\chi$ trivial auf $\Kx$ wirkt induziert er einen Charakter auf der kompakten Gruppe ansehen $\I^1/\Kx$ den wir wieder mit $\chi$ bezeichnen.
+		Wir haben das Argument, dass $\chi(\I^1/\Kx)$ als kompakte Untergruppe von $\Komplex^\times$ in $S^1$ liegt.
+		Folglich ist mit etwas Missbrauch der Notation $\mu\coloneqq \chi|_{\I^1} = \chi|_{\I^1/\Kx}$ ein Charakter auf $\I^1$.
+		Weiter ist nach Lemma \ref{lemma:lokal:unverzweigterChar} $\chi_\infty(t) = \abs[t]_\infty^s$ und mit $\abs[t]_\infty = \abs[t]_\A$ folgt die Behauptung.
+	\end{proof}
+	Wie auch im Lokalen, k"onnen wir wieder von dem \emph{Exponenten} $\sigma=\Re{s}$ von $\chi = \mu\abs_\A^s$ reden.
+	Ein Idelklassencharakter soll nun \emph{unverzweigt} heißen, wenn er trivial auf $\I^1$ wirkt. 
+	Nach obigen Satz h"angt die Verzweigtheit also nur von dem Charakter $\mu$ ab.
+	\begin{korollar}
+		Jeder Idelklassencharakter $\chi$ ist genau dann unverzweigt, wenn er  trivial auf $F$ ist.
+	\end{korollar}
+	\begin{proof}
+		Das folgt sofort aus $\I/\Kx \cong F$.
+	\end{proof}
+	
+	Damit kommen wir zur
+	\begin{defi}
+		F"ur jede globale Schwartz-Bruhat Funktion $f\in \Sw(\A)$ und Idelklassencharakter $\chi$ mit Exponenten $\sigma > 0$ sei
+		\begin{align*}
+			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxx_p
+		\end{align*}
+		eine \emph{globale Zeta-Funktion} auf $\A$.
+	\end{defi}
+	
+	Nun haben wir alles zusammen f"ur den großen Beweis:
+	\begin{itemize}
+		\item Integration auf den Adelen und Idelen
+		\item Fouriertransformation
+		\item Riemann-Roch als Ersatz f"ur die Theta-Transformationsformel
+		\item Zeta-Funktionen als Analogon zur Mellin-Transformation
+	\end{itemize}
+	
+	Zusammen mit dem was wir aus unseren ersten Trocken"ubungen mit den lokalen Funktiongleichungen gelernt haben, werden wir jetzt eine globale Funktionalgleichung etablieren indem wir die Beweisideen aus Riemanns Beweis "ubertragen.
 %%%
 %%% Die Globale Funktionalgleichung
 %%%
 	\begin{satz}[Globale Funktionalgleichung]
-		Sei $\chi=\mu\abs_\A^s$ ein unit"arer Charakter auf $\I$, der trivial auf $\K^\times$ wirkt. Sei $f \in S(\A)$. 
-		Dann konvergiert die globale Zeta-Funktion $\zeta(f,\mu,s)$  f"ur $\text{Re}(s) > 1$ absolut und gleichmäßig auf kompakten Teilmengen und definiert dort eine holomorphe Funktion, die zu einer meromorphen Funktion auf ganz $\C$ fortgesetzt werden kann, welche die \emph{globale Funktionalgleichung}
+		Sei $\chi=\mu\abs_\A^s$ ein Idelklassencharakter. Sei $f \in S(\A)$. 
+		Dann konvergiert die globale Zeta-Funktion $Z(f,\mu,s)$  f"ur $\text{Re}(s) > 1$ absolut und gleichmäßig auf kompakten Teilmengen und definiert dort eine holomorphe Funktion, die zu einer meromorphen Funktion auf ganz $\Komplex$ fortgesetzt werden kann, welche die \emph{globale Funktionalgleichung}
 		\begin{align*}
-			\zeta(f,\mu,s) = \zeta(\hat{f}, \frac{1}{\mu}, 1-s)
+			Z(f,\mu,s) = Z(\hat{f}, \frac{1}{\mu}, 1-s)
 		\end{align*}
 		erf"ullt.
-		Diese Funktion ist Funktion ist "uberall holomorph, außer wenn $\mu = \abs_\A^{-i\tau}$, $\tau \in \R$. 
+		Diese Funktion ist "uberall holomorph, außer wenn $\mu = \abs_\A^{-i\tau}$, $\tau \in \R$. 
 		Dann besitzt sie einen einfachen Pol bei $s= i\tau$ mit Residuum $-f(0)$ und einen einfachen Pol bei $s=1+i\tau$ mit Residuum $\hat{f}(0)$.
 	\end{satz}
 	\begin{proof}
@@ -288,7 +338,7 @@
 			\int_{\K_\infty^\times} \abs[f_\infty(x_\infty)] \cdot \abs[x_\infty]_\infty^\sigma d^\times x_\infty \cdot \prod_{p < p_0} \int_{\K_p^\times} \abs[f_p(x_p)] \cdot \abs[x_p]_p^\sigma d^\times x_p \cdot \prod_{p_0\leq p < \infty} \int_{\Z_p \setminus \{0\}} \abs[x_p]_p^\sigma d^\times x_p .
 		\end{align*}
 		Der erste Faktor und das Produkt in der Mitte sind endlich nach dem Satz "uber die lokalen Funktionalgleichungen. 
-		In der Tat haben wir hier ein endliches Produkt lokaler Zeta-Funktionen $\zeta(\abs[f_p], \abs[x]_p^\sigma)$. 
+		In der Tat haben wir hier ein endliches Produkt lokaler Zeta-Funktionen $Z(\abs[f_p], \abs[x]_p^\sigma)$. 
 		Diese konvergieren f"ur $\sigma >0$, also sicherlich auch f"ur $\sigma >1$.
 		Konvergenz h"angt also nur von der Konvergenz des unendlichen Produkts 
 		\begin{align*}
@@ -302,79 +352,86 @@
 		%%%
 		%%%Anfang Funktionalgleichung
 		
-		Nun zur Funktionalgleichung. Aufgrund absoluter Konvergenz auf der Halbebene $\Re(s)>1$ haben wir
+		Nun zur Funktionalgleichung. 
+		Aufgrund absoluter Konvergenz auf der Halbebene $\Re(s)>1$ haben wir
 		\begin{align*}
-			\zeta(f,\chi) 	&= \int_{\I} f(x) \chi(x) d^\times x \\
-							&= \iint_{\R^\times_+ \times \I^1} f(t\cdot b) \chi(t\cdot b) (d^\times t\times db)\\
-							&= \int_0^\infty \left[\int_{\I^1} (f(t\cdot b) \chi(t\cdot b) db\right] \frac{dt}{t}
+			Z(f,\chi) 	&= \int_{\I} f(x) \chi(x) d^\times x \\
+							&= \iint_{\R^\times_+ \times \I^1} f(t\cdot b) \chi(t\cdot b) (d^\times t\times \dxx[b])\\
+							&= \int_0^\infty \left[\int_{\I^1} (f(t\cdot b) \chi(t\cdot b) \dxx[b]\right] \frac{dt}{t}
 		\end{align*}
 		Um uns etwas Schreibarbeit zu sparen definieren wir
 		\begin{align*}
-			\zeta_t(f,\chi) := \int_{\I^1} f(t\cdot b) \chi(t\cdot b) db.
-		\end{align*}.
+			Z_t(f,\chi) \coloneqq  \int_{\I^1} f(t\cdot b) \chi(t\cdot b) \dxx[b].
+		\end{align*}
 		Wie in Riemanns Beweis teilen wir das Integral auf durch
 		\begin{align*}
-			\zeta(f,\chi) = \int_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
-							+ \int_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
+			Z(f,\chi) = \int_0^1 Z_t(f,\chi) \frac{dt}{t} 
+							+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t}.
 		\end{align*}
-		%%%%TODO: erklaerung mit |a|>1 dann |a|^t < |a|^s mit t<s. dann konvergenz auf ganz C da konvergenz >1
-		Das Integral $\int_1^\infty$ macht uns keine Probleme, denn
+		Das Integral $\int_1^\infty$ macht uns keine Probleme.
+		Wir haben festgestellt, dass
 		\begin{align*}
-			\int_1^\infty \abs[\zeta_t(f,\chi)] \frac{dt}{t} 
-				\leq \int_1^\infty  \int_{F} \abs[\sum_{a \in \K^\times}  (f(at\cdot b)] db \abs[t]^{s-1} dt
+			\int_1^\infty \abs[Z_t(f,\chi)] \frac{dt}{t} 
+				= \int_{\{x\in \I: \abs[x]_\A\geq 1\}} \abs[f(x)] \abs[x]_\A^\sigma \dxx,
 		\end{align*}
+		f"ur $\sigma>1$ konvergiert.
+		Da $\abs[x]_\A \geq 1$ verbessert sich das Konvergenzverhalten des Integranden umso kleiner $\sigma$ ist und es folgt die Konvergenz auf ganz $\Komplex$.
 		Als n"achstes erinnern wir uns daran, dass wir $\I^1$ als disjunkte Vereinigung $\bigsqcup_{a \in \K^\times} aF$ darstellen konnten, 
 			wobei $F= \{1\} \times \prod_{p<\infty}\Z_p$.
-		Kombiniert mit der Translationsinvarianz von $db$ und der Tatsache, dass $\chi$ trivial auf $\K^\times$ wirkt, ergibt sich
+		Kombiniert mit der Translationsinvarianz von $\dxx[b]$ und der Tatsache, dass $\chi$ trivial auf $\K^\times$ wirkt, ergibt sich
 		\begin{align*}
-			\zeta_t(f,\chi)	&= \int_{\I} (f(t\cdot b) \chi(t\cdot b) db 
-							%= \int_{\bigsqcup_{q \in \K^\times} qF} (f(t\cdot b) \chi(t\cdot b) db
-							= \sum_{a \in \K^\times} \int_{aF} (f(t\cdot b) \chi(t\cdot b) db\\
-							&= \sum_{a \in \K^\times} \int_{F} (f(at\cdot b) \chi(t\cdot b) db
-							= \int_{F} \left(\sum_{a \in \K^\times}  (f(at\cdot b)\right) \chi(t\cdot b) db
+			Z_t(f,\chi)	&= \int_{\I} (f(t\cdot b) \chi(t\cdot b) \dxx[b] 
+							%= \int_{\bigsqcup_{q \in \K^\times} qF} (f(t\cdot b) \chi(t\cdot b) \dxx[b]
+							= \sum_{a \in \K^\times} \int_{aF} (f(t\cdot b) \chi(t\cdot b) \dxx[b]\\
+							&= \sum_{a \in \K^\times} \int_{F} (f(at\cdot b) \chi(t\cdot b) \dxx[b]
+							= \int_{F} \left(\sum_{a \in \K^\times}  (f(at\cdot b)\right) \chi(t\cdot b) \dxx[b]
 		\end{align*}
 		Die Summe "uber $a$ verleitet uns dazu Riemann-Roch anzuwenden, allerdings ben"otigen wir hierf"ur eine Summe "uber $\K$. Das Problem l"asst sich jedoch leicht beheben.
 		\begin{lemma}
 			\begin{align*}
-				\zeta_t(f,\chi) = \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db - f(0)\int_F \chi(tx)db.
+				Z_t(f,\chi) = \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db - f(0)\int_F \chi(tx)db.
 			\end{align*}
 		\end{lemma}
 		\begin{proof}
 			Die Idee ist klar. 
-			Wir f"ugen $f(0)\int_F \chi(tx)db$ zu $\zeta_t(f,\chi)$ hinzu, erhalten
+			Wir f"ugen $f(0)\int_F \chi(tx)db$ zu $Z_t(f,\chi)$ hinzu, erhalten
 			\begin{align*}
-				\zeta_t(f,\chi) + f(0)\int_F \chi(tb)db= \int_{F} \left(\sum_{a \in \K}  (f(at\cdot b)\right) \chi(t\cdot b) db
+				Z_t(f,\chi) + f(0)\int_F \chi(tb)db= \int_{F} \left(\sum_{a \in \K}  (f(at\cdot b)\right) \chi(t\cdot b) \dxx[b]
 			\end{align*}
 			und k"onnen jetzt unsere Version von Riemann-Roch anwenden:
 			\begin{align*}
-				\int_{F} \left(\sum_{a \in \K}  f(at\cdot b)\right) \chi(t\cdot b) db 
-					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tx]_{\A}} db\\
-					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \abs[t^{-1}b]_{\A} \chi(t\cdot b) db\\
+				\int_{F} \left(\sum_{a \in \K}  f(at\cdot b)\right) \chi(t\cdot b) \dxx[b] 
+					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tx]_{\A}} \dxx[b]\\
+					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \abs[t^{-1}b]_{\A} \chi(t\cdot b) \dxx[b]\\
 					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \check{\chi}(b/t)db + \hat{f}(0) \hat{f}(0) \int_F \check{\chi} (x/t)db\\
-					&= \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db
+					&= Z_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)db
 			\end{align*}
 			wobei wir im zweiten Schritt den Variablenwechsel $b\mapsto b^{-1}$ und im dritten Schritt $\chi(x^{-1}) = \chi(x)^{-1}$ ausgenutzt haben.
 		\end{proof}
 		Wir widmen uns nun dem Integral $\int_0^1$. Dank Riemann-Roch k"onnen wir es umformen zu
 		\begin{align*}
-			\int_0^1 \zeta_t(f,\chi) \frac{dt}{t} 
-				= \int_0^1 \left( \zeta_{t^{-1}}(\hat{f},\check{\chi}) 
+			\int_0^1 Z_t(f,\chi) \frac{dt}{t} 
+				= \int_0^1 \left( Z_{t^{-1}}(\hat{f},\check{\chi}) 
 					+ \hat{f}(0) \check{\chi}(t^{-1}) \int_F \check{\chi} (x)db 
 					- f(0)\chi(t)\int_F \chi(x)db \right)\frac{dt}{t}
 		\end{align*}
 		Mit einem Variablenwechsel $t\mapsto t^{-1}$ im ersten Summanden ergibt sich
 		\begin{align*}
-			\int_0^1  \zeta_{t^{-1}}(\hat{f},\check{\chi}) \frac{dt}{t} = \int_1^\infty  \zeta_{t}(\hat{f},\check{\chi}) \frac{dt}{t}
+			\int_0^1  Z_{t^{-1}}(\hat{f},\check{\chi}) \frac{dt}{t} = \int_1^\infty  Z_{t}(\hat{f},\check{\chi}) \frac{dt}{t}
 		\end{align*}
-		was nach dem gleichen Argument wie oben auf ganz $\C$ konvergiert. Verbleibt noch der Term
+		was nach dem gleichen Argument wie oben auf ganz $\Komplex$ konvergiert. 
+		Damit haben wir ganz nach Riemann beide Integrale von $1$ bis $\infty$.
+		Es verbleibt noch der \glqq Fehler\grqq{}-Term 
 		\begin{align*}
-			E(f,\chi):= \int_0^1  \hat{f}(0) \check{\chi}(t^{-1}) \left(\int_F \check{\chi} (x)db\right) \frac{dt}{t}
-					- \int_0^1 f(0)\chi(t)\left(\int_F \chi(x)db \right)\frac{dt}{t}
-		\end{align*}.
-		Ist $\chi$ nicht trivial auf $\I^1$, so haben wir gesehen, dass $\chi$ nicht trivial auf dem Kompaktum $F$ wirkt. Folglich verschwinden beide Integrale und $E(f,\chi) = 0$
+			E(f,\chi)\coloneqq  \int_0^1  \hat{f}(0) \check{\chi}(t^{-1}) \left(\int_F \check{\chi} (x)db\right) \frac{dt}{t}
+					- \int_0^1 f(0)\chi(t)\left(\int_F \chi(x)db \right)\frac{dt}{t}.
+		\end{align*}
+		Dieser entspricht wiederum den beiden Termen $\frac{1}{s}$ und $\frac{1}{1-s}$ aus Riemanns Beweis.
+		Ist $\chi$ nicht trivial auf $\I^1$, so wirkt $\chi$ auch nicht trivial auf dem Kompaktum $F$.
+		Folglich verschwinden beide Integrale und $E(f,\chi) = 0$
 		%\begin{align*}
-				%\zeta(f,\chi) =  \int_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
-							%+ \int_1^\infty \zeta_t(f,\chi) \frac{dt}{t}.
+				%Z(f,\chi) =  \int_1^\infty Z_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
+							%+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t}.
 		%\end{align*}
 		Ist $\chi = \mu \abs^s$ dagegen trivial auf $\I^1$, dann wissen wir, dass $\chi = \abs^{s'}$, wobei $s'=s-i\tau$ f"ur ein $\tau \in \R$. Also,
 		\begin{align*}
@@ -383,10 +440,10 @@
 		\end{align*}
 		und wir sehen, dass $E$ in diesem Fall eine rationale Funktion ist. Damit ist
 		\begin{align*}
-			\zeta(f,\chi) =  \int_1^\infty \zeta_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
-							+ \int_1^\infty \zeta_t(f,\chi) \frac{dt}{t} + E(f,\chi)
+			Z(f,\chi) =  \int_1^\infty Z_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
+							+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t} + E(f,\chi)
 		\end{align*}
-		Eine meromorphe Erweiterung der Funktion auf ganz $\C$. 
+		Eine meromorphe Erweiterung der Funktion auf ganz $\Komplex$. 
 		Zudem haben wir gezeigt, dass f"ur $\mu \not=\abs^{-i\tau}$ die Funktion $\zeta$ sogar ganz ist und im Fall $\mu =\abs^{-i\tau}$ ihre einzigen Pole bei $s=i\tau$ und $s=1+i\tau$ liegen mit den Residuen $-f(0)$ bzw. $\hat{f}(0)$.\\
 		%%%
 		%%%Funktionalgleichung
@@ -397,13 +454,13 @@
 		\end{align*}
 		folgt
 		\begin{align*}
-			\zeta(\hat{f},\check{\chi}) 
-				&=  \int_1^\infty \zeta_t(\hat{\hat{f}}, \check{\check{\chi}}) \frac{dt}{t} 
-					+ \int_1^\infty \zeta_t(\hat{f},\check{\chi}) \frac{dt}{t} + E(\hat{f},\check{\chi})\\
+			Z(\hat{f},\check{\chi}) 
+				&=  \int_1^\infty Z_t(\hat{\hat{f}}, \check{\check{\chi}}) \frac{dt}{t} 
+					+ \int_1^\infty Z_t(\hat{f},\check{\chi}) \frac{dt}{t} + E(\hat{f},\check{\chi})\\
 				&= \int_1^\infty \int_{\I^1}f(-tb)\chi(tb)db  \frac{dt}{t} 
 					+ \int_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi)\\
 				&= \int_1^\infty \int_{\I^1}f(tb)\chi(tb)db  \frac{dt}{t} 
-					+ \int_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi) = \zeta(f,\chi)
+					+ \int_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)db  \frac{dt}{t} +E(f,\chi) = Z(f,\chi)
 		\end{align*}
 		wobei wir im letzten Schritt im ersten Integral die Translationsinvarianz der Haar-Maßes $db$ und die Eigenschaft des Idele-Klassencharakters $\chi(-tx) = \chi(tx)$ ausgenutzt haben.
 	\end{proof}
@@ -433,21 +490,21 @@
 	Es ist genau die Darstellung der Riemannschen Zeta-Funktion als Euler-Produkt.
 	Damit ist also
 	\begin{align*}
-		Z(f, 1, \abs_\A^s) = \pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right) \zeta(s) = \Xi(s)
+		Z(f, 1, \abs_\A^s) = \pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right) \zeta(s) = \xi(s)
 	\end{align*}
 	die vervollständigte Riemannsche Zeta-Funktion.
 	Analog ist
 	\begin{align*}
 		Z(\hat{f}, 1, \abs_\A^{1-s})  	%= \pi^{-\frac{1-s}{2}} \Gamma\left(\frac{1-s}{2}\right) \prod_{p<\infty} \frac{1}{1-p^{s-1}} 
-										= \pi^{-\frac{1-s}{2}} \Gamma\left(\frac{1-s}{2}\right) \zeta(1-s) = \Xi(1-s)
+										= \pi^{-\frac{1-s}{2}} \Gamma\left(\frac{1-s}{2}\right) \zeta(1-s) = \xi(1-s)
 	\end{align*}
 	und die globale Funktionalgleichung liefert uns gerade
 	\begin{align*}
-		\Xi(s) = Z(f, 1, \abs_\A^s) = Z(\hat{f}, 1, \abs_\A^{1-s}) =\Xi(1-s),
+		\xi(s) = Z(f, 1, \abs_\A^s) = Z(\hat{f}, 1, \abs_\A^{1-s}) =\xi(1-s),
 	\end{align*}
 	die Funktionalgleichung der Riemannschen Zeta-Funktion.
-	Nun ist aber auch klar warum wir gerade den Faktor $\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)$ f"ur die verfollst"andigte Zeta-Funktion brauchen.
-	Er ist gerade der Beitrag, den die Stelle $p=\infty$ bei den Berechnungen liefert.
+	Nun wird aber auch klar woher der Faktor $\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)$ r"uhrt.
+	Es ist gerade der Beitrag, den die Stelle $p=\infty$ bei den Berechnungen liefert.
 	
 	B"ose Zungen m"ogen jetzt behaupten, dass wir durch die Wahl unserer Funktion $f$, vor allem durch die Wahl des Faktors $f_\infty (x_\infty) =  exp(-2\pi i x_\infty)$,
 	die Form dieser Gleichung letztendlich beeinflusst haben um gerade auf das klassische Ergebnis zu kommen.

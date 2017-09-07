@@ -1,6 +1,12 @@
-\section{Exkurs: p-adische Zahlen}
-	
+\section{Exkurs: p-adische Zahlen}\label{sec:padisch}
+	Lokalkompakte Gruppen treten relativ nat"urlich im Zusammenhang mit algebraischen Zahlkörpern wie $\Q$ auf.
+	Wir wissen bereits, dass die Gruppen $\R^+$ und $\R^\times$ lokalkompakt sind und das ist kein Zufall.
+	Ganz allgemeinen sind die additiven und multiplikativen Gruppen jeder Vervollst"andigung eines algebraischen Zahlenk"orpers $\mathbb{K}$ bez"uglich der Primideale $\mathfrak{p}$ lokalkompakte Gruppen.
+	So weit m"ussen wir in dieser Arbeit nicht gehen. 
+	Wir werden uns im folgenden Kapitel auf den Zahlk"orper $\Q$ beschr"anken und lernen dadurch die recht unintuitive Welt der $p$-adischen Zahlen kennen.
+	Dabei orientieren wir uns ganz an Gouveas exzellenten Einf"uhrungtext wie er in \cite{gouv} zu finden ist.
 \subsection{Absolutbeträge und der Satz von Ostrowski}
+	Beginnen wir mit einer Wiederholung.
 	Sei $\mathbb{K}$ zun"achst ein beliebiger K"orper und $\R_+ = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
 	\begin{defi}
 		Ein \emph{Absolutbetrag} auf $\mathbb{K}$ ist eine Abbildung
@@ -13,7 +19,7 @@
 			\item $\abs[xy] = \abs[x]\abs[y]$ für alle $x, y \in \mathbb{K}$ (Multiplikativität)
 			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ für alle $x,y \in \mathbb{K}$ (Dreiecksungleichung)
 		\end{enumerate}
-		Wir nennen den Absolutbetrag $\abs$ nicht-archimedisch, wenn er zusätzlich die stärkere Bedingung
+		Wir nennen einen Absolutbetrag $\abs$ nicht-archimedisch, wenn er zusätzlich die stärkere Bedingung
 		\begin{enumerate}[label=(\roman*)$'$,leftmargin=1.5cm]
 			\setcounter{enumi}{2}
 			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ für alle $x, y \in \mathbb{K}$ (verschärfte Dreiecksungleichung)
@@ -21,9 +27,9 @@
 		erfüllt. Anderenfalls sagen wir der Absolutbetrag ist archimedisch.
 	\end{defi}
 	Die verschärfte Dreiecksungleichung kann auch so interpretiert werden, dass jedes Dreieck bez"uglich eines nicht-archimedischen Absolutbetrags gleichschenklig ist.
-	Wir m"ochten zunächst ein paar allgeimgültige Eigenschaften von Absolutbeträgen im folgenden Lemma festhalten.
+	Halten wir einige bereits bekannte und allgemeingültige Eigenschaften von Absolutbeträgen in einem Lemma fest.
 	\begin{lemma}
-		Für beliebige Absolutbeträge $\abs$ auf $\mathbb{K}$ und Elemente $x\in \K$ gilt:
+		Für beliebige Absolutbeträge $\abs$ auf $\mathbb{K}$ und Elemente $x\in \mathbb{K}$ gilt:
 		\begin{enumerate}[label=\emph{(\roman*)},leftmargin=1.5cm]
 			\item $\abs[1] = 1$
 			\item $\abs[-1] = 1$
@@ -37,7 +43,7 @@
 		(iii) folgt aus $\abs[x^n] = \abs[x]^n$ und (iv) wegen $\abs[-x] = \abs[-1] \abs[x] = \abs[x]$.
 	\end{proof}
 	
-	Betrachten wir nun den K"orper $\mathbb{K} = \Q$ der rationalen Zahlen.
+	Beschr"anken wir uns nun auf den K"orper $\mathbb{K} = \Q$ der rationalen Zahlen.
 	Dort kennen wir bereits den archimedischen \emph{reellen Absolutbetrag}
 	\begin{align*}
 		x \mapsto
@@ -61,7 +67,7 @@
 		\begin{align*}
 			\abs[x]_p = p^{-v_p}
 		\end{align*}
-		mit $v_p \in \Z$ wie oben. Durch $\abs[0]_p := 0$ vervollständigen wir die Definition.
+		mit $v_p \in \Z$ wie oben. Durch $\abs[0]_p \coloneqq  0$ vervollständigen wir die Definition.
 	\end{defi}
 	Der Name der Abbildung ist nicht willk"urlich gew"ahlt, wie folgendes Lemma zeigt.
 	\begin{lemma}
@@ -84,10 +90,10 @@
 		Ist dagegen $\abs[x]_p \not=\abs[y]_p$, so kann $p$ ein Teiler des Zählers sein und wir erhalten $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$.
 	\end{proof}
 	
-	Somit haben wir neben dem archimedischen Absolutbetrag $\abs_\infty$ auch unendlich viele nicht-archimedische Betr"age $\abs_p$ gedunden.
-	Gibt es mehr?
+	Somit haben wir neben dem archimedischen Absolutbetrag $\abs_\infty$ auch unendlich viele nicht-archimedische Betr"age $\abs_p$ gefunden.
+	Es stellt sich nun die Frage: Gibt es mehr?
 	Jein!
-	F"ur jeden beliebigen Absolutbetrag $\abs$ ist auch $\abs^\alpha$ f"ur jede reelle Zahl $\alpha>0$ ein weiterer Absolutbetrag.
+	Fixiren wir einen beliebigen Absolutbetrag $\abs$, so ist auch $\abs^\alpha$ f"ur jede reelle Zahl $\alpha>0$ ein weiterer Absolutbetrag.
 	Wir nennen solche Betr"age \emph{"aquivalent} und zeigen, dass wir auf $\Q$ bereits alle "Aquivalenzklassen von Betr"agen gefunden haben.
 	\begin{satz}[Ostrowski]
 	\label{satz:ostrowksi}
@@ -112,7 +118,7 @@
 					\leq n_0^{k\alpha}\sum_{i=0}^{\infty} n_0^{-i\alpha}
 					 = n_0^{k\alpha} \frac{n_0^\alpha}{n_0^\alpha - 1}.
 			\end{align*}
-			Setzt man nun $C:=\frac{n_0^\alpha}{n_0^\alpha - 1}>0$, so sehen wir
+			Setzt man nun $C\coloneqq \frac{n_0^\alpha}{n_0^\alpha - 1}>0$, so sehen wir
 			\begin{align*}
 				\abs[n]\leq C n_0^{k\alpha}\leq C n^\alpha
 			\end{align*}
@@ -140,7 +146,7 @@
 					=n_0^{(k+1)\alpha} \left(1 - \left(1 - \frac{1}{n_0}\right)\right)
 					\\&> n^\alpha \left(1 - \left(1 - \frac{1}{n_0}\right)\right).
 			\end{align*}
-			Setzen wir wieder $C':=\left(1 - \left(1 - \frac{1}{n_0}\right)\right) >0$ folgt analog zum ersten Teil, dass
+			Setzen wir wieder $C'\coloneqq \left(1 - \left(1 - \frac{1}{n_0}\right)\right) >0$ folgt analog zum ersten Teil, dass
 			\begin{align*} 
 				\abs[n]\geq n^\alpha
 			\end{align*}
@@ -306,7 +312,7 @@
 		B(x,\varepsilon) = \{ y \in \Kp: \abs[x-y]_p < \varepsilon\}
 	\end{align*}
 	mit $x\in \Kp$ und $\varepsilon>0$
-	Da wir es aber mit einer topologische Gruppe zu tun haben, reicht es nur die offenen B"alle $B(\varepsilon):= B(0,\varepsilon)$ zu betrachten.
+	Da wir es aber mit einer topologische Gruppe zu tun haben, reicht es nur die offenen B"alle $B(\varepsilon)\coloneqq  B(0,\varepsilon)$ zu betrachten.
 	Diese bilden dann eine Umgebungsbasis der $0$.
 	Wir haben aber gesehen, dass $\abs[\Kp]_p = p^\Z$.
 	Folglich ist $B(\varepsilon) = B(\varepsilon')$ f"ur $p^{k} < \varepsilon, \varepsilon' \leq p^{k+1}$.
@@ -382,12 +388,17 @@
 	\end{proof}
 	Damit sieht man aber auch schnell ein, dass alle Mengen der Form $a + p^k\Zp$ als stetiges Bild einer kompakter Menge wieder kompakt sind.
 	Hier muss man sich nur kurz bewusst machen, dass die Abbildung $x\mapsto p^kx$ in $\K_p^+$ stetig ist.
-	Wir beenden diesen Abschnitt mit einer weiteren Definition:
+	
+	Zum Ende dieses Abschnitts wenden wir uns noch einer wichtigen multiplikativen Untergruppe zu: die Gruppe der ganzzahligen Einheiten
 	\begin{align*}
 		\Zpx = \{x\in\Kp: \abs[x]_p = 1\}.
 	\end{align*}
-	Diese Menge bildet eine multiplikative Untergruppe von $\Kpx$ und wir k"onnen $\Kpx$ schreiben als disjunkte Vereinigung $\bigcup_{k\in \Z} p^k\Zpx$;
-\subsection{Potenzreihen}
+	Sie entspricht dem Einheitskreis $S^1$ im Komplexen und spielt sp"ater in der Berechnung von Integralen eine wichtige Rolle.
+	Zuerst bemerken wir, dass $\Zpx$ als Urbild der abgeschlossenen Menge $\{1\}\subset\R^+_0$ unter der stetigen Betragsabbildung selbst wieder abgeschlossen ist.
+	Damit ist aber $\Zpx$ als abgeschlossene Teilmenge von $\Zp$ kompakt.
+	"Ahnlich zu $\Komplex^\times = \bigcup_{r \in \R_+} rS^1$ haben wir zudem auch im $p$-adischen Fall eine disjunkte Zerlegung der Einheiten $\Kpx$ in Translationen von $\Zpx$.
+	Diese hat aber eine entscheidende Besonderheit: Da unser Betrag nur diskrete Werte annimmt, ist die Zerlegung $\Kpx = \bigcup_{k\in \Z} p^k\Zpx$ sogar abz"ahlbar.
+\subsection{Die Potenzreihendarstellung}
 %Zeige potenzreihen konvergieren in Q_p: done
 %Zeige jede zahl in Q_p darstellbar als Potenzreihe: done
 	Nachdem wir die Struktur und Topolgie auf $\Kp$ besser verstanden haben, sollten wir uns etwas mit den eigentlichen Objekten, den $p$-adischen Zahlen besch"aftigen.

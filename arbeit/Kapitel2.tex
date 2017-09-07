@@ -2,37 +2,45 @@
 \label{sec:riemann2}
 %Riemanns klassischer BEweis
 %Beweis der klassischen poisson
+	In Bernhard Riemanns 1859 veröffentlichten \glqq Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse\grqq
+	
 	\begin{defi}
 		\label{def:zeta}
 		Die Riemannsche Zeta-Funktion $\zeta(s)$  ist für $Re(s)>1$ definiert als
 		\begin{align}
-			\zeta (s) = \sum_{n\in \N} \frac{1}{n^s} = \prod_{p \text{ prim}} \frac{1}{1-p^{-s}}
+			\zeta (s) = \sum_{n\in \N} \frac{1}{n^s} 
 		\end{align}
 	\end{defi}
+	Ausgehend von der Formel
+	\begin{align*}
+		\zeta (s) = = \prod_{p \text{ prim}} \frac{1}{1-p^{-s}}
+	\end{align*}
+	
+	
 	Sie kann meromorph auf ganz $\C$ fortgesetzt werden und erfüllt die Funktionalgleichung.
-	\begin{satz}
-		\label{eq:funktionalgleichung}
-		\begin{align}
-			 \Xi(s) = \Xi(1-s)
-		\end{align}
-	\end{satz}
+	%\begin{satz}
+		%\label{eq:funktionalgleichung}
+		%\begin{align}
+			 %\Xi(s) = \Xi(1-s)
+		%\end{align}
+	%\end{satz}
 
 
-	\begin{defi}
-		\label{def:xi}
-		\begin{align}
-			\Xi(s) := \Gamma_\infty(s) \zeta(s)
-		\end{align}
-	\end{defi}
+	%\begin{defi}
+		%\label{def:xi}
+		%\begin{align}
+			%\Xi(s) \coloneqq  \Gamma_\infty(s) \zeta(s)
+		%\end{align}
+	%\end{defi}
 
 
 
-	\begin{defi}
-		\label{def:gamma_infty}
-		\begin{align}
-			\Gamma_\infty(s) := \pi^{-s/2} \Gamma(s/2)
-		\end{align}
-	\end{defi}
+	%\begin{defi}
+		%\label{def:gamma_infty}
+		%\begin{align}
+			%\Gamma_\infty(s) \coloneqq  \pi^{-s/2} \Gamma(s/2)
+		%\end{align}
+	%\end{defi}
 
 	\begin{satz}[Poisson Summenformel]
 		\label{satz:poisson}
@@ -46,7 +54,7 @@
 		\label{def:fourier}
 		
 		\begin{align}
-			\finft(\xiinf) := \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
+			\finft(\xiinf) \coloneqq  \int_\R{e^{ 2\pi i (-\xinf\xiinf) }\finf(\xinf)d\xinf}
 		\end{align}
 	\end{defi}
 	
@@ -62,8 +70,27 @@
 				&= \sum_{n=1}^{\infty}  \int_{0}^{\infty} n^{-s} \pi^{-s/2} t^{s/2} e^{-t} \frac{\dx[t]}{t}
 				= \sum_{n=1}^{\infty}  \int_{0}^{\infty} \frac{t}{n^2\pi}^{s/2} e^{-t} \frac{\dx[t]}{t}\\
 				&= \sum_{n=1}^{\infty}  \int_{0}^{\infty} t^{s/2} e^{-\pi n^2 t} \frac{\dx[t]}{t}
-				= \frac{1}{2} \int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t}
+				= \frac{1}{2} \int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} \\
 		\end{align*}
+		Wir teilen das Integral auf in
+		\begin{align*}
+			\int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} = \int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t}
+		\end{align*}
+		und erhalten mit der Substitution $t \mapsto 1/t$ im ersten Summanden
+		\begin{align*}
+			\int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} 
+				&= \int_{0}^{1} \Theta(t) t^{s/2}  \frac{\dx[t]}{t} - \frac{2}{s} 
+				= \int_{1}^{\infty} \Theta(1/t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+				= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}\\
+				&= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+				= \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} - \frac{2}{s} - \frac{2}{1-s}
+		\end{align*}
+		Kombinieren wir beides, so erhalten wir
+		\begin{align*}
+			\Gamma(\frac{s}{2}) \pi^{-\frac{s}{2}} \zeta(s)
+				= \frac{1}{2} \left( \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} \right)  - \frac{1}{s} - \frac{1}{1-s}
+		\end{align*}
+		und die Funktionalgleichung ist ersichtlich.
 		
 	\end{proof}
 	
@@ -71,7 +98,7 @@
 	%\begin{satz}
 		%Die (archimedische) Gaussche Funktion
 		%\begin{align}
-			%g_\infty(\xinf) := e^{-\pi |\xinf|^2}
+			%g_\infty(\xinf) \coloneqq  e^{-\pi |\xinf|^2}
 		%\end{align}
 		%ist ihre eigene Fouriertransformierte.
 	%\end{satz}

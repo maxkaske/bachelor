@@ -1,24 +1,24 @@
-\section{Lokale...}
-	Nach unserem kurzen Ausflug in die ungewohnte Welt der $p$-adischen Zahlen machen wir uns wieder auf den Weg zu Tates Beweis.
-	Eingen wir uns zuerst auf etwas Notation.
+\section{Die lokale Theorie}\label{sec:lokal}
+	Nach diesem kurzen Ausflug in die ungewohnte Welt der $p$-adischen Zahlen machen wir uns wieder auf den Weg zum ersten Teil von Tates Beweis.
+	Eingen wir uns auf etwas Notation.
 	Eine \emph{Stelle} von $\K$ ist eine Primzahl oder $\infty$.
 	Erstere werden auch \emph{endliche Stellen} oder in Anlehnung an ihre Absolutbetr"age \emph{nicht-archimedische Stellen}.
 	Analog bezeichnen wir $\infty$ als die \emph{unendliche} oder auch \emph{archimedische Stelle}.
 	Im Folgenden werden wir immer $p$ f"ur eine Stelle verwenden.
 	Es wird also keine Verwirrung stiften, wenn wir $p<\infty$ schreiben und damit meinen, dass $p$ eine Primzahl ist.
 	Umgekehrt schreiben wir $p\leq\infty$ wenn eine beliebige Stelle gemeint ist.
-	Setzt man zudem noch $\K_\infty := \R$ haben wir einen K"orper $\K_p$ f"ur jede Stelle, der aus der Vervollst"andigung von $\K$ bez"uglich $\abs_p$ hervorgeht.
+	Setzt man zudem noch $\K_\infty \coloneqq  \R$ haben wir einen K"orper $\K_p$ f"ur jede Stelle, der aus der Vervollst"andigung von $\K$ bez"uglich $\abs_p$ hervorgeht.
 	
-	Im letzten Abschnitt haben wir gesehen, dass die endliche Stellen gewisse "Ahnlichkeiten mit der lokalen Betrachtung meromorpher Funktionen als Laurent-Reihe haben.
+	Im letzten Abschnitt haben wir gesehen, dass die endliche Stellen gewisse "Ahnlichkeiten mit der lokalen Darstellung meromorpher Funktionen als Laurent-Reihe haben.
 	Wir werden also im folgenden Abschnitt den K"orper $\K$ \glqq lokal\grqq{} an den Stellen $p\leq \infty$ genauer untersuchen. 
-	Dabei richten wir uns an einer Mischung aus Tates Doktorarbeit \cite{tate} und deren Behandlung durch Ramakrishnan und Valenza\cite{rama} und Deitmar \cite{deitmar2010}.
+	Dabei richten wir uns an einer Mischung aus Tates Doktorarbeit \cite{tate}, deren Behandlung durch Ramakrishnan und Valenza\cite{rama} und Deitmar \cite{deitmar2010}.
 	
-\subsection{... K"orper}
+\subsection{Lokale K"orper}
 	
 	Halten wir zun"achst ein wichtiges Ergebnis des letzten Abschnitts fest.
 	\begin{satz}
 		F"ur alle Stellen $p\leq \infty$ haben wir:
-		\begin{enumerate}
+		\begin{enumerate}[label=\emph{(\alph*)}]
 			\item $\K_p^+$ ist eine lokalkompakte Gruppe.
 			\item $\Kpx$ ist eine lokalkompakte Gruppe.
 		\end{enumerate}
@@ -35,13 +35,13 @@
 	%Haarmass auf Q_p^\times: done
 	%normierung des mult masses: done
 	
-	Als lokalkompakte Gruppe exisitert nach Satz \ref{satz:topo:haarmeasure} ein Haar-Maß auf $\K_p^+$, welches wir mit $\dx_p$ bezeichnen.
-	Im Fall $p=\infty$ k"onnen wir als $\dx_\infty$ einfach das Lebesgue-Maß nehmen und ersparen uns bei jeder Integration umdenken zu m"ussen.
+	Als lokalkompakte Gruppe exisitert nach Satz \ref{satz:topo:haarmeasure} ein Haar-Maß auf $\K_p^+$, welches wir mit $\dxp$ bezeichnen.
+	Im Fall $p=\infty$ k"onnen wir als $\dxinfty$ einfach das Lebesgue-Maß nehmen und ersparen uns bei jeder Integration umdenken zu m"ussen.
 	$p<\infty$ dagegen ist Neuland f"ur uns und daher nicht beeinflusst von Gewohnheiten.
-	Der folgende Satz wird allerdings zeigen, dass es sinnvoll ist die Normierung mit $\Vol(\Zp, \dx_p) = 1$ zu w"ahlen. 
+	Der folgende Satz wird allerdings zeigen, dass es sinnvoll ist die Normierung mit $\Vol(\Zp, \dxp) = 1$ zu w"ahlen. 
 	
 	\begin{satz}\label{satz:lokal:translationDesMasses}
-		Schreiben $\mu$ f"ur das Maß $\dx$.
+		Schreiben $\mu$ f"ur das Maß $\dxp$.
 		F"ur jede messbare Menge $A\subset \Kp$ und jedes $x\in \Kp$ gilt
 		\begin{align*}
 			\mu(xA) = \abs[x]_p \cdot \mu(A).
@@ -74,15 +74,15 @@
 		Im anderen Fall $k<0$ ist umgekehrt $\Zp$ eine Untergruppe von $p^k\Zp$ mit Index $[p^k\Zp:\Zp]= p^{-k}$ und die Behauptung folgt analog.
 	\end{proof}
 	
-	Damit haben wir ein sinnvolle Normierung des additiven Maßes $\dx_p$ gefunden.
+	Damit haben wir ein sinnvolle Normierung des additiven Maßes $\dxp$ gefunden.
 	Wie sieht es auf den multiplikativen Gruppen $\Kpx$ aus?
 	Zun"achst k"onnen wir einen Bezug zwischen additiven und multiplikativen Maßen herstellen.
 	
 	\begin{satz}\label{satz:lokal:multiplikativesmass}
-		Ist $\dx_p$ ein additives Haar-Maß auf $\Kp$, so definiert $\frac{dx}{\abs[x]_p}$ ein multiplikatives Haar-Maß $\dxx$ auf $\K_p^\times$.
+		Ist $\dxp$ ein additives Haar-Maß auf $\Kp$, so definiert $\frac{\dxp}{\abs[x]_p}$ ein multiplikatives Haar-Maß $\dxxp$ auf $\K_p^\times$.
 		Insbesondere gilt dann f"ur alle $g \in L^1(\K_p^\times)$
 		\begin{align*}
-			\int_{\K_p^\times} g(x) \dxx_p = \int_{\Kp \setminus \{0\}} g(x) \frac{\dx_p}{\abs[x]_p}
+			\int_{\K_p^\times} g(x) \dxp = \int_{\Kp \setminus \{0\}} g(x) \frac{\dxp}{\abs[x]_p}
 		\end{align*}
 	\end{satz}
 	\begin{proof}
@@ -92,30 +92,30 @@
 		Dies ist in der Tat eine eins-zu-eins Zuweisung.
 		Wir definieren nun das Funktional
 		\begin{align*}
-			\Phi(g) = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p}.
+			\Phi(g) = \int_{\Kp \setminus \{0\}} g(x) \frac{\dxp}{\abs[x]_p}.
 		\end{align*}
 		Dieses ist offensichtlich ein positives, nicht-triviales, lineares Funktional auf $ C_c(\K_p^\times)$. 
 		Es ist translationsinvariant, denn
 		\begin{align*}
-			\int_{\Kp \setminus \{0\}} g(y^{-1}x) \frac{dx}{\abs[x]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{\abs[y]_pdx}{\abs[yx]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{dx}{\abs[x]_p},
+			\int_{\Kp \setminus \{0\}} g(y^{-1}x) \frac{\dxp}{\abs[x]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{\abs[y]_p\dxp}{\abs[yx]_p} = \int_{\Kp \setminus \{0\}} g(x) \frac{\dxp}{\abs[x]_p},
 		\end{align*}
-		folglich kommt es von einem Haar-Maß $\dxx_p$. 
+		folglich kommt es von einem Haar-Maß $\dxp$. 
 		Der zweite Teil der Behauptung folgt aus der Tatsache, dass die Funktionen in $C_c(\K_p^\times)$ dicht in $L^1(\K_p^\times)$ liegen.
 		Beim "Ubergang zum Grenzwert erhalten wir die Gleichung auf Funktionen in $L^1$.
 	\end{proof}
 	
-	Wir k"onnen also die Normierung abh"anging von $\dx_p$ machen.
-	F"ur $p=\infty$ spricht nichts dagegen einfach $\dxx_\infty = \frac{\dx_\infty}{\abs[x]_\infty}$ beizubehalten.
+	Wir k"onnen also die Normierung abh"anging von $\dxp$ machen.
+	F"ur $p=\infty$ spricht nichts dagegen einfach $\dxxinfty = \frac{\dxinfty}{\abs[x]_\infty}$ beizubehalten.
 	Im endlichen Fall machen wir uns etwas mehr Gedanken.
 	Wir haben die multiplikative Untergruppe $\Zpx$ kennengelernt und gesehen, dass $\Kpx = \bigcup_{k\in\Z} p^k\Zpx$.
-	Aufgrund der (multiplikativen) Translationsinvarianz ist $\Vol(p^k\Zpx, \frac{\dx_p}{\abs[x]_p}) = \Vol(\Zpx, \frac{\dx_p}{\abs[x]_p})$.
-	Es ist daher interessant zu erfahren, welchen Wert $\Vol(\Zpx, \frac{\dx_p}{\abs[x]_p})$ annimmt.
+	Aufgrund der (multiplikativen) Translationsinvarianz ist $\Vol(p^k\Zpx, \frac{\dxp}{\abs[x]_p}) = \Vol(\Zpx, \frac{\dxp}{\abs[x]_p})$.
+	Es ist daher interessant zu erfahren, welchen Wert $\Vol(\Zpx, \frac{\dxp}{\abs[x]_p})$ annimmt.
 	Da $\Zpx$ kompakt ist, muss er endlich sein.
 	Wir rechnen
 	\begin{align*}
-		\Vol(\Zpx, \frac{\dx_p}{\abs[x]_p}) = \int_{\Zpx}\frac{\dx_p}{\abs[x]_p}
-											= \int_{\Zpx}\dx_p
-											= \Vol(\Zpx, \dx_p).										
+		\Vol(\Zpx, \frac{\dxp}{\abs[x]_p}) = \int_{\Zpx}\frac{\dxp}{\abs[x]_p}
+											= \int_{\Zpx}\dxp
+											= \Vol(\Zpx, \dxp).										
 	\end{align*}
 	Nun k"onnen wir aber $\Zpx$ disjunkt zerlegen durch
 	\begin{align*}
@@ -123,13 +123,13 @@
 	\end{align*}
 	und haben daher
 	\begin{align*}
-		\Vol(\Zpx, \dx_p) = \sum_{k=1}^{p-1} \Vol(k + p\Zp, \dx_p) = (p-1) \Vol(p\Zp, \dx_p) = \frac{p-1}{p},
+		\Vol(\Zpx, \dxp) = \sum_{k=1}^{p-1} \Vol(k + p\Zp, \dxp) = (p-1) \Vol(p\Zp, \dxp) = \frac{p-1}{p},
 	\end{align*}
-	wobei wir im letzten Schritt $\Vol(p\Zp, \dx_p) = \abs[p]_p \Vol(p\Zp, \dx_p)$ ausgenutzt haben.
+	wobei wir im letzten Schritt $\Vol(p\Zp, \dxp) = \abs[p]_p \Vol(p\Zp, \dxp)$ ausgenutzt haben.
 	
-	Wir normieren $\dxx_p$ im Fall $p<\infty$ durch $\dxx_p = \frac{p}{p-1} \cdot \frac{\dx_p}{\abs[x]_p}$, also gerade die Normierung, so dass $\Zpx$ das Maß Eins hat.
+	Wir normieren $\dxp$ im Fall $p<\infty$ durch $\dxp = \frac{p}{p-1} \cdot \frac{\dxp}{\abs[x]_p}$, also gerade die Normierung, so dass $\Zpx$ das Maß Eins hat.
 	
-\subsection{... Fourieranalysis}
+\subsection{Lokale Fourieranalysis}
 %hier den additiven charakter besprechen und kurz bedeutung erklaeren: done
 %selbstdual:ist eigentlich fourierumkehrformel: done
 %fouriertransformation: done
@@ -141,22 +141,22 @@
 		
 		Fassen wir die Normierungen des letzten Abschnitts in einer Definition zusammen.
 		\begin{defi}
-			Das normalisierte additive Haar-Maß $\dx_p$ auf $\K_p^+$ ist definiert durch
+			Das normalisierte additive Haar-Maß $\dxp$ auf $\K_p^+$ ist definiert durch
 			\begin{itemize}
-				\item $\dx_\infty$ entspricht dem Lebesgue-Maß auf $\R$.
-				\item $\dx_p$ so normiert, dass $\Vol(\Zp, \dx_p) = 1$ f"ur $p<\infty$.
+				\item $\dxinfty$ entspricht dem Lebesgue-Maß auf $\R$.
+				\item $\dxp$ so normiert, dass $\Vol(\Zp, \dxp) = 1$ f"ur $p<\infty$.
 			\end{itemize}
-			Das normalisierte multiplikative Haar-Maß $\dxx_p$ auf $\K_p^\times$ ist definiert durch
+			Das normalisierte multiplikative Haar-Maß $\dxp$ auf $\K_p^\times$ ist definiert durch
 			\begin{itemize}
-				\item $\dxx_\infty = \frac{\dx}{\abs[x]_\infty}$ .
-				\item $\dxx_p =  \frac{p}{p-1} \cdot \frac{\dx_p}{\abs[x]_p}$ f"ur $p<\infty$.
+				\item $\dxxinfty = \frac{\dxp}{\abs[x]_\infty}$ .
+				\item $\dxp =  \frac{p}{p-1} \cdot \frac{\dxp}{\abs[x]_p}$ f"ur $p<\infty$.
 			\end{itemize}
 		\end{defi}
 		
 		Wir beginnen nun damit eine Klasse von Funktionen zu definieren, die besonders gutes Konvergenzverhalten bei der Integration aufweist.
 		F"ur die unendliche Stelle $p=\infty$ definieren wir eine \emph{lokale Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
 		\begin{align*}
-			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{dx^m}f(x)] < \infty
+			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{\dxp^m}f(x)] < \infty
 		\end{align*}
 		erf"ullt. 
 		Das entspricht der Definition der klassischen Schwartz-Funktion.
@@ -168,7 +168,7 @@
 		\begin{bsp}~ 
 			\begin{enumerate}[label=(\roman*)]
 				\item Im Fall $p=\infty$ ist die Funktion $f_k = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. 
-				Die Ableitungen $\frac{d^m}{dx^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
+				Die Ableitungen $\frac{d^m}{\dxp^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
 				Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschr"ankt ist.
 				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen in $\Sw(\Kp)$. 
 				Beispiele f"ur Kompakta sind Mengen der Form $a+p^k\Zp$ mit $a\in \K$ und $k\in \Z$.
@@ -181,7 +181,7 @@
 		Damit sieht man auch leicht ein, dass solche Schwartz-Bruhat Funktionen integrierbar sind.
 		\begin{proof}
 			Sei $f \in \Sw(\Kp)$. 
-			Da $f$ lokal konstant ist, ist f"ur jedes $z\in\C$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
+			Da $f$ lokal konstant ist, ist f"ur jedes $z\in\Komplex$ das Urbild $f^{-1}(z)$ offen in $\Kp$. 
 			Also ist $f^{-1}(0)$ offen, folglich $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher schon $\text{supp}(f) = \Kp \setminus f^{-1}(0)$. 
 			Per Definition hat die Schwartz-Bruhat Funktion $f$ kompakten Tr"ager, also ist $\Kp \setminus f^{-1}(0)$ kompakt. 
 			Diese Menge wird von den offenen Mengen $f^{-1} (x)$ mit $x\not= 0$ "uberdeckt, wovon nach Kompaktheit schon endlich viele reichen.
@@ -208,6 +208,9 @@
 				\end{align*}
 			\end{itemize}
 		\end{defi}
+		$e_\infty$ ist offensichtlich trivial auf den ganzen Zahlen $\Z$. Analog dazu ist im Endlichen $e_p$ konstant auf den $p$-adischen ganzen Zahlen $\Zp$.
+		Das hat aber zur Folge, dass der Charakter f"ur $p\leq\infty$ lokal konstant ist, denn f"ur jedes $a \in \Kp$ ist $a+\Zp$ eine offene Umgebung auf der $e_p$ nur den Wert $e_p(a)$ annimmt.
+		
 		Sei nun $\psi$ ein beliebiger weiterer Charakter auf $\K_p^+$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
 		Aufgrund der Stetigkeit von $\psi$ gibt es dann eine offene Umgebung $V$ der $0\in\K_p^+$ mit $\psi(V)\subseteq U$. 
 		Ohne Einschr"ankung ist $V$ eine offene Untergruppe der Form $p^k\Zp$ f"ur ein $k\in\Z$. 
@@ -288,9 +291,9 @@
 		Die Standard-Charaktere induzieren gewissermaßen einen Isomorphismus zwischen der additiven Gruppe $\K_p^+$ und deren Dualgruppe $\widehat{\K_p^+}$. 
 		Wir k"onnen also gutem Gewissens die Fouriertransformation als eine Funktion auf $\K_p^+$ zu definieren.
 		\begin{defi}[Lokale Fouriertransformation]
-			Sei $f\in L^1(\Kp)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \Kp \to \C$ von $f$ durch die Formel
+			Sei $f\in L^1(\Kp)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \Kp \to \Komplex$ von $f$ durch die Formel
 		\begin{align*}
-			\hat{f}(\xi) = \int_{\Kp} f(x)e_p(-\xi x)  \dx
+			\hat{f}(\xi) = \int_{\Kp} f(x)e_p(-\xi x)  \dxp
 		\end{align*}
 		f"ur alle $\xi \in \Kp$.
 		\end{defi}
@@ -325,19 +328,19 @@
 		\end{satz}
 		\begin{proof}
 			Im Fall $p=\infty$ folgt $\hat{f} \in \Sw(\Kp)$ und die Umkehrformel (mal einer Konstanten) aus der klassischen Analysis.
-			Um zu sehen, dass unsere Normierung von $\dx_\infty$ tats"achlich selbst-dual ist, reicht es eine geeignete Funktion zu betrachten und zu zeigen, dass die Konstante gleich $1$ ist. 
+			Um zu sehen, dass unsere Normierung von $\dxinfty$ tats"achlich selbst-dual ist, reicht es eine geeignete Funktion zu betrachten und zu zeigen, dass die Konstante gleich $1$ ist. 
 			Daf"ur verweisen wir auf die Berechnungen am Ende des Kapitels.
 			
 			Kommen wir zum Fall $p<\infty$. 
 			Wie wir eben in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. 
 			Es reicht also die Aussage f"ur solche $f$ zu zeigen.
-			Sei dazu $h:= \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
+			Sei dazu $h\coloneqq  \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
 			\begin{align*}
 				\hat{h}(x) = \int_\Kp h(y) e_p (-xy) dy_p = \int_\Zp e_p(-xy) dy_p.
 			\end{align*}
-			Nun ist $\chi(y):=e_p(-xy)$ ein Charakter auf $\Zp$ und genau dann trivial, wenn $x\in\Zp$. 
+			Nun ist $\chi(y)\coloneqq e_p(-xy)$ ein Charakter auf $\Zp$ und genau dann trivial, wenn $x\in\Zp$. 
 			Weiter ist $\Zp$ kompakt. 
-			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $\dx[y]_p$ folgt also
+			Nach Lemma \ref{Lemma:trivialerCharAufKompakt} und unserer Normierung von $\dxp[y]$ folgt also
 			\begin{align*}
 				\hat{h}(x) = \text{Vol}(\Zp, dy_p) \ind_\Zp = \ind_\Zp = h(x)
 			\end{align*}
@@ -366,14 +369,14 @@
 			Damit haben wir die Umkehrformel f"ur den $p$-adischen Fall gezeigt. 
 		\end{proof}
 		
-\subsection{... Funktionalgleichung}
+\subsection{Die lokale Funktionalgleichung}
 %unverzweigte charactere: done
 %deren form: done
 %lokale funktionalgleichung: done
 %FILLER
 	Die Einheiten $\K_p^\times$ der lokalen K"orper $\Kp$ k"onnen dargestellt werden als direktes Produkt $\dedekind_p^\times \times V(\Kp)$, wobei $\dedekind_p^\times$ die Untergruppe der Elemente von $\K_p^\times$ mit Absolutbetrag $1$ und 
 	\begin{align*}
-		V(\Kp) := \abs[\K_p^\times]
+		V(\Kp) \coloneqq  \abs[\K_p^\times]
 	\end{align*}
 	der Wertebereich des Absolutbetrags auf den Einheiten ist. 
 	Wir haben n"amlich einen stetigen Homomorphismus $\tilde{\cdot}: x \mapsto \frac{x}{\abs[x]_p}$ von $\K_p^\times$ nach $\dedekind_p^\times$.\\
@@ -382,18 +385,18 @@
 	Wenn $p<\infty$ ist $\dedekind_p^\times = \Z_p^\times$, $V(\K_p) = p^\Z$ und wir k"onnen jedes Element $x \in \K_p^\times$ schreiben als $x = \abs[x]_p\tilde{x}$.
 	Es wird nun von Interesse sein, wie die multiplikativen Charaktere auf die Untergruppe $\dedekind_p^\times$ wirken. Dazu zun"achst eine kleine Definition.
 	\begin{defi}
-		Ein Charakter $\chi \in \text{Hom}_\text{cont}(\K_p^\times, \C^\times)$ ist \emph{unverzweigt}, wenn er trivial auf die Untergruppe $\dedekind_p^\times$ wirkt.
+		Ein Charakter $\chi \in \text{Hom}_\text{cont}(\K_p^\times, \Komplex^\times)$ ist \emph{unverzweigt}, wenn er trivial auf die Untergruppe $\dedekind_p^\times$ wirkt.
 	\end{defi}
 	Die unverzweigten Charaktere haben eine recht einfache Form, was folgendes Lemma zeigt.
-	\begin{lemma}
-		Jeder unverzweigte Charakter $\chi$ auf $\K_p^\times$ hat die Form $\chi(x) = \abs[x]_p^s$ mit $s\in\C$.
+	\begin{lemma}\label{lemma:lokal:unverzweigterChar}
+		Jeder unverzweigte Charakter $\chi$ auf $\K_p^\times$ hat die Form $\chi(x) = \abs[x]_p^s$ mit $s\in\Komplex$.
 	\end{lemma}
 	\begin{proof}
 		Es ist klar, dass Funktionen dieser Form tats"achlich unverzweigte Quasi-Charaktere sind.
 		Umgekehrt sei $\chi$ ein unverzweigter Quasi-Charakter. Dann gilt $\chi(x) = \chi(\abs[x]_p \tilde{x}) = \chi(\abs[x]_p)$.
 		Dadurch induziert $\chi$ eine stetige Abbildung auf dem Wertebereich $V(\Kp)$. Wir zeigen, dass diese Abbildung gerade die Form $t\mapsto t^s$ hat.
 		
-		Sei zuerst $p=\infty$, also $V(\Kp) = \R_+^\times$. Wir definieren $s:= \log(\chi(e))$, also $\chi(e) = e^s$.
+		Sei zuerst $p=\infty$, also $V(\Kp) = \R_+^\times$. Wir definieren $s\coloneqq  \log(\chi(e))$, also $\chi(e) = e^s$.
 		Induktiv l"asst sich nun leicht $\chi(e^n) = e^{ns}$ f"ur ganze Zahlen $n\in\Z$ zeigen. 
 		Analog zeigt man 
 		\begin{align*}
@@ -406,22 +409,22 @@
 		folgt, so dass wir $\chi(e^q) = e^{qs}$ f"ur alle rationalen Zahlen $q\in\Q$ haben. 
 		Wegen Stetigkeit gilt nach "Ubergang zu Grenzwerten $\chi(e^r) = e^{rs}$ f"ur alle reellen $r \in \R$, also $\chi(t)=t^s$ f"ur alle $t\in \R_+^\times$.
 		
-		Der Fall $p<\infty$ ist etwas leichter. Wir definieren dieses mal $s:=\frac{\log(\chi(p))}{\log(p)}$, so dass $\chi(p) = p^s$. Da der Wertebereich aber gerade $p^\Z$ war, folgt die Behauptung sofort.
+		Der Fall $p<\infty$ ist etwas leichter. Wir definieren dieses mal $s\coloneqq \frac{\log(\chi(p))}{\log(p)}$, so dass $\chi(p) = p^s$. Da der Wertebereich aber gerade $p^\Z$ war, folgt die Behauptung sofort.
 	\end{proof}
 	%%% Filler: allgemeine charaktere sehen dann so aus blabla
 	\begin{satz}\label{satz:lokal:stdchar}
-		Jeder Charakter $\chi$ von $\K_p^\times$ hat die Form
+		Jeder Quasi-Charakter $\chi$ von $\K_p^\times$ hat die Form
 		\begin{align*}
 			\chi(x) = \mu(\tilde{x})\abs[x]_p^s,
 		\end{align*}
-		wobei $\mu$ ein unit"arer Charakter auf $\dedekind_p^\times$, $\tilde\cdot$ der stetige Homomorphismus von $\K_p^\times$ nach $\dedekind_p^\times$ und $s\in\C$ ist.
+		wobei $\mu$ ein Charakter auf $\dedekind_p^\times$, $\tilde\cdot$ der stetige Homomorphismus von $\K_p^\times$ nach $\dedekind_p^\times$ und $s\in\Komplex$ ist.
 	\end{satz}
 	\begin{proof}
 		Es ist wieder klar, dass $\mu(\tilde{\cdot})\abs_p^s$ tats"achlich ein Charakter ist. 
 		Betrachten wir nun einen beliebigen Charakter $\chi$ und definieren $\mu$ als die Einschr"ankung von $\chi$ auf $\dedekind_p^\times$. 
-		Da die Untergruppe $\dedekind_p^\times$ kompakt und $\mu$ eine stetige Abbildung nach $\C^\times$ ist, muss $\mu(\dedekind_p^\times)$ eine kompakte Untergruppe von $\C^\times$ sein und ist damit in $S^1$ enthalten. 
+		Da die Untergruppe $\dedekind_p^\times$ kompakt und $\mu$ eine stetige Abbildung nach $\Komplex^\times$ ist, muss $\mu(\dedekind_p^\times)$ eine kompakte Untergruppe von $\Komplex^\times$ sein und ist damit in $S^1$ enthalten. 
 		Folglich ist $\mu$ ein unit"arter Charakter auf $\dedekind_p^\times$.
-		Damit definiert der stetige Homomorphismus $x\mapsto \chi(x)\mu(\tilde{x})^{-1}$ einen unverzweigten Charakter auf $\K_p^\times$, hat also nach vorherigem Lemma die Form $\chi(x)\mu(\tilde{x})^{-1} = \abs[x]_p^s$ f"ur ein $s\in\C$. Der Satz folgt sofort.
+		Damit definiert der stetige Homomorphismus $x\mapsto \chi(x)\mu(\tilde{x})^{-1}$ einen unverzweigten Charakter auf $\K_p^\times$, hat also nach vorherigem Lemma die Form $\chi(x)\mu(\tilde{x})^{-1} = \abs[x]_p^s$ f"ur ein $s\in\Komplex$. Der Satz folgt sofort.
 	\end{proof}
 	Aus $\abs[\mu(\tilde{x})\abs[x]_p^s] = \abs[x]_p^\sigma$ folgt, dass der Realteil $\sigma=\text{Re}(s)$ eindeutig bestimmt ist. Er wird auch \emph{Exponent} des Charakters $\chi$ genannt.
 	
@@ -429,7 +432,7 @@
 	\begin{defi}
 		F"ur jede lokale Schwartz-Bruhat Funktion $f\in \Sw(\K_p)$ und multiplikativen Quasi-Charakter $\chi$ mit Exponenten $\sigma >0$ sei
 		\begin{align*}
-			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxx_p
+			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxp
 		\end{align*}
 		eine \emph{lokale Zeta-Funktion} auf $\Kp$.
 	\end{defi}
@@ -448,26 +451,26 @@
 			\item $Z(f,\chi) = Z(f, \mu, s)$ ist holomorph und absolut konvergent f"ur $\sigma > 0$
 			\item Auf dem Streifen $0 < \sigma < 1$ haben wir eine Funktionalgleichung
 				\begin{align*}
-					Z(\hat{f}, \check{\chi}) = \gamma(\chi, e_p, dx) Z(f,\chi),
+					Z(\hat{f}, \check{\chi}) = \gamma(\chi, e_p, \dxp) Z(f,\chi),
 				\end{align*}
-				wobei $\gamma(\chi, \psi, dx)$ unabh"angig von $f$ und meromorph als Funktion in $s$ ist. Damit besitzt $Z(f,\chi)$ eine meromorphe Fortsetzung auf ganz $\C$
+				wobei $\gamma(\chi, \psi, \dxp)$ unabh"angig von $f$ und meromorph als Funktion in $s$ ist. Damit besitzt $Z(f,\chi)$ eine meromorphe Fortsetzung auf ganz $\Komplex$
 		\end{enumerate}
 	\end{satz}
 	\begin{proof}
 		(i) Es reicht im Allgemeinen zu zeigen, dass das Integral
 		\begin{align*}
-			 \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p}
-													= \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p
+			 \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma} \frac{\dxp}{\abs[x]_p}
+													= \int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp
 		\end{align*}
-		endlich ist, denn $\dxx_p$ ist ein konstantes Vielfaches von $\dx_p$.
+		endlich ist, denn $\dxp$ ist ein konstantes Vielfaches von $\dxp$.
 		
 		Sei zun"achst $p=\infty$. 
 		Wir w"ahlen $\varepsilon>0$ beliebig und setzen $K=[-\varepsilon, \varepsilon]$.
 		Nun teilen wir das Integral auf in
 		\begin{align*}
-			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
-				= \int_{K\setminus\{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p
-					+ \int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p.
+			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp 
+				= \int_{K\setminus\{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp
+					+ \int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp.
 		\end{align*}
 		Nun ist $f$ stetig und damit beschr"ankt auf $K$.
 		F"ur den ersten Summanden m"ussen wir also nur die Integrierbarkeit von $\abs[x]_p^{\sigma-1}$ nahe $0$ "uberpr"ufen.
@@ -476,9 +479,9 @@
 		Da $f$ eine Schwartz Funktion ist,  haben wir zum Beispiel $\abs[f(x)]_p \leq \frac{C}{\abs[x]_p^n}$, wobei $n \in \N$ mit $n > 1+\sigma$ und $C$ eine positive reelle Zahl ist.
 		Einsetzen in den Summanden ergibt
 		\begin{align*}
-			\int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
-				\leq C\cdot \int_{\Kp \setminus K} \frac{\abs[x]_p^{\sigma-1}}{\abs[x]_p^n}\dx_p 
-				\leq C\cdot \int_{\Kp \setminus K} \frac{1}{\abs[x]_p^2}\dx_p< \infty.
+			\int_{\Kp \setminus K} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp 
+				\leq C\cdot \int_{\Kp \setminus K} \frac{\abs[x]_p^{\sigma-1}}{\abs[x]_p^n}\dxp 
+				\leq C\cdot \int_{\Kp \setminus K} \frac{1}{\abs[x]_p^2}\dxp< \infty.
 		\end{align*}
 		Es folgt die absolute Konvergenz.
 		
@@ -487,10 +490,10 @@
 		Es reicht also nur solche zu betrachten.
 		Wir rechnen
 		\begin{align*}
-			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dx_p 
-				&= \int_{{a+p^n\Zp} \setminus \{0\}} \abs[x]_p^{\sigma-1} \dx_p
-				= \int_{{p^n\Zp}\setminus \{0\}} \abs[x-a]_p^{\sigma-1} \dx_p\\
-				&\leq \int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p} + \abs[a]_p^{\sigma-1} \Vol(p^n\Zp, \dx_p),
+			\int_{\Kp \setminus \{0\}} \abs[f] \cdot \abs[x]_p^{\sigma-1} \dxp 
+				&= \int_{{a+p^n\Zp} \setminus \{0\}} \abs[x]_p^{\sigma-1} \dxp
+				= \int_{{p^n\Zp}\setminus \{0\}} \abs[x-a]_p^{\sigma-1} \dxp\\
+				&\leq \int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dxp}{\abs[x]_p} + \abs[a]_p^{\sigma-1} \Vol(p^n\Zp, \dxp),
 		\end{align*}
 		wobei wir im letzten Schritt die (normale) Dreiecksungleichung verwendet haben.
 		Der zweite Summand ist endlich, da $p^n\Zp$ kompakt ist.
@@ -500,10 +503,10 @@
 		Zudem hatten hatten mit $\Kp\setminus \{0\} = \bigcup_{k\in \Z} p^k\Zpx$ eine disjunkte Zerlegung von $\Kpx$ in genau diese Kreislinien.
 		"Ubertragen wir den Gedanken nun auf das Integral erhalten wir
 		\begin{align*}
-			\int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dx_p}{\abs[x]_p} 
-				= \sum_{k=n}^{\infty} \int_{p^k\Zpx} \abs[x]_p^\sigma \frac{\dx_p}{\abs[x]_p}  
-				= \sum_{k=n}^{\infty} \int_{\Zpx} \abs[p^kx]_p^{\sigma} \frac{\dx_p}{\abs[x]_p}
-				= \sum_{k=n}^{\infty} p^{-k \sigma} \int_{\Zpx}  \frac{\dx_p}{\abs[x]_p}
+			\int_{p^n\Zp \setminus \{0\}} \abs[x]_p^{\sigma} \frac{\dxp}{\abs[x]_p} 
+				= \sum_{k=n}^{\infty} \int_{p^k\Zpx} \abs[x]_p^\sigma \frac{\dxp}{\abs[x]_p}  
+				= \sum_{k=n}^{\infty} \int_{\Zpx} \abs[p^kx]_p^{\sigma} \frac{\dxp}{\abs[x]_p}
+				= \sum_{k=n}^{\infty} p^{-k \sigma} \int_{\Zpx}  \frac{\dxp}{\abs[x]_p}
 		\end{align*}
 		Das Integral haben wir bereits bestimmt. Es ist gleich $\frac{p-1}{p}$. 
 		"Ubrig bleibt also nur eine geometrische Reihe, diese konvergiert aber gerade f"ur $\sigma>0$.
@@ -535,26 +538,26 @@
 				\int_{\K_p^\times} \left( \int_{\K_p^\times} f(x) \hat{g}(xy) d^\times x \right) \chi(y^{-1})\abs[y]_p d^\times y.
 			\end{align*}
 			Wir m"ussen also nur noch zeigen, dass das innere Integral symmetrisch in $f$ und $g$ ist.
-			Dazu erinnern wir uns, dass $d^\times x = c \frac{dx}{\abs[x]_p}$ und nach der Definition der Fouriertransformation daher
+			Dazu erinnern wir uns, dass $d^\times x = c \frac{\dxp}{\abs[x]_p}$ und nach der Definition der Fouriertransformation daher
 			\begin{align*}
 				\int_{\K_p^\times} f(x) \hat{g}(xy) d^\times x  
-				= c \int_{\Kp}  \int_{\Kp} f(x) g(z) e_p(-xyz) dz dx = \int_{\K_p^\times} g(z) \hat{f}(zy) d^\times z,
+				= c \int_{\Kp}  \int_{\Kp} f(x) g(z) e_p(-xyz) dz \dxp = \int_{\K_p^\times} g(z) \hat{f}(zy) d^\times z,
 			\end{align*}
 			wobei wieder Fubini das Vertauschen der Reihenfolge bei der Integration erlaubt.
 		\end{proof}
 		Damit sind wir auch schon fast fertig. 
 		Wir versprechen nun die Existenz geeigneter Funktionen $g\in \Sw(\Kp)$, so dass der Ausdruck
 		\begin{align*}
-			\gamma(\chi, e_p, dx) := \frac{Z(\hat g, \check{\chi})}{Z(g, \chi)}.
+			\gamma(\chi, e_p, \dxp) \coloneqq  \frac{Z(\hat g, \check{\chi})}{Z(g, \chi)}.
 		\end{align*}
 		wohldefiniert ist. 
 		Aus dem gerade bewiesenen Lemma folgt, dass dieser Quotient unabh"angig von der Wahl von $g$ ist.
 		Zu guter Letzt erhalten wir die lokale Funktionalgleichung
 		\begin{align*}
-			Z(\hat f, \check{\chi}) = \gamma(\chi, e_p, \dx_p) Z(f, \chi).
+			Z(\hat f, \check{\chi}) = \gamma(\chi, e_p, \dxp) Z(f, \chi).
 		\end{align*}
 	\end{proof}
-\subsection{... Berechnungen}
+\subsection{Lokale Berechnungen}
 	In diesem Abschnitt kommen wir dem Versprechen des letzten Beweises nach und werden nicht nur die Funktionen angeben, sondern auch die $\gamma$-Faktoren explizit berechnen.
 	Die Berechnungen werden sich in die F"alle $p=\infty$ und $p<\infty$ und dort jeweils in $\chi$ verzweigt und $\chi$ unverzweigt aufteilen.
 	Wir m"ochten hier noch besonders die unverzweigten Berechnungen hervorheben, da sie hoffentlich einen Bezug zum eigentlichen Ziel dieser Arbeit erahnen lassen.
@@ -565,12 +568,12 @@
 	\end{align*} 
 	Wir behaupten, dass $f$ ihre eigene Fouriertransformierte ist. Dazu rechnen wir
 	\begin{align*}
-		\hat{f}(\xi) 	&= \int_{\K_\infty} e^{-\pi x^2} e_\infty(-x\xi)dx 
-					= \int_{\K_\infty} e^{-\pi x^2} e^{2\pi ix\xi}dx
-					\\&= \int_{\K_\infty} e^{-\pi (x^2 - 2ix\xi - \xi^2)} e^{-\pi \xi^2}dx
-					= f(\xi) \int_{\K_\infty} e^{-\pi (x - i\xi)^2} dx.
+		\hat{f}(\xi) 	&= \int_{\K_\infty} e^{-\pi x^2} e_\infty(-x\xi)\dxp
+					= \int_{\K_\infty} e^{-\pi x^2} e^{2\pi ix\xi}\dxp
+					\\&= \int_{\K_\infty} e^{-\pi (x^2 - 2ix\xi - \xi^2)} e^{-\pi \xi^2}\dxp
+					= f(\xi) \int_{\K_\infty} e^{-\pi (x - i\xi)^2} \dxp.
 	\end{align*}
-	Es gen"ugt also zu zeigen, dass das Integral gleich $1$ ist. Dazu nutzen wir das bekannte Integral $\int_{\K_\infty} e^{-\pi x^2} dx = 1$ und etwas Kontourintegration.
+	Es gen"ugt also zu zeigen, dass das Integral gleich $1$ ist. Dazu nutzen wir das bekannte Integral $\int_{\K_\infty} e^{-\pi x^2} \dxp = 1$ und etwas Kontourintegration.
 	Sei $\gamma$ das Rechteck von $-r$ nach $r$ auf der reellen Achse, dann runter zu $r-i\xi$, horizontal zu $-r-i\xi$ und wieder zur"uck zu $-r$.
 	Da $f$ eine ganze Funktion ist, gilt $\int_\gamma f(z) dz = 0$. 
 	Die Integrale an der linken und rechten Seite des Rechtecks konvergieren gegen $0$ wenn $r$ anw"achst, denn f"ur $z = \pm r - iy$ und $0\leq y\leq \xi$ gilt
@@ -581,13 +584,13 @@
 	\begin{align*}
 		\abs[\int_{\pm r}^{\pm r-i\xi} f(z)dz] = \abs[\int_{0}^{\xi} f(\pm r - iy)dy] \leq e^{-\pi r^2} \int_{0}^{\xi} e^{\pi y^2}dy \xrightarrow[]{r\to \infty} 0.
 	\end{align*}
-	Folglich muss schon $\int_{\K_\infty} f(x-i\xi) dx = \int_{\K_\infty} f(x)dx = 1$ gelten und wir sind fertig mit der Fouriertransformation.
+	Folglich muss schon $\int_{\K_\infty} f(x-i\xi) \dxp = \int_{\K_\infty} f(x)\dxp = 1$ gelten und wir sind fertig mit der Fouriertransformation.
 	
 	Nun zu den Zeta-Funktionen:
 	\begin{align*}
-		Z(f, \chi) = Z(f, \abs_\infty^s) = \int_{\Kinfx} f(x) \abs[x]_p^s \dxx 
-							= \int_{\R^\times} e^{-\pi x^2} \abs[x]_\infty^s \dxx 
-							= 2 \int_0^\infty e^{-\pi x^2} x^{s-1} \dx
+		Z(f, \chi) = Z(f, \abs_\infty^s) = \int_{\Kinfx} f(x) \abs[x]_p^s \dxxp 
+							= \int_{\R^\times} e^{-\pi x^2} \abs[x]_\infty^s \dxxp 
+							= 2 \int_0^\infty e^{-\pi x^2} x^{s-1} \dxp
 	\end{align*}
 	Wir benutzen den Trafo $u =\pi x^2 \Rightarrow du = 2\pi^{1/2}u^{1/2}$ und erhalten
 	\begin{align*}
@@ -600,7 +603,7 @@
 	\end{align*}
 	Jetzt k"onnen wir endlich den versprochenen Faktor
 	\begin{align*}
-		\gamma(\abs_\infty^s, e_\infty, \dx) = \frac{\pi^{-\frac{1-s}{2}} \Gamma\left(\frac{1-s}{2}\right)}{\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)}
+		\gamma(\abs_\infty^s, e_\infty, \dxp) = \frac{\pi^{-\frac{1-s}{2}} \Gamma\left(\frac{1-s}{2}\right)}{\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)}
 	\end{align*}
 	angeben und sehen, dass dieser auf dem Streifen $0<\sigma<1$ als Quotient holomorpher Funktionen meromorph ist.
 
@@ -613,31 +616,31 @@
 	Damit k"onnen wir die Fouriertransformation schnell aus einem Ergebnis der klassischen Fourieranalysis gewinnen.
 	Denn wir haben
 	\begin{align*}
-		\hat{f}_\pm(\xi) 	&= \int_{-\infty}^\infty f_\pm (x) e_\infty(-x\xi)\dx
-							 = \int_{-\infty}^\infty (-2\pi)^{-1} f'(x) e_\infty(-x\xi)\dx\\
+		\hat{f}_\pm(\xi) 	&= \int_{-\infty}^\infty f_\pm (x) e_\infty(-x\xi)\dxp
+							 = \int_{-\infty}^\infty (-2\pi)^{-1} f'(x) e_\infty(-x\xi)\dxp\\
 							&= \left[ (-2\pi^{-1} f(x) e_\infty(-x\xi)  \right]_{-\infty}^\infty 
-								- \int_{-\infty}^\infty -2\pi^{-1} f(x) \cdot (-2\pi i \xi) e_\infty(-x\xi)\dx&\\
+								- \int_{-\infty}^\infty -2\pi^{-1} f(x) \cdot (-2\pi i \xi) e_\infty(-x\xi)\dxp&\\
 							&= 0 - i \xi \hat{f}(\xi) = -i \xi f(\xi) = -i f_\pm(\xi).
 	\end{align*}
 	Wir berechnen die Zeta-Funktionen
 	\begin{align*}
 		Z(f_\pm, \chi) 	&= Z(f, \sgn\abs_\infty^s) 
-						= \int_{\Kinfx} f_\pm(x) \sgn(x)\abs[x]_\infty^s \dxx \\
-						&= \int_{\Kinfx} x f(x) \sgn(x) \abs[x]_\infty^s \dxx
-						= \int_{\Kinfx} f(x) \abs[x]_\infty^{s+1} \dxx \\
+						= \int_{\Kinfx} f_\pm(x) \sgn(x)\abs[x]_\infty^s \dxxp \\
+						&= \int_{\Kinfx} x f(x) \sgn(x) \abs[x]_\infty^s \dxxp
+						= \int_{\Kinfx} f(x) \abs[x]_\infty^{s+1} \dxxp \\
 						&= Z(f, \abs_\infty^{s+1}) = \pi^{-\frac{s+1}{2}}\Gamma\left(\frac{s+1}{2}\right)
 	\end{align*}
 	und mit $\check{\chi} = \sgn^{-1}\abs_\infty^{1-s} = \sgn\abs_\infty^{1-s} $
 	\begin{align*}
 		Z(\hat{f}_\pm, \chi) 	&= Z(-i f_\pm, \sgn\abs_\infty^{1-s}) 
-						= -i \int_{\Kinfx} f_\pm(x) \sgn(x)\abs[x]_\infty^{1-s} \dxx \\
-						&= -i \int_{\Kinfx} x f(x) \sgn(x) \abs[x]_\infty^{1-s} \dxx
-						= -i \int_{\Kinfx} f(x) \abs[x]_\infty^{2-s} \dxx \\
+						= -i \int_{\Kinfx} f_\pm(x) \sgn(x)\abs[x]_\infty^{1-s} \dxxp \\
+						&= -i \int_{\Kinfx} x f(x) \sgn(x) \abs[x]_\infty^{1-s} \dxxp
+						= -i \int_{\Kinfx} f(x) \abs[x]_\infty^{2-s} \dxxp \\
 						&= -i Z(f, \abs_\infty^{2-s}) = -i \pi^{-\frac{2-s}{2}}\Gamma\left(\frac{2-s}{2}\right).
 	\end{align*}
 	Damit haben wir den Faktor
 	\begin{align*}
-		\gamma(\sgn\abs_\infty^s, e_\infty, \dx) = i\frac{\pi^{-\frac{2-s}{2}} \Gamma\left(\frac{2-s}{2}\right)}{\pi^{-\frac{s+1}{2}} \Gamma\left(\frac{s+1}{2}\right)}
+		\gamma(\sgn\abs_\infty^s, e_\infty, \dxp) = i\frac{\pi^{-\frac{2-s}{2}} \Gamma\left(\frac{2-s}{2}\right)}{\pi^{-\frac{s+1}{2}} \Gamma\left(\frac{s+1}{2}\right)}
 	\end{align*}
 	der nach der gleichen Begr"undung wie oben meromorph ist.
 \subsubsection{Der Fall \texorpdfstring{$p < \infty$}{p kleiner unendlich}}
@@ -648,24 +651,24 @@
 	Wie auch schon im archimedischen Fall werden wir feststellen, dass $f_0$ ihre eigene Fouriertransformierte ist.
 	Wir rechnen
 	\begin{align*}
-		\hat{f}_0 (\xi) = \int_{\Kp} f_0(x) e_p(-x\xi) \dx = \int_{\Zp} e_p(-x\xi) \dx.
+		\hat{f}_0 (\xi) = \int_{\Kp} f_0(x) e_p(-x\xi) \dxp = \int_{\Zp} e_p(-x\xi) \dxp.
 	\end{align*}
 	Nun wissen wir, dass $\Zp$ kompakt ist und der Charakter $e_p(-x\xi)$ genau dann trivial auf $x\in\Zp$ wirkt, wenn auch $\xi \in \Zp$.
-	In diesem Fall entpricht das Integral nach Lemma \ref{Lemma:trivialerCharAufKompakt} gerade dem Volumen von $\Zp$ bez"uglich $\dx$.
+	In diesem Fall entpricht das Integral nach Lemma \ref{Lemma:trivialerCharAufKompakt} gerade dem Volumen von $\Zp$ bez"uglich $\dxp$.
 	Ansonsten verschwindet es.
 	Mit unserer Normierung des Haar-Maßes folgt dann
 	\begin{align*}
-		\hat{f}_0 (\xi) = \int_{\Zp} e_p(-x\xi) \dx = \text{Vol}(\Zp, \dx) \ind_\Zp(\xi) = \ind_\Zp (\xi) = f_0(\xi).
+		\hat{f}_0 (\xi) = \int_{\Zp} e_p(-x\xi) \dxp = \text{Vol}(\Zp, \dxp) \ind_\Zp(\xi) = \ind_\Zp (\xi) = f_0(\xi).
 	\end{align*}
 	F"ur die Berechnungen der Zeta-Funktionen erinnern wir uns an die Beobachtung $\Zp\setminus\{0\} = \bigcup_{k=0}^\infty p^k\Zpx$ als disjunkte Vereinigung.
 	\begin{align*}
 		Z(f_0, \chi) 	&= Z(f_0, \abs_p^s) 
-						= \int_{\Kpx} f_0(x) \abs[x]_p^s \dxx 
-						= \int_{\Zp\setminus\{0\}} \abs[x]_p^s \dxx 
-						\\&= \sum_{k=0}^{\infty} \int_{p^k\Zpx} \abs[x]_p^s \dxx
-						= \sum_{k=0}^{\infty} \int_{\Zpx}  \abs[p^kx]_p^s \dxx
-						\\&= \sum_{k=0}^{\infty} \int_{\Zpx}  p^{-ks} \dxx
-						= \sum_{k=0}^{\infty} p^{-ks} \text{Vol}(\Zpx, \dxx)
+						= \int_{\Kpx} f_0(x) \abs[x]_p^s \dxxp 
+						= \int_{\Zp\setminus\{0\}} \abs[x]_p^s \dxxp 
+						\\&= \sum_{k=0}^{\infty} \int_{p^k\Zpx} \abs[x]_p^s \dxxp
+						= \sum_{k=0}^{\infty} \int_{\Zpx}  \abs[p^kx]_p^s \dxxp
+						\\&= \sum_{k=0}^{\infty} \int_{\Zpx}  p^{-ks} \dxxp
+						= \sum_{k=0}^{\infty} p^{-ks} \text{Vol}(\Zpx, \dxxp)
 						= \frac{1}{1-p^{-s}}
 	\end{align*}
 	und analog
@@ -674,7 +677,7 @@
 	\end{align*}
 	Der Faktor hat damit die Form
 	\begin{equation*}
-		\gamma(\abs_p^s, e_p, \dx) = \frac{1-p^{-s}}{1-p^{s-1}}
+		\gamma(\abs_p^s, e_p, \dxp) = \frac{1-p^{-s}}{1-p^{s-1}}
 	\end{equation*}
 	und ist insbesondere somit holomorph im betrachteten Streifen.
 	
@@ -692,24 +695,24 @@
 	\end{align*}
 	Die Berechnung der Fouriertransformation erfolgt "ahnlich zum unverzweigten Fall:
 	\begin{align*}
-		\hat{f}_n(\xi) 	= \int_{\Kp} f_n(x) e_p(-x\xi)\dx 
-						= \int_{p^{-n}\Zp} e_p\left(x(1-\xi)\right)\dx
+		\hat{f}_n(\xi) 	= \int_{\Kp} f_n(x) e_p(-x\xi)\dxp 
+						= \int_{p^{-n}\Zp} e_p\left(x(1-\xi)\right)\dxp
 	\end{align*}
 	Der Charakter $\psi(x) = e_p(x(1-\xi))$ wirkt genau dann trivial auf $p^{-n}\Zp$, wenn $1-\xi \in p^n\Zp$, oder "aquivalent $\xi \in 1+p^n\Zp$.
 	Es folgt 
 	\begin{align*}
-		\hat{f}_n(\xi) 	= \text{Vol}(p^{-n}\Zp, dx) \ind_{1+p^n\Zp}(\xi) =p^n \ind_{1+p^n\Zp}(\xi).
+		\hat{f}_n(\xi) 	= \text{Vol}(p^{-n}\Zp, \dxp) \ind_{1+p^n\Zp}(\xi) =p^n \ind_{1+p^n\Zp}(\xi).
 	\end{align*}
 	Weiter zur Zeta-Funktion:
 	\begin{align*}
 		Z(f_n, \chi) &= Z(f_n, \mu\abs_p^s) 	
-											= \int_{\Kpx} f_n(x) \mu(\tilde{x}) \abs[x]_p^s \dxx
-											= \int_{p^{-n}\Zp\setminus\{0\}} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxx
-											\\&= \sum_{k=-n}^\infty  \int_{p^k\Zpx} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxx
-											= \sum_{k=-n}^\infty  \int_{\Zpx} e_p(p^k x) \mu(\widetilde{p^k x}) \abs[p^kx]_p^s \dxx
-											\\&= \sum_{k=-n}^\infty p^{-ks} \int_{\Zpx} e_p(p^k x) \mu(x) \dxx.
+											= \int_{\Kpx} f_n(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+											= \int_{p^{-n}\Zp\setminus\{0\}} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+											\\&= \sum_{k=-n}^\infty  \int_{p^k\Zpx} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+											= \sum_{k=-n}^\infty  \int_{\Zpx} e_p(p^k x) \mu(\widetilde{p^k x}) \abs[p^kx]_p^s \dxxp
+											\\&= \sum_{k=-n}^\infty p^{-ks} \int_{\Zpx} e_p(p^k x) \mu(x) \dxxp.
 	\end{align*}
-	Ein Integral der Form $g(\omega, \lambda) = \int_{\Zpx} \omega(x)\lambda(x) \dxx$ mit multiplikativen Charakter $\omega: \Zpx \to S^1$ und additiven Charakter $\lambda: \Zp \to S^1$ wird \emph{Gauß-Summe} genannt.
+	Ein Integral der Form $g(\omega, \lambda) = \int_{\Zpx} \omega(x)\lambda(x) \dxxp$ mit multiplikativen Charakter $\omega: \Zpx \to S^1$ und additiven Charakter $\lambda: \Zp \to S^1$ wird \emph{Gauß-Summe} genannt.
 	Mit $e_{p,k} (x) = e_p(p^kx)$ haben wir dann
 	\begin{align}\label{eq:ZetaSumme}
 		Z(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}).
@@ -724,11 +727,11 @@
 			\item Wenn $n>r$, dann $g(\omega,\lambda) = 0$. \label{lemma:gausssummei}
 			\item Wenn $n=r$, dann 
 				\begin{align*}
-					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dx_p) \Vol(U_n, \dxx_p)
+					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dxp) \Vol(U_n, \dxp)
 				\end{align*}
 			\item Wenn $n<r$, dann 
 				\begin{align*}
-					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dx_p)\left[\Vol(U_n, \dxx_p) - p^{-1}\Vol(U_{r-1}\dxx_p)\right]
+					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dxp)\left[\Vol(U_n, \dxp) - p^{-1}\Vol(U_{r-1}\dxp)\right]
 				\end{align*}
 		\end{enumerate}
 	\end{lemma}
@@ -742,47 +745,47 @@
 		Wir erhalten $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
 		Daher
 		\begin{align*}
-			g(\omega,\lambda) = \sum_{aU_r}  \int_{aU_r} \omega(x)\lambda(x) \dxx = \sum_{aU_r} \omega(a)\lambda(a) \int_{U_r} \omega(x)\dxx_p.
+			g(\omega,\lambda) = \sum_{aU_r}  \int_{aU_r} \omega(x)\lambda(x) \dxxp = \sum_{aU_r} \omega(a)\lambda(a) \int_{U_r} \omega(x)\dxp.
 		\end{align*}
 		Da aber $n>r$ wirkt $\omega$ nicht trivial auf $U_r$ und somit verschwindet das Integral.
 		
 		Weiter zur Aussage (ii) und (iii): Sei also $n\leq r$. Wir rechnen
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)\lambda(x)\dxx \cdot \conj{\int_{\Zpx} \omega(x)\lambda(x)\dxx}\\
-										&= \int_{\Zpx} \int_{\Zpx} \omega(xy^{-1})\lambda(x-y) \dxx\dxx[y]\\
-										&= \int_{\Zpx} \omega(x)h(x)\dxx
+			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)\lambda(x)\dxxp \cdot \conj{\int_{\Zpx} \omega(x)\lambda(x)\dxxp}\\
+										&= \int_{\Zpx} \int_{\Zpx} \omega(xy^{-1})\lambda(x-y) \dxxp\dxxp[y]\\
+										&= \int_{\Zpx} \omega(x)h(x)\dxxp
 		\end{align*}
 		wobei wir im letzten Schritt zum einen die Translation $x \mapsto xy$ und zum anderen die Funktion
 		\begin{align*}
-			h(x) = \int_{\Zpx} \lambda(xy-y)) \dxx[y] = c \int_{\Zpx} \lambda(y(x-1)) \frac{\dx[y]}{\abs[y]_p} = c \int_{\Zpx} \lambda(y(x-1))\dx[y]
+			h(x) = \int_{\Zpx} \lambda(xy-y)) \dxxp[y] = c \int_{\Zpx} \lambda(y(x-1)) \frac{\dxp[y]}{\abs[y]_p} = c \int_{\Zpx} \lambda(y(x-1))\dxp[y]
 		\end{align*}
 		eingef"uhrt haben. Wegen $\Zpx = \Zp - p\Zp$ k"onnen wir das Integral weiter aufspalten.
 		\begin{align*}
-			h(x) =  c \int_{\Zp - p\Zp} \lambda(y(x-1))\dx[y] = c \int_{\Zp} \lambda(y(x-1))\dx[y] - c \int_{p\Zp} \lambda(y(x-1))\dx[y].
+			h(x) =  c \int_{\Zp - p\Zp} \lambda(y(x-1))\dxp[y] = c \int_{\Zp} \lambda(y(x-1))\dxp[y] - c \int_{p\Zp} \lambda(y(x-1))\dxp[y].
 		\end{align*}
 		Nun haben wir wieder den Fall von Lemma \ref{Lemma:trivialerCharAufKompakt}. 
 		$y\mapsto \lambda(y(x-1))$ ist trivial auf $\Zp$ genau dann wenn $x-1 \in p^r\Zp$, d.h. wenn $x \in U_r$.
 		"Ahnlich verh"alt es sich mit $y\mapsto \lambda(y(x-1))$ auf $p\Zp$, wobei dieser genau dann trivial ist, wenn $x\in U_{r-1}$.
 		Es gilt also
 		\begin{align*}
-			h(x) 	=&  c \Vol(\Zp,\dx)\ind_{U_r} - c \Vol(p\Zp, \dx) \ind_{U_{r-1}} \\
-					=& c \Vol(\Zp,\dx)\ind_{U_r} - c p^{-1} \Vol(\Zp, \dx) \ind_{U_{r-1}}
+			h(x) 	=&  c \Vol(\Zp,\dxp)\ind_{U_r} - c \Vol(p\Zp, \dxp) \ind_{U_{r-1}} \\
+					=& c \Vol(\Zp,\dxp)\ind_{U_r} - c p^{-1} \Vol(\Zp, \dxp) \ind_{U_{r-1}}
 		\end{align*}
 		Einf"ugen in $\abs[g(\omega,\lambda)]^2$ ergibt dann
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)h(x)\dxx \\
-										&= c\Vol(\Zp,\dx) \int_{U_r} \omega(x)\dxx - c p^{-1}\Vol(\Zp, \dx) \int_{U_{r-1}} \omega(x)\dxx.
+			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)h(x)\dxxp \\
+										&= c\Vol(\Zp,\dxp) \int_{U_r} \omega(x)\dxxp - c p^{-1}\Vol(\Zp, \dxp) \int_{U_{r-1}} \omega(x)\dxxp.
 		\end{align*}
 		Im Fall (ii) haben wir $n=r$. Damit ist der erste Integrand trivial, der zweite jedoch nicht.
 		Folglich verschwindet das zweite Integral.
 		Wir haben
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx_p)\Vol(U_n,\dxx_p)
+			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dxp)\Vol(U_n,\dxp)
 		\end{align*}
 		und sind somit fertig.
 		Im Fall (iii) ist $n<r$. Beide Integranden sind trivial und es folgt mit
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dx)\Vol(U_r,\dxx) - cp^{-1}\Vol(\Zp, \dx)\Vol(U_{r-1}, \dxx)
+			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dxp)\Vol(U_r,\dxxp) - cp^{-1}\Vol(\Zp, \dxp)\Vol(U_{r-1}, \dxxp)
 		\end{align*}
 		die Behauptung. Damit ist das Lemma bewiesen.
 	\end{proof}
@@ -797,12 +800,12 @@
 	F"ur die Berechnung der zweiten Zeta-Funktion bemerken wir zun"achst, dass $\mu^{-1}= 1/\mu = \conj{\mu}/(\mu \conj{\mu}) = \conj{\mu}$ den gleichen Konduktor wie $\mu$ hat.
 	\begin{align*}
 		Z(\hat{f}_n, \check{\chi}) 	&= Z(\hat{f}_n, \conj{\mu}\abs_p^{1-s})
-									= p^n \int_{1+p^n\Zp}  \conj{\mu}(\tilde{x}) \abs[x]_p^{1-s} \dxx
-									\\&= p^n \int_{1+p^n\Zp} \dxx
-									= p^n c \int_{p^n\Zp} \dx
+									= p^n \int_{1+p^n\Zp}  \conj{\mu}(\tilde{x}) \abs[x]_p^{1-s} \dxxp
+									\\&= p^n \int_{1+p^n\Zp} \dxxp
+									= p^n c \int_{p^n\Zp} \dxp
 									= c.
 	\end{align*}
 	Zu guter Letzt der erhalten wir den holomorphen Faktor
 	\begin{align*}
-		\gamma(\mu\abs_p^s, e_p, \dx) = \frac{c}{p^{ns} g(\mu,e_{p,-n})} = \frac{cp^{-ns} \conj{g(\mu,e_{p,-n})}}{c^2p^{-n}} = c^{-1} p^{n(1-s)} \conj{g(\mu,e_{p,-n})}
+		\gamma(\mu\abs_p^s, e_p, \dxp) = \frac{c}{p^{ns} g(\mu,e_{p,-n})} = \frac{cp^{-ns} \conj{g(\mu,e_{p,-n})}}{c^2p^{-n}} = c^{-1} p^{n(1-s)} \conj{g(\mu,e_{p,-n})}
 	\end{align*}

@@ -1,0 +1,185 @@
+
+\section{Von Riemann zu Tate}
+	%\subsection{Historische Kontext}
+	Im Jahr 1859 erschien mit \emph{\glqq Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse\grqq} Bernhard Riemanns erste und einzige ver"offentlichte Arbeit im Bereich der Zahlentheorie.
+	Als Startpunkt nimmt Riemann die heute als \emph{Riemannsche Zeta-Funktion}\footnote{Obwohl diese Funktion heute nach Riemann benannt ist, war es Leonhard Euler der sich zuerst n"aher mit ihr besch"aftigte } $\zeta(s)$ bekannte Abbildung, welche f"ur $\Re(s)>1$ durch
+	\begin{align*}
+		\sum_{n\in \N} \frac{1}{n^s} = \prod_{p \text{ prim}} \frac{1}{1-p^{-s}}
+	\end{align*}
+	als absolut konvergente Reihe oder durch die \emph{Euler-Produktformel} dargestellt werden kann.
+	Neben einer Vielzahl neuer Notationen, Definitionen und Ideen, darunter die bekannte \emph{Riemannsche Vermutung}, dass alle nicht-trivialen Nullstellen von $\zeta(s)$ den Realteil $1/2$ haben, gab er auch zwei Beweise der Funktionalgleichung
+	\begin{align*}
+		\xi(s) = \xi(1-s),
+	\end{align*}
+	wobei $\xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)$ und $\Gamma(s)$\footnote{Riemann selbst benutze noch den durch Gauß definierte Notation $\Pi(s-1)=\Gamma(s)$} das bekannte Euler-Integral
+	\begin{align*}
+		\Gamma(s) = \int_0^\infty e^{-x} x^s \frac{\dx}{x}
+	\end{align*}
+	ist.
+	%Wir m"ochten in dieser Arbeit zum e
+	%und unter anderem die obige \emph{Euler-Produktformel} bewies.
+	%Davon ausgehend
+	%holomorphe Fortsetzung der Funktion,
+	%befinden sich auch zwei Beweise der Funktionalgleichung
+	%\begin{align*}
+		%\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) = \Gamma\left(\frac{1-s}{2}\right)\pi^{-(1-s)/2}\zeta(1-s),
+	%\end{align*}
+	%wobei 
+	%\begin{align*}
+		%\Gamma(s) = \int_0^\infty e^{-x} x^s \frac{\dx}{x}
+	%\end{align*}
+	%die bekannte Gamma-Funktion in ihrer Integraldarstellung nach Euler ist.
+	%die \emph{Riemann Hypothese}
+	
+\subsection{Der Beweis der Funktionalgleichung}
+	In seinem ersten Beweis erh"alt Riemann zun"achst durch Anwendung von
+	\begin{align}\label{eq:riemannstart}
+		\Gamma(s)\frac{1}{n^s} = \int_0^\infty e^{-nx}x^{s}\frac{\dx}{x},
+	\end{align}
+	die Gleichung
+	\begin{align*}
+		\Gamma(s)\zeta(s) = \int_0^\infty \frac{x^{s}}{e^x-1} \frac{\dx}{x}.
+	\end{align*}
+	"Uber Wegintegration des Integrals
+	\begin{align*}
+		\int \frac{(-x)^{s-1}}{e^x-1}\dx
+	\end{align*}
+	etablierte er anschließend die meromorphe Fortsetzung der Zeta-Funktion (auch wenn nicht im Sinne von Weierstrass) und etablierte seine erste Form der Funktionalgleichung
+	\begin{align*}
+		\zeta(s) = \Gamma(s)(2\pi)^{s-1} 2 \sin(s\pi/2) \zeta(1-s).
+	\end{align*}
+	Riemann benutzte nun gel"aufige Identit"aten der Gamma-Funktion um dieses Ergebnis umzuformen:
+	Der Ausdruck
+	\begin{align*}
+		\xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)
+	\end{align*}
+	bleibt unver"andert, wie Riemann schreibt, \glqq wenn $s$ in $s-1$ verwandelt wird.\grqq{}
+	
+	Diese symmetrische Darstellung der Funktionalgleichung veranlasste Riemann nun dazu in Gleichung \eqref{eq:riemannstart} den Ausdruck $\Gamma(s/2)$ anstatt $\Gamma(s)$ f"ur die Grundlage eines weiteren Beweises zu betrachten.
+	Diesen m"ochten wir uns im folgenden etwas genauer anschauen, wobei wir uns Konvergenzgedanken ganz im Geiste Riemanns aufsparen.
+	\begin{satz}
+		Die Riemannsche Zeta-Funktion $\zeta(s)$  kann zu einer meromorphen Funktion auf ganz $\Komplex$ fortgesetzt werden, welche die \emph{Funktionalgleichung}
+		\begin{align*}
+			\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) = \Gamma\left(\frac{1-s}{2}\right)\pi^{-(1-s)/2}\zeta(1-s)
+		\end{align*}
+		erf"ullt. Sie besitzt zwei einfache Pole bei $s=0$ und $s=1$.
+	\end{satz}
+	\begin{proof}[Beweis der Funktionalgleichung]
+		Durch den Variablenwechsel $y=n^2\pi x^2$ in Eulers Integraldarstellung der Gamma-Funktion erhalten wir f"ur $\Re(s)>1$
+		\begin{align*}
+			%\int_{0}^{\infty} e^{-n^2\pi x}x^{s/2} \frac{\dx}{x} 
+				%= \int_0^{\infty} e^{-y} \pi^{-s/2}n^{-s} y^{s/2} {\dx[y]}{y} 
+				%= \frac{1}{n^s} \pi^{-s/2}\Gamma\left(\frac{s}{2}\right)
+			\frac{1}{n^s} \pi^{-s/2}\Gamma\left(\frac{s}{2}\right) 
+				= \frac{1}{n^s} \pi^{-s/2} \int_0^{\infty} e^{-n^2\pi x} n^s\pi^{s/2} x^{s/2} \frac{\dx}{x} 
+				= \int_{0}^{\infty} e^{-n^2\pi x}x^{s/2} \frac{\dx}{x}.
+		\end{align*}
+		Anschließendes aufsummieren ergibt die Formel
+		\begin{align*}
+			\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) 
+				= \int_{0}^{\infty} \sum_{n=1}^{\infty}\left(e^{-n^2\pi x}\right)x^{s/2} \frac{\dx}{x}
+		\end{align*}
+		Wir f"uhren nun die \emph{Thetafunktion}
+		\begin{align*}
+			\Theta(t) = \sum_{n\in \Z} e^{-\pi t n^2} = 1 + 2 \sum_{n\in\N}e^{-\pi t n^2}
+		\end{align*}
+		ein und formen obige Gleichung um zu
+		\begin{align*}
+			\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) 
+				= \frac{1}{2}\int_{0}^{\infty}(\Theta(x)-1)x^{s/2} \frac{\dx}{x}.
+		\end{align*}
+		%\begin{align*}
+				%\Gamma(\frac{s}{2}) \pi^{-\frac{s}{2}} \zeta(s)
+					%&= \sum_{n=1}^{\infty}  \int_{0}^{\infty} n^{-s} \pi^{-s/2} t^{s/2} e^{-t} \frac{\dx[t]}{t}
+					%= \sum_{n=1}^{\infty}  \int_{0}^{\infty} \frac{t}{n^2\pi}^{s/2} e^{-t} \frac{\dx[t]}{t}\\
+					%&= \sum_{n=1}^{\infty}  \int_{0}^{\infty} t^{s/2} e^{-\pi n^2 t} \frac{\dx[t]}{t}
+					%= \frac{1}{2} \int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} \\
+		%\end{align*}
+		Nun k"onnen wir das Integral aufteilen in
+		\begin{align*}
+			\int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} = \int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t}
+		\end{align*}
+		und erhalten mit der Substitution $t \mapsto 1/t$ im ersten Summanden
+		\begin{align*}
+			\int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} 
+				&= \int_{0}^{1} \Theta(t) t^{s/2}  \frac{\dx[t]}{t} - \frac{2}{s}.
+		\end{align*}
+		Als n"achstes ben"otigen wir die \emph{Theta-Transformationsformel}
+		\begin{align*}
+			\Theta(t) = t^{-1/2} \Theta(1/t).
+		\end{align*}
+		Um deren G"ultigkeit einzusehen ben"otigen wir zweierlei: 
+		Zuerst erinnern wir uns an die \emph{klassische Fouriertransformation} $\hat{f}:\R\to\Komplex$ einer $L^1$-Funktion $f:\R\to\Komplex$ definiert durch
+		\begin{align*}
+			\hat{f}(\xi) = \int_\R f(x)e^{-2\pi i x \xi} \dx.
+		\end{align*}
+		Mit dieser Abbildung haben wir folgenden
+		\begin{satz}
+			\label{satz:poisson}
+			F"ur jedes geeignete $f:\R \to \Komplex$ und deren Fouriertransformation $\hat{f}:\R \to \Komplex$ gilt:
+			\begin{align}
+				\sum_{a \in \Z} f(a) = \sum_{a \in \Z} \hat{f}(a)
+			\end{align}
+		\end{satz}
+		\begin{proof}
+			In dieser klassischen Form zum Beispiel in Deitmar \cite{deitmar2010} Proposition 5.4.10.
+		\end{proof}
+		Als Zweites halten wir fest, dass die \emph{Fouriertransformierte} von $f_t(x) = e^{-\pi t x^2}$ gleich $\hat{f}_t(x)= t^{-1/2}f_{\frac{1}{t}}(x)$ ist.
+		Beide Aussagen kombiniert ergeben die Transformationsformel.
+		Mit dieser haben wir nun
+		\begin{align*}		
+			\int_{1}^{\infty} \Theta(1/t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+				&= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+				= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}\\
+				&= \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} - \frac{2}{s} - \frac{2}{1-s}.
+		\end{align*}
+		Kombinieren wir beides, so erhalten wir
+		\begin{align*}
+			\Gamma(\frac{s}{2}) \pi^{-\frac{s}{2}} \zeta(s)
+				= \frac{1}{2} \left( \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} \right)  - \frac{1}{s} - \frac{1}{1-s}
+		\end{align*}
+		und sehen, dass dieser Ausdruck unver"andert bleibt wenn wir $s$ in $1-s$ verwandeln.
+	\end{proof}
+
+\subsection{Auf dem Weg zu Tate}
+	Beide Beweise haben eine kleine Schw"ache: Sie starten bereits mit der Gamma-Funktion als einen notwendigen Faktor zur Bildung der Funktionalgleichung.
+	Warum sie aber gerade so nahtlos zur Zeta-Funktion passt wird nicht ersichtlich. 
+	Auftritt John Tate.
+	
+	Tate kommt aus einer langen Linie von Mathematikern deren Arbeit mehr oder weniger direkt durch Riemanns Ideen in  \emph{Ueber die Anzahl\dots} beeinflusst wurde.
+	Unter der Aufsicht Emil Artins verfasste er 1950, fast 100 Jahre nach Riemann, seine Doktorarbeit \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{}\cite{tate}.
+	In ihr bewies er die analytische Fortsetzung und Funktionalgleichung der Dedekind Zeta-Funktionen und Hecke L-Funktionen, eine Art Verallgemeinerung der Riemannschen Zeta-Funktion.
+	Dieses Ergebnis war keineswegs neu und wurde 30 Jahre fr"uher bereits durch Erich Hecke gezeigt.
+	Was Tates Doktorarbeit jedoch so besonders macht - und einer der Gr"unde warum sie als  \glqq Tate's Thesis\grqq{}gewissen Kultstatus erreicht hat - ist die elegante Herangehensweise an Heckes Problemstellung mit der globalen Sprache der \emph{Adele und Idele}.
+	
+	Ziel dieser Arbeit wird es nun sein Tates Doktorarbeit in seiner einfachsten Form, d.h. im Fall des algebraischen K"orper $\Q$, Revue passieren zu lassen und die zentrale Frage
+	\begin{quote}
+		\centering
+		\textit{Woher kommt die Gamma-Funktion in der Funktionalgleichung?}
+	\end{quote}
+	zu beantworten. Dabei wollen wir auch besonders die "Ahnlichkeiten von Riemanns und Tates Beweis hervorheben.
+	
+	Wir beginnen dazu in Kapitel \ref{sec:topogroup} mit einer Einf"uhrung zu topologischen Gruppen, Lokalkompaktheit und Haar-Maße. 
+	Um den Rahmen dieser Arbeit nicht unn"otigen zu zerren werden wir allerdings Pontryagin Dualit"at und abstrakte Fourieranalyis - beides wichtige Grundlagen f"ur Tates Beweis in h"ohrer Allgemeinheit - nur in einem kurzen Ausblick behandeln.
+	In Kapitel \ref{sec:padisch} wiederholen wir kurz die wichtigsten Begriffe und Eigenschaften zu Absolutbetr"agen. 
+	Anschließend f"uhren wir die $p$-adischen Zahlen ein und untersuchen deren Eigenheiten.
+	Um unser Auslassen der abstrakten Fourieranalysis wieder gut zu machen, definieren wir am Anfang von Kapitel \ref{sec:lokal} die Fouriertransformation auf den $p$-adischen Zahlen neu und zeigen, dass diese Definition der abstrakten entspricht. 
+	Damit haben wir dann genug Grundlagen gesammelt um Tates erstes Ergebnis, die Funktionalgleichung lokaler Zeta-Funktion, zu beweisen.
+	Wir schließen das Kapitel und die erste H"alfte der Arbeit mit der expliziten Berechnung f"ur den Beweis wichtiger Integrale.
+	Es geht weiter mit der globale Betrachtung der Problemstellung in Kapitel \ref{sec:rdp} mit der wichtigen Theorie des eingeschr"ankten direkten Produkts.
+	Wir stellen uns die Frage wie man auf dieser abstrakten Gruppe integriert und wie Charaktere aussehen.
+	Daraufhin lernen wir in Kapitel \ref{sec:adeleidele} mit der Adele- und Idelegruppe $\A$ und $\I$ zwei konkrete Beispiele kennen.
+	Kapitel \ref{sec:tateproof} behandelt nun die Fourieranalysis im globalen Kontext der Adele und Idele, beweisen die algebraische Variante des Satzes von Riemann-Roch und geben Tates vollen Beweis der Funktionalgleichung globaler Zeta-Funktion. 
+	Zum Schluss runden wir die Arbeit ab und besprechen wie aus diesem Ergebnis direkt die Funktionalgleichung der Riemannschen Zeta-Funktion folgt.
+	
+	
+	
+	
+	%Trotz der relativen K"urze von nur 10 Seiten beeinflussten Riemanns Ideen in \emph{Ueber die Anzahl\dots} die Arbeit vieler bedeutender Mathematiker, darunter Hadamard, von Mangoldt, de la Vallée Poussin, Landau, Hardy, Littlewood, Siegel, Polya, Jensen, Lindelöf, Bohr, Selberg, Artin und Hecke.
+	%"Uber die letzten beiden kommen wir schließlich zu John Tate. 
+	%Unter der Aufsicht Artins verfasste dieser 1950 seine Doktorarbeit\cite{tate} \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{}.
+	%Das Ergebnis, die Funktionalgleichungen gewisser \glqq Hecke\grqq{} Zeta-Funktionen, wurde, wie der Name es vielleicht erahnen l"asst, bereits 30 Jahre fr"uher von Hecke gezeigt.
+	%Tates Arbeit bietet dagegen einen elegante Umformulierung der Problemstellung von Hecke in einen m"achtigeren Kontext und erreichte damit als \glqq Tate's Thesis\grqq{}gewissen Kultstatus.
+	
+
+

@@ -1,5 +1,8 @@
-\section{Harmonische Analysis}
-
+\section{Harmonische Analysis}\label{sec:topogroup}
+	Die (abstrakte) harmonische Analysis ist im wesentlichen eine Verallgemeinerung der klassischen Fourieranalysis auf $\R$.
+	Im Mittelpunkt der Theorie stehen dabei die lokalkompakten Gruppen.
+	Auf diesen l"asst sich ein zum klassischen Lebesgue-Maß analagoes Maß definieren, welches uns erlaubt die Integration und sp"ater in Kapitel 4 die Fouriertransformation in diesen Kontext zu "ubertragen.
+	F"ur die Behandlung des Stoffes halten wir uns Ramakrishnan und Valenza \cite{rama} Kapitel 1, wobei der letzte Abschnitt einige Konzepte aus Kapitel 3 anspricht.
 \subsection{Lokalkompakte Gruppen}
 %topologische Gruppe: done
 %charaktere:partly
@@ -8,7 +11,7 @@
 %pontryagin erwaehnen: done
 Am Anfang steht immer eine
 \begin{defi}
-	Eine \highlight{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, welche die folgenden Eigenschaften erf"ullt:
+	Eine \emph{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, welche die folgenden Eigenschaften erf"ullt:
 		\begin{enumerate}[label=(\roman*)] % leftmargin=*, align=left, labelsep=1pt]
 			\item Die Gruppenoperation
 				\begin{align*}
@@ -41,9 +44,9 @@ Am Anfang steht immer eine
 	F"ur ein weiteres Beispiel erinnern wir uns an die Definition der Stetigkeit in topologischen R"aumen.
 	Eine Abbildung $f: G_1 \to G_2$ zwischen zweier topologischer R"aume heißt stetig, wenn f"ur alle $g\in G_1$ und jede offene Umgebung $U$ von $f(g)$ eine offene Umgebung $V$ von $g$ existiert, sodass $f(V)\subseteq U$.
 	Sind $G_1$ und $G_2$ nun topologische Gruppen und ist $f$ ein (nicht unbedingt topologischer) Gruppenhomomorphismus reicht es jetzt die Stetigkeit in dem neutralen Element $e_1$ der Gruppe $G_1$ nachzuweisen.
-	Denn ist $f$ stetig in $e_1$ und sei $g$ ein beliebiges weiteres Element der Gruppe, so ist f"ur jede offene Umgebung U von $f(g)$ ist $U':=f(g)^{-1}U$ eine offene Umgebung des neutralen Elements $e_2$. 
+	Denn ist $f$ stetig in $e_1$ und sei $g$ ein beliebiges weiteres Element der Gruppe, so ist f"ur jede offene Umgebung U von $f(g)$ ist $U'\coloneqq f(g)^{-1}U$ eine offene Umgebung des neutralen Elements $e_2$. 
 	Wegen Stetigkeit gibt es dann eine offene Umgebung $V'$ mit $f(V') \subseteq U'$.
-	Nun ist aber $V:= gV'$ eine offene Umgebung von $g$ und da $f$ ein Gruppenhomomorphismus ist, haben wir
+	Nun ist aber $V\coloneqq  gV'$ eine offene Umgebung von $g$ und da $f$ ein Gruppenhomomorphismus ist, haben wir
 	\begin{align*}
 		f(V) = f(gV') = f(g)f(V') \subseteq f(g) U' =f(g)f(g)^{-1} U = U,
 	\end{align*}
@@ -84,15 +87,15 @@ Am Anfang steht immer eine
 	
 	
 	\begin{defi}
-		Ein topologischer Raum heißt \highlight{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. 
-		Eine \highlight{lokalkompakte Gruppe} ist eine topologische Gruppe, die sowohl lokalkompakt als auch hausdorffsch ist. 
+		Ein topologischer Raum heißt \emph{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. 
+		Eine \emph{lokalkompakte Gruppe} ist eine topologische Gruppe, die sowohl lokalkompakt als auch hausdorffsch ist. 
 	\end{defi}
 	Wir kennen bereits einige lokalkompakte Gruppen.
 	\begin{bsp}~ 
 		\begin{enumerate}[label=(\roman*)]
 			\item Jede diskrete topologische Gruppe $G$, also eine Gruppe versehen mit diskreter Topologie, ist lokalkompakt, denn f"ur jedes $x \in G$ ist $\{x\}$ eine kompakte Umgebung von $x$.
 			\item Die additive Gruppe $\R^+$ mit der gewohnten Topologie ist lokalkompakt. Denn ist $x\in\R^+$, so ist $[x-\varepsilon, x+\varepsilon]$ f"ur $\varepsilon>0$ eine kompakte Umgebung von $x$. "Ahnlich verh"alt es sich f"ur die multiplikative Gruppe $\R^\times = \R \setminus\{0\}$.
-			\item Analog kann man sich "uberlegen, dass die Gruppen $\C^+$ und $\C^\times$ lokalkompakt sind, wobei wir hier die abgeschlossenen B"alle $\conj{B_\varepsilon(x)}$ als kompakte Umgebung von $x$ haben.
+			\item Analog kann man sich "uberlegen, dass die Gruppen $\Komplex^+$ und $\Komplex^\times$ lokalkompakt sind, wobei wir hier die abgeschlossenen B"alle $\conj{B_\varepsilon(x)}$ als kompakte Umgebung von $x$ haben.
 		\end{enumerate}
 	\end{bsp}
 	Auch hier k"onnen wir uns das direkte Produkt zweier lokalkompakter Gruppen anschauen. 
@@ -142,7 +145,7 @@ Am Anfang steht immer eine
 	\begin{align*}
 		f(x) = \sum_{k=1}^n \alpha_k \ind_{A_k} (x)
 	\end{align*}
-	mit $\alpha \in \C$ und der \emph{charakteristischen Funktion} der messbaren Menge $A_k$
+	mit $\alpha \in \Komplex$ und der \emph{charakteristischen Funktion} der messbaren Menge $A_k$
 	\begin{align*}
 		\ind_{A_k}(x) =
 			\begin{cases}
@@ -156,14 +159,14 @@ Am Anfang steht immer eine
 	\end{align*}
 	mit der Konvention, dass $0 \times \infty = 0$. 
 	Eine M"oglichkeit dies auf andere Funktionen $f$ zu erweitern ist es Folgen $(f_n)$ von solchen Treppenfunktionen zu betrachten.
-	Diese nennen wir \emph{$L^1$-Cauchy-Folge}, wenn sie eine Cauchy-Folge bez"uglich der Norm $\norm*{g}_{L^1}:= \int_X \abs[g] d\mu$ ist. 
-	Konvergiert die Folge zus"atzlich fast "uberall punktweise gegen eine Funktion $f:X \to \C$, so definieren wir mit
+	Diese nennen wir \emph{$L^1$-Cauchy-Folge}, wenn sie eine Cauchy-Folge bez"uglich der Norm $\norm*{g}_{L^1}\coloneqq  \int_X \abs[g] d\mu$ ist. 
+	Konvergiert die Folge zus"atzlich fast "uberall punktweise gegen eine Funktion $f:X \to \Komplex$, so definieren wir mit
 	\begin{align*}
 		\int f d\mu = \lim_{n\to \infty} \int f_n d\mu
 	\end{align*}
 	das Integral von $f$ "uber $X$. 
 	
-	Ist $Y \subseteq X$ messbar in X, so setzen wir $\int_Y f d\mu := \int \ind_Y f d\mu$ und definieren
+	Ist $Y \subseteq X$ messbar in X, so setzen wir $\int_Y f d\mu \coloneqq  \int \ind_Y f d\mu$ und definieren
 	\begin{align*}
 		\Vol(Y,d\mu) = \int_Y d\mu = \int \ind_Y d\mu = \mu(Y).
 	\end{align*}
@@ -235,11 +238,9 @@ Am Anfang steht immer eine
 		\begin{enumerate}[label=(\roman*)]
 			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haar-Maß.
 			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß dx ein Haar-Maß.
-			\item F"ur $G=\R^\times$ wird durch $\mu(E):=\int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in Satz \ref{satz:lokal:multiplikativesmass}sehen werden.
+			\item F"ur $G=\R^\times$ wird durch $\mu(E)\coloneqq \int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in Satz \ref{satz:lokal:multiplikativesmass}sehen werden.
 		\end{enumerate}
 	\end{bsp}
-	
-	
 	
 	Diese Beispiele sind keine Ausnahmen.
 	Einer der Hauptgr"unde, warum wir uns mit lokalkompakten Gruppen besch"aftigen ist n"amlich folgender Satz.
@@ -262,16 +263,16 @@ Am Anfang steht immer eine
 	\begin{proof}
 		(i) folgt leicht aus der Definition des Integrals und der Translationsinvarianz des Maßes, denn $\ind_A(yx) = \ind_{y^{-1}A}(x)$ und $\Vol({y^{-1}A}, \dx) = \Vol(A,\dx)$.
 		
-		F"ur (ii) "uberlegen wir uns zun"achst, dass $\tilde{\mu}(E):= \mu(E^{-1})$ ein weiteres Haar-Maß auf $G$ definiert. 
+		F"ur (ii) "uberlegen wir uns zun"achst, dass $\tilde{\mu}(E)\coloneqq  \mu(E^{-1})$ ein weiteres Haar-Maß auf $G$ definiert. 
 		Nach der Eindeutigkeit unterscheiden sich beide Maße nur um eine Konstante $c > 0$. Wir wollen zeigen, dass $c=1$ ist.
-		Sei dazu $K$ eine kompakte Umgebung der $1$. Dann gibt es eine offene Umgebung $U$ der $1$ mit $G \subseteq K$. Definieren wir nun $S := KK^{-1}$, so ist $S$ kompakt, $U \subseteq S$ und es gilt $0 < \mu(U) \leq \mu(S)<\infty$. 
+		Sei dazu $K$ eine kompakte Umgebung der $1$. Dann gibt es eine offene Umgebung $U$ der $1$ mit $G \subseteq K$. Definieren wir nun $S \coloneqq  KK^{-1}$, so ist $S$ kompakt, $U \subseteq S$ und es gilt $0 < \mu(U) \leq \mu(S)<\infty$. 
 		Es folgt $ c\cdot \mu(S) = \tilde{\mu}(S) = \mu(S^{-1}) =\mu(S)$ und damit $c=1$. Das Haar-Maß ist also invariant unter der Umkehrabbildung. Der Rest folgt dann aus der Definition des Integrals.
 	\end{proof}
 	
-\subsection{Charaktere}
+\subsection{Charaktere und Quasi-Charaktere}
 	\begin{defi}
-		Ein \emph{Quasi-Charakter} einer topologischen Gruppe $G$ ist ein stetiger Gruppenhomomorphismus von $G$ in die multiplikative Gruppe $\C^\times$ der komplexen Zahlen.
-		Ein \emph{Charakter} ist ein Quasi-Charakter, dessen Bild auf dem Einheitskreis $S^1 =\{z\in\C: \abs[z]=1\}$ liegt.
+		Ein \emph{Quasi-Charakter} einer topologischen Gruppe $G$ ist ein stetiger Gruppenhomomorphismus von $G$ in die multiplikative Gruppe $\Komplex^\times$ der komplexen Zahlen.
+		Ein \emph{Charakter} ist ein Quasi-Charakter, dessen Bild auf dem Einheitskreis $S^1 =\{z\in\Komplex: \abs[z]=1\}$ liegt.
 	\end{defi}
 	In der Literatur werden Quasi-Charaktere h"aufig auch einfach nur als Charaktere bezeichnet. Was wir unter einem Charakter verstehen, wird unit"arer Charakter genannt.
 	Beginnen wir mit ein paar Beispielen.
@@ -280,19 +281,19 @@ Am Anfang steht immer eine
 			\item F"ur jede topologische Gruppe $G$ ist die Abbildung $g\mapsto 1$ ein Charakter. 
 				Er wird trivialer Charakter genannt und ist der einzige konstante Charakter, denn f"ur jeden Gruppenhomomorphismus $\chi$ gilt $\chi(1) = 1$.
 			\item Ein nicht-triviales  Beispiel f"ur einen unit"aren Charakter ist die Abbildung $t \mapsto \exp(i t)$ von der additiven Gruppe $\R^+$ in den Einheitskreis $S^1$.
-			\item  Die bekannte Abbildung $\exp: \C^+ \to \C^\times$ von der additiven Gruppe in die multiplikative Gruppe der komplexen Zahlen ist ein Charakter, jedoch nicht unit"ar.
+			\item  Die bekannte Abbildung $\exp: \Komplex^+ \to \Komplex^\times$ von der additiven Gruppe in die multiplikative Gruppe der komplexen Zahlen ist ein Charakter, jedoch nicht unit"ar.
 		\end{itemize}
 	\end{bsp}
 	
 	\begin{lemma}\label{Lemma:trivialerCharAufKompakt}
-		Sei $K$ eine kompakte Gruppe mit Haar-Maß $\dx$ und $\chi: K \to \C^\times$ ein Quasi-Charakter. Dann gilt
+		Sei $K$ eine kompakte Gruppe mit Haar-Maß $\dx$ und $\chi: K \to \Komplex^\times$ ein Quasi-Charakter. Dann gilt
 		\begin{enumerate}[label=\emph{(\roman*)}]
 				\item $\chi$ ist bereits ein Charakter.
 				\item F"ur das Integral von $\chi$ "uber $K$ gilt
 					\begin{align*}
-						\int_K \chi(x) dx = 
+						\int_K \chi(x) \dx = 
 							\begin{cases}
-								\text{\emph{Vol}}(K, dx),	& \text{\emph{falls} } \chi\equiv 1\\
+								\text{\emph{Vol}}(K, \dx),	& \text{\emph{falls} } \chi\equiv 1\\
 								0,					& \text{\emph{ansonsten.}}
 							\end{cases}
 					\end{align*}
@@ -302,7 +303,7 @@ Am Anfang steht immer eine
 		F"ur (i) sei $x$ ein beliebiges Element von $K$. 
 		Sei $H$ der Abschluss der von $x$ erzeugten Untergruppe von $K$.
 		Damit ist $H$ selbst eine Untergruppe von $K$ und als abgeschlossene Teilmenge eines Kompaktums kompakt.
-		Da $\chi$ ein stetiger Gruppenhomomorphismus ist, muss $\chi(H)$ eine kompakte Untergruppe von $\C^\times$ sein.
+		Da $\chi$ ein stetiger Gruppenhomomorphismus ist, muss $\chi(H)$ eine kompakte Untergruppe von $\Komplex^\times$ sein.
 		Diese liegen aber gerade alle auf $S^1$ und die Behauptung folgt.
 		
 		Nun zu (ii): Der erste Fall ist klar. 
@@ -317,7 +318,7 @@ Am Anfang steht immer eine
 \subsection{Ausblick: Fouriertransformation und Pontryagin-Dualit"at}
 	Zum Schluss blicken wir etwas "uber den Tellerrand hinaus.
 	Dieser Abschnitt ist f"ur das Verst"andis der sp"ateren Beweise absolut optional, bietet aber Einblick die n"otigen Abstraktionen, die in Tates wesentlich allgemeinerer Argumentation zum tragen kamen.
-	Wir erw"ahnen daher die f"ur Tates Doktorarbeit wichtigsten Konzepte aus der abstrakten Harmonischen Analysis und werden in den sp"ateren Kapiteln zeigen, dass unsere etwas naiveren Definition mit diesen "ubereinstimmen.
+	Wir erw"ahnen daher die f"ur Tates Doktorarbeit wichtigsten Konzepte aus der abstrakten Harmonischen Analysis und werden in den sp"ateren Kapiteln zeigen, dass unsere noch ausstehende, etwas naivere Definition der Fouriertransformation mit diesen "ubereinstimmen.
 	
 	Beginnen wir mit der Charaktergruppe auf einer beliebigen topologischen Gruppe $G$.
 	Die unit"aren Charaktere auf $G$ bilden mit der punktweisen Multiplikation $\chi\psi (x) = \chi(x) \psi (x)$ selbst wieder eine Gruppe, welche als die \emph{duale Gruppe $\hat{G}$} bezeichnet wird.
@@ -352,7 +353,7 @@ Am Anfang steht immer eine
 	Wir wissen bereits, dass jede abelsche lokalkompakte Gruppe $G$ ein eindeutiges Haar-Maß $\dx$ besitzt.
 	Damit k"onnen wir auf $G$ integrieren und definieren das abstrakte Analogon zur klassischen Fouriertransformation.
 	\begin{defi}[Fouriertransformation]
-		Sei $f\in L^1(G)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \hat{G} \to \C$ von $f$ durch die Formel
+		Sei $f\in L^1(G)$. Wir definieren dann die \emph{Fouriertransformation} $\hat{f}: \hat{G} \to \Komplex$ von $f$ durch die Formel
 		\begin{align*}
 			\hat{f}(\chi) = \int_G f(x)\conj{\chi}(x) dx
 		\end{align*}

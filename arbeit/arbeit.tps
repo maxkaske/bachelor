@@ -97,7 +97,7 @@ FrameCount=5
 ActiveFrame=1
 
 [Folding]
-adeleidele.tex=62 102 185 221 
+adeleidele.tex=62 
 lokal.tex=15 123 130 
 tateproof.tex=1 
 

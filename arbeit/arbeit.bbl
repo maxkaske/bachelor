@@ -21,6 +21,17 @@
 {\sc Gouvea, Fernando~Quadros}: {\em p-adic numbers: An introduction}.
 \newblock Universitext. Springer, 2. \btxeditionlong{}, 1997.
 
+\bibitem{neukirch}
+{\sc Neukirch, Jürgen}: {\em Algebraische Zahlentheorie}.
+\newblock Springer-Lehrbuch Masterclass. Springer, 1. Aufl. 1992. Nachdruck
+  \btxeditionlong{}, 2006.
+
+\bibitem{taoblog}
+{\sc Tao, Terence}: {\em Tate’s proof of the functional equation}.
+\newblock
+  \url{https://terrytao.wordpress.com/2008/07/27/tates-proof-of-the-functional-equation/},
+  2008.
+
 \bibitem{tate}
 {\sc Tate, John}: {\em Fourier analysis in number fields, and Hecke's
   zeta-functions}.
