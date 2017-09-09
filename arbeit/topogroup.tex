@@ -1,90 +1,93 @@
-\section{Harmonische Analysis}\label{sec:topogroup}
-	Die (abstrakte) harmonische Analysis ist im wesentlichen eine Verallgemeinerung der klassischen Fourieranalysis auf $\R$.
-	Im Mittelpunkt der Theorie stehen dabei die lokalkompakten Gruppen.
-	Auf diesen l"asst sich ein zum klassischen Lebesgue-Maß analagoes Maß definieren, welches uns erlaubt die Integration und sp"ater in Kapitel 4 die Fouriertransformation in diesen Kontext zu "ubertragen.
-	F"ur die Behandlung des Stoffes halten wir uns Ramakrishnan und Valenza \cite{rama} Kapitel 1, wobei der letzte Abschnitt einige Konzepte aus Kapitel 3 anspricht.
+\section{Lokalkompakte Gruppen und harmonische Analysis}\label{sec:topogroup}
+	Auch wenn es der Beweis Riemanns nicht direkt vermuten l"asst, die Fouriertransformation von Funktionen wird eine entscheidende Rolle im Beweis der Funktionalgleichung spielen.
+	Wir werfen also zun"achst einen Blick auf die (abstrakte) harmonische Analysis, eine Verallgemeinerung der klassischen Fourieranalysis auf $\R$.
+	Im Mittelpunkt stehen hier die lokalkompakten Gruppen.
+	Auf diesen l"asst sich sehr nat"urlich ein zum klassischen Lebesgue-Maß analoges Maß definieren, wodurch wir Integrieren und auch Fourier-transformieren k"onnen.
+	Wir werden in dieser Arbeit jedoch nicht den vollen Weg zu abstrakten Fourieranalysis gehen.
+	Stattdessen definieren wir in Kapitel \ref{sec:lokal} eine eigene Fouriertransformation und geben hier im letzten Abschnitt nur einen kurzen Ausblick.
+	F"ur die Behandlung des Stoffes halten wir uns dabei an Ramakrishnan und Valenza \cite{rama} Kapitel 1 und 3.
 \subsection{Lokalkompakte Gruppen}
 %topologische Gruppe: done
 %charaktere:partly
 %haar masse: done
 %fouriertransformation:done
 %pontryagin erwaehnen: done
-Am Anfang steht immer eine
-\begin{defi}
-	Eine \emph{topologische Gruppe} ist eine Gruppe $G$ zusammen mit einer Topologie, welche die folgenden Eigenschaften erf"ullt:
-		\begin{enumerate}[label=(\roman*)] % leftmargin=*, align=left, labelsep=1pt]
-			\item Die Gruppenoperation
-				\begin{align*}
-					G \times G &\longrightarrow G\\
-					(g,h) &\longmapsto gh
-				\end{align*}
-			stetig auf der Produkttopologie von $G \times G$.
-			\item Die Umkehrabbildung
-				\begin{align*}
-					G &\longrightarrow G\\
-					g &\longmapsto g^{-1}
-				\end{align*}
-				ist stetig.
-		\end{enumerate}
-	Ein \emph{Homomorphismus topologischer Gruppen} $G_1$ und $G_2$ ist eine stetiger Gruppenhomomorphismus $G_1 \to G_2$.
-	Ist dieser bijektiv und die Umkehrabbildung wieder ein Homomorphismus topologischer Gruppen, so sprechen wir von einem \emph{Isomorphismus topologischer Gruppen}.
-\end{defi}
-	
-	Man sieht sofort, dass die Translationen um ein beliebiges Gruppenelement ein Homeomorphismus $G \to G$ bilden.
+	Am Anfang steht immer eine
+	\begin{defi}
+		Eine \emph{topologische Gruppe} ist eine (nicht unbedingt abelsche) Gruppe $G$ zusammen mit einer Topologie, welche die folgenden Eigenschaften erf"ullt:
+			\begin{enumerate}[label=(\roman*)] % leftmargin=*, align=left, labelsep=1pt]
+				\item Die Gruppenoperation
+					\begin{align*}
+						G \times G &\longrightarrow G\\
+						(g,h) &\longmapsto gh
+					\end{align*}
+				stetig auf der Produkttopologie von $G \times G$.
+				\item Die Umkehrabbildung
+					\begin{align*}
+						G &\longrightarrow G\\
+						g &\longmapsto g^{-1}
+					\end{align*}
+					ist stetig auf G.
+			\end{enumerate}
+		Ein \emph{Homomorphismus topologischer Gruppen} zwischen $G_1$ und $G_2$ ist ein stetiger Gruppenhomomorphismus $G_1 \to G_2$.
+		Ist dieser bijektiv und die Umkehrabbildung wieder ein Homomorphismus topologischer Gruppen, so sprechen wir von einem \emph{Isomorphismus topologischer Gruppen}.
+	\end{defi}
+	Man sieht sofort, dass jede Translation um ein beliebiges Gruppenelement einen Homeomorphismus $G \to G$ bildet.
 	Die Topologie ist also \emph{translationsinvariant} in dem Sinne, dass f"ur alle $g \in G$ und jede Mengen $U$ die "Aquivalenzen
 	\begin{align*}
 		U \text{ ist offen} \Leftrightarrow gU = \{gu \in G: u\in U\} \text{ ist offen} \Leftrightarrow Ug = \{ug \in G: u\in U\} \text{ ist offen}
 	\end{align*}
 	gelten.
-	Analog verh"alt es sich f"ur die Umkehrabbildung. Sie ist ein Homeomorphismus und $U$ ist genau dann offen, wenn $U^{-1}=\{u^{-1}\in G: u \in U\}$ offen ist.
+	Analog verh"alt es sich f"ur die Umkehrabbildung. 
+	Sie ist ebenso ein Homeomorphismus und $U$ ist genau dann offen, wenn $U^{-1}=\{u^{-1}\in G: u \in U\}$ offen ist.
 	
 	Die Translationsinvarianz der Topologie hat nun einige nette Vorteile.
 	Zum Beispiel wird bereits die ganze Topologie durch die Umgebungsbasis des neutralen Elements definiert.
 	Durch Translation erhalten wir Umgebungsbasen beliebiger anderer Elemente und damit zwangsl"aufig die komplette Topologie.
 	F"ur ein weiteres Beispiel erinnern wir uns an die Definition der Stetigkeit in topologischen R"aumen.
-	Eine Abbildung $f: G_1 \to G_2$ zwischen zweier topologischer R"aume heißt stetig, wenn f"ur alle $g\in G_1$ und jede offene Umgebung $U$ von $f(g)$ eine offene Umgebung $V$ von $g$ existiert, sodass $f(V)\subseteq U$.
+	Eine Abbildung $f: G_1 \to G_2$ zwischen zwei topologischen R"aumen heißt stetig, wenn f"ur alle $g\in G_1$ und jede offene Umgebung $U$ von $f(g)$ eine offene Umgebung $V$ von $g$ existiert, sodass $f(V)\subseteq U$.
 	Sind $G_1$ und $G_2$ nun topologische Gruppen und ist $f$ ein (nicht unbedingt topologischer) Gruppenhomomorphismus reicht es jetzt die Stetigkeit in dem neutralen Element $e_1$ der Gruppe $G_1$ nachzuweisen.
 	Denn ist $f$ stetig in $e_1$ und sei $g$ ein beliebiges weiteres Element der Gruppe, so ist f"ur jede offene Umgebung U von $f(g)$ ist $U'\coloneqq f(g)^{-1}U$ eine offene Umgebung des neutralen Elements $e_2$. 
-	Wegen Stetigkeit gibt es dann eine offene Umgebung $V'$ mit $f(V') \subseteq U'$.
+	Wegen Stetigkeit in $e_1$ gibt es dann eine offene Umgebung $V'$ mit $f(V') \subseteq U'$.
 	Nun ist aber $V\coloneqq  gV'$ eine offene Umgebung von $g$ und da $f$ ein Gruppenhomomorphismus ist, haben wir
 	\begin{align*}
 		f(V) = f(gV') = f(g)f(V') \subseteq f(g) U' =f(g)f(g)^{-1} U = U,
 	\end{align*}
-	also ist die Abbildung stetig.
+	also ist die Abbildung "uberall stetig.
 	
-	Haben wir wieder zwei topologische Gruppen $G_1$ und $G_1$, so ist deren direktes Produkt $G_1\times G_2$, wie man leicht sieht, wieder eine topologische Gruppe.
-	Dieses Ergebnis l"asst sich nuch auf endliche, abz"ahlbare und sogar beliebige Indexmengen "ubertragen. 
-	\begin{lemma}
-	\label{lemma:direktesProduktTopologischerGruppen}
-		Sei $I$ eine Indexmenge und $G_i$ eine topologische Gruppe f"ur alle $i \in I$. 
-		Das direkte Produkt $G = \prod_{i \in I} G_i$ versehen mit der Produkttopologie ist und komponentenweiser Gruppenverkn"upfung ist wieder eine topologische Gruppe.
+	Haben wir wieder zwei topologische Gruppen $G_1$ und $G_2$, so ist deren direktes Produkt $G_1\times G_2$, wie man leicht feststellen kann, wieder eine topologische Gruppe.
+	Dieses Ergebnis l"asst sich auch auf endliche, abz"ahlbare und sogar beliebige Mengen von Gruppen "ubertragen. 
+	\begin{lemma}\label{lemma:topogroup:directproduct}
+		Sei $I$ eine beliebige Indexmenge und $G_\nu$ eine topologische Gruppe f"ur alle $\nu\in I$. 
+		Das direkte Produkt $G = \prod_{\nu\in I} G_\nu$ versehen mit der Produkttopologie und komponentenweiser Gruppenverkn"upfung ist wieder eine topologische Gruppe.
 	\end{lemma}
 	\begin{proof}
 		Wir erinnern uns daran, dass eine Basis der Produkttopologie gegeben ist durch Rechtecke der Form
 		\begin{align*}
-			\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i,
+			\prod_{\nu\in E} U_\nu \times \prod_{\nu\in I\setminus E}  G_\nu,
 		\end{align*}
-		wobei $E$ eine endliche Teilmenge von $I$ und jedes $U_i$ offen in $G_i$ ist. 
+		wobei $E$ eine endliche Teilmenge von $I$ und jedes $U_\nu$ offen in $G_\nu$ ist. 
 		Ohne Einschr"ankung sei also 
 		\begin{align*}
-			W = \prod_{i \in E} W_i \times \prod_{i \in I\setminus E}  G_i
+			W = \prod_{\nu\in E} W_\nu \times \prod_{\nu\in I\setminus E}  G_\nu
 		\end{align*}
-		eine offene Umgebung von $gh = (g_i h_i)$. 
-		Da die $G_i$ topologische Gruppen sind, finden wir f"ur  alle $i\in E$ offene Umgebungen $U_i$ und $V_i$ von $g_i$ und $h_i$,  sodass  $U_i V_i \subseteq W_i$. Wir behaupten nun, dass
+		eine offene Umgebung von $gh = (g_\nu h_\nu)$. 
+		Da die $G_\nu$ topologische Gruppen sind, finden wir f"ur  alle $\nu\in E$ offene Umgebungen $U_\nu$ und $V_\nu$ von $g_\nu$ und $h_\nu$,  sodass  $U_\nu V_\nu \subseteq W_\nu$. Wir behaupten nun, dass
 		\begin{align*}
-			(\prod_{i \in E} U_i \times \prod_{i \in I\setminus E}  G_i) \times (\prod_{i \in E} V_i \times \prod_{i \in I\setminus E}  G_i) \subseteq G \times G
+			(\prod_{\nu\in E} U_\nu \times \prod_{\nu\in I\setminus E}  G_\nu) \times (\prod_{\nu\in E} V_\nu \times \prod_{\nu\in I\setminus E}  G_\nu) \subseteq G \times G
 		\end{align*}
 		eine offene Umgebung von $(g, h) \in G \times G$ ist, deren Bild in $W$ liegt. 
 		Der erste Aussage ist klar, beide Faktoren des Produkts sind offene Basiselemente der Topologie und enthalten jeweils $g$ bzw. $h$.
 		Weiter ist das Bild unter Gruppenoperation gegeben durch
 		\begin{align*}
-			\prod_{i \in E} U_i V_i \times \prod_{i \in I\setminus E}  G_i,
+			\prod_{\nu\in E} U_\nu V_\nu \times \prod_{\nu\in I\setminus E}  G_\nu,
 		\end{align*}
 		was nach obigen "Uberlegungen in $W$ liegt.
 		Somit folgt die Stetigkeit der Gruppenverkn"upfung.
 		Der Beweis f"ur die Stetigkeit der Umkehrabbildung funktioniert analog.
 	\end{proof}
-	
+	%Hat man eine Topologie so kann man sich auch die Frage nach Kompaktheit stellen.
+	%Leider sind die meisten topologischen Gruppen, die wir betrachten werden, jedoch nicht kompakt.
 	
 	\begin{defi}
 		Ein topologischer Raum heißt \emph{lokalkompakt}, wenn jeder Punkt des Raumes eine kompakte Umgebung hat. 
@@ -92,9 +95,12 @@ Am Anfang steht immer eine
 	\end{defi}
 	Wir kennen bereits einige lokalkompakte Gruppen.
 	\begin{bsp}~ 
-		\begin{enumerate}[label=(\roman*)]
-			\item Jede diskrete topologische Gruppe $G$, also eine Gruppe versehen mit diskreter Topologie, ist lokalkompakt, denn f"ur jedes $x \in G$ ist $\{x\}$ eine kompakte Umgebung von $x$.
-			\item Die additive Gruppe $\R^+$ mit der gewohnten Topologie ist lokalkompakt. Denn ist $x\in\R^+$, so ist $[x-\varepsilon, x+\varepsilon]$ f"ur $\varepsilon>0$ eine kompakte Umgebung von $x$. "Ahnlich verh"alt es sich f"ur die multiplikative Gruppe $\R^\times = \R \setminus\{0\}$.
+		\begin{enumerate}[label=(\alph*)]
+			\item Jede diskrete topologische Gruppe $G$, also eine Gruppe in der alle Teilmengen offen sind, ist lokalkompakt. 
+				F"ur jedes $x \in G$ ist $\{x\}$ eine kompakte Umgebung von $x$.
+			\item Die additive Gruppe $\R^+$ mit der gewohnten Topologie ist lokalkompakt. 
+				Denn ist $x\in\R^+$, so ist $[x-\varepsilon, x+\varepsilon]$ f"ur $\varepsilon>0$ eine kompakte Umgebung von $x$. "
+				Ahnlich verh"alt es sich f"ur die multiplikative Gruppe $\R^\times = \R \setminus\{0\}$.
 			\item Analog kann man sich "uberlegen, dass die Gruppen $\Komplex^+$ und $\Komplex^\times$ lokalkompakt sind, wobei wir hier die abgeschlossenen B"alle $\conj{B_\varepsilon(x)}$ als kompakte Umgebung von $x$ haben.
 		\end{enumerate}
 	\end{bsp}
@@ -108,11 +114,11 @@ Am Anfang steht immer eine
 		Sei $(g_1,g_2) \in G_1\times G_2$. Wegen der Lokalkompaktheit von $G_1$ und $G_2$ finden wir kompakte Umgebungen $K_1$, $K_2$ von $g_1$ bzw. $g_2$. Dann ist aber $K_1 \times K_2$ eine kompakte Umgebung von $(g_1,g_2)$. 
 		Weiter ist das direkte Produkt zweier Hausdorff-R"aume wieder hausdorffsch, wodurch $G_1\times G_2$ zu einer lokalkompakten Gruppe wird.
 	\end{proof}
-	Wie wir sp"ater in Lemma \ref{Lemma:lokalkompaktProd} sehen werden, kann diese Aussage nicht ohne Weiteres auf beliebig gro\ss e direkte Produkte "ubertragen werden.
+	Wir werden sp"ater in Lemma \ref{Lemma:lokalkompaktProd} sehen, kann diese Aussage nicht ohne Weiteres auf beliebig große direkte Produkte "ubertragen werden.
 
 \subsection{Das Haar-Maß}
 	Nun zu etwas Maßtheorie. 
-	Wir beginnen mit einer kleinen Auffrischung der wichtigsten Objekte. 
+	Wir beginnen mit einer kleinen Auffrischung der wichtigsten Konzepte. 
 	Eine \emph{$\sigma$-Algebra} auf einer Menge $X$ ist eine Teilmenge $\Omega$ von $P(X)$, so dass
 	\begin{enumerate}[label=(\roman*)]
 		\item $X \in \Omega$
@@ -123,12 +129,10 @@ Am Anfang steht immer eine
 	Aus den Axiomen l"asst sich leicht folgern, dass die leere Menge und abz"ahlbare Schnitte von messbaren Mengen wiederum messbar sind. 
 	Weiter ist der Schnitt $\bigcap_n \Omega_n$ beliebiger Familien $\{\Omega_n\}$ von $\sigma$-Algebren auf X selbst wieder eine $\sigma$-Algebra.
 	
-	
 	Eine Menge $X$ zusammen mit einer $\sigma$-Algebra $\Omega$ bilden den \emph{messbaren Raum} $(X, \Omega)$. 
 	Ist X ein topologischer Raum, so k"onnen wir die kleinste $\sigma$-Algebra $\Borel$ betrachten, die alle offenen Mengen von $X$ enth"alt. 
 	Die Elemente von $\Borel$ werden \emph{Borelmengen} von $X$ genannt.
 	
-	. 
 	Ein \emph{Maß} auf einem beliebigen messbaren Raum $(X, \Omega)$ ist eine Funktion $\mu: \Omega \to [0, \infty]$ mit $\mu(\emptyset) = 0$ und die \emph{$\sigma$-additiv} ist. 
 	Das bedeutet
 	\begin{align*}
@@ -174,7 +178,6 @@ Am Anfang steht immer eine
 	Allgemeiner heißt eine Funktion integrierbar, wenn sie auf X integrierbar ist und wir schreiben\footnote{Hier missbrauchen wir etwas die Notation des $L^1$-Raumes. (vgl. Folland \cite{folland} Seite 53)} dann $f\in L^1(X,\Omega, \mu)$. 
 	Wenn es ist klar ist, "uber welchen Maßraum wir reden, lassen wir h"aufig auch die einfach $\sigma$-Algebra und Maß weg und schreiben dann $\dx$ f"ur das Maß, $\int_X f(x) \dx = \int f d\mu$ f"ur das Integral und $L^1(X)$ f"ur die integrierbaren Funktionen auf $X$. Damit beenden wir uns kurze Wiederholung.
 	
-
 	Sei nun $\mu$ ein Borel-Maß auf einem lokalkompakten, hausdorffschen Raum X und sei $E$ ein eine beliebige Borelmenge von $X$.
 	Wir nennen $\mu$ von \emph{innen regul"ar} auf E, falls
 	\begin{align*}
@@ -185,13 +188,14 @@ Am Anfang steht immer eine
 		\mu(E) = \inf\{\mu(U): E \subseteq U, U \text{ offen}\}.
 	\end{align*}
 	
-	
 	\begin{defi}
 		Ein \emph{Radon-Maß} auf $X$ ist ein Borel-Maß, das endlich auf kompakten Mengen, von innen regul"ar auf allen offenen Mengen und von außen regul"ar auf allen Borelmengen ist.
 	\end{defi}
-	
+	Radon-Maße stehen in einem engen Zusammenhang mit positiven linearen Funktionalen auf dem Vektorraum der stetigen Funktionen mit kompakten Tr"ager $C_c(X)$.
+	Dies sind lineare Abbildungen $I$ von $C_c(X)$ nach $\R$, so dass $I(f) \geq 0$ wenn $f\geq 0$.
 	\begin{satz}[Rieszscher Darstellungssatz]
-		Sei $I$ ein positives lineares Funktional auf dem Raum der stetigen Funktionen mit kompakten Trager $C_c(X)$. Dann gibt es ein eindeutiges Radon-Maß $\mu$ auf $X$, so dass $I(f) = \int f d\mu$ f"ur alle $C_c(X)$.
+		Sei $I$ solch ein positives lineares Funktional auf dem Raum der stetigen Funktionen mit kompakten Tr"ager $C_c(X)$.
+		Dann gibt es ein eindeutiges Radon-Maß $\mu$ auf $X$, so dass $I(f) = \int f d\mu$ f"ur alle $C_c(X)$.
 	\end{satz}
 	\begin{proof}[Beweisskizze]
 		F"ur die Konstruktion des Maßes definiert man die Abbildungen
@@ -205,7 +209,7 @@ Am Anfang steht immer eine
 		f"ur beliebige Teilmengen $E\subseteq X$. 
 		Anschließend zeigt man
 		\begin{enumerate}[label=(\roman*)]
-			\item $\mu*$ ist ein "außeres Maß.
+			\item $\mu^*$ ist ein "außeres Maß.
 			\item Jede offene Menge ist $\mu^*$-messbar.
 			\item $\mu(K) = \inf\{I(f): f\in C_c(X), f\geq \ind_K\}$ f"ur alle kompakten Mengen $K \subseteq X$.
 			\item $I(f) = \int f d\mu$ f"ur alle $f\in C_c(X)$.
@@ -214,31 +218,30 @@ Am Anfang steht immer eine
 		(iii) liefert uns die Endlichkeit auf kompakten Mengen und die Regularit"at von innen auf offenen Mengen und (iv) vollendet den Satz.
 		F"ur den vollst"andigen Satz verweisen wir auf Folland \cite{folland} Kapitel 7 Satz 7.2.
 	\end{proof}
-	Dieser Satz ist ein wichtiger Grundstein f"ur viele Aussagen "uber Radonmaße.
-	Sind zum Beispiel $X$ und $Y$ zwei lokalkompakte Gruppen mit dazugeh"origen Radonmaßen $\mu$ und $\nu$ so ist im Allgemeinen das klassische Produktmaß $\mu \times \nu$ kein Borel- und daher Radonmaß auf $X \times Y$.
-	Wir definieren daher das Radonprodukt von $\mu$ und $\nu$ als das Radonmaß welches durch das positive Funktional $I(f) = \int f d(\mu \times \nu)$ nach Rieszschen Darstellungssatz gegeben wird.
-	Dieses Produkt wird in Kapitel \ref{kapitel:RDP} eine Rolle spielen.
-	F"ur unsere sp"ateren Berechnungen m"ussen wir uns allerdings keine Sorgen machen, denn erf"ullen $X$ und $Y$ das zweite Abzählbarkeitsaxiom so entspricht das Radonprodukt genau dem Produktmaß.
+	Dieser Satz ist ein wichtiger Grundstein f"ur viele Aussagen "uber Radon-Maße.
+	Sind zum Beispiel $X$ und $Y$ zwei lokalkompakte Gruppen mit dazugeh"origen Radonmaßen $\mu$ und $\nu$ so ist im Allgemeinen das klassische Produktmaß $\mu \times \nu$ kein Borel- und daher kein Radon-Maß auf $X \times Y$.
+	Wir definieren daher das Radonprodukt von $\mu$ und $\nu$ als das Radon-Maß welches durch das positive Funktional $I(f) = \int f d(\mu \times \nu)$ nach Rieszschen Darstellungssatz gegeben wird.
+	Dieses Produkt wird f"ur uns in Kapitel \ref{sec:rdp} eine Rolle spielen.
+	Danach k"onnen wir es wieder vergessen, denn erf"ullen $X$ und $Y$ das zweite Abzählbarkeitsaxiom so entspricht das Radonprodukt genau dem Produktmaß.
 	F"ur eine ausf"urhliche Behandlung dieser Konzepte verweisen wir auf Folland \cite{folland} Kapitel 7.
-	
 	
 	Damit kommen wir zum großen Ziel dieses Abschnitts.
 	Sei nun $G$ eine lokalkompakte Gruppe und $\mu$ ein beliebiges Borel-Maß.
 	Wir k"onnen uns dann anschauen, wie sich $\mu$ bez"uglich der Translation durch beliebige Gruppenelemente $g\in G$ verh"alt. 
 	Gilt $\mu(gE) = \mu(E)$ f"ur jede Borelmenge, so nennen wir $\mu$ \emph{linksinvariant}.
 	Analog heißt $\mu$ \emph{rechtsinvariant}, falls $\mu(Eg) = \mu(E)$.
-	Diese beiden Begriffe fallen nat"urlich zusammen, wenn $G$ abelsch ist. 
+	Ist $G$ abelsch fallen diese beiden Begriffe nat"urlich zusammen und wir sprechen nur von einem \emph{translationsinvarianten} Maß $\mu$.
 	
-	Nun haben wir alle wichtigen Konzepte zusammen f"ur folgende wichtige
+	Nun haben wir alle wichtigen Grundlagen zusammen f"ur folgende wichtige
 	\begin{defi}
-		Ein \emph{linkes} (beziehungsweise \emph{rechtes}) \emph{Haar-Maß} auf $G$ ist ein linksinvariantes (beziehungsweise rechtsinvariantes) Radon-Maß, das auf nichtleeren offenen Mengen positiv ist. 
+		Ein \emph{linkes} bzw. \emph{rechtes} \emph{Haar-Maß} auf $G$ ist ein linksinvariantes bzw. rechtsinvariantes Radon-Maß, das auf nichtleeren offenen Mengen positiv ist. 
 	\end{defi}
 	Wir haben bereits einige solcher Haar-Maße kennengelernt:
 	\begin{bsp}~ 
-		\begin{enumerate}[label=(\roman*)]
-			\item Ist $G$ eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haar-Maß.
-			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß dx ein Haar-Maß.
-			\item F"ur $G=\R^\times$ wird durch $\mu(E)\coloneqq \int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir in Satz \ref{satz:lokal:multiplikativesmass}sehen werden.
+		\begin{enumerate}[label=(\alph*)]
+			\item Ist $G$ wieder eine diskrete Gruppe, dann ist das Z"ahlmaß ein Haar-Maß.
+			\item F"ur $G=\R^+$ definiert das Lebesgue-Maß $\dx$ ein Haar-Maß.
+			\item F"ur $G=\R^\times$ wird durch $\mu(E)\coloneqq \int_{\R^\times} \ind_{E} \frac{1}{\abs[x]}dx$ ein Haar-Maß, wie wir sp"ater in Satz \ref{satz:lokal:multiplikativesmass}sehen werden.
 		\end{enumerate}
 	\end{bsp}
 	
@@ -249,14 +252,15 @@ Am Anfang steht immer eine
 		Sei $G$ eine lokalkompakte Gruppe. Dann existiert ein linksinvariantes Haar-Maß auf $G$. Dieses ist eindeutig bis auf skalares Vielfaches.
 	\end{satz}
 	\begin{proof}
-		Der etwas l"angere Beweis befindet sich in Ramakrishnan und Valenza \cite{rama} Kapitel 1 und benutzt den Rieszschen Darstellungssatz.
+		Der etwas l"angere Beweis befindet sich in Ramakrishnan und Valenza \cite{rama} Kapitel 1 und benutzt den oben vorgestellten Rieszschen Darstellungssatz.
 		Ziel ist es dabei, ein links-invariantes lineares Funktional auf $C_c(G)$ zu konstruieren.
 	\end{proof}
-	Dieser stellt quasi die bestm"ogliche Situation dar, die man erwarten kann, denn offensichtlich ist f"ur jedes Haar-Maß $\mu$ und eine Konstante $c>0$ das Maß $c\cdot \mu$ wieder ein Haar-Maß. 
+	Dieser stellt quasi die bestm"ogliche Situation dar, die man sich erhoffen kann. 
+	Ist n"amlich $\mu$ ein Haar-Maß und $c>0$ eine Konstante, so heralten wir durch $c\cdot \mu$ wieder ein Haar-Maß. 
 	Wir beenden diesen Abschnitt mit einem kleinen Lemma, welches uns einige bekannte Eigenschaften des Lebesgue-Maß auf Haar-Maße verallgemeinert.
 	\begin{lemma}F"ur jede integrierbare Funktion $f\in L^{1}(G)$ gilt
 		\begin{enumerate}[label=\emph{(\roman*)}]
-			\item $\int_{G} f(yx)d\mu(x) = \int_{G} f(x)d\mu(x)$
+			\item $\int_{G} f(yx)d\mu(x) =  \int_{G} f(x)d\mu(x)$
 			\item $\int_{G} f(x^{-1})d\mu(x) = \int_{G} f(x)d\mu(x)$
 		\end{enumerate}
 	\end{lemma}
@@ -270,21 +274,24 @@ Am Anfang steht immer eine
 	\end{proof}
 	
 \subsection{Charaktere und Quasi-Charaktere}
+	F"ur die Fouriertransformation auf beliebigen lokalkompakten Gruppen definieren zu k"onnen kommt nicht um die sogenannten Charaktere herum.
+	Auch wenn wir sie in diesem Kontext nicht (explizit) brauchen, werden sie f"ur uns eine wichtige Rolle im Beweis der Funktionalgleichung spielen.
 	\begin{defi}
 		Ein \emph{Quasi-Charakter} einer topologischen Gruppe $G$ ist ein stetiger Gruppenhomomorphismus von $G$ in die multiplikative Gruppe $\Komplex^\times$ der komplexen Zahlen.
-		Ein \emph{Charakter} ist ein Quasi-Charakter, dessen Bild auf dem Einheitskreis $S^1 =\{z\in\Komplex: \abs[z]=1\}$ liegt.
+		Ein \emph{Charakter} ist ein Quasi-Charakter, dessen Bild auf dem komplexen Einheitskreis $S^1 =\{z\in\Komplex: \abs[z]=1\}$ liegt.
 	\end{defi}
-	In der Literatur werden Quasi-Charaktere h"aufig auch einfach nur als Charaktere bezeichnet. Was wir unter einem Charakter verstehen, wird unit"arer Charakter genannt.
+	In der Literatur werden Quasi-Charaktere h"aufig auch einfach nur als Charaktere bezeichnet. Was wir in dieser Arbeit unter einem Charakter verstehen, wird dann unit"arer Charakter genannt.
 	Beginnen wir mit ein paar Beispielen.
 	\begin{bsp}~
-		\begin{itemize}
-			\item F"ur jede topologische Gruppe $G$ ist die Abbildung $g\mapsto 1$ ein Charakter. 
-				Er wird trivialer Charakter genannt und ist der einzige konstante Charakter, denn f"ur jeden Gruppenhomomorphismus $\chi$ gilt $\chi(1) = 1$.
-			\item Ein nicht-triviales  Beispiel f"ur einen unit"aren Charakter ist die Abbildung $t \mapsto \exp(i t)$ von der additiven Gruppe $\R^+$ in den Einheitskreis $S^1$.
-			\item  Die bekannte Abbildung $\exp: \Komplex^+ \to \Komplex^\times$ von der additiven Gruppe in die multiplikative Gruppe der komplexen Zahlen ist ein Charakter, jedoch nicht unit"ar.
-		\end{itemize}
+		\begin{enumerate}[label=(\alph*)]
+			\item F"ur jede topologische Gruppe $G$ ist die Abbildung $g\mapsto 1$ ein Charakter, der sogenannte \emph{triviale Charakter}. 
+				Er ist der einzige konstante Charakter, denn f"ur jeden Gruppenhomomorphismus $\chi$ gilt bekanntlich $\chi(1) = 1$.
+			\item Ein nicht-triviales  Beispiel f"ur einen Charakter ist die Abbildung $t \mapsto \exp(i t)$ von der additiven Gruppe $\R^+$ in den Einheitskreis $S^1$.
+			\item  Die bekannte Abbildung $\exp: \Komplex^+ \to \Komplex^\times$ von der additiven Gruppe in die multiplikative Gruppe der komplexen Zahlen ist ein (Quasi-Charakter, jedoch kein Charakter.
+		\end{enumerate}
 	\end{bsp}
 	
+	Werfen wir einen Blick auf die Quasi-Charaktere kompakter Gruppen.
 	\begin{lemma}\label{Lemma:trivialerCharAufKompakt}
 		Sei $K$ eine kompakte Gruppe mit Haar-Maß $\dx$ und $\chi: K \to \Komplex^\times$ ein Quasi-Charakter. Dann gilt
 		\begin{enumerate}[label=\emph{(\roman*)}]
@@ -309,26 +316,27 @@ Am Anfang steht immer eine
 		Nun zu (ii): Der erste Fall ist klar. 
 		Im zweiten Fall gibt es ein $x_0 \in K$ mit $\chi(x_0) \not=1$ und mit Translationsinvarianz daher
 		\begin{align*}
-			\int_K \chi(x)dx = \int_K\chi(x_0x)dx = \chi(x_0)\int_K\chi(x)dx.
+			\int_K \chi(x)\dx = \int_K\chi(x_0x)\dx = \chi(x_0)\int_K\chi(x)\dx.
 		\end{align*}
 		Umstellen und Division durch $\chi(x_0) - 1 \not=0$ ergibt $\int_K \chi(x)dx = 0$.
 	\end{proof}
-	Wir werden noch mehrmals auf (Quasi-)Charaktere stoßen und sie gr"undlich kategoresieren.
+	Im weiteren Verlauf dieser Arbeit werden wir (Quasi-)Charaktere noch gr"undlicher untersuchen.
 	
 \subsection{Ausblick: Fouriertransformation und Pontryagin-Dualit"at}
-	Zum Schluss blicken wir etwas "uber den Tellerrand hinaus.
-	Dieser Abschnitt ist f"ur das Verst"andis der sp"ateren Beweise absolut optional, bietet aber Einblick die n"otigen Abstraktionen, die in Tates wesentlich allgemeinerer Argumentation zum tragen kamen.
-	Wir erw"ahnen daher die f"ur Tates Doktorarbeit wichtigsten Konzepte aus der abstrakten Harmonischen Analysis und werden in den sp"ateren Kapiteln zeigen, dass unsere noch ausstehende, etwas naivere Definition der Fouriertransformation mit diesen "ubereinstimmen.
+	Zum Ende dieses Kapitels blicken wir etwas "uber den Tellerrand hinaus.
+	Dieser Abschnitt ist f"ur das Verst"andis der kommenden Beweise dieser Arbeit absolut optional, bietet aber Einblick die n"otigen Abstraktionen, die in Tates eigener Argumentation zum tragen kamen.
+	Wir schneiden daher die f"ur Tates Dokorabeit wichtigsten Grundlagen der abstrakten harmonischen Analysis an und versprechen in den sp"ateren Kapiteln zu zeigen, dass unsere eigenen Definitionen mit denen in diesem Abschnitt vertr"aglich sind.
 	
 	Beginnen wir mit der Charaktergruppe auf einer beliebigen topologischen Gruppe $G$.
-	Die unit"aren Charaktere auf $G$ bilden mit der punktweisen Multiplikation $\chi\psi (x) = \chi(x) \psi (x)$ selbst wieder eine Gruppe, welche als die \emph{duale Gruppe $\hat{G}$} bezeichnet wird.
+	Die unit"aren Charaktere auf $G$ werden mit punktweiser Multiplikation $\chi\psi (x) \coloneqq \chi(x) \psi (x)$ selbst wieder eine Gruppe, welche als die \emph{duale Gruppe $\hat{G}$} bezeichnet wird.
 	Wir statten $\hat{G}$ mit einer Topologie aus:
 	Sei $K$ eine kompakte Teilmenge von $G$ und $V$ eine Umgebung der $1\in S^1$.
 	Dann wird durch die Teilmengen
 	\begin{align*}
-		W(K, V) = \{ \chi \in \hat{G}: \chi(K)\} \subseteq V
+		W(K, V) = \{ \chi\in \hat{G}: \chi(K)\} \subseteq V
 	\end{align*}
-	eine Umgebungsbasis des trivialen Charakters definiert und induziert damit eine Topologie, die sogenannte \emph{kompakt-offen Topologie}, die $\hat{G}$ zu einer topologischen Gruppe macht.
+	eine Umgebungsbasis des trivialen Charakters definiert und induziert damit eine Topologie: die sogenannte \emph{kompakt-offen Topologie}
+	Damit wird $\hat{G}$ zu einer topologischen Gruppe.
 	Man hat nun folgenden Satz
 	\begin{satz} Sei $G$ eine abelsche topologische Gruppe. Dann gelten die folgenden Aussagen:
 		\begin{enumerate}[label=\emph{(\roman*)}]
@@ -337,14 +345,14 @@ Am Anfang steht immer eine
 			\item Ist $G$ lokalkompakt, so ist auch $\hat{G}$ lokalkompakt.
 		\end{enumerate}
 	\end{satz}
-	Aussage (iii) macht das Ganze recht interessant.
+	Aussage (iii) sieht verd"achtig aus.
 	Eine erste Vermutung w"are, dass $G$ isomorph zu $\hat{G}$ sein k"onnte.
-	Im Allgemeinen stimmt dies leider nicht. 
-	Wir haben aber das n"achstbeste:
+	Dieser Verdacht stimmt im Allgemeinen leider nicht. 
+	Daf"ur haben wir aber das n"achstbeste Ergebnis:
 	\begin{satz}[Pontryagin Dualit"at]
 		Jede lokalkompakte Gruppe $G$ ist kanonisch isomorph zu ihrem Doppel-Dual $\hat{\hat{G}}$.
+		Der Isomorphismus topologischer Gruppen $\alpha$ ist gegeben durch die Auswertungsabbildung $\alpha(y)(\chi) = \chi(y)$.
 	\end{satz}
-	Der Isomorphismus topologischer Gruppen $\alpha$ ist gegeben durch die Auswertungsabbildung $\alpha(y)(\chi) = \chi(y)$.
 	\begin{proof}
 		Der etwas l"angere Beweis ist zum Beispiel zu finden in Ramakrishnan und Valenza \cite{rama} Kapitel 3, Theorem 3-20.
 	\end{proof}
@@ -357,7 +365,7 @@ Am Anfang steht immer eine
 		\begin{align*}
 			\hat{f}(\chi) = \int_G f(x)\conj{\chi}(x) dx
 		\end{align*}
-		f"ur alle $\chi \in \hat{G}$.
+		f"ur alle $\chi\in \hat{G}$.
 	\end{defi}
 	Diese Formel macht Sinn, denn f"ur alle $x \in G$ hat $\chi(x)$ den Betrag $1$. 
 	Ist also $f$ integrierbar, so ist es auch das Produkt im Integranden.
@@ -373,7 +381,6 @@ Am Anfang steht immer eine
 	\begin{proof}
 		Siehe zum Beispiel Folland \cite{folland} Kapitel 4, Satz 4.32 oder Ramakrishnan und Valenza \cite{rama} Kapitel 3, Satz 3-9.
 	\end{proof}
-	Damit schließen wir den Abschnitt "uber Harmonische Analysis und kommen zu einigen Anwendungsbeispielen bei der Berechnung kleinerer Funktionalgleichungen.
 
 	
 	

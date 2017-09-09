@@ -1,4 +1,81 @@
-\section{Appendix: Tates Beweis der Poisson-Summenformel}
+\section{Beweis des Satz von Ostrowski}
+\begin{proof}
+		Sei $\abs$ ein beliebiger nicht-trivialer Absolutbetrag auf $\Q$. Wir untersuchen die zwei m"oglichen Fälle.
+		\begin{enumerate}[align=left, leftmargin=0cm, labelsep=0cm, label=\alph*)\ ]
+		\item $\abs$ ist archimedisch.
+			Sei dann $n_0\in \N$ die kleinste natürliche Zahl mit $\abs[n_0] > 1$.
+			Dann gibt es ein $\alpha \in \R^+$ mit $\abs[n_0]^{\alpha}=n_0$.
+			Wir wollen nun zeigen, dass $\abs[n]=\abs[n]_\infty^\alpha$ für alle $n \in \N$ gilt. Der allgemeine Fall für $\Q$ folgt dann aus den Eigenschaften des Betrags.
+			Dazu bedienen wir uns eines kleinen Tricks: Für $n \in \N$ nehmen wir die Darstellung zur Basis $n_0$, d.h.
+			\begin{align*}
+				n = \sum_{i=0}^{k} a_i n_0^i
+			\end{align*}
+			mit $a_i \in \{0,1,\dots,n_0-1\}$, $a_k \neq 0$ und $n_0^k\leq n < n_0^{k+1}$. Nehmen wir davon den Absolutbetrag und beachten, dass $\abs[a_i]\leq 1$ nach unserer Wahl von $n_0$ gilt, so erhalten wir
+			\begin{align*}
+				\abs[n] \leq \sum_{i=0}^{k} \abs[a_i] n_0^{i\alpha}
+					\leq \sum_{i=0}^{k} n_0^{i\alpha}
+					\leq n_0^{k\alpha}\sum_{i=0}^{k} n_0^{-i\alpha}
+					\leq n_0^{k\alpha}\sum_{i=0}^{\infty} n_0^{-i\alpha}
+					 = n_0^{k\alpha} \frac{n_0^\alpha}{n_0^\alpha - 1}.
+			\end{align*}
+			Setzt man nun $C\coloneqq \frac{n_0^\alpha}{n_0^\alpha - 1}>0$, so sehen wir
+			\begin{align*}
+				\abs[n]\leq C n_0^{k\alpha}\leq C n^\alpha
+			\end{align*}
+			für beliebige $n \in \N$, also insbesondere auch
+			\begin{align*}
+				|n^N|\leq C n^{N\alpha}.
+			\end{align*}
+			Ziehen wir nun auf beiden Seiten die $N$-te Wurzel und lassen $N$ gegen $\infty$ laufen, so konvergiert $\sqrt[N]{C}$ gegen $0$ und wir erhalten 
+			\begin{align*}
+				\abs[n] \leq n^\alpha
+			\end{align*}
+			Damit wäre die erste Hälfte geschafft. Gehen wir nun zurück zu unserer Basisdarstellung
+			\begin{align*}
+				n = \sum_{i=0}^{k} a_i n_0^i.
+			\end{align*}
+			Da $n < n_0^{k+1}$ erhalten wir die Abschätzung
+			\begin{align*}
+				n_0^{(k+1)\alpha}=|n_0^{k+1}| = |n + n_0^{k+1} - n| \leq \abs[n] + |n_0^{k+1} -n|.
+			\end{align*}
+			 mit dem Ergebnis aus der ersten Hälfte des Beweises und $n\geq n_0^k$ sehen wir
+			\begin{align*}
+				\abs[n] &\geq n_0^{(k+1)\alpha} - |n_0^{k+1} -n| 
+					\geq n_0^{(k+1)\alpha} - (n_0^{k+1} -n)^\alpha
+					\\&\geq n_0^{(k+1)\alpha} - (n_0^{k+1} -n_0^k)^\alpha
+					=n_0^{(k+1)\alpha} \left(1 - \left(1 - \frac{1}{n_0}\right)\right)
+					\\&> n^\alpha \left(1 - \left(1 - \frac{1}{n_0}\right)\right).
+			\end{align*}
+			Setzen wir wieder $C'\coloneqq \left(1 - \left(1 - \frac{1}{n_0}\right)\right) >0$ folgt analog zum ersten Teil, dass
+			\begin{align*} 
+				\abs[n]\geq n^\alpha
+			\end{align*}
+			und daher $\abs[n]=n^\alpha$. Damit haben wir gezeigt, dass $\abs$ äquivalent zum klassischen Absolutbetrag $\abs_\infty$ ist.
+		\item $\abs$ ist nicht archimedisch.
+			Dann ist $\abs[n_0]\leq 1$ für alle $n \in \N$ und, da $\abs$ nicht-trivial ist, muss es eine kleinste Zahl $n_0$ geben mit $\abs[n_0]<1$. Insbesondere muss $n_0$ eine Primzahl sein, denn sei $p \in \N$ ein Primteiler von $n_0$, also $n_0=p \cdot n'$ mit $n' \in \N$ und $n' < n$, dann gilt nach unserer Wahl von $n_0$
+			\begin{align*}
+				|p| = |p|\cdot |n'| =|p \cdot n'| = \abs[n_0] < 1.
+			\end{align*}
+			Folglich muss schon $p=n_0$ gelten. Ziel wird es jetzt natürlich sein zu zeigen, dass $\abs$ äquivalent zum $p$-adischen Absolutbetrag ist.
+			Zunächst finden wir ein $\alpha \in \R^+$ mit $|p| = |p|_p^{\alpha} = \frac{1}{p^{\alpha}}$. 
+			Sei als nächstes $n\in \Z$ mit $p \centernot\mid n$. Wir schreiben
+			\begin{align*}
+				n= rp + s, r \in \Z, 0<s<p
+			\end{align*}
+			Nach unserer Wahl von $p=n_0$ gilt $|s|=1$ und $|rp|<1$. 
+			Es folgt 
+			\begin{align*}
+				\abs[n]=\text{max}\{|rp|,|s|\}=1.
+			\end{align*}
+			Sei nun $n\in \Z$ beliebig. 
+			Wir schreiben $n=p^{v}n'$ mit $p \centernot\mid n'$ und sehen
+			\begin{align*}
+				\abs[n] = |p|^{v}|n'| = |p|^v = (|p|_p^{\alpha})^{v}=\abs[n]_p^{\alpha}.
+			\end{align*}
+			Mit den gleichen Überlegungen aus dem ersten Fall folgt damit die Behauptung.
+		\end{enumerate}
+	\end{proof}
+\section{Tates Beweis der Poisson-Summenformel}
 \begin{satz}[Poisson Summenformel]
 		Sei $f \in S(\A)$. Dann gilt:
 		\begin{align}

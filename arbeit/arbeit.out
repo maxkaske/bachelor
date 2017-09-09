@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Von Riemann zu Tate}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Der Beweis der Funktionalgleichung}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Auf dem Weg zu Tate}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Harmonische Analysis}{}% 4
+\BOOKMARK [1][-]{section.2}{Lokalkompakte Gruppen und harmonische Analysis}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Lokalkompakte Gruppen}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Das Haar-Ma\337}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Charaktere und Quasi-Charaktere}{section.2}% 7
@@ -30,4 +30,5 @@
 \BOOKMARK [2][-]{subsection.7.2}{Adelische Poisson-Summenformel und der Satz von Riemann-Roch}{section.7}% 30
 \BOOKMARK [2][-]{subsection.7.3}{Die globale Funktionalgleichung}{section.7}% 31
 \BOOKMARK [2][-]{subsection.7.4}{Globale Berechnung: Die Riemannsche Zeta-Funktion}{section.7}% 32
-\BOOKMARK [1][-]{appendix.A}{Appendix: Tates Beweis der Poisson-Summenformel}{}% 33
+\BOOKMARK [1][-]{appendix.A}{Beweis des Satz von Ostrowski}{}% 33
+\BOOKMARK [1][-]{appendix.B}{Tates Beweis der Poisson-Summenformel}{}% 34
