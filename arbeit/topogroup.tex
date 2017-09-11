@@ -258,14 +258,16 @@
 	Dieser stellt quasi die bestm"ogliche Situation dar, die man sich erhoffen kann. 
 	Ist n"amlich $\mu$ ein Haar-Maß und $c>0$ eine Konstante, so heralten wir durch $c\cdot \mu$ wieder ein Haar-Maß. 
 	Wir beenden diesen Abschnitt mit einem kleinen Lemma, welches uns einige bekannte Eigenschaften des Lebesgue-Maß auf Haar-Maße verallgemeinert.
-	\begin{lemma}F"ur jede integrierbare Funktion $f\in L^{1}(G)$ gilt
-		\begin{enumerate}[label=\emph{(\roman*)}]
-			\item $\int_{G} f(yx)d\mu(x) =  \int_{G} f(x)d\mu(x)$
-			\item $\int_{G} f(x^{-1})d\mu(x) = \int_{G} f(x)d\mu(x)$
-		\end{enumerate}
+	\begin{lemma}Sei $\mu$ ein Haar-Maß auf einer lokalkompakten abelschen Gruppe. F"ur jede integrierbare Funktion $f\in L^{1}(G)$ gilt
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\emph{(\roman*)}]
+				\item $\int_{G} f(yx)d\mu(x) =  \int_{G} f(x)d\mu(x)$
+				\item $\int_{G} f(x^{-1})d\mu(x) = \int_{G} f(x)d\mu(x)$
+			\end{enumerate}
+		\end{multicols}
 	\end{lemma}
 	\begin{proof}
-		(i) folgt leicht aus der Definition des Integrals und der Translationsinvarianz des Maßes, denn $\ind_A(yx) = \ind_{y^{-1}A}(x)$ und $\Vol({y^{-1}A}, \dx) = \Vol(A,\dx)$.
+		(i) folgt leicht aus der Definition des Integrals und der Translationsinvarianz des Maßes, denn $\ind_A(yx) = \ind_{y^{-1}A}(x)$ und $\mu({y^{-1}A}) = \mu(A)$.
 		
 		F"ur (ii) "uberlegen wir uns zun"achst, dass $\tilde{\mu}(E)\coloneqq  \mu(E^{-1})$ ein weiteres Haar-Maß auf $G$ definiert. 
 		Nach der Eindeutigkeit unterscheiden sich beide Maße nur um eine Konstante $c > 0$. Wir wollen zeigen, dass $c=1$ ist.
@@ -274,13 +276,15 @@
 	\end{proof}
 	
 \subsection{Charaktere und Quasi-Charaktere}
-	F"ur die Fouriertransformation auf beliebigen lokalkompakten Gruppen definieren zu k"onnen kommt nicht um die sogenannten Charaktere herum.
+	Im Rest dieser Arbeit beschr"anken wir uns nun auf lokalkompakte abelsche Gruppen $G$.
+	Um die Fouriertransformation auf beliebigen lokalkompakten Gruppen definieren zu k"onnen, m"ussen wir uns erst mit Charakteren besch"aftigen.
 	Auch wenn wir sie in diesem Kontext nicht (explizit) brauchen, werden sie f"ur uns eine wichtige Rolle im Beweis der Funktionalgleichung spielen.
 	\begin{defi}
-		Ein \emph{Quasi-Charakter} einer topologischen Gruppe $G$ ist ein stetiger Gruppenhomomorphismus von $G$ in die multiplikative Gruppe $\Komplex^\times$ der komplexen Zahlen.
+		Ein \emph{Quasi-Charakter} einer topologischen abelschen Gruppe $G$ ist ein stetiger Gruppenhomomorphismus von $G$ in die multiplikative Gruppe $\Komplex^\times$ der komplexen Zahlen.
 		Ein \emph{Charakter} ist ein Quasi-Charakter, dessen Bild auf dem komplexen Einheitskreis $S^1 =\{z\in\Komplex: \abs[z]=1\}$ liegt.
 	\end{defi}
-	In der Literatur werden Quasi-Charaktere h"aufig auch einfach nur als Charaktere bezeichnet. Was wir in dieser Arbeit unter einem Charakter verstehen, wird dann unit"arer Charakter genannt.
+	In der Literatur werden Quasi-Charaktere h"aufig auch einfach nur als Charaktere bezeichnet. 
+	Was wir in dieser Arbeit unter einem Charakter verstehen, wird dann unit"arer Charakter genannt.
 	Beginnen wir mit ein paar Beispielen.
 	\begin{bsp}~
 		\begin{enumerate}[label=(\alph*)]
@@ -320,7 +324,7 @@
 		\end{align*}
 		Umstellen und Division durch $\chi(x_0) - 1 \not=0$ ergibt $\int_K \chi(x)dx = 0$.
 	\end{proof}
-	Im weiteren Verlauf dieser Arbeit werden wir (Quasi-)Charaktere noch gr"undlicher untersuchen.
+	Im weiteren Verlauf dieser Arbeit werden wir Quasi-Charaktere noch gr"undlicher untersuchen.
 	
 \subsection{Ausblick: Fouriertransformation und Pontryagin-Dualit"at}
 	Zum Ende dieses Kapitels blicken wir etwas "uber den Tellerrand hinaus.

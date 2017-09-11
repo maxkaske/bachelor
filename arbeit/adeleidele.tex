@@ -1,14 +1,14 @@
 \section{Adele und Idele}\label{sec:adeleidele} 
 	F"ur die lokalen Funktionalgleichungen haben wir im wesentlichen zwei Sachen ben"otigt.
-	Zum einen die Fouriertransformation: ein Integral bez"uglich des additiven Haar-Maßes, welches als Funktion auf den additiven Charakteren definiert war.
-	Zum anderen die Zeta-Funktion, das multiplikative Gegenst"uck zur Fouriertransformation: eine Funktion auf den multiplikativen Quasi-Charakteren, definiert als Integral bez"uglich des multiplikativen Maßes.
-	Dieses Zusammenspiel von additiven und multiplikativen Strukturen ziehen wir in den n"achsten zwei Sektionen in die globale Welt des eingeschr"ankten direkten Produkts und beginnen mit der Betrachtung zweier lokalkompakter Gruppen: die additiven Adele und die multiplikativen Idele.
+	Zum einen die Fouriertransformation: ein Integral "uber die additive Gruppe, welches als Funktion auf den additiven Charakteren definiert war.
+	Zum anderen die Zeta-Funktion, gewissermaßen ein multiplikatives Gegenst"uck zur Fouriertransformation: eine Funktion mitunter auf den multiplikativen Quasi-Charakteren, definiert als Integral "uber der multiplikativen Gruppe.
+	Dieses Zusammenspiel von additiven und multiplikativen Strukturen ziehen wir in den n"achsten zwei Kapiteln in die globale Welt des eingeschr"ankten direkten Produkts und beginnen mit der Betrachtung zweier lokalkompakter Gruppen: die additiven Gruppe der Adele und die multiplikative Gruppe der Idele.
 \subsection{Die Gruppe der Adele}
 	Wir definieren die \emph{Adelegruppe} $\A$ von $\Q$ als das eingeschr"ankte direkte Produkt "uber alle lokalkompakten Gruppen $\K_p^+$ bez"uglich der Untergruppen $\Zp$, d.h.
 	\begin{align*}
-		\A = \rdprod{p\leq\infty} \Kpp = \{ (x_p): x_p \in \K_p^+ \text{ und } x_p \in \Zp \text{ f"ur fast alle } p<\infty\}
+		\A \coloneqq \rdprod{p\leq\infty} \Kpp = \{ (x_p): x_p \in \K_p^+ \text{ und } x_p \in \Zp \text{ f"ur fast alle } p<\infty\}
 	\end{align*}
-	und nennen ein Element $x\in\A$ dieser Gruppe ein \emph{Adele}.
+	und nennen ein beliebiges Element $x\in\A$ dieser Gruppe ein \emph{Adele}.
 	Es gibt eine algebraische (aber nicht topologische) Einbettung
 	\begin{align*}
 		\K &\longrightarrow \A \\
@@ -17,15 +17,17 @@
 	der rationalen Zahlen in die Adele.
 	Diese ist tats"achlich wohldefiniert, denn f"ur fast alle Stellen $p<\infty$ ist $\abs[x]_p = 1$ und damit $x\in \Zp$. 
 	Es wird also keine Verwirrung stiften, wenn wir (algebraisch) $\K$ mit dieser Einbettung identifizieren.
-	Wie sieht aber die Topologie dann aus?
+	Wie sieht dann aber die Topologie aus?
 	\begin{satz}~
-		\begin{enumerate}[label=\emph{(\alph*)}]
-			\item $\K$ liegt diskret in $\A$.
-			\item $\A/\K$ ist kompakt.
-		\end{enumerate}
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\emph{(\roman*)}]
+				\item $\K$ liegt diskret in $\A$.
+				\item $\A/\K$ ist kompakt.
+			\end{enumerate}
+		\end{multicols}
 	\end{satz}
 	\begin{proof}
-		Für (a) betrachten wir die offene Nullumgebung
+		Für (i) betrachten wir die offene Nullumgebung
 		\begin{align*}
 			U = \left(-\frac{1}{2}, \frac{1}{2}\right) \times \prod_{p<\infty}\Z_p  .
 		\end{align*}
@@ -33,7 +35,7 @@
 		Nun ist aber $\abs[r]_\infty < \frac{1}{2}$ und damit muss schon $r=0$ gelten.
 		Für einen beliebigen Punkt $x \in \K$ erhalten wir mit $x+U$ eine entsprechende offene Umgebung von $x$.
 		
-		Für (b) zeigen wir, dass das Bild der Menge $K\coloneqq [0,1]\times \prod_{p<\infty} \Kp$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
+		Für (ii) zeigen wir, dass das Bild der Menge $K\coloneqq [0,1]\times \prod_{p<\infty} \Zp$ unter der Projektion $\rho:\A \to \A/\K$ schon ganz $\A/\Q$ ist. 
 		Dann ist $\A/\Q$ als stetiges Bild des Kompaktums $K$ selber kompakt. 
 		Sei $x \in \A$ beliebig und $S$ die  endliche Stellenmenge $\{ p : x_p \notin \Z_p\}$.
 		Wählen wir ein $p\in S$, $p<\infty$ und schreiben
@@ -54,8 +56,11 @@
 		Nun können wir aber noch $x$ modulo $\Z$ nach $[0,1] \times \prod_{p < \infty} \Z_p$ verschieben und sind fertig.	
 	\end{proof}
 	
-	\begin{satz}[Integration einfacher Funktionen]
-		Sei $f: \A \to \Komplex$ eine einfache integrierbare Funktion auf den Adelen. Es gilt die Produktformel
+	Unter einer \emph{einfachen Funktion} auf $\A$ wollen wir nun Funktionen der Form $f = \prod_{p\leq\infty} f_p$ mit $f_p=\ind_\Zp$ f"ur fast alle Sellen $p$ verstehen.
+	Solche haben bereits im vorherigen Kapitel im Kontext der Integration kennengelernt, daher "uberrascht uns das folgende Ergebnis nicht wirklich.
+	\begin{satz}\label{satz:adeleidele:intA}
+		Sei $f: \A \to \Komplex$ eine einfache integrierbare Funktion auf den Adelen. 
+		Es gilt die Produktformel
 		\begin{align*}
 			\int_\A f(x) \dx = \prod_{p\leq \infty} \int_{\Kp} f_p(x_p) \dx_p
 		\end{align*}
@@ -81,7 +86,7 @@
 			\K^\times &\longrightarrow \I \\
 			x &\longmapsto (x,x,x,\dots)
 		\end{align*}
-		der rationalen Einheiten in die Idele, denn wie bereits bei den Adelen gesehen haben, ist f"ur fast jede Stelle $\abs[x]_p = 1$ und somit $x\in \Zpx$.
+		der rationalen Einheiten in die Idele, denn wie wir bereits bei den Adelen festgestellt haben, ist f"ur fast jede Stelle $\abs[x]_p = 1$ und somit $x\in \Zpx$.
 		
 		Wir haben uns bereits zweimal die lokalen Betr"age auf dem eigneschr"ankten direkten Produkt angeschaut. 
 		Die Definition der Idele erlaubt es uns diese miteinander zu einem globalen Absolutbetrag zu multiplizeren.
@@ -91,8 +96,8 @@
 				\abs[x]_\A = \prod_{p\leq \infty} \abs[x_p]_p
 			\end{align*}
 		\end{defi}
-		Der Begriff "Betrag" sollte hier vorsichtig behandelt werden, denn streng genommen ist $\abs_\A$ auf keinem K"orper definiert.
-		Das soll uns aber nicht weiter st"oren, denn mit ihm lassen sich Aussagen aus dem Lokalen in das Globale "ubertragen.
+		Der Begriff \glqq Betrag\grqq{} sollte hier vorsichtig behandelt werden, denn streng genommen ist $\abs_\A$ auf keinem K"orper definiert.
+		Wir wollen diese Unzul"anglichkeit jedoch verzeihen, denn es lassen sich mit dieser Abbildung Aussagen aus dem Lokalen in das Globale "ubertragen.
 		\begin{lemma}
 			F"ur das additive Haar-Maß $\dx$ auf $\A$ und jedes Idel $\lambda \in \I$ gilt
 			\begin{align*}
@@ -100,16 +105,17 @@
 			\end{align*}
 		\end{lemma}
 		\begin{proof}
-			Der Beweis funktioniert analog zu und mit  Satz \ref{satz:lokal:translationDesMasses} im Lokalen.
-			Wir betrachten dazu die kompakte Menge $K=[0,1]\times \prod_{p<\infty} \Zp$. Dann sehen wir, dass $\lambda K = [0,\lambda_\infty] \times \prod_{p<\infty} \lambda_p\Zp$ wieder kompakt ist (insbesondere sind fast alle Komponenten gleich $\Zp$) und rechnen
+			Der Beweis funktioniert analog zu und mit  Satz \ref{satz:lokal:translationDesMasses}.
+			Wir betrachten dazu wieder die kompakte Menge $K=[0,1]\times \prod_{p<\infty} \Zp$. 
+			Es ist $\lambda K = [0,\lambda_\infty] \times \prod_{p<\infty} \lambda_p\Zp$ wieder kompakt. Insbesondere sind fast alle Komponenten gleich $\Zp$ und wir rechnen nach Satz \ref{satz:adeleidele:intA}
 			\begin{align*}
-				\int_{\lambda K} \dx 	&= \int_{[0,\lambda_\infty]}\dx_\infty \cdot \prod_{p<\infty} \int_{\lambda_p\Zp} \dx_p  \\
-										&= \abs[\lambda_\infty]_\infty \int_{[0,1]}\dx_\infty \cdot \prod_{p<\infty}\abs[\lambda_p]_p \int_{\Zp} \dx_p 
+				\int_{\lambda K} \dx 	= \int_{[0,\lambda_\infty]}\dx_\infty \cdot \prod_{p<\infty} \int_{\lambda_p\Zp} \dx_p 
+										= \abs[\lambda_\infty]_\infty \int_{[0,1]}\dx_\infty \cdot \prod_{p<\infty}\abs[\lambda_p]_p \int_{\Zp} \dx_p 
 										= \abs[\lambda]_\A \int_{K}\dx,
 			\end{align*}
 			wobei wir in der dritten Gleichung Satz \ref{satz:lokal:translationDesMasses} benutzt haben.
 		\end{proof}
-		Halten wir eine weitere wichtige Aussage "uber diesen Betrag fest.
+		Halten wir noch eine weitere wichtige Aussage "uber diesen Betrag fest.
 		\begin{satz}[Artins Produktformel]
 			F"ur alle $x \in \K^\times$ gilt $\abs[x]_\A = 1$.
 		\end{satz}
@@ -127,8 +133,8 @@
 		der \emph{Betrag-Eins Idele} betrachten. 
 		Die obige Produktformel sagt uns gerade, dass $\K^\times$ eine Teilmenge von $\I^1$ ist.
 		Damit haben wir die n"otigen Definitionen zusammen um den folgenden Satz zu beweisen.
-		\begin{satz}\label{satz:global:ideleiso}~
-			\begin{enumerate}[label=\emph{(\alph*)}]
+		\begin{satz}\label{satz:adeleidele:ideleiso}~
+			\begin{enumerate}[label=\emph{(\roman*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
 				\item $F\coloneqq \{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. 
 					Genauer haben wir einen Isomorphismus topologischer Gruppen $F \cong \I^1/\K^\times$.
@@ -137,7 +143,7 @@
 			\end{enumerate}
 		\end{satz}
 		\begin{proof}
-			Zu (a): Wir w"ahlen ein beliebiges $0<\epsilon<1$ und setzen
+			(i) Wir w"ahlen ein beliebiges $0<\epsilon<1$ und setzen
 			\begin{align*}
 				U \coloneqq  (1-\epsilon, 1+\epsilon) \times \prod_{p<\infty} \Zpx.
 			\end{align*}
@@ -149,7 +155,7 @@
 			F"ur diese gilt zudem $r\in (1-\epsilon, 1+\epsilon)$.
 			Folglich ist $r=1$.
 			
-			Zu (b): Wir definieren die Abbildung 
+			(ii) Wir definieren die Abbildung 
 			\begin{align*}
 				\eta:\quad F	&\longrightarrow \I^1/\Kx\\
 						x	&\longmapsto [x]
@@ -169,9 +175,9 @@
 			Des weiteren ist sie stetig, denn sie l"asst sich schreiben als $\eta^{-1}(x) = \iota(\pi_\infty(x))^{-1} \cdot x$. 
 			Damit ist dann $\eta$ also ein topologischer Isomorphismus.
 			
-			Zu (c): Dies ist eine einfache Folgerung aus (b), da $F$ als Produkt kompakter Untergruppen wieder kompakt ist.
+			(iii) Dies ist eine einfache Folgerung aus (ii), da $F$ als Produkt kompakter Untergruppen wieder kompakt ist.
 			
-			Zu (d): Der Isomorphismus von $\I$ nach $\I^1\times \R_+^\times$  wird definiert durch die Abbildung $x \mapsto (\tilde{x}, \abs[x]_\A)$, wobei 
+			(iv) Der Isomorphismus von $\I$ nach $\I^1\times \R_+^\times$  wird definiert durch die Abbildung $x \mapsto (\tilde{x}, \abs[x]_\A)$, wobei 
 			\begin{align*}
 				\tilde{x} = (\tilde{x}_p) = 
 					\begin{cases}
@@ -182,3 +188,5 @@
 			Um zu sehen, dass die Abbildung ein topologischer Gruppenhomomorphismus ist, schreiben wir sie als $x \mapsto (\iota_\infty(\abs[x]_\A)^{-1} \cdot x, \abs[x]_\A)$.
 			Die Umkehrabbildung ist dann gegeben durch $(x,y) \mapsto \iota_\infty(y) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
 		\end{proof}
+		%Der Fundamentalbereich $F$ wird in unserer Behandlung von Tates Beweis noch eine wichtige Rolle spielen.
+		

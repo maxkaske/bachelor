@@ -2,26 +2,28 @@
 	Ziel dieses Kapitels ist es, die n"otigen Grundlagen zu schaffen um alle bisherigen lokalen fourieranalytischen Berechnung in einer einzigen globalen fourieranalytischen Berechnung zu vereinen. 
 	Wir werden erkl"aren, warum der Ansatz über das direkte Produkt schiefgeht und f"uhren dann das eingeschr"ankte direkte Produkt mit der dazugeh"origen eingeschr"ankten Produkttopologie ein.
 	Anschließend schauen wir uns die Besonderheiten der Charaktere und der Integration auf diesem neuen Produkt an. 
-	Wir halten uns dabei an Ramakrishnans und Valenzas Definitionen in \cite{rama}, die sich wiederum an denen aus Tates Doktorarbeit \cite{tate} orientieren.
-	F"ur eine etwas alternative, etwas strengere Definition siehe zum Beispiel Deitmar \cite{deitmar2010}
+	Dabei halten wir uns an Ramakrishnans und Valenzas Definitionen in \cite{rama} Abschnitt 5.1, die sich wiederum an Tates Doktorarbeit \cite{tate} orientieren.
+	F"ur eine etwas alternative, etwas strengere Definition siehe zum Beispiel Deitmar \cite{deitmar2010} Abschnitt 5.1.
 \subsection{Definitionen}\label{kapitel:RDP}
 		Beginnen wir mit einer (endlichen, abz"ahlbaren, "uberabz"ahlbaren) Indexmenge $I$ und zu jedem $\nu\in I$ haben wir eine lokalkompakte Gruppen $G_\nu$.
-		Gesucht ist zun"achst ein Objekt $G$, welches alle $G_\nu$ umfasst und auf dem wir Fourieranalysis betreiben k"onnen.
+		Gesucht ist zun"achst ein Objekt $G$, welches alle $G_\nu$ umfasst und auf dem wir idealerweise ein Haar-Maß haben.
 		$G$ sollte also eine lokalkompakte Gruppe sein.
 		Ein erster Ansatz wäre natürlich das direkte Produkt der Gruppen $G_\nu$ zu bilden, allerdings zeigt folgendes Lemma, dass dieser Versuch im allgemeinen Fall fehlschlagen wird.
 		\begin{lemma}\label{Lemma:lokalkompaktProd}
 			Sei $I$ eine Indexmenge und $X_\nu$ ein lokalkompakter Hausdorff-Raum für alle $\nu \in I$. Der Raum $X\coloneqq \prod_{\nu \in I} X_\nu$ ist genau dann lokalkompakt, wenn fast alle $X_\nu$ kompakt sind.
 		\end{lemma}
-		Bevor wir den Beweis nach Deitmar \cite{deitmar2010} geben noch eine kurze Beobachtung: Ist $X$ kompakt, so ist auch jedes $X_\nu$ kompakt als Bild von $X$ unter den stetigen Projektionen $\pi_\nu:X \to X_\nu$.
+		Bevor wir den Beweis nach Deitmar geben noch eine kurze Beobachtung: 
+		Ist $X$ kompakt, so ist auch jedes $X_\nu$ kompakt als Bild von $X$ unter den stetigen Projektionen $\pi_\nu:X \to X_\nu$.
 		\begin{proof}
-			Sei $E \subseteq I$ eine endliche Teilmenge und für jedes $\nu\in E$ sei $U_\nu \in X_\nu$ eine offene Menge. Wir betrachten die offenen Rechtecke
+			Sei $E \subseteq I$ eine endliche Teilmenge und für jedes $\nu\in E$ sei $U_\nu \in X_\nu$ eine offene Menge. 
+			Wir betrachten die offenen Rechtecke
 			\begin{align*}
 				\prod_{\nu\in E} U_\nu \times \prod_{\nu\in I\setminus E} X_\nu,
 			\end{align*}
 			welche eine Basis der Produkttopologie bilden. 
-			Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschluß kompakt ist. 
+			Ist $X$ lokalkompakt, so gibt es ein offenes Rechteck, dessen Abschluss kompakt ist. 
 			Folglich sind fast alle $X_\nu$ kompakt. 
-			Die Rückrichtung ist eine Folgerung des Satzes von Tychonov, der besagt, dass das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist, und der Tatsache, dass endliche Produkte lokalkompakter Räume wieder lokalkompakt sind (vgl. Lemma \ref{satz:topo:lcaproduct}).
+			Die Rückrichtung ist eine Folgerung des Satzes von Tychonoff (das direkte Produkt beliebiger Familien kompakter Mengen wieder kompakt ist) und Lemma \ref{satz:topo:lcaproduct} (das endliche direkte Produkt lokalkompakter Räume ist wieder lokalkompakt).
 		\end{proof}
 		Das direkte Produkt lokalkompakter Gruppen liefert uns daher im Allgemeinen keine neue lokalkompakte Gruppe. 
 		Wir sehen jetzt aber, welche Einschr"ankung n"otig ist, damit wir doch lokalkompakt werden.
@@ -29,11 +31,11 @@
 		%   DEFINITION   %
 		%%%%%%%%%%%%%%%%%%
 		\begin{defi}[Eingeschränkte direkte Produkt]
-			Sei $I=\{v\}$ eine Indexmenge und für jedes $v \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
-			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $v \notin I_\infty$ sei $H_v\leq G_v$ eine kompakte offene (und damit abgeschlossene) Untergruppe. 
-			Das \emph{eingeschränkte direkte Produkt} der $G_v$ bezüglich $H_v$ ist definiert als 
+			Sei $I=\{\nu\}$ eine Indexmenge und für jedes $\nu \in I$ sei $G_v$ eine lokalkompakte Gruppe. 
+			Sei weiter $I_\infty \subseteq I$ eine endliche Teilmenge von $I$ und für jedes $\nu \notin I_\infty$ sei $H_\nu\leq G_\nu$ eine kompakte offene (und damit abgeschlossene) Untergruppe. 
+			Das \emph{eingeschränkte direkte Produkt} der Gruppen $G_\nu$ bezüglich $H_\nu$ ist definiert als 
 			\begin{align*}
-				G = \rdprod{v \in I} G_v \coloneqq  \{ (x_v): x_v \in G_v \text{ und } x_v \in H_v \text{ für alle bis auf endlich viele } v \}.
+				G = \rdprod{\nu \in I} G_\nu \coloneqq  \{ (x_\nu): x_\nu \in G_\nu \text{ und } x_\nu \in H_\nu \text{ für alle bis auf endlich viele } \nu \}.
 			\end{align*}
 			mit komponentenweiser Verknüpfung. Die Topologie auf $G$ ist gegeben durch die \emph{eingeschränkte Produktopologie}. 
 			Diese wird erzeugt durch die Basis der \emph{eingeschränkten offenen Rechtecke}
@@ -44,12 +46,12 @@
 		\end{defi}
 		G ist damit (gruppentheoretisch) zwischen der direkten Summe und dem direkten Produkt der Komponenten $G_\nu$ anzusiedeln.
 		Topologisch entspricht die eingeschränkte Produkttopologie jedoch nicht der vom direkten Produkt induzierten Teilraumtopologie.
-		Sie ist im Allgemeinen feiner, was zur Folge hat, dass die \emph{Projektion}
+		Sie ist im Allgemeinen feiner, wodurch die \emph{Projektion}
 		\begin{align*}
 			\pi_\nu: G &\to G_\nu\\
-					g&\mapsto g_\nu
+					g  &\mapsto g_\nu
 		\end{align*}
-		auf die $\nu$-te Komponenten von $G$ eine stetige Abbildungen ist.
+		auf die $\nu$-te Komponenten von $G$ eine wie auch bei der Produkttopologie stetige Abbildungen ist.
 		
 		Schauen wir uns einige Untergruppen des eingeschr"ankten direkten Produkts an.
 		Die Gruppen $G_\nu$ k"onnen "uber die stetige \emph{Inklusion} 
@@ -58,7 +60,6 @@
 					g &\mapsto (\dots,1,g,1,\dots)
 		\end{align*}
 		auf nat"urliche Weise in $G$ eingebettet werden und bilden damit eine Familie von abgeschlossenen Untergruppen.
-		
 		Sei $S$ eine endliche Teilmenge von $I$, die $I_\infty$ enth"alt. 
 		Wir definieren die offene Untergruppe
 		\begin{align*}
@@ -66,32 +67,31 @@
 		\end{align*}
 		von $G$. 
 		Bezüglich der Produkttopologie sind diese $G_S$ nach Lemma \ref{lemma:topogroup:directproduct} und Lemma \ref{Lemma:lokalkompaktProd} selbst wieder lokalkompakte Gruppen.
-		Die Produkttopologie stimmt aber mit der durch $G$ induzierten Teilraumtopologie "uberein und die $G_S$ bilden eine Familie von lokalkompakten Untergruppen in $G$
+		Die Produkttopologie stimmt aber mit der durch $G$ induzierten Teilraumtopologie "uberein und die $G_S$ bilden eine Familie von lokalkompakten Untergruppen in $G$.
 		Nun liegt jeder Punkt $x \in G$ in einer Untergruppe dieser Form und daher folgt sofort, dass $G$ selbst eine lokalkompakte Gruppe ist.
 		Damit haben wir einen geeignet Kandidaten gefunden, der uns hoffentlich die globale Kalkulation erm"oglicht.
 		
-		Zum Abschluss dieser Untersektion richten wir unseren Blick auf die kompakten Mengen des eingeschr"ankten direkten Produkts.
+		Zum Abschluss dieses Abschnitts richten wir unseren Blick auf die kompakten Mengen des eingeschr"ankten direkten Produkts.
 		\begin{satz}%Kompakte Mengen in G_S
-			Eine Teilmenge $Y$ von $G$ hat genau dann kompakten Abschluss, wenn $Y \subseteq \prod{K_\nu}$ für eine Familie von kompakten Teilmengen $K_\nu \subseteq G_\nu$ mit $K_\nu = H_\nu$ für fast alle Indizes $i$.
+			Eine Teilmenge $Y$ des eingeschr"ankten direkten Produkts $G$ hat genau dann kompakten Abschluss, wenn $Y \subseteq \prod_\nu{K_\nu}$ für eine Familie von kompakten Teilmengen $K_\nu \subseteq G_\nu$ und $K_\nu = H_\nu$ für fast alle Indizes $\nu\in I$.
 		\end{satz}
 		\begin{proof}
 			Die Rückrichtung ist klar, denn jede abgeschlossene Teilmenge eines kompakten Raumes ist wieder kompakt. 
 
-			Für die Hinrichtung sei nun $K$ der Abschluss von $Y$ und kompakt in $G$. 
+			Für die Hinrichtung sei nun $K$ der Abschluss von $Y$ und damit kompakt in $G$. 
 			Da die Untergruppen $G_S$ eine offene "Uberdeckung von $G$ bilden, gibt es eine endliche Familie $\{G_{S_n}\}$, die $K$ überdecken. 
 			Wir können sogar noch mehr sagen. 
-			Da die die $S_k$ endlich sind, ist $S = \bigcup S_k$ endlich, also wird $K$ sogar von nur einem $G_S$ überdeckt. 
-			Sei $K_\nu$ das Bild von $K$ der natürlichen Einbettung nach $G_\nu$. 
-			Da die Topologie auf $G_S$ gerade der Produkttopologie entspricht und $K\subseteq G_S$ ist diese Abbildung stetig und $K_\nu$ damit kompakt als stetiges Bild einer kompakten Menge. 
-			Außerdem ist $K_\nu \subseteq H_\nu$ für alle $i\notin S$, sodass wir hier $K_\nu$ durch die kompakten $H_\nu$ ersetzen können. 
-			Dann ist $Y\subseteq K \subseteq \prod{K_\nu}$ und wir sind fertig.
+			Da die die $S_k$ endlich sind, ist $S = \bigcup_k S_k$ endlich, also wird $K$ sogar von nur einem $G_S$ überdeckt. 
+			Sei $K_\nu$ das kompakte Bild von $K$ unter der nat"urlichen Projektion $\pi_\nu$. 
+			Es ist $K_\nu \subseteq H_\nu$ für alle $\nu\notin S$, sodass wir hier $K_\nu$ durch die kompakten $H_\nu$ ersetzen können. 
+			Dann ist $Y\subseteq K \subseteq \prod_\nu{K_\nu}$ und wir sind fertig.
 		\end{proof}
 		\begin{korollar}
 			Jede kompakte Teilmenge $K$ von $G$ liegt in einer der Untergruppen $G_S$.
 		\end{korollar}
  
-\subsection{(Quasi-)Charaktere}
-		Machen wir uns einige Gedanken "uber die (Quasi-)Charaktere auf dem eingeschr"ankten direkten Produkt.
+\subsection{Quasi-Charaktere}
+		Machen wir uns einige Gedanken "uber die Quasi-Charaktere auf dem eingeschr"ankten direkten Produkt.
 		Jede stetige Abbildung $f$ auf $G$ induziert durch die Inklusion $\iota_\nu: G_\nu \to G$ eine stetige Abbildung  $f_\nu = f \circ \iota_\nu$ auf der Komponente $G_\nu$.
 		Analog ist $f_\nu$ ein Homomorphismus auf $G_\nu$, wenn $f$ selbst ein Homomorphismus auf $G$ ist.
 		Damit lassen sich die Quasi-Charaktere auf $G$ wie folgt charakterisieren.
@@ -105,27 +105,27 @@
 		\end{lemma}
 		\begin{proof}
 			Das alle $\chi_\nu$ (Quasi-)Charaktere sind folgt aus unseren Vor"uberlegungen.
-			Wir müssen also nur noch zeigen, dass fast alle $\chi_\nu$ trivial auf die Untergruppen $H_\nu$ wirken. 
-			Dazu wählen wir uns eine offene Umgebung $V$ der $1$ in $\Komplex^\times$, die nur die triviale Untergruppe $\{1\}$ enthält. 
-			Aufgrund der Stetigkeit von $\chi$ finden wir eine offene Umgebung $U=\prod_\nu U_\nu$ der $1$ in $G$ mit $U_\nu = H_\nu$ für alle $i$ außerhalb einer endlichen Indexmenge $S$ und $\chi(U)\subseteq V$.
+			Wir müssen also nur noch zeigen, dass fast alle $\chi_\nu$ jeweils trivial auf die Untergruppen $H_\nu$ wirken. 
+			Dazu wählen wir uns eine offene Umgebung $U$ der $1$ in $\Komplex^\times$, die nur die triviale Untergruppe $\{1\}$ enthält. 
+			Aufgrund der Stetigkeit von $\chi$ finden wir eine offene Umgebung $V=\prod_\nu V_\nu$ der $1$ in $G$ mit $V_\nu = H_\nu$ für alle $\nu$ außerhalb einer endlichen Indexmenge $S$ und $\chi(V)\subseteq U$.
 			Dann gilt aber
 			\begin{align*}
-				(\prod_{\nu\in S} 1) \times (\prod_{i \notin S} H_\nu) \subseteq U 
+				(\prod_{\nu\in S} 1) \times (\prod_{\nu \notin S} H_\nu) \subseteq V 
 			\end{align*}
 			und daher
 			\begin{align*}
-				\chi((\prod_{\nu\in S} 1) \times (\prod_{i \notin S} H_\nu)) \subseteq V 
+				\chi((\prod_{\nu\in S} 1) \times (\prod_{\nu \notin S} H_\nu)) \subseteq U 
 			\end{align*}
 			Die linke Seite ist aber als Bild einer Gruppe unter einem Homomorphismus selbst wieder eine Gruppe. 
-			Nach unserer Wahl von $V$ folgt also
+			Nach unserer Wahl von $U$ folgt also
 			\begin{align*}
-				\chi((\prod_{\nu\in S} 1) \times (\prod_{i \notin S} H_\nu)) = \{1\}.
+				\chi((\prod_{\nu\in S} 1) \times (\prod_{\nu \notin S} H_\nu)) = \{1\}.
 			\end{align*}
-			Folglich $\chi_\nu (H_\nu) = \{1\}$ für alle $i\notin S$. 
+			Folglich $\chi_\nu (H_\nu) = \{1\}$ für alle $\nu\notin S$. 
 			Damit ist aber klar, dass für jedes $g \in G$ das Produkt $\prod_\nu \chi_\nu(g_\nu)$ endlich ist und wegen $g = \prod_{\nu} \iota_\nu(g_\nu)$ genau $\chi(g)$ entspricht.
 			
 		\end{proof}
-		Wir k"onnen das Lemma aber auch umdrehen und Quasi-Charaktere auf $G$ durch solche auf $G_\nu$ konstruieren.
+		Wir k"onnen das Lemma aber auch umdrehen und so Quasi-Charaktere auf $G$ konstruieren.
 		\begin{lemma}
 			Seien $\chi_\nu: G_\nu \to \Komplex^\times$ (Quasi-)Charaktere und nehmen wir an, dass fast alle trivial auf $H_\nu$ wirken.
 			Dann ist
@@ -135,14 +135,14 @@
 			ein (Quasi-)Charakter auf $G$.
 		\end{lemma}
 		\begin{proof}
-			Das Produkt $\chi$ ist sicherlich wohldefiniert und bildet ein Gruppenhomomorphismus auf $G$. 
+			Das Produkt $\chi$ ist wohldefiniert da fast alle $g_\nu \in H_\nu$ und bildet einen Gruppenhomomorphismus auf $G$. 
 			Es bleibt noch zu zeigen, dass $\chi$ stetig ist. 
 			Da $G$ und $\Komplex^\times$ topologische Gruppen sind, genügt es sich offene Umgebungen der $1$ anzuschauen. 
 			Sei daher $U$ eine offene Umgebung der $1 \in \Komplex^\times$.
-			Sei $S$ die endliche Menge aller Indizes, so dass $\chi_\nu$ nicht trivial auf $H_\nu$ wirkt, und setze $n = \abs[S]$. 
+			Sei $S$ die endliche Menge aller Indizes $\nu$, so dass $\chi_\nu$ nicht trivial auf $H_\nu$ wirkt, und setze $n = \abs[S]$. 
 			Wir finden eine weitere Umgebung $W$ der $1$ in $\Komplex^\times$, so dass das Produkt von $n$ beliebigen Elementen aus $W$ wieder in $U$ liegt. 
-			Da die $\chi_\nu$ stetig sind, finden wir offene Umgebungen $V_\nu$ der $1 \in G_\nu$ mit $\chi_\nu(V_\nu) \subseteq W$. 
-			Für $\nu\in S$ können wir ohne Probleme $V_\nu = H_\nu$ setzen. 
+			Aufgrund der Stetigkeit von $\chi_\nu$, finden wir f"ur jedes $\nu\in S$ eine offene Umgebungen $V_\nu$ der $1 \in G_\nu$ mit $\chi_\nu(V_\nu) \subseteq W$. 
+			Für $\nu\notin S$ setzen wir $V_\nu = H_\nu$. 
 			Dann ist $V = \prod_\nu V_\nu$ eine offene Umgebung der $1 \in G$ und für jedes $g \in V$ ist $\chi(g)$ das endliche Produkt von $n$ Faktoren aus $W$, also $\chi(g) \in V$.		
 		\end{proof}
 	
@@ -150,30 +150,34 @@
 		Wie wir gesehen haben ist $G=\rdprod{\nu\in I} G_\nu$ eine lokalkompakte Gruppe, besitzt also nach Satz \ref{satz:topo:haarmeasure} ein Haar-Maß.
 		Dieses m"ochten wir abh"angig von den lokalen Maßen normalisieren.
 		\begin{satz}
-			Sei $G=\rdprod{\nu\in I} G_\nu$ das eingeschränkte direkte Produkt einer Familie lokalkompakter Gruppen $G_\nu$ bezüglich der kompakten Untergruppen $H_\nu \subseteq G_\nu$.
+			Sei $G$ das eingeschränkte direkte Produkt einer Familie lokalkompakter Gruppen $G_\nu$ bezüglich der kompakten Untergruppen $H_\nu \subseteq G_\nu$.
 			Bezeichne $dg_\nu$ das Haar-Maß auf $G_\nu$ mit der Normalisierung
 			\begin{align*}
 				\Vol(H_\nu, dg_\nu) = \int_{H_\nu} dg_\nu = 1
 			\end{align*}
-			für fast alle $\nu$. 
-			Dann gibt es ein eindeutiges Haar-Maß $dg$ auf G, so dass für jede endliche Teilmenge $S\supseteq I_\infty$ der Indexmenge $I$ die Einschränkung $dg_S$ von $dg$ auf $G_S$ genau das Produktmaß ist.
+			für fast alle $\nu\in I$. 
+			Dann gibt es ein eindeutiges Haar-Maß $dg$ auf G, so dass für jede endliche Teilmenge $S\supseteq I_\infty$ der Indexmenge $I$ die Einschränkung $dg_S$ von $dg$ auf $G_S$ genau das (Radon-)Produktmaß ist.
 		\end{satz}
-		
 		\begin{proof}
-			Die im Satz angesprochene Normalisierung der $dg_\nu$ ist möglich, da per Definition die Untergruppen $H_\nu$ offen und kompakt sind und daher positives und endliches Maß haben.
+			Die im Satz angesprochene Normalisierung der $dg_\nu$ ist möglich, da per Definition die Untergruppen $H_\nu$ offen und kompakt sind und daher ein nicht verschwindendes endliches Maß haben.
 			
-			Sei $S$ nun eine beliebige Menge wie im Satz beschrieben und definiere $dg_S$ als das Produktmaß $dg_S \coloneqq \left(\prod_{s \in S}dg_\nu\right) \times dg^S$, wobei $dg^S$ das Haar-Maß auf der kompakten Gruppe $G^S\coloneqq \prod_{i \notin S} H_\nu$, sodass $\Vol(G^S, dg^S) = 1$. 
+			Sei $S$ nun eine beliebige Menge wie im Satz beschrieben und definiere $dg_S$ als das Produktmaß $dg_S \coloneqq \left(\prod_{\nu \in S}dg_\nu\right) \times dg^S$, wobei $dg^S$ das Haar-Maß auf der kompakten Gruppe $G^S\coloneqq \prod_{i \notin S} H_\nu$ mit $\Vol(G^S, dg^S) = 1$ ist. 
 			F"ur die Existenz von $dg^S$ siehe zum Beispiel Folland \cite{folland} Kapitel 7, Satz 7.28. 
-			Als endliches Produkt von Haar-Maßen ist $dg_S$ selbst wieder Haar-Maß und wir können das Maß $dg$ auf $G$ so normieren, dass dessen Einschränkung auf $G_S$ mit $dg_S$ übereinstimmt.
-			Damit haben wir eine Normierung, zun"achst noch abh"angig von unserer Wahl der Indexmenge $S$.
-			Das macht allerdings nichts.
-			Denn sei $T\supseteq S$ eine weitere endliche Indexmenge. 
+			Als endliches Produkt von Haar-Maßen ist $dg_S$ selbst wieder ein Haar-Maß und wir können das $dg$ auf $G$ so normieren, dass dessen Einschränkung auf $G_S$ mit $dg_S$ übereinstimmt.
+			
+			Damit haben wir eine Normierung, von der wir noch nicht wissen, ob sie unabh"angig von unserer Wahl der Indexmenge $S$ ist.
+			Sei daher $T\supseteq S$ eine weitere endliche Indexmenge. 
 			Per Definition ist $G_S$ eine Untergruppe von $G_T$. 
-			Wir müssen jetzt nur noch zeigen, dass die Einschränkung von $dg^T$ auf $G^S$ mit $dg^S$ übereinstimmt.
-			Man erkennt, dass $G^S = \left(\prod_{\nu\in T \setminus S} H_\nu\right) \times G^T$.
-			Daher bildet $\left(\prod_{\nu\in T \setminus S} dg_\nu\right) \times dg^T$ ein Haar-Maß, welches der kompakten Gruppe $G_S$ das oben geforderte Maß $1$ zuweist.
-			Aus der Eindeutigkeit des Haar-Maßes auf (lokal)kompakten Gruppen folgt somit die Gleichheit zu $dg^S$.
-			Sei nun $S'$ eine beliebige weitere Indexmenge, die $I_\infty$ enthält. 
+			Wir müssen jetzt nur noch zeigen, dass das Maß $dg_T$ mit $dg_S$ auf $G_S$  übereinstimmt.
+			Zerlegt man $G^S = \left(\prod_{\nu\in T \setminus S} H_\nu\right) \times G^T$, so bildet $\left(\prod_{\nu\in T \setminus S} dg_\nu\right) \times dg^T$ ein Haar-Maß, welches der kompakten Gruppe $G^S$ das oben geforderte Maß $1$ zuweist.
+			Aus der Eindeutigkeit des Haar-Maßes auf (lokal)kompakten Gruppen folgt somit die Gleichheit zu $dg^S$ und daher
+			\begin{align*}
+				dg_S 
+					= \left(\prod_{\nu \in S}dg_\nu\right) \times dg^S 
+					= \left(\prod_{\nu \in S}dg_\nu\right) \times \left(\prod_{\nu\in T \setminus S} dg_\nu\right) \times dg^T
+					= \left(\prod_{\nu \in T}dg_\nu\right) \times dg^T = dg_T
+			\end{align*}
+			auf $G_S$. Sei nun $S'$ eine beliebige weitere Indexmenge, die $I_\infty$ enthält. 
 			Das normierte Maß $dg$ wird auf $G_{S\cup S'}$ eingeschränkt zu einem Maß, welches ein konstantes Vielfaches von $dg_{S\cup S'}$ ist. 
 			Da aber $G_S \subseteq G_{S\cup S'}$ muss diese Konstante $1$ sein, denn nach obigen "Uberlegungen ist die Einschränkung von $dg_{S\cup S'}$ auf $G_S$ gerade $dg_{S}$.
 			Umgekehrt ist aber $dg_{S'}$ die die Einschränkung von $dg_{S\cup S'}$ auf $G_{S'}$, also ist die Normalisierung unabhängig von der Wahl unserer Indexmenge $S$.
@@ -187,7 +191,7 @@
 					\begin{align*}
 						\int_G f(g)dg = \lim_S \int_{G_S} f(g_S) dg_S,
 					\end{align*}
-					Nehmen wir nur an, dass $f$ stetig ist, so gilt diese formale Identit"at immer noch, wenn wir den unendliche Werte erlauben.
+					Nehmen wir nur an, dass $f$ stetig ist, so gilt diese formale Identit"at immer noch, wenn wir unendliche Werte erlauben.
 				\item Sei $S_0$ ein beliebige endliche Indexmenge, die $I_\infty$ und alle $\nu$ enthält, für die $\text{Vol}(H_\nu, dg_\nu) \not= 1$. 
 					Für jeden Index $\nu$ sei eine stetige Funktion $f_\nu$ auf $G_\nu$, so dass $f_\nu |_{H_\nu} = 1$ für alle $\nu \notin S_0$. 
 					Wir definieren nun f"ur alle $g\in G$ 
@@ -199,44 +203,46 @@
 					\begin{align}\label{eq:satz:integration}
 						\int_{G_S} f(g_S) dg_S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr).
 					\end{align}
-					Ist ferner das Produkt
+					Nimmt ferner das Produkt
 					\begin{align*}
 						\prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr)
 					\end{align*}
-					sogar endlich, dann ist $f$ insbesondere integrierbar und es gilt sogar
+					sogar nur einen endlichen Wert an, dann ist $f$ insbesondere integrierbar und es gilt
 					\begin{align*}
-						\int_{G} f(g) dg = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr).
+						\int_{G} f(g) dg = \prod_{\nu\in I}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr).
 					\end{align*}	
 			\end{enumerate}
 		\end{proposition}
-		\begin{proof}
-			(i) Wir halten z"unachst fest was "uberhaupt mit dem Ausdruck $\lim\limits_S \phi(S) = \phi_0$ f"ur eine Funktion $\phi$ auf den endlichen Indexmengen $S$ mit Werten in einem abgeschlossenen topologischen Raum gemeint ist: Gegeben eine beliebige Umgebung $V$ von $\phi_0$, dann gibt es eine Indexmenge $S(V)$, sodass f"ur alle weiteren Indexmengen $S \supseteq S(V)$ der Wert $\phi(S)$ in $V$ liegt. Intuitiv ist also  $\lim\limits_S \phi(S)$ der Limes von $\phi(S)$ "uber gr"oßer und gr"oßere $S$.
+		Bevor wir zum Beweis kommen, halten wir z"unachst fest was "uberhaupt mit dem Ausdruck $\lim\limits_S \phi(S) = \phi_0$ f"ur eine Funktion $\phi$ auf den endlichen Indexmengen $S$ mit Werten in einem abgeschlossenen topologischen Raum gemeint ist: Gegeben eine beliebige Umgebung $V$ von $\phi_0$, dann gibt es eine Indexmenge $S(V)$, sodass f"ur alle weiteren Indexmengen $S \supseteq S(V)$ der Wert $\phi(S)$ in $V$ liegt. Intuitiv ist also  $\lim\limits_S \phi(S)$ der Limes von $\phi(S)$ "uber gr"oßer und gr"oßere $S$.
 			
-			Damit kommen wir zum Beweis der Aussage.
-			Aus der Integrationstheorie (vgl. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass 
+		\begin{proof}
+			(i) Aus der Integrationstheorie (vgl. Folland \cite{folland} Kapitel 7 Korollar 7.13) ist bekannt, dass 
 			\begin{align*}
 				\int_{G} f(g) = \sup_{K \text{ kompakt}} \left\{ \int_{K} f(g)dg \right\}.
 			\end{align*}
-			Da aber jedes solches $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
+			Da aber jedes solche $K$ in einer der Mengen $G_S$ liegt, folgt die Gleichung sofort.
 			
-			\noindent(ii) Aus der Bedingung $f_\nu |_{H_\nu} = 1$ folgt, dass das Produkt $f(g) = \prod_{\nu}f_{\nu}(g_\nu)$ für alle $g \in G$ endlich, und die Funktion damit wohldefiniert ist. 
+			(ii) Aus der Bedingung $f_\nu |_{H_\nu} = 1$ folgt, dass das Produkt $f(g) = \prod_{\nu}f_{\nu}(g_\nu)$ für alle Elemente $g \in G$ endlich und die Funktion damit wohldefiniert ist. 
 			Um die Stetigkeit zu zeigen schauen wir uns die offenen Umgebungen von $g$ an.
 			Als Basis haben wir die offenen Rechtecke $\prod N_\nu \times \prod H_\nu$, wobei in dem ersten endlichen Produkt die $N_\nu$ offene Umgebungen von $g_\nu$ sind.  
-			Dies bleibt auch eine Basis wenn wir zus"atzlich noch verlangen, dass das erste Produkt auch die Indizes enth"alt, f"ur die $f_\nu$ nicht trivial auf $H_\nu$ wirkt.
-			Lokal betrachtet ist $f$ also nicht weiter als das endliches Produkt stetiger Funktionen und daher selbst stetig.
+			Dies bleibt auch eine Basis wenn wir zus"atzlich noch verlangen, dass das erste Produkt zus"atzlich auch alle Indizes enth"alt, f"ur die $f_\nu$ nicht trivial auf $H_\nu$ wirkt.
+			Auf diesen Rechtecken ist $f$ lokal betrachtet dann nichts weiter als ein endliches Produkt stetiger Funktionen und daher selbst stetig.
 			
-			Für den zweiten Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen von Teil (ii). 
-			Unter der Annahme $\text{Vol}(H_\nu, dg_\nu) = 1$ haben wir auf $G_S$ das Produktmaß auf  $dg_S =\left(\prod_{s \in S}dg_\nu\right) \times dg^S$
-			und wegen $f_\nu|_{H_\nu} = 1$ f"ur $\nu \notin S$ hat $f$ dort die Form $\prod_{\nu\in S}f_\nu(g_\nu) \cdot \prod_{\nu\notin S}1$. Es folgt
+			%%%TODO: ANPASSEN DER LETZTEN ZWEI ERKLAERUNGEN
+			Für den zweiten Teil der Behauptung sei $S$ nun eine Indexmenge nach den Bedingungen von (ii). 
+			Unter der Annahme $\text{Vol}(H_\nu, dg_\nu) = 1$ f"ur alle $\nu \notin S$ haben wir auf $G_S$ das durch $dg$ induzierte Produktmaß $dg_S =\left(\prod_{s \in S}dg_\nu\right) \times dg^S$.
+			Weiter hat $f$ wegen $f_\nu|_{H_\nu} = 1$ f"ur $\nu \notin S$ dort die Form $f(g) = \prod_{\nu\in S}f_\nu(g_\nu)$. 
+			Es folgt
 			\begin{align*}
 				\int_{G_S} f(g_S) dg_S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr) \cdot \int_{G^S} dg^S = \prod_{\nu\in S}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr)
 			\end{align*}
 			
 			Nehmen wir nun an, dass das Produkt endlich ist. 
-			Dann gilt aber nach (i) und Gleichung \ref{eq:satz:integration}
+			Dann gilt aber nach (i) und Gleichung \eqref{eq:satz:integration}
 			\begin{align*}
-				\prod_{i}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr) = \lim_S \int_{G_S} f(g_S) dg_S = \int_{G} f(g) dg
+				\prod_{\nu\in I}\Bigl(\int_{G_\nu} f_\nu (g_\nu)dg_\nu\Bigr) = \lim_S \int_{G_S} f(g_S) dg_S = \int_{G} f(g) dg
 			\end{align*}
 			und wir sind fertig.
 		\end{proof}
-	Damit haben wir die wichtigsten Grundlagen etabliert.
+	%Damit haben wir die wichtigsten theoretischen Grundlagen etabliert.
+	%Im n"achsten Kapitel lernen wir nun explizit zwei Beispiele kennen.

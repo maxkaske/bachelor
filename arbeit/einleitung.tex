@@ -9,9 +9,9 @@
 	als absolut konvergente Reihe oder durch die \emph{Euler-Produktformel} dargestellt werden kann.
 	Neben einer Vielzahl neuer Notationen, Definitionen und Ideen, darunter die bekannte \emph{Riemannsche Vermutung}, dass alle nicht-trivialen Nullstellen von $\zeta(s)$ den Realteil $1/2$ haben, gab er auch zwei Beweise der Funktionalgleichung
 	\begin{align*}
-		\xi(s) = \xi(1-s),
+		\Xi(s) = \Xi(1-s),
 	\end{align*}
-	wobei $\xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)$ und $\Gamma(s)$\footnote{Riemann selbst benutze noch den durch Gauß definierte Notation $\Pi(s-1)=\Gamma(s)$} das bekannte Euler-Integral
+	wobei $\Xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)$ und $\Gamma(s)$\footnote{Riemann selbst benutze noch den durch Gauß definierte Notation $\Pi(s-1)=\Gamma(s)$} das bekannte Euler-Integral
 	\begin{align*}
 		\Gamma(s) = \int_0^\infty e^{-x} x^s \frac{\dx}{x}
 	\end{align*}
@@ -51,7 +51,7 @@
 	Riemann benutzte nun gel"aufige Identit"aten der Gamma-Funktion um dieses Ergebnis umzuformen:
 	Der Ausdruck
 	\begin{align*}
-		\xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)
+		\Xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)
 	\end{align*}
 	bleibt unver"andert, wie Riemann schreibt, \glqq wenn $s$ in $s-1$ verwandelt wird.\grqq{}
 	
@@ -65,28 +65,29 @@
 		erf"ullt. Sie besitzt zwei einfache Pole bei $s=0$ und $s=1$.
 	\end{satz}
 	\begin{proof}[Beweis der Funktionalgleichung]
-		Durch den Variablenwechsel $y=n^2\pi x^2$ in Eulers Integraldarstellung der Gamma-Funktion erhalten wir f"ur $\Re(s)>1$
+		Durch den Variablenwechsel $y=n^2\pi t^2$ in Eulers Integraldarstellung der Gamma-Funktion erhalten wir f"ur $\Re(s)>1$
 		\begin{align*}
-			%\int_{0}^{\infty} e^{-n^2\pi x}x^{s/2} \frac{\dx}{x} 
-				%= \int_0^{\infty} e^{-y} \pi^{-s/2}n^{-s} y^{s/2} {\dx[y]}{y} 
+			%\int_{0}^{\infty} e^{-n^2\pi t}t^{s/2} \frac{\dx[t]}{t} 
+				%= \int_0^{\infty} e^{-y} \pi^{-s/2}n^{-s} y^{s/2} {\dx[t][y]}{y} 
 				%= \frac{1}{n^s} \pi^{-s/2}\Gamma\left(\frac{s}{2}\right)
 			\frac{1}{n^s} \pi^{-s/2}\Gamma\left(\frac{s}{2}\right) 
-				= \frac{1}{n^s} \pi^{-s/2} \int_0^{\infty} e^{-n^2\pi x} n^s\pi^{s/2} x^{s/2} \frac{\dx}{x} 
-				= \int_{0}^{\infty} e^{-n^2\pi x}x^{s/2} \frac{\dx}{x}.
+				= \frac{1}{n^s} \pi^{-s/2} \int_0^{\infty} e^{-n^2\pi t} n^s\pi^{s/2} t^{s/2} \frac{\dx[t]}{t} 
+				= \int_{0}^{\infty} e^{-n^2\pi t}t^{s/2} \frac{\dx[t]}{t}.
 		\end{align*}
-		Anschließendes aufsummieren ergibt die Formel
+		Anschließendes aufsummieren und ausnutzen von Fubinis Integralgleichung ergibt die Formel
 		\begin{align*}
 			\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) 
-				= \int_{0}^{\infty} \sum_{n=1}^{\infty}\left(e^{-n^2\pi x}\right)x^{s/2} \frac{\dx}{x}
+				= \int_{0}^{\infty} \sum_{n=1}^{\infty}\left(e^{-n^2\pi t}\right)t^{s/2} \frac{\dx[t]}{t}
 		\end{align*}
-		Wir f"uhren nun die \emph{Thetafunktion}
+		Die rechte Seite entspricht gerade der $\Xi$-Funktion. Wir f"uhren nun die \emph{Thetafunktion}
 		\begin{align*}
 			\Theta(t) = \sum_{n\in \Z} e^{-\pi t n^2} = 1 + 2 \sum_{n\in\N}e^{-\pi t n^2}
 		\end{align*}
-		ein und formen obige Gleichung um zu
+		ein.
+		Damit k"onnen wir obige Gleichung etwas vereinfacht darstellen mit
 		\begin{align*}
-			\Gamma\left(\frac{s}{2}\right)\pi^{-s/2}\zeta(s) 
-				= \frac{1}{2}\int_{0}^{\infty}(\Theta(x)-1)x^{s/2} \frac{\dx}{x}.
+			\Xi(s) 
+				= \frac{1}{2}\int_{0}^{\infty}(\Theta(t)-1)t^{s/2} \frac{\dx[t]}{t}.
 		\end{align*}
 		%\begin{align*}
 				%\Gamma(\frac{s}{2}) \pi^{-\frac{s}{2}} \zeta(s)
@@ -95,50 +96,56 @@
 					%&= \sum_{n=1}^{\infty}  \int_{0}^{\infty} t^{s/2} e^{-\pi n^2 t} \frac{\dx[t]}{t}
 					%= \frac{1}{2} \int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} \\
 		%\end{align*}
-		Nun k"onnen wir das Integral aufteilen in
-		\begin{align*}
-			\int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} = \int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t}
-		\end{align*}
-		und erhalten mit der Substitution $t \mapsto 1/t$ im ersten Summanden
-		\begin{align*}
-			\int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} 
-				&= \int_{0}^{1} \Theta(t) t^{s/2}  \frac{\dx[t]}{t} - \frac{2}{s}.
-		\end{align*}
-		Als n"achstes ben"otigen wir die \emph{Theta-Transformationsformel}
-		\begin{align*}
-			\Theta(t) = t^{-1/2} \Theta(1/t).
-		\end{align*}
-		Um deren G"ultigkeit einzusehen ben"otigen wir zweierlei: 
+		Teilen wir nun das Integral auf in
+		\begin{align}
+			\int_{0}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} = \int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t}.\label{eq:einleitung:riemann1}
+		\end{align}
+		%Wir m"ochten nun
+		%und erhalten mit der Substitution $t \mapsto 1/t$ im ersten Summanden
+		%\begin{align*}
+			%\int_{0}^{1} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} 
+				%&= \int_{0}^{1} \Theta(t) t^{s/2}  \frac{\dx[t]}{t} - \frac{2}{s}.
+		%\end{align*}
+		Wie ben"otigen nun die \emph{Theta-Transformationsformel}
+		\begin{align}
+			\Theta(t) = t^{-1/2} \Theta(1/t).\label{eq:einleitung:thetatrafo}
+		\end{align}
+		Um deren G"ultigkeit einzusehen ben"otigen man Zweierlei: 
 		Zuerst erinnern wir uns an die \emph{klassische Fouriertransformation} $\hat{f}:\R\to\Komplex$ einer $L^1$-Funktion $f:\R\to\Komplex$ definiert durch
 		\begin{align*}
 			\hat{f}(\xi) = \int_\R f(x)e^{-2\pi i x \xi} \dx.
 		\end{align*}
 		Mit dieser Abbildung haben wir folgenden
-		\begin{satz}
+		\begin{satz}[Klassische Poisson-Summenformel]
 			\label{satz:poisson}
 			F"ur jedes geeignete $f:\R \to \Komplex$ und deren Fouriertransformation $\hat{f}:\R \to \Komplex$ gilt:
 			\begin{align}
-				\sum_{a \in \Z} f(a) = \sum_{a \in \Z} \hat{f}(a)
+				\sum_{a \in \Z} f(a) = \sum_{a \in \Z} \hat{f}(a) \label{eq:einleitung:poisson}
 			\end{align}
 		\end{satz}
 		\begin{proof}
 			In dieser klassischen Form zum Beispiel in Deitmar \cite{deitmar2010} Proposition 5.4.10.
 		\end{proof}
 		Als Zweites halten wir fest, dass die \emph{Fouriertransformierte} von $f_t(x) = e^{-\pi t x^2}$ gleich $\hat{f}_t(x)= t^{-1/2}f_{\frac{1}{t}}(x)$ ist.
-		Beide Aussagen kombiniert ergeben die Transformationsformel.
-		Mit dieser haben wir nun
+		Einsetzen in die Poisson-Summenformel \eqref{eq:einleitung:poisson} ergibt dann die Transformationsformel \eqref{eq:einleitung:thetatrafo}.
+		Mit dieser kann man nun den ersten Summanden in Gleichung \eqref{eq:einleitung:riemann1} umformen zu
 		\begin{align*}		
-			\int_{1}^{\infty} \Theta(1/t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
-				&= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}
-				= \int_{1}^{\infty} t^{1/2} \Theta(t) t^{-s/2}  \frac{\dx[t]}{t} - \frac{2}{s}\\
+			\int_{0}^{1} \left(t^{-1/2}\Theta(1/t)-1\right) t^{s/2}  \frac{\dx[t]}{t} 
+				= \int_{0}^{1}\Theta(1/t) t^{(s-1)/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+		\end{align*}
+		Anschließend nutzen wir die Substitution $t \mapsto t^{-1}$ und rechnen
+		\begin{align*}
+			\int_{0}^{1}\Theta(1/t) t^{(s-1)/2}  \frac{\dx[t]}{t} - \frac{2}{s}
+				&= \int_{1}^{\infty} \Theta(t) t^{(1-s)/2}  \frac{\dx[t]}{t} - \frac{2}{s}\\
+				%&= \int_{1}^{\infty}  (\Theta(t) - 1) t^{(1-s)/2} + t^{(1-s)/2}  \frac{\dx[t]}{t} - \frac{2}{s}\\
 				&= \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} - \frac{2}{s} - \frac{2}{1-s}.
 		\end{align*}
-		Kombinieren wir beides, so erhalten wir
+		Einsetzen in Gleichung von $\Xi(s)$ ergibt dann
 		\begin{align*}
-			\Gamma(\frac{s}{2}) \pi^{-\frac{s}{2}} \zeta(s)
+			\Xi(s)
 				= \frac{1}{2} \left( \int_{1}^{\infty} (\Theta(t) - 1) t^{s/2}  \frac{\dx[t]}{t} + \int_{1}^{\infty} (\Theta(t) - 1) t^{(1-s)/2}  \frac{\dx[t]}{t} \right)  - \frac{1}{s} - \frac{1}{1-s}
 		\end{align*}
-		und sehen, dass dieser Ausdruck unver"andert bleibt wenn wir $s$ in $1-s$ verwandeln.
+		und wir sehen, dass dieser Ausdruck unver"andert bleibt wenn wir $s$ in $1-s$ verwandeln.
 	\end{proof}
 
 \subsection{Auf dem Weg zu Tate}
@@ -147,14 +154,14 @@
 	Auftritt John Tate.
 	
 	Tate kommt aus einer langen Linie von Mathematikern deren Arbeit mehr oder weniger direkt durch Riemanns Ideen in  \emph{Ueber die Anzahl\dots} beeinflusst wurde.
-	Unter der Aufsicht Emil Artins verfasste er 1950, fast 100 Jahre nach Riemann, seine Doktorarbeit \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{}\cite{tate}.
+	Unter der Aufsicht Emil Artins verfasste er 1950, fast 100 Jahre nach Riemann, seine Doktorarbeit \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{}\cite{tate}. Sie ist zum Beispiel in \cite{cassels1967algebraic} zu finden.
 	In ihr bewies er die analytische Fortsetzung und Funktionalgleichung der Dedekind Zeta-Funktionen und Hecke L-Funktionen, eine Art Verallgemeinerung der Riemannschen Zeta-Funktion.
 	Dieses Ergebnis war keineswegs neu und wurde 30 Jahre fr"uher bereits durch Erich Hecke gezeigt.
 	Was Tates Doktorarbeit jedoch so besonders macht - und einer der Gr"unde daf"ur warum sie als  \glqq Tate's Thesis\grqq{} gewissen Kultstatus erreicht hat - ist die elegante Herangehensweise an Heckes Problemstellung in der globalen Sprache der \emph{Adele und Idele}.
 	Sogar noch verbl"uffender: Ist Tates theoretischer Rahmen erstmal etabliert, so stimmen die einzelnen Beweisschritte gr"oßtenteils mit Riemanns klassischen zweiten Beweis überein.
 	Es ergibt sich aber ein viel klareres Bild über das Zustandekommen der einzelnen Bestandteile der Funktionalgleichung.
 	
-	Ziel dieser Arbeit wird es nun sein Tates Doktorarbeit in seiner einfachsten Form, d.h. im Fall des algebraischen K"orper $\Q$, Revue passieren zu lassen um nun die zentrale Frage
+	Ziel dieser Arbeit wird es nun sein Tates Doktorarbeit in ihrer einfachsten Form, d.h. im Fall des algebraischen K"orper $\Q$, Revue passieren zu lassen um nun die zentrale Frage
 	\begin{quote}
 		%\begin{flushright}
 		\centering

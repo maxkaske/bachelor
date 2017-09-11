@@ -26,8 +26,7 @@
 		\end{enumerate}
 		erfüllt. Anderenfalls sagen wir der Absolutbetrag ist \emph{archimedisch}.
 	\end{defi}
-	Im Vergleich zur normalen Dreiecksungleichung sagt uns die verschärfte Dreiecksungleichung, dass jedes Dreieck bez"uglich eines nicht-archimedischen Absolutbetrags gleichschenklig ist.
-	\begin{bsp}
+	\begin{bsp}~
 		\begin{enumerate}[label=(\alph*)]
 			\item Auf jedem beliebigen K"orper $\mathbb{L}$ ist der\emph{triviale Absolutbetrag}
 				\begin{align*}
@@ -45,12 +44,14 @@
 	Halten wir einige Eigenschaften von Absolutbeträgen in einem Lemma fest.
 	\begin{lemma}
 		Für beliebige Absolutbeträge $\abs$ auf $\mathbb{K}$ und Elemente $x\in \mathbb{K}$ gilt:
-		\begin{enumerate}[label=\emph{(\roman*)},leftmargin=1.5cm]
-			\item $\abs[1] = 1$
-			\item $\abs[-1] = 1$
-			\item Falls $\abs[x^n]=1$, dann $\abs[x]=1$
-			\item $\abs[-x]$ = $\abs[x]$ 
-		\end{enumerate}
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\emph{(\roman*)},leftmargin=1.5cm]
+				\item $\abs[1] = 1$
+				\item $\abs[-1] = 1$
+				\item Falls $\abs[x^n]=1$, dann $\abs[x]=1$
+				\item $\abs[-x]$ = $\abs[x]$ 
+			\end{enumerate}
+		\end{multicols}
 	\end{lemma}
 	\begin{proof}
 		(i) folgt direkt aus $\abs[1] = \abs[1\cdot 1] = \abs[1]\cdot\abs[1]$ und $\abs[1]\not=0$.
@@ -107,13 +108,19 @@
 		Ist dagegen $k=k'$, so hat der Z"ahler die Form $mn' + nm'$ und ist nicht unbedingt teilerfremd zu $p$. 
 		Wir erhalten dann $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$.
 	\end{proof}
+	\begin{korollar}
+		Jedes Dreieck ist bez"uglich des $p$-adischen Absolutbetrags gleichschenklig.
+	\end{korollar}
+	\begin{proof}
+		Der Beweis des Lemmas zeigt, dass Gleichheit der versch"arften Dreiecksungleichung eintrifft, wenn $\abs[x]_p \not= \abs[y]_p$.
+	\end{proof}
 	
 	Somit haben wir neben den archimedischen trivialen Absolutbetrag und $\abs_\infty$ auch unendlich viele nicht-archimedische Betr"age $\abs_p$ gefunden.
 	Es stellt sich nun die Frage: Gibt es mehr?
 	Jein!
 	Fixieren wir einen beliebigen Absolutbetrag $\abs$, so ist auch $\abs^\alpha$ f"ur jede reelle Zahl $\alpha>0$ ein weiterer Absolutbetrag.
 	Wir nennen solche Betr"age \emph{"aquivalent} und zeigen, dass wir auf $\Q$ bereits alle "Aquivalenzklassen von Betr"agen gefunden haben.
-	\begin{satz}[Ostrowski]
+	\begin{satz}[Ostrowski]\label{satz:padisch:ostrowski}
 	\label{satz:ostrowksi}
 		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist äquivalent zu einem der Absolutbeträge $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
 	\end{satz}
@@ -157,7 +164,7 @@
 	\end{proof}
 	
 	Gehen wir nun wieder $\mathbb{K}=\Q$ "uber.
-	Es ist bereits bekannt, dass $\Q$  bez"uglich der durch $\abs_infty$ induzierten Metrik nicht vollständig ist. 
+	Es ist bereits bekannt, dass $\Q$  bez"uglich der durch $\abs_\infty$ induzierten Metrik nicht vollständig ist. 
 	Für $p<\infty$ haben wir folgendes
 	\begin{lemma}
 		Der metrische Raum $(\K, d_p)$ ist nicht vollständig. 
@@ -208,11 +215,19 @@
 		Die Grundidee der Konstruktion ist mit der Menge aller Cauchy-Folgen in $\Q$ zu beginnen.
 		Diese wird zu einem Ring wenn wir Addition und Multiplikation gliedweise definieren.
 		Anschließend teilen wir alle Nullfolgen raus, d.h. zwei Cauchy-Folgen sind genau dann "aquivalent, wenn sie sich um eine Nullfolge unterscheiden.
-		Zu guter letzt l"asst sich $\Q$ einbetten als die Menge aller konstanten Folgen.
+		Zu guter Letzt l"asst sich $\Q$ einbetten als die Menge aller konstanten Folgen.
 		Von diesem Raum kann gezeigt werden, dass jede Cauchy-Folge (also eine Cauchy-Folge von Cauchy-Folgen auf $\Q$) konvergiert.
 		
 		F"ur die genaue Konstruktion und den Beweis der Eindeutigkeit, siehe zum Beispiel Gouvea \cite{gouv} Theorem 3.2.13. 
 	\end{proof}
+	\begin{lemma}
+		Das Bild von $\Q_p$ unter $\abs_p$ ist gleich $p^\Z$.
+	\end{lemma}
+	\begin{proof}
+		Auch hier verweisen wir auf Gouvea \cite{gouv} und zwar Lemma 3.3.1. 
+		Die Grundidee ist zu zeigen, dass f"ur jede Cauchy-Folge $(x_n)$ in $\Q$ die Folge der Betr"age $(\abs[x_n]_p)$ gegen 0 konvergiert oder irgendwann konstant wird.
+	\end{proof}
+	
 
 \subsection{Topologische Eigenheiten}
 	Wir haben zwei Gruppenstrukturen auf $\Kp$, n"amlich die additive Gruppe $\Kpp = (\K_p, +, 0)$ und die multiplikative Gruppe $\Kpx = (\K_p\setminus\{0\}, \cdot, 1)$.
@@ -340,7 +355,7 @@
 		Als vollst"andige und totalbeschr"ankte Menge ist $\Zp$ somit kompakt.
 	\end{proof}
 	Damit sieht man aber auch schnell ein, dass alle Mengen der Form $a + p^k\Zp$ als stetiges Bild einer kompakter Menge wieder kompakt sind.
-	Hier muss man sich nur kurz bewusst machen, dass die Abbildung $x\mapsto p^kx$ in $\Kpp$ auch tats"achlich stetig ist.
+	Hier muss man sich nur kurz bewusst machen, dass die Abbildung $x\mapsto p^kx$ in $\Q_p^+$ auch tats"achlich stetig ist.
 	
 	Zum Ende dieses Abschnitts wenden wir uns noch einer wichtigen multiplikativen Untergruppe zu: die Gruppe der ganzzahligen Einheiten
 	\begin{align*}

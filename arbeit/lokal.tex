@@ -15,8 +15,7 @@
 	Dabei richten wir uns an einer Mischung aus Tates Doktorarbeit \cite{tate}, deren Behandlung durch Ramakrishnan und Valenza\cite{rama} und Deitmar \cite{deitmar2010}.
 	
 \subsection{Lokale K"orper}
-	
-	Halten wir zun"achst ein wichtiges Ergebnis des letzten Kapitels fest.
+	Halten wir zun"achst ein wichtiges Resultat des letzten Kapitels fest.
 	\begin{satz}
 		F"ur alle Stellen $p\leq \infty$ haben wir:
 		\begin{enumerate}[label=\emph{(\roman*)}]
@@ -133,11 +132,7 @@
 %fouriertransformation: done
 %schwartz-bruhat und deren form: done
 %fourierumkehrformel: done
-		Im Kapitel "uber topologische Gruppen haben wir bereits einen Ausblick auf die abstrakte Fourieranalysis gegeben.
-		Wir werden nun unseren eigenen, naiveren Ansatz auf den lokalen K"orpern $\Kp$ verfolgen, wobei im unendlichen Fall die klassischen Theorie fast direkt "ubernommen werden kann.
-		Wie versprochen werden wir auch eine Br"ucke zur abstrakten harmonischen Analysis schlagen, so dass sich die hier behandelten Konzepte leicht auch auf den allgemeineren Fall "ubertragen lassen.
-		
-		Fassen wir die Normierungen des letzten Abschnitts in einer Definition zusammen.
+		Fassen wir zun"achst die Normierungen des letzten Abschnitts in einer Definition zusammen.
 		\begin{defi}
 			Das \emph{normalisierte additive Haar-Maß} $\dxp$ auf $\Kpp$ ist definiert durch
 			\begin{itemize}
@@ -145,50 +140,19 @@
 				\item $\dxp$ so normiert, dass $\Vol(\Zp, \dxp) = 1$ f"ur $p<\infty$.
 			\end{itemize}
 			Das \emph{normalisierte multiplikative Haar-Maß} $\dxxp$ auf $\Kpx$ ist definiert durch
+			%\begin{align*}
+				%\dxxinfty = \frac{\dxinfty}{\abs[x]_\infty} \qquad \text{und} \qquad \dxxp =  \frac{p}{p-1} \cdot \frac{\dxp}{\abs[x]_p} \text{ f"ur } p<\infty
+			%\end{align*}
 			\begin{itemize}
-				\item $\dxxinfty = \frac{\dxp}{\abs[x]_\infty}$ .
+				\item $\dxxinfty = \frac{\dxinfty}{\abs[x]_\infty}$ .
 				\item $\dxxp =  \frac{p}{p-1} \cdot \frac{\dxp}{\abs[x]_p}$ f"ur $p<\infty$.
 			\end{itemize}
 		\end{defi}
 		
-		Wir beginnen nun damit eine Klasse von Funktionen zu definieren, die besonders gutes Konvergenzverhalten bei der Integration aufweist.
-		F"ur die unendliche Stelle $p=\infty$ definieren wir eine \emph{lokale Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
-		\begin{align*}
-			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{\dxp^m}f(x)] < \infty
-		\end{align*}
-		erf"ullt. 
-		Das entspricht der Definition der klassischen Schwartz-Funktion.
-		F"ur die endlichen Stellen $p<\infty$ definieren wir eine lokale Schwartz-Bruhat Funktion als eine lokal konstante Funktion mit kompakten Tr"ager.
-		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
-		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
-		F"ur $p=\infty$ gilt nach der Definition $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\Kinf)$
-		
-		\begin{bsp}~ 
-			\begin{enumerate}[label=(\alph*)]
-				\item Im Fall $p=\infty$ ist die Funktion $f_k(x) = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. 
-				Die Ableitungen $\frac{d^m}{\dxp^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
-				Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschr"ankt ist.
-				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen wie $a+p^k\Zp$ mit $a\in \K$ und $k\in \Z$ in $\Sw(\Kp)$. 
-			\end{enumerate}
-		\end{bsp}
-		
-		\begin{lemma}\label{lemma:padischSBF}
-			F"ur jede endliche Stelle $p<\infty$ sind die lokalen Schwartz-Bruhat Funktion $f\in \Sw(\Kp)$ endliche Linearkombinationen von charakteristischen Funktionen der Mengen ${a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$.
-		\end{lemma}
-		\begin{proof}
-			F"ur jedes lokal konstante $f$ und jedes $z\in\Komplex$ ist das Urbild $f^{-1}(z)$ offen in $\Kp$, darunter auch $f^{-1}(0)$. 
-			Folglich ist $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher schon $\text{supp}(f) = \Kp \setminus f^{-1}(0)$. 
-			Per Definition hat die Schwartz-Bruhat Funktion $f$ kompakten Tr"ager, also ist $\Kp \setminus f^{-1}(0)$ kompakt. 
-			Diese Menge wird durch die offenen Mengen $f^{-1} (z)$ mit $z\not= 0$ "uberdeckt, wovon nach Kompaktheit schon endlich viele reichen.
-			$f$ hat somit endliches Bild. 
-			Weiter ist jede offene Menge $f^{-1} (z)$ eine Vereinigung offener B"allen in $\Kp$. 
-			Diese haben aber genau die oben beschriebene Form $a+p^k\Zp$ . 
-			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle und es folgt auch schon das Lemma.
-		\end{proof}
-		
-		
-		Bevor wir nun die Fouriertransformation definieren, schauen wir uns im Sinne der harmonischen Analysis die Charaktere auf $\Kpp$ an.
-		Wir beginnen mit der Definition eines nicht-trivialen Charakters $e_p$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
+		Im Kapitel "uber topologische Gruppen haben wir bereits einen Ausblick auf die abstrakte Fourieranalysis gegeben.
+		Wir werden nun unseren eigenen, naiveren Ansatz auf den lokalen K"orpern $\Kp$ verfolgen, wobei im unendlichen Fall die klassischen Theorie fast direkt "ubernommen werden kann.
+		Wie versprochen bauen wir eine Br"ucke zur abstrakten harmonischen Analysis und schauen uns im Sinne der harmonischen Analysis die Charaktere auf $\Kpp$ an.
+		Dazu beginnen mit der Definition eines nicht-trivialen Charakters $e_p$ und zeigen anschließend, dass wir jeden beliebigen Charakter $\psi \in \widehat{\K}_p^+$ durch $e_p$ darstellen k"onnen.
 		\begin{defi}
 			Wir definieren den \emph{Standardcharakter} $e_p:\Kpp \to S^1$ wie folgt:
 			\begin{itemize}%[itemindent=3em]
@@ -204,11 +168,11 @@
 				\end{align*}
 			\end{itemize}
 		\end{defi}
-		$e_\infty$ ist offensichtlich trivial auf den ganzen Zahlen $\Z$.
+		Der Charakter $e_\infty$ ist offensichtlich trivial auf den ganzen Zahlen $\Z$.
 		Analog dazu ist im Endlichen $e_p$ konstant auf den $p$-adischen ganzen Zahlen $\Zp$.
 		Das hat aber zur Folge, dass der Standardcharakter f"ur $p<\infty$ lokal konstant ist, denn f"ur jedes $a \in \Kp$ ist $a+\Zp$ eine offene Umgebung auf der $e_p$ nur den Wert $e_p(a)$ annimmt.
 		
-		Sei nun $\psi$ ein beliebiger weiterer Charakter auf $\Kpp$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
+		Sei nun $\psi$ ein beliebiger Charakter auf $\Kpp$, $p<\infty$ und $U$ eine offene Umgebung der $1 \in S^1$, die nur die triviale Untergruppe $1$ enth"alt. 
 		Aufgrund der Stetigkeit von $\psi$ gibt es dann eine offene Umgebung $V$ der $0\in\Kpp$ mit $\psi(V)\subseteq U$. 
 		Ohne Einschr"ankung ist $V$ eine offene Untergruppe der Form $p^k\Zp$ f"ur ein $k\in\Z$. 
 		Dann ist aber $\psi(V)$ eine Untergruppe von $S^1$ und somit gleich $1$.
@@ -284,7 +248,7 @@
 			Die im vorherigen Beweis definierte Folge konvergiert demnach genau gegen einen Wert aus $\Zp$.
 		\end{proof}
 		
-		Die Standardcharaktere induzieren gewissermaßen einen Isomorphismus zwischen der additiven Gruppe $\Kpp$ und deren Dualgruppe $\widehat{\Kpp}$. 
+		Die Standardcharaktere induzieren gewissermaßen einen Isomorphismus zwischen der additiven Gruppe $\Kpp$ und deren Dualgruppe $\hat{\K}_p^+$. 
 		Wir k"onnen also guten Gewissens die Fouriertransformation als eine Funktion auf $\Kpp$ zu definieren.
 		\begin{defi}[Lokale Fouriertransformation]
 			Sei $f\in L^1(\Kp)$. 
@@ -294,8 +258,8 @@
 			\end{align*}
 			f"ur alle $\xi \in \Kp$.
 		\end{defi}
-		Diese Definition entspricht im Fall $p=\infty$ der klassischen Fouriertransformation (bis auf eventuelle Normierung und komplexen Konjugation des Charakters).
-		Von daher m"ochten wir auch einige klassische Ergebnisse f"ur unsere neue Definition beweisen.
+		Diese Definition entspricht im Fall $p=\infty$ der klassischen Fouriertransformation.
+		Von daher m"ochten wir auch einige klassische Ergebnisse auf die $p$-adischen Zahlen "ubertragen.
 		\begin{lemma}
 			Sei $f \in L^1(\Kp)$.
 			\begin{enumerate}[label=\emph{(\roman*)}]
@@ -313,6 +277,44 @@
 					= \frac{1}{\abs[\lambda]_p} \hat{f}\left(\frac{\xi}{\lambda}\right)
 			\end{align*}
 		\end{proof}
+		
+		
+		F"ur die unendliche Stelle $p=\infty$ definieren wir nun eine \emph{lokale Schwartz-Bruhat Funktion} als eine komplexwertige, glatte Funktion $f:\Kinf \to \Komplex$, die f"ur alle nicht-negativen ganzen Zahlen $n$ und $m$ die Bedingung
+		\begin{align*}
+			\sup_{x\in \K_\infty}\abs[x^n\frac{d^m}{\dxp^m}f(x)] < \infty
+		\end{align*}
+		erf"ullt. 
+		Das entspricht der Definition der klassischen Schwartz Funktion.
+		F"ur die endlichen Stellen $p<\infty$ definieren wir eine lokale Schwartz-Bruhat Funktion als eine lokal konstante Funktion mit kompakten Tr"ager.
+		Die Menge aller solcher Funktionen bilden einen komplexen Vektorraum, den wir mit $\Sw(\K_p)$ bezeichnen. 
+		Im Fall $p<\infty$ erkennt man leicht, dass $\Sw(\Kp)\subseteq L^1(\Kp)$. 
+		F"ur $p=\infty$ gilt nach der Definition $(\abs[1]+\abs[x^2])\abs[f(x)] \leq C$, also $\abs[f(x)]\leq C(1+x^2)^{-1}$ und $(1+x^2)^{-1} \in L^1(\Kinf)$.
+		
+		\begin{bsp}~ 
+			\begin{enumerate}[label=(\alph*)]
+				\item Im Fall $p=\infty$ ist die Funktion $f_k(x) = x^k e^{-x^2}$ f"ur jedes $k\in\N_0$ in $\Sw(\K_\infty)$. 
+				Die Ableitungen $\frac{d^m}{\dxp^m} f_k(x)$ sind von der Form $p(x)e^{-x^2}$, wobei $p(x)$ ein Polynom ist. 
+				Aus der Analysis ist dann bekannt, dass $\abs[x^n p(x)e^{-x^2}]$ f"ur jedes $n\in \N_0$ beschr"ankt ist.
+				\item Im Fall $p<\infty$ sind offensichtlich die charakteristischen Funktionen kompakter Mengen wie $a+p^k\Zp$ mit $a\in \K$ und $k\in \Z$ in $\Sw(\Kp)$. 
+			\end{enumerate}
+		\end{bsp}
+		
+		\begin{lemma}\label{lemma:padischSBF}
+			F"ur jede endliche Stelle $p<\infty$ sind die lokalen Schwartz-Bruhat Funktion $f\in \Sw(\Kp)$ endliche Linearkombinationen von charakteristischen Funktionen der Mengen ${a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$.
+		\end{lemma}
+		\begin{proof}
+			F"ur jedes lokal konstante $f$ und jedes $z\in\Komplex$ ist das Urbild $f^{-1}(z)$ offen in $\Kp$, darunter auch $f^{-1}(0)$. 
+			Folglich ist $\Kp \setminus f^{-1}(0)$ abgeschlossen und daher schon $\text{supp}(f) = \Kp \setminus f^{-1}(0)$. 
+			Per Definition hat die Schwartz-Bruhat Funktion $f$ kompakten Tr"ager, also ist $\Kp \setminus f^{-1}(0)$ kompakt. 
+			Diese Menge wird durch die offenen Mengen $f^{-1} (z)$ mit $z\not= 0$ "uberdeckt, wovon nach Kompaktheit schon endlich viele reichen.
+			$f$ hat somit endliches Bild. 
+			Weiter ist jede offene Menge $f^{-1} (z)$ eine Vereinigung offener B"allen in $\Kp$. 
+			Diese haben aber genau die oben beschriebene Form $a+p^k\Zp$ . 
+			Aufgrund der Kompaktheit, reichen wieder endliche viele solcher B"alle und es folgt auch schon das Lemma.
+		\end{proof}
+		
+		
+		
 		Beschr"anken wir uns jetzt auf die Fouriertransformation von lokalen Schwartz-Bruhat Funktionen.
 		Aus der klassischen Fourieranalysis auf $\R$ ist bekannt, dass f"ur jede Schwartz Funktion $f$ deren Fouriertransformierte $\hat{f}$ wieder eine Schwartz Funktion ist.
 		Man kann dann $\hat{\hat{f}}$ betrachten und sieht, dass diese Funktion in einem engen Bezug zu $f$ steht. 
@@ -428,6 +430,19 @@
 	Er wird auch \emph{Exponent} des Charakters $\chi$ genannt.
 	
 	%Wir definieren nun das lokale Analogon zur Mellin-Transformation,dh. eine multiplikative Variante der Fourier-Transformation.
+	Erinnern wir uns zur"uck an Riemanns Beweis der Funktionalgleichung.
+	Er beginnen nicht mir der Reihendarstellung oder Produktdarstellung der Zeta-Funktion.
+	Stattdessen betrachtet Riemann mit
+	\begin{align*}
+		\Gamma(s)\zeta(s) = \int_0^\infty \frac{x^{s}}{e^x-1} \frac{\dx}{x}
+	\end{align*}
+	die Zeta-Funktion als ein Integral "uber die positiven Einheiten. 
+	Nach der Umformung
+	\begin{align*}
+		2\Gamma(s)\zeta(s) = \int_{\R^\times}\frac{1}{e^{\abs[x]_\infty}-1} \abs[x]_\infty^{s} \frac{\dx}{\abs[x]_\infty}
+	\end{align*}
+	erkennen wir, dass die Zeta-Funktion nichts weiter als ein Integral "uber die multiplikative Gruppe $\R^\times$ ist, deren Integrand das Produkt einer Schwartz-Funktion mit einem multiplikativen Charakter ist.
+	Genau das wird unsere Defintion einer lokalen Zeta-Funktion.
 	\begin{defi}%%%TODO SCHOENER DEFINIEREN
 		F"ur jede lokale Schwartz-Bruhat Funktion $f\in \Sw(\K_p)$ und multiplikativen Quasi-Charakter $\chi$ mit Exponenten $\sigma >0$ sei
 		\begin{align*}
@@ -652,23 +667,24 @@
 	\end{align*}
 	der nach der gleichen Begr"undung wie im unverzweigten Fall meromorph ist.
 \subsubsection{Der Fall \texorpdfstring{$p < \infty$}{p kleiner unendlich}}
-	Wir beginnen wieder mit dem unverzweigten Fall $\chi = \abs_p$ und definieren unsere Schwartz-Bruhat Funktion
+	Wir beginnen wieder mit dem unverzweigten Fall $\chi = \abs_p$ und betrachten die Schwartz-Bruhat Funktion
 	\begin{align*}
 		f_0(x) = \ind_{\Zp}(x).
 	\end{align*}
-	Wie auch schon im archimedischen Fall werden wir feststellen, dass $f_0$ ihre eigene Fouriertransformierte ist.
-	Wir rechnen
-	\begin{align*}
-		\hat{f}_0 (\xi) = \int_{\Kp} f_0(x) e_p(-x\xi) \dxp = \int_{\Zp} e_p(-x\xi) \dxp.
-	\end{align*}
-	Nun wissen wir, dass $\Zp$ kompakt ist und der Charakter $e_p(-x\xi)$ genau dann trivial auf $x\in\Zp$ wirkt, wenn auch $\xi \in \Zp$.
-	In diesem Fall entpricht das Integral nach Lemma \ref{Lemma:trivialerCharAufKompakt} gerade dem Volumen von $\Zp$ bez"uglich $\dxp$.
-	Ansonsten verschwindet es.
+	Wie auch schon im archimedischen Fall ist $f_0$ ihre eigene Fouriertransformierte ist.
+	Dies wurde bereits im Beweis von Satz \ref{satz:lokal:umkehrformel} gezeigt.
+	%Wir rechnen
+	%\begin{align*}
+		%\hat{f}_0 (\xi) = \int_{\Kp} f_0(x) e_p(-x\xi) \dxp = \int_{\Zp} e_p(-x\xi) \dxp.
+	%\end{align*}
+	%Nun wissen wir, dass $\Zp$ kompakt ist und der Charakter $e_p(-x\xi)$ genau dann trivial auf $x\in\Zp$ wirkt, wenn auch $\xi \in \Zp$.
+	%In diesem Fall entpricht das Integral nach Lemma \ref{Lemma:trivialerCharAufKompakt} gerade dem Volumen von $\Zp$ bez"uglich $\dxp$.
+	%Ansonsten verschwindet es.
 	Mit unserer Normierung des Haar-Maßes folgt dann
 	\begin{align*}
 		\hat{f}_0 (\xi) = \int_{\Zp} e_p(-x\xi) \dxp = \text{Vol}(\Zp, \dxp) \ind_\Zp(\xi) = \ind_\Zp (\xi) = f_0(\xi).
 	\end{align*}
-	F"ur die Berechnungen der Zeta-Funktionen erinnern wir uns an die Beobachtung $\Zp\setminus\{0\} = \bigcup_{k=0}^\infty p^k\Zpx$ als disjunkte Vereinigung.
+	F"ur die Berechnungen der Zeta-Funktionen nutzen wir die disjunkte Vereinigung $\Zp\setminus\{0\} = \bigcup_{k=0}^\infty p^k\Zpx$.
 	\begin{align*}
 		Z_p(f_0, \chi) 	&= Z_p(f_0, \abs_p^s) 
 						= \int_{\Kpx} f_0(x) \abs[x]_p^s \dxxp 
@@ -687,17 +703,18 @@
 	\begin{equation*}
 		\gamma(\abs_p^s, e_p, \dxp) = \frac{1-p^{-s}}{1-p^{s-1}}
 	\end{equation*}
-	und ist insbesondere somit holomorph im betrachteten Streifen.
+	und ist insbesondere somit holomorph im betrachteten Streifen $0< \sigma < 1$.
 	
 	Nun kommen wir zum verzweigten Fall $\chi = \mu \abs_p^s$.
 	Bevor wir allerdings mit den eigentliche Berechnungen anfangen, schauen wir uns den unit"aren Charakter $\mu:\Zpx\to S^1$ etwas genauer an.
+	
 	W"ahlen wir eine offene Umgebung $U$ der $1 \in S^{1}$, die nur die triviale Untergruppe enth"alt, so finden wir aufgrund der Stetigkeit von $\mu$ eine offene Umgebung $V$ der $1 \in \Zpx$ mit $\mu(V)\subseteq U$.
 	Diese enthalten aber stets eine Untergruppe der Form $1+p^n\Zp$.
 	Da $\mu$ aber ein Gruppenhomomorphismus ist, muss diese Untergruppe bereits auf $1$ abgebildet werden.
 	Es gibt also f"ur jeden Charakter $\chi = \mu \abs_p^s$ ein kleinstes $n\in\N$ mit $\mu(1+p^{n}\Zp) = 1$.
-	Wir nennen dann $p^n$ den \emph{Konduktor von $\chi$}.
-	Analog l"asst sich auch der Konduktor eines additiven Charakters definieren.
-	Mit Hilfe des Konduktors $p^n$ definieren wir nun die Schwartz-Bruhat Funktion
+	Wir nennen dann $p^n$ den \emph{Konduktor des multiplikativen Charakters $\chi$}..
+	
+	Abh"angig vom Konduktor $p^n$ von $\chi$ definieren wir nun die Schwartz-Bruhat Funktion
 	\begin{align*}
 		f_n(x) = e_p(x)\ind_{p^{-n}\Zp}(x).
 	\end{align*}
@@ -706,7 +723,7 @@
 		\hat{f}_n(\xi) 	= \int_{\Kp} f_n(x) e_p(-x\xi)\dxp 
 						= \int_{p^{-n}\Zp} e_p\left(x(1-\xi)\right)\dxp
 	\end{align*}
-	Der Charakter $\psi(x) = e_p(x(1-\xi))$ wirkt genau dann trivial auf $p^{-n}\Zp$, wenn $1-\xi \in p^n\Zp$, oder "aquivalent $\xi \in 1+p^n\Zp$.
+	Der additive Charakter $\psi(x) = e_p(x(1-\xi))$ wirkt genau dann trivial auf $p^{-n}\Zp$, wenn $1-\xi \in p^n\Zp$, oder "aquivalent $\xi \in 1+p^n\Zp$.
 	Es folgt 
 	\begin{align*}
 		\hat{f}_n(\xi) 	= \text{Vol}(p^{-n}\Zp, \dxp) \ind_{1+p^n\Zp}(\xi) =p^n \ind_{1+p^n\Zp}(\xi).
@@ -714,14 +731,14 @@
 	Weiter zur Zeta-Funktion:
 	\begin{align*}
 		Z_p(f_n, \chi) &= Z_p(f_n, \mu\abs_p^s) 	
-											= \int_{\Kpx} f_n(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
-											= \int_{p^{-n}\Zp\setminus\{0\}} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
-											\\&= \sum_{k=-n}^\infty  \int_{p^k\Zpx} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
-											= \sum_{k=-n}^\infty  \int_{\Zpx} e_p(p^k x) \mu(\widetilde{p^k x}) \abs[p^kx]_p^s \dxxp
-											\\&= \sum_{k=-n}^\infty p^{-ks} \int_{\Zpx} e_p(p^k x) \mu(x) \dxxp.
+			= \int_{\Kpx} f_n(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+			= \int_{p^{-n}\Zp\setminus\{0\}} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+			\\&= \sum_{k=-n}^\infty  \int_{p^k\Zpx} e_p(x) \mu(\tilde{x}) \abs[x]_p^s \dxxp
+			= \sum_{k=-n}^\infty  \int_{\Zpx} e_p(p^k x) \mu(\widetilde{p^k x}) \abs[p^kx]_p^s \dxxp
+			\\&= \sum_{k=-n}^\infty p^{-ks} \int_{\Zpx} e_p(p^k x) \mu(x) \dxxp.
 	\end{align*}
-	Ein Integral der Form $g(\omega, \lambda) = \int_{\Zpx} \omega(x)\lambda(x) \dxxp$ mit multiplikativen Charakter $\omega: \Zpx \to S^1$ und additiven Charakter $\lambda: \Zp \to S^1$ wird \emph{Gauß-Summe} genannt.
-	Mit $e_{p,k} (x) = e_p(p^kx)$ haben wir dann
+	Ein Integral der Form $g(\omega, \lambda) = \int_{\Zpx} \omega(x)\lambda(x) \dxxp$ mit multiplikativen Charakter $\omega: \Zpx \to S^1$ und additiven Charakter $\lambda: \Zp \to S^1$ wird \emph{Gauß-Summe}\footnote{Nicht zu verwechseln mit der Gaußschen Summenformel} genannt.
+	Mit $e_{p,k} (x) \coloneqq e_p(p^kx)$ schreiben wir die Zeta-Funktion als
 	\begin{align}\label{eq:ZetaSumme}
 		Z_p(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}).
 	\end{align}
@@ -739,27 +756,27 @@
 				\end{align*}
 			\item Wenn $n<r$, dann 
 				\begin{align*}
-					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dxp)\left[\Vol(U_n, \dxp) - p^{-1}\Vol(U_{r-1}\dxp)\right]
+					\abs[g(\omega,\lambda)]^2 = c \Vol(\Zp, \dxp)\left[\Vol(U_n, \dxp) - p^{-1}\Vol(U_{r-1},\dxp)\right]
 				\end{align*}
 		\end{enumerate}
 	\end{lemma}
 	%Wir werden Aussage (iii) hier nicht brauchen und verweisen daher f"ur den Beweis auf Ramakrishnan \cite{rama} Lemma 7-4.
 	\begin{proof}
-		Eine Kleinigkeiten vorneweg: $r$ und $n$ sind nicht-negative ganze Zahlen, da wir nur Charaktere auf $\Zp$ bzw. $\Zpx$ betrachten.
-		F"ur (i) zerlegen wir $\Zpx$ in Nebenklassen, die von $U_r=1+p^r\Zp$ erzeugt werden.
-		Diese haben mit $R=\{x \in \{ 1,\dots,p^{r}-1\}: x \not\equiv 0 \pmod{p}\}$ ein endliches Repräsentantensystem.
+		Eine Kleinigkeit vorneweg: $r$ und $n$ sind nicht-negative ganze Zahlen, da wir nur Charaktere auf $\Zp$ bzw. $\Zpx$ betrachten.
+		
+		F"ur (i) zerlegen wir $\Zpx$ in Nebenklassen, die von der Untergruppe $U_r=1+p^r\Zp$ erzeugt werden.
+		Diese haben mit $R=\{x \in \{ 1,\dots,p^{r}-1\}: x \not\equiv 0 \bmod{p}\}$ ein endliches Repräsentantensystem.
 		F"ur ein $a \in R$ k"onnen wir die zugeh"orige Nebenklassen schreiben als $aU_r$.
-		Insbesondere haben deren Elemente die Form $a(1+p^rb)$. 
-		Wir erhalten $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
+		Deren Elemente haben die Form $a(1+p^rb)$ und man folgert $\lambda(a(1+p^rb)) = \lambda(a)\lambda(p^rab) = \lambda(a)$ nach der Definition des Konduktors.
 		Daher
 		\begin{align*}
 			g(\omega,\lambda) = \sum_{aU_r}  \int_{aU_r} \omega(x)\lambda(x) \dxxp = \sum_{aU_r} \omega(a)\lambda(a) \int_{U_r} \omega(x)\dxp.
 		\end{align*}
 		Da aber $n>r$ wirkt $\omega$ nicht trivial auf $U_r$ und somit verschwindet das Integral.
 		
-		Weiter zur Aussage (ii) und (iii): Sei also $n\leq r$. Wir rechnen
+		Weiter zu (ii) und (iii): Sei also $n\leq r$. Wir rechnen
 		\begin{align*}
-			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)\lambda(x)\dxxp \cdot \conj{\int_{\Zpx} \omega(x)\lambda(x)\dxxp}\\
+			\abs[g(\omega,\lambda)]^2 	&= \int_{\Zpx} \omega(x)\lambda(x)\dxxp \cdot \conj{\int_{\Zpx} \omega(y)\lambda(y)\dxxp[y]}\\
 										&= \int_{\Zpx} \int_{\Zpx} \omega(xy^{-1})\lambda(x-y) \dxxp\dxxp[y]\\
 										&= \int_{\Zpx} \omega(x)h(x)\dxxp
 		\end{align*}
@@ -769,9 +786,9 @@
 		\end{align*}
 		eingef"uhrt haben. Wegen $\Zpx = \Zp - p\Zp$ k"onnen wir das Integral weiter aufspalten.
 		\begin{align*}
-			h(x) =  c \int_{\Zp - p\Zp} \lambda(y(x-1))\dxp[y] = c \int_{\Zp} \lambda(y(x-1))\dxp[y] - c \int_{p\Zp} \lambda(y(x-1))\dxp[y].
+			h(x) =  c \int_{\Zp - p\Zp} \lambda(y(x-1)\dxp[y] = c \int_{\Zp} \lambda(y(x-1))\dxp[y] - c \int_{p\Zp} \lambda(y(x-1))\dxp[y].
 		\end{align*}
-		Nun haben wir wieder den Fall von Lemma \ref{Lemma:trivialerCharAufKompakt}. 
+		Nun haben wir den Fall von Lemma \ref{Lemma:trivialerCharAufKompakt}. 
 		$y\mapsto \lambda(y(x-1))$ ist trivial auf $\Zp$ genau dann wenn $x-1 \in p^r\Zp$, d.h. wenn $x \in U_r$.
 		"Ahnlich verh"alt es sich mit $y\mapsto \lambda(y(x-1))$ auf $p\Zp$, wobei dieser genau dann trivial ist, wenn $x\in U_{r-1}$.
 		Es gilt also
@@ -791,15 +808,15 @@
 			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dxp)\Vol(U_n,\dxp)
 		\end{align*}
 		und sind somit fertig.
-		Im Fall (iii) ist $n<r$. Beide Integranden sind trivial und es folgt mit
+		Im Fall (iii) ist $n<r$, beide Integranden sind trivial und es folgt mit
 		\begin{align*}
 			\abs[g(\omega,\lambda)]^2 =  c\Vol(\Zp,\dxp)\Vol(U_r,\dxxp) - cp^{-1}\Vol(\Zp, \dxp)\Vol(U_{r-1}, \dxxp)
 		\end{align*}
 		die Behauptung. Damit ist das Lemma bewiesen.
 	\end{proof}
 	Zur"uck zur Berechnung der Zeta-Funktion.
-	Der multiplikative Charakter $\mu$ hat den Konduktor $p^n$, w"ahrend die additiven Charaktere $e_{p,k}(x) = e_p(p^kx)$ offensichtlich den Konduktor $p^{-k}$ haben.
-	Nach Lemma \ref{lemma:gausssumme} (i) verschwinden in \ref{eq:ZetaSumme} fast alle Summanden und wir erhalten
+	Der multiplikative Charakter $\mu$ hat den Konduktor $p^n$, w"ahrend die additiven Charaktere $e_{p,k}(x) = e_p(p^kx)$ den Konduktor $p^{-k}$ haben.
+	Nach Lemma \ref{lemma:gausssumme} (i) verschwinden in \eqref{eq:ZetaSumme} fast alle Summanden und wir erhalten
 	\begin{align*}
 		Z_p(f_n, \chi) = \sum_{k=-n}^\infty p^{-ks} g(\mu,e_{p,k}) = p^{ns} g(\mu,e_{p,-n})
 	\end{align*}

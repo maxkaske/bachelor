@@ -5,12 +5,6 @@
 \newblock Springer-Lehrbuch Masterclass 0. Springer-Verlag Berlin Heidelberg,
   1. \btxeditionlong{}, 2010.
 
-\bibitem{rama}
-{\sc Dinakar~Ramakrishnan, Robert J.~Valenza}: {\em Fourier Analysis on Number
-  Fields}, \btxvolumelong{}\ 186 \btxofserieslong{}\ {\em Graduate Texts in
-  Mathematics}.
-\newblock Springer, 1. \btxeditionlong{}, 1998.
-
 \bibitem{folland}
 {\sc Folland, Gerald~B.}: {\em Real Analysis: Modern Techniques and Their
   Applications}.
@@ -21,10 +15,22 @@
 {\sc Gouvea, Fernando~Quadros}: {\em p-adic numbers: An introduction}.
 \newblock Universitext. Springer, 2. \btxeditionlong{}, 1997.
 
+\bibitem{cassels1967algebraic}
+{\sc J.~W. S.~Cassels, A.~Frohlich}: {\em Algebraic Number Theory: Proceedings
+  of an Instructional Conference Organized by the London Mathematical Society
+  (A Nato Advanced Study Institute W)}.
+\newblock Academic Press, 1967.
+
 \bibitem{neukirch}
 {\sc Neukirch, Jürgen}: {\em Algebraische Zahlentheorie}.
 \newblock Springer-Lehrbuch Masterclass. Springer, 1. Aufl. 1992. Nachdruck
   \btxeditionlong{}, 2006.
+
+\bibitem{rama}
+{\sc Ramakrishnan, Dinakar} \btxandlong{}\ {\sc Robert~J. Valenza}: {\em
+  Fourier Analysis on Number Fields}, \btxvolumelong{}\ 186 \btxofserieslong{}\
+  {\em Graduate Texts in Mathematics}.
+\newblock Springer, 1. \btxeditionlong{}, 1998.
 
 \bibitem{taoblog}
 {\sc Tao, Terence}: {\em Tate’s proof of the functional equation}.
