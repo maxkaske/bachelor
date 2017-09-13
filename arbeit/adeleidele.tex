@@ -18,7 +18,7 @@
 	Diese ist tats"achlich wohldefiniert, denn f"ur fast alle Stellen $p<\infty$ ist $\abs[x]_p = 1$ und damit $x\in \Zp$. 
 	Es wird also keine Verwirrung stiften, wenn wir (algebraisch) $\K$ mit dieser Einbettung identifizieren.
 	Wie sieht dann aber die Topologie aus?
-	\begin{satz}~
+	\begin{satz}
 		\begin{multicols}{2}
 			\begin{enumerate}[label=\emph{(\roman*)}]
 				\item $\K$ liegt diskret in $\A$.
@@ -133,7 +133,7 @@
 		der \emph{Betrag-Eins Idele} betrachten. 
 		Die obige Produktformel sagt uns gerade, dass $\K^\times$ eine Teilmenge von $\I^1$ ist.
 		Damit haben wir die n"otigen Definitionen zusammen um den folgenden Satz zu beweisen.
-		\begin{satz}\label{satz:adeleidele:ideleiso}~
+		\begin{satz}\label{satz:adeleidele:ideleiso}
 			\begin{enumerate}[label=\emph{(\roman*)}]
 				\item $\K^\times$ liegt diskret in $\I$.
 				\item $F\coloneqq \{1\}\times \prod_{p<\infty}\Zpx $ ist ein Fundamentalbereich der Gruppenwirkung von $\K^\times$ auf $\I^1$. 
@@ -188,5 +188,17 @@
 			Um zu sehen, dass die Abbildung ein topologischer Gruppenhomomorphismus ist, schreiben wir sie als $x \mapsto (\iota_\infty(\abs[x]_\A)^{-1} \cdot x, \abs[x]_\A)$.
 			Die Umkehrabbildung ist dann gegeben durch $(x,y) \mapsto \iota_\infty(y) \cdot x$, welche wiederum stetig ist und wir somit einen Isomorphismus topologischer Gruppen haben.
 		\end{proof}
+		
+		Zum Schluss m"ochten wir auch hier die Integration der einfachen Funktionen  $f = \prod_{p\leq\infty} f_p$ mit $f_p=\ind_\Zp$ fast "uberall betrachten.
+	\begin{satz}\label{satz:adeleidele:intI}
+		Sei $f: \I \to \Komplex$ eine einfache integrierbare Funktion auf den Idelen. 
+		Es gilt die Produktformel
+		\begin{align*}
+			\int_\I f(x) \dxx = \prod_{p\leq \infty} \int_{\Kpx} f_p(x_p) \dxxp
+		\end{align*}
+	\end{satz}
+	\begin{proof}
+		Analog zu Satz \ref{satz:adeleidele:intA}, denn $f_p|_{\Zpx}=1$ fast "uberall.
+	\end{proof}
 		%Der Fundamentalbereich $F$ wird in unserer Behandlung von Tates Beweis noch eine wichtige Rolle spielen.
 		

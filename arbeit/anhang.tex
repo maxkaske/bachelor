@@ -76,43 +76,49 @@
 			Mit den gleichen Überlegungen aus dem ersten Fall folgt damit die Behauptung.
 	\end{proof}
 \section{Tates Beweis der Poisson-Summenformel}
-	(TODO: ALTER BEWEIS MUSS AN NEUE DEFINITIONEN ANGEPASST WERDEN)
+	F"ur diesen Beweis wird unser Ausblick in die abstrakte harmonische Analysis n"utzlich.
 	\begin{proof}[Beweis von Satz \ref{satz:tateproof:poisson}]
-		Jede $\K$-invariante Funktion $\phi$ auf $\A$ induziert eine Funktion auf $\A/\K$, welche wir wieder $\phi$ nennen.
-		Wir k"onnen dann die Fouriertransformation von $\phi: \A/\K \rightarrow \Komplex$ als Funktion auf $\K$ betrachten, da $\K$ gerade die duale Gruppe von $\A/\K$ ist. Dazu setzen wir
+		Jede $\K$-invariante Funktion $\phi$ auf $\A$ induziert eine Funktion auf $\A/\K$, welche wir wieder mit $\phi$ bezeichnen.
+		Wir k"onnen dann die Fouriertransformation von $\phi: \A/\K \rightarrow \Komplex$ als Funktion auf $\K$ betrachten, da $\K$ versehen mit der diskreten Topologie gerade mit den Pontryagin Dualen von $\A/\K$ identifiziert werden kann\footnote{vgl. Ramakrishnan und Valenza \cite{rama} Proposition 7-15}. 
+		Dazu setzen wir
 		\begin{align*}
-			\hat{\phi}(x) = \int_{\A/\K}\phi(t)\Psi(tx)\overline{dt}
+			\hat{\phi}(\xi) = \int_{\A/\K}\phi(x)\Psi(\xi \cdot x)\overline{\dx}
 		\end{align*}
-		wobei $\overline{dt}$ das Quotientenmaß auf $\A/\K$ ist, welches von dem Maß $dt$ auf $\A$ induziert wird. Dieses Haarmaß ist charakterisiert durch
-		\begin{align*}
-			\int_{\A/\K}\tilde{f}(t)\overline{dt} =
-			\int_{\A/\K}\sum{\gamma \in \K}f(\gamma+t)\overline{dt} =
-			\int_{\A} f(t)dt
-		\end{align*}
-		f"ur alle stetigen Funktionen $f$ auf $\A$ mit geeigneten Konvergenzeigenschaften (z.b. $f\in S(\A)$). F"ur den eigentlichen Beweis ben"otigen wir zwei
+		wobei $\overline{\dx}$ das \emph{Quotientenmaß} auf $\A/\K$ ist, welches von dem Maß $\dx$ auf $\A$ induziert wird. 
+		Dieses Haar-Maß ist charakterisiert durch
+		\begin{align}\label{eq:anhang:quotmeasure}
+			\int_{\A/\K}\tilde{f}(x)\overline{\dx} =
+			\int_{\A/\K}\sum_{\gamma \in \K}f(\gamma+x)\overline{\dx} =
+			\int_{\A} f(x)\dx
+		\end{align}
+		f"ur alle $f\in L^1(\A)$. F"ur eine genauere Behandlung dieses Maßes verweisen wir auf Knightly und Li \cite{knightly} Kapitel 7.2.
 		
-		\begin{lemma}
+		F"ur den eigentlichen Beweis ben"otigen wir zwei kleine Ergebnisse.
+		\begin{lemma}\label{lemma:anhang:tate1}
 			F"ur jede Funktion $f \in S(\A)$ gilt:
 			\begin{align*}
 				\hat{f}|_\K = \hat{\tilde{f}}|_\K.
 			\end{align*}
 		\end{lemma}
 		\begin{proof}
-			Sei $x \in \K$ beliebig aber fest. Wir beobachten zun"achst, dass wir wegen $\Psi|_\K =1$
+			Sei $\xi \in \K$ beliebig aber fest. 
+			Wir beobachten zun"achst, dass wir wegen $\Psi|_\K =1$
 			\begin{align*}
-				\Psi(tx)= \Psi(tx)\Psi(\gamma x)=\Psi((\gamma + t) x)
+				\Psi(\xi x)= \Psi(\xi x)\Psi(\gamma \xi)=\Psi((\gamma + x) \xi)
 			\end{align*}
-			f"ur alle $\gamma \in \K$ und $t\in \A$ haben. Per Definition der Fouriertransformation
+			f"ur alle $\gamma \in \K$ und $x\in \A$ haben. 
+			Per Definition der abstrakten Fouriertransformation
 			\begin{align*}
-				\hat{\tilde{f}}(x)	&= \int_{\A / \K} {\hat{f}(t)\Psi(tx)\overline{dt}} 
-									 = \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + t)}\right)\Psi(tx)\overline{dt} =\\
-									&= \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + t)}\Psi((\gamma + t)x)\right)\overline{dt}
-									 = \int_{\A} f(t)\Psi(tx)dt = \hat{f}(x)
+				\hat{\tilde{f}}(\xi)	
+					&= \int_{\A / \K} {\tilde{f}(x)\Psi(\xi x)\overline{\dx}} 
+					 = \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + x)}\right)\Psi(-\xi x)\overline{\dx} =\\
+					&= \int_{\A / \K} \left(\sum_{\gamma \in \K}{f(\gamma + x)}\Psi((\gamma + x)\xi)\right)\overline{\dx}
+					 = \int_{\A} f(t)\Psi(\xi x)\dx = \hat{f}(\xi)
 			\end{align*}
-			wobei wir im vorletzten Schritt die oben besprochene Charakterisierung des Quotientenmaßes $\overline{dt}$ ausgenutzt haben.
+			wobei wir im vorletzten Schritt die oben besprochene Charakterisierung \eqref{eq:anhang:quotmeasure} des Quotientenmaßes $\overline{\dx}$ ausgenutzt haben.
 		\end{proof}
 		
-		\begin{lemma}
+		\begin{lemma}\label{lemma:anhang:tate2}
 			F"ur jede Funktion $f \in S(\A)$ und jedes $x\in \K$ gilt
 			\begin{align*}
 				\tilde{f}(x) = \sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
@@ -125,27 +131,32 @@
 				\left| \sum_{\gamma \in \K} {\hat{f}(\gamma)\overline{\Psi}(\gamma x)}\right| 
 				\leq \sum_{\gamma \in \K} {|\hat{f}(\gamma)|}
 			\end{align*}
-			unter Ausnutzen der Tatsache, dass $\Psi$ unit"ar ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\A)$. Analog folgt, dass auch $\sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. 
-			Wir erinnern uns, dass das Pontryagin Duale $\widehat{\A/\K}$ als topologische Gruppe isomorph zu $\K$\footnote{Achtung: Hier ist $\Q$ versehen mit der diskreten Topologie gemeint} ist. 
+			unter Ausnutzen der Tatsache, dass $\Psi$ ein Charakter ist. Die rechte Seite der Gleichung ist also normal konvergent, da $f \in S(\A)$. Analog folgt, dass auch $\sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)}$ normal konvergiert. 
 			Also $\hat{\tilde{f}} \in L^1(\K)$ und
 			\begin{align*}
 				\sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
 			\end{align*}
-			ist die Fouriertransformierte\footnote{Wir erinnern uns, dass in diesem Fall das Z"ahlma\ss ein Haar-Ma\ss ist} von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$. Nach Fourierinversionsformel erhalten wir also
+			ist die Fouriertransformierte\footnote{Wir erinnern uns, dass auf der diskreten Topologie das Z"ahlmaß ein Haar-Maß ist.} von $\hat{\tilde{f}}$ ausgewertet am Punkt $-x$.
+			Nach Umkehrformel aus Satz \ref{satz:topogroup:umkehrformel} erhalten wir also
 			\begin{align*}
 				\tilde{f}(x) = \hat{\hat{\tilde{f}}}(-x) = \sum_{\gamma \in \K} {\hat{\tilde{f}}(\gamma)\overline{\Psi}(\gamma x)}
 			\end{align*}
 			und damit das Lemma.
 		\end{proof}
-		Zur"uck zum Beweis der Summenformel. Wir erhalten aufgrund des zweiten Lemmas mit $x=0$ und anschlie\ss enden Anwenden des Ersten
+		Zur"uck zum Beweis der Summenformel. 
+		Mit Lemma \ref{lemma:anhang:tate2} und $x=0$ und anschließendem Anwenden von Lemma \ref{lemma:anhang:tate1} erh"alt man
 		\begin{align*}
 			\tilde{f}(0) = 	\sum_{\gamma \in \K} \hat{\tilde{f}}(\gamma) \bar{\Psi}(0) =
 							\sum_{\gamma \in \K} \hat{\tilde{f}}(\gamma) =
-							\sum_{\gamma \in \K} \hat{f}
+							\sum_{\gamma \in \K} \hat{f}(\gamma)
 		\end{align*}
-		Aber per Definition gilt gerade $\tilde{f}(0) = \sum_{\gamma \in \K}f(\gamma)$, also
+		Aber per Definition gilt gerade
 		\begin{align*}
-			\sum_{\gamma \in \K}f(\gamma) = \sum_{\gamma \in \K} \hat{f}
+			\tilde{f}(0) = \sum_{\gamma \in \K}f(\gamma),
+		\end{align*}
+		also
+		\begin{align*}
+			\sum_{\gamma \in \K}f(\gamma) = \sum_{\gamma \in \K} \hat{f}(\gamma)
 		\end{align*}
 		und wir sind fertig.
 	\end{proof}

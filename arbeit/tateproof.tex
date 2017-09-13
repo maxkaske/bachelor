@@ -8,12 +8,13 @@
 \subsection{Globale Fourieranalysis}
 	Wir spiegeln den Abschnitt "uber die lokale Fourieranalysis und beginnen mit der Definition eines Standardcharakters auf $\A$.
 	\begin{defi}
-		Der \emph{globale Standardcharakter} $e:\A \to S^1$ ist definiert durch
+		Der \emph{globale Standardcharakter} $e:\A \to S^1$ ist durch
 		\begin{align*}
-			e(x) = \prod_{p\leq \infty} e_p(x_p),
+			e(x) = \prod_{p\leq \infty} e_p(x_p)
 		\end{align*}
+		definiert als Produkt aller lokalen Standardcharaktere $e_p:\Kp \to S^1$.
 	\end{defi}
-	Diese Abbildung ist, wie wir bereits in Lemma \ref{lemma:rdp:char} gesehen haben, wohldefiniert.
+	Nach Korollar \ref{kor:lokal:charTrivialZp} wirken fast alle $e_p$ trivial auf $\Zp$ und von daher folgt mit Lemma \ref{lemma:rdp:char} "uber die Charaktere des eingeschr"ankten direkten Produkts direkt, dass diese Abbildung wohldefiniert und ebenfalls ein Charakter ist.
 	%Der Standardcharakter verh"alt sich besonders sch"on auf $\K$. 
 	%Wir haben n"amlich folgenden
 	\begin{satz}\label{satz:global:stdcharTrivialAufK}
@@ -24,23 +25,25 @@
 		Jede rationale Zahl kann als endliche Summe von Zahlen der Form $\pm \frac{1}{p^m}$ geschrieben werden.
 	\end{lemma}
 	\begin{proof}
-		Jedes $r = \pm a/b$ mit nat"urlichen Zahlen $a$ und $b$ kann zun"achstmal als Summe von $a$ Kopien von $\sgn{r}/b$ geschrieben werden.
-		Es reicht also rationale Zahlen der Form $1/b$ zu betrachten. 
+		F"ur die Zahl $0$ entspricht das der leeren Summe und gilt trivialerweise.
+		Sei nun $r = \pm a/b$ mit $a,b\in\N$ eine nicht verschwindende rationale Zahl. 
+		Wir k"onnen $r$ zun"achstmal als Summe von $a$ Kopien von $\sgn{r}/b$ geschrieben werden.
+		Von daher reicht also rationale Zahlen der Form $1/b$ zu betrachten. 
 		Sei $b=\prod_{k=1}^{n} p_k^{m_k}$ die Primfaktorzerlegung von $b$.
-		Wir haben eine Bezoutdarstellung $1 = u p_1^{m_1} + v p_2^{m_2}\dots p_n^{m_n}$ mit ganzen Zahlen $u$ und $v$.
-		Es zeigt sich
+		Dann gibt es eine Bezout-Darstellung $1 = u p_1^{m_1} + v p_2^{m_2}\dots p_n^{m_n}$ mit ganzen Zahlen $u$ und $v$.
+		Es folgt
 		\begin{align*}
-			\frac{1}{b} = \frac{u p_1^{m_1} + v p_2^{m_2}\dots p^{m_n}}{p_1^{m_1}\dots p_n^{m_n}} =  \frac{u}{p_2^{m_2}\dots p_n^{m_n}} + \frac{v}{p_1^{m_1}}
+			\frac{1}{b} = \frac{u p_1^{m_1} + v p_2^{m_2}\dots p^{m_n}}{p_1^{m_1}\dots p_n^{m_n}} =  \frac{u}{p_2^{m_2}\dots p_n^{m_n}} + \frac{v}{p_1^{m_1}}.
 		\end{align*}
 		Induktiv erhalten wir damit ganze Zahlen $u_1,\dots,u_n$, so dass
 		\begin{align*}
-			\frac{1}{b} = \frac{u_1}{p_1^{m_1}} + \dots + \frac{u_n}{p_n^{m_n}}
+			\frac{1}{b} = \frac{u_1}{p_1^{m_1}} + \dots + \frac{u_n}{p_n^{m_n}}.
 		\end{align*}
-		Mit dem gleichen Argument vom Anfang des Beweises ist jeder Summand wieder eine endliche Summe von $\abs[u_k]$ Kopien von $1/p_k^{m_k}$ und es folgt das Lemma
+		Mit dem gleichen Argument vom Anfang des Beweises ist jeder dieser Summand wieder eine endliche Summe von $\abs[u_k]$ Kopien von $\pm 1/p_k^{m_k}$ und es folgt das Lemma.
 	\end{proof}
-	Nun kommen wir zum eigentlichen Beweis des Satzes.
-	\begin{proof}[Beweis von Satz \ref{satz:global:stdcharTrivialAufK}]
-		Da es sich um einen additiven Charakter handelt, reicht es nach obigen Lemma, dass wir uns auf rationale Zahlen der Form $1/p^m$ zu beschr"anken.
+	Kommen wir damit zum eigentlichen Beweis des Satzes.
+	\begin{proof}[Beweis von Satz \ref{satz:global:stdcharTrivialAufK}] 
+		Da es sich bei dem Standardcharakter um einen additiven Charakter handelt, reicht es nach obigen Lemma sich auf rationale Zahlen der Form $1/p^m$ zu beschr"anken.
 		F"ur jede endliche Stelle $q\not=p$ ist aber $1/p^m \in \Z_q$, also $e_q(1/p^m) =1$.
 		Es folgt
 		\begin{align*}
@@ -49,24 +52,23 @@
 											&= \exp(-2\pi i p^{-m}) \exp(2\pi i p^{-m}) = 1
 		\end{align*}
 	\end{proof}
-	%%%HOLY SHIT TODO TODO TODO
-	
-	Als n"achstes wollen wir sicher stellen, dass die Definition eines Standardcharakters auf den Adelen "uberhaupt Sinn macht.
-	Dazu zeigen wir das Ergebnis, was wir mit Satz \ref{satz:lokal:stdchar} im Lokalen bewiesen haben, nun auch im Globalen.
-	\begin{satz}
+	Wir wollen wieder den Bezug zur abstrakten harmonischen Analysis herstellen und beginnen damit, das globale "Aquivalent von Lemma \ref{lemma:lokal:genericchar} zu beweisen
+	\begin{lemma}
 		Ist $\psi: \A \to S^1$ ein Charakter, so gibt es ein eindeutig bestimmtes Adel $a\in\A$ mit $\psi(x) = e(ax)$.
-	\end{satz}
+	\end{lemma}
 	\begin{proof}
-		Den Großteil der Arbeit haben wir bereits in Lemma \ref{lemma:rdp:char} gemacht. Demnach ist $\psi(x) = \prod_{p\leq\infty} \psi_p (x_p)$, wobei $\psi_p: \Kp \to S^1$ ein lokaler Charakter ist und fast alle $\psi_p$ trivial auf $\Zp$ wirken.
-		Wir haben bereits gesehen, dass $\psi_p (x_p) = e_p(a_p x_p)$ f"ur eindeutige $a_p \in \Kp$.
-		Nach Korollar \ref{kor:lokal:charTrivialZp} liegen zudem fast alle $a_p$ in $\Zp$.
+		Den Großteil der Arbeit haben wir bereits in Lemma \ref{lemma:rdp:char} gemacht. 
+		Demnach ist $\psi(x) = \prod_{p\leq\infty} \psi_p (x_p)$, wobei die $\psi_p: \Kp \to S^1$ ein lokale Charaktere sind und fast alle $\psi_p$ trivial auf $\Zp$ wirken.
+		Nach Lemma \ref{lemma:lokal:genericchar} gilt $\psi_p (x_p) = e_p(a_p x_p)$ f"ur eindeutige $a_p \in \Kp$ und nach Korollar \ref{kor:lokal:charTrivialZp} liegen schon fast alle $a_p$ bereits in $\Zp$.
 		Folglich ist $a = (a_p)$ ein eindeutig bestimmtes Adel und es gilt
 		\begin{align*}
 			\psi(x) = \prod_{p\leq\infty} \psi_p (x_p) = \prod_{p\leq\infty} e_p (a_px_p) = e(ax).
 		\end{align*}
 	\end{proof}
+	%----------------------%
+	% DEFINITION : FOURIER %
+	%----------------------%
 	Damit haben wir nun alles zusammen und kommen zur zentralen Definition dieses Abschnitts.
-	
 	\begin{defi}[Globale Fouriertransformation]
 		Sei $f\in L^1(\A)$. Wir definieren dann die \emph{adelische Fouriertransformation} $\hat{f}: \A \to \Komplex$ von $f$ durch die Formel
 	\begin{align*}
@@ -78,16 +80,16 @@
 	Lokal haben wir gesehen, dass die Schwartz-Bruhat Funktionen $\Sw(\Kp)$ sich besonders f"ur die Fourieranalysis geeignet haben. 
 	Was ist das "Aquivalent im Globalen?
 	Wir definieren zun"achst die \emph{faktorisierbaren Schwartz-Bruhat Funktion} $f=\prod_{p\leq \infty} f_p$ als Produkte lokaler Schwartz-Bruhat Funktionen $f_p$, wobei f"ur fast alle Stellen $p<\infty$ dieser Faktor gleich der charakteristischen Funktion von $\Zp$ ist.
-	Damit sind sie insbesondere im Sinne von Kapitel \ref{sec:adeleidele} einfache Funktionen auf $\A$.
-	Mit unserer Charakterisierung der lokalen Schwartz-Bruhat Funktionen "uber den endlichen Stellen k"onnen die Faktorisierbaren auch schreiben als
-	\begin{align}
+	Damit sind sie insbesondere im Sinne von Kapitel \ref{sec:adeleidele} einfache Funktionen auf $\A$ und k"onnen nach Satz \ref{satz:adeleidele:intA} vergleichsweise schmerzlos integriert werden.
+	Mit der Charakterisierung der lokalen Schwartz-Bruhat Funktionen in Lemma \ref{lemma:lokal:sw} "uber allen endlichen Stellen k"onnen die faktorisierbaren Funktionen auch geschrieben werden als
+	\begin{align}\label{eq:tateproof:fsw1}
 		f(x) = f_\infty(x) \prod_{p<\infty} \ind_{a_p+p^{k_p}\Zp}
 	\end{align}
-	mit $a_p \in \Zp$ (oder alternativ: f"ur ein $a \in \A$) und $k_p =0$ f"ur fast alle Stellen.
-	Die \emph{adelischen Schwartz-Bruhat Funktion} sind endliche Linearkombinationen der Faktorisierbaren "uber $\Komplex$ und notieren sie wieder mit $\Sw(\A)$.
-	Wir k"onnen nun wieder folgenden Satz beweisen.
+	mit $a_p \in \Zp$ und $k_p = 0$ f"ur fast alle Stellen.
+	Die \emph{adelischen Schwartz-Bruhat Funktion} sind endliche Linearkombinationen faktorisierbarer Schwartz-Bruhat Funktionen "uber  $\Komplex$ und notieren sie wieder mit $\Sw(\A)$.
+	Es l"asst sich wieder folgende Satz beweisen.
 	
-	\begin{satz}
+	\begin{satz}\label{satz:tateproof:umkehrformel}
 		F"ur jede Funktion $f\in\Sw(\A)$ ist die Fouriertransformation wohldefiniert und liegt wieder in $\Sw(\A)$.
 		Insbesondere gilt die Umkehrformel
 		\begin{align*}
@@ -100,14 +102,14 @@
 		Mit Satz \ref{satz:adeleidele:intA} "uber die Integration einfacher Funktionen auf den Adelen folgt
 		\begin{align*}
 			\hat{f} (\xi) 	&= \int_{\A} f(x)e(-\xi x)  \dx
-							= \int_{\A} \prod_{p\leq \infty} f_p(x_p) e_p(-\xi_p x_p) \dx \\
-							&= \prod_{p\leq \infty} \int_{\Kp}  f_p(x_p) e_p(-\xi_p x_p) \dx_p
+							%= \int_{\A} \prod_{p\leq \infty} f_p(x_p) e_p(-\xi_p x_p) \dx \\
+							= \prod_{p\leq \infty} \int_{\Kp}  f_p(x_p) e_p(-\xi_p x_p) \dx_p
 							= \prod_{p\leq \infty} \hat{f}_p (\xi_p).
 		\end{align*}
 		Die Umkehrformel ergibt sich damit direkt aus den lokalen Umkehrformeln.
 	\end{proof}
 	Mit der gleichen Argumentation zeigt man auch leicht:
-	\begin{korollar}
+	\begin{korollar}\label{kor:tateproof:fourierids}
 		Sei $f \in S^1(\A)$.
 		\begin{enumerate}[label=\emph{(\roman*)}]
 			\item Ist $g(x)=f(x)e(ax)$ mit $a\in\A$, dann gilt $\hat{g}(x) = \hat{f}(x-a)$.
@@ -122,36 +124,46 @@
 %riemann-roch (einfach) done
 %beweisskizze fuer beweis nach tate: anhang
 
-	Werfen wir nochmals einen Blick auf die faktorisierbaren Schwartz-Bruhat Funkionen.
+	Werfen wir anfangs einen Blick auf die faktorisierbaren Schwartz-Bruhat Funkionen.
 	\begin{lemma}\label{lemma:global:sbf}
-		Jede faktorisierbare adelische Schwartz-Bruhat Funktion $f$ hat die Form
+		Jede faktorisierbare adelische Schwartz-Bruhat Funktion $f\in\Sw(\A)$ hat die Form
 		\begin{align*}
 			f = f_\infty\prod_{p<\infty} \ind_{a+p^{k_p}\Zp},
 		\end{align*}
 		wobei $a\in\K$ und $k_p\in \Z$ f"ur fast alle Stellen $p$ verschwindet.
 	\end{lemma}
-	Der Unterschied zur Definition der faktorisierbaren Schwartz-Bruhat Funktionen liegt in der Tatsache, dass der Faktor $a$ jetzt unabh"angig von der jeweiligen Stelle ist.
+	Der Unterschied zur Darstellung der faktorisierbaren Schwartz-Bruhat Funktionen wie in Gleichung \eqref{eq:tateproof:fsw1} liegt in der Tatsache, dass der Faktor $a$ jetzt unabh"angig von der jeweiligen Stelle ist.
 	\begin{proof}
-		F"ur fast alle $p$ ist $a\in \Zp$ und $k_p=0$, also $\ind_{a+p^k_p\Zp} = \ind_{\Zp}$ fast "uberall.
+		F"ur fast alle Stellen $p$ ist $a\in \Zp$ und $k_p=0$, d.h. $\ind_{a+p^{k_p}\Zp} = \ind_{\Zp}$ fast "uberall.
 		Damit ist klar, dass Funktionen dieser Form in $\Sw(\A)$ liegen. 
-		Sei nun $f = \prod_{p\leq\infty} f_p\in\Sw(\A)$ und $S$ die Menge der Stellen mit $k_p\not=0$.
-		F"ur alle $p \in S$ ist der Faktor $f_p$ gleich $\ind_{a_p+p^k_p\Zp}$ f"ur ein $a_p \in \K$.
-		Sind wir vorerst optimistisch und nehmen an, dass $k_p>0$ und die $a_p$ bereits ganze Zahlen sind.
-		Ziel ist es jetzt eine ganze Zahl $a$ zu finden, die $a \equiv a_p \pmod{p^{k_p}}$ f"ur alle $p\in S$ erf"ullt.
-		Das liefert uns aber gerade der chinesische Restsatz.
-		Damit w"are $a_p+p^k_p\Zp = a+p^k_p\Zp$ und wir w"aren fertig.
 		
-		Bleiben wir optimistisch und versuchen die Funktionen geeignet umzuformen.
-		Sei dazu $N$ der Hauptnenner der nun wieder rationalen Zahlen $a_p$ und sei $M=\prod_{p\in S} p^{\abs[k_p]+1}$.
-		Dann ist $NM(a_p+p^k_p\Zp) = a_p'+p^{k_p'}\Zp$ mit $a_p'\in \Z$ und $k'>0$.
-		Folglich finden wir ein $a' \in \Z$ mit $NM(a_p+p^{k_p}\Zp) = a'+p^{k_p'}\Zp$.
-		Jetzt setzen wir alles zusammen durch
+		Sei nun $f = \prod_{p\leq\infty} f_p\in\Sw(\A)$ eine faktorisierbare Schwartz-Bruhat Funktion und $S$ die Menge der Stellen mit $f_p\not=\ind_\Zp$.
+		F"ur alle $p \in S$ gilt $f_p=\ind_{a_p+p^{k_p}\Zp}$ f"ur ein $a_p \in \K$ und $k\in \Z$.
+		Sind wir vorerst optimistisch und nehmen an, dass $k_p>0$ und die $a_p$ bereits ganze Zahlen sind.
+		Wir suchen nun eine ganze Zahl $a$, die $a \equiv a_p \pmod{p^{k_p}}$ f"ur alle $p\in S$ erf"ullt.
+		Das liefert uns aber gerade der chinesische Restsatz.
+		Damit ist$a_p+p^{k_p}\Zp = a+p^{k_p}\Zp$ und wir w"aren fertig.
+		
+		Bleiben wir weiter optimistisch und versuchen die Funktionen f"ur den allgemeinen Fall geeignet umzuformen.
+		Sei dazu $N$ der Hauptnenner der rationalen Zahlen $a_p$, $p\in S$ und sei $M=\prod_{p\in S} p^{\abs[k_p]+1}$.
+		Dann sind $N$ und $M$ nat"urliche Zahlen und wir betrachten die Funktion 
 		\begin{align*}
-			a_p+p^{k_p}\Zp &= (NM)^{-1}NM(a_p+p^{k_p}\Zp) 
-			\\&= (NM)^{-1}(a'+p^{k_p'}\Zp)  = (NM)^{-1}a'+p^{k_p}\Zp
+			f\left((NM)^{-1} x\right) 
+				=   \prod_{p\leq\infty} f_p\left((NM)^{-1} x_p\right).
 		\end{align*}
-		f"ur alle $p\in S$.
-		Setzen wir also $a\coloneqq (NM)^{-1}a'$ folgt die Behauptung.
+		An fast alle Stellen ist $f_p\left((NM)^{-1} x_p\right)$ wieder gleich $\ind_\Zp$, da $(NM)^{-1} \in \Zp$ fast "uberall.
+		F"ur die restlichen endlichen Stellen dagegen entspricht sie der charakteristischen Funktion von $NM(a_p+p^k_p\Zp)$.
+		Hier m"ussen wir nur aufpassen, da dies nicht mehr nur die Stellen in $S$ betrifft. 
+		Wegen $NM\in\Z$ macht dies jedoch keine Probleme.
+		Mit den bekannten Eigenschaften der $p$-adischen Zahlen erhalten wir dort $NM(a_p+p^k_p\Zp) = a_p'+p^{k'_p}\Zp$ mit $a_p'\in \Z$ und $k_p'>0$.
+		Somit finden wir ein $a' \in \Z$ mit $NM(a_p+p^{k_p}\Zp) = a'+p^{k_p'}\Zp$.
+		%Jetzt setzen wir alles zusammen durch
+		%\begin{align*}
+			%a_p+p^{k_p}\Zp &= (NM)^{-1}NM(a_p+p^{k_p}\Zp) 
+			%\\&= (NM)^{-1}(a'+p^{k_p'}\Zp)  = (NM)^{-1}a'+p^{k_p}\Zp
+		%\end{align*}
+		%f"ur alle Stellen $p$.
+		Setzen wir nun $a\coloneqq (NM)^{-1}a'$ folgt die Behauptung.
 	\end{proof}
 
 	Diese sch"one Form der globalen Schwartz-Bruhat Funktionen erlaubt es uns nun die Poisson Summenformel auf den Adelen zu beweisen.
@@ -159,7 +171,7 @@
 	\label{satz:tateproof:poisson}
 		Sei $f \in S(\A)$. Dann konvergieren folgende Summen absolut und wir haben die Gleichung
 		\begin{align}
-			\sum_{\gamma \in \K} {f(\gamma)} = \sum_{\gamma \in \K}{\hat{f}(\gamma)}
+			\sum_{\gamma \in \K} {f(\gamma)} = \sum_{\gamma \in \K}{\hat{f}(\gamma)} \label{eq:tateproof:fourier}
 		\end{align}
 	\end{satz}
 	Der folgende Beweis orientiert sich an Deitmar \cite{deitmar2010} Satz 5.4.9 und wurde etwas auf unsere Definition der Adele angepasst.
@@ -185,12 +197,12 @@
 		Dabei werden sich die obigen Umformungen als sehr hilfreich erweisen.
 		Erinnern wir uns zun"achst an die Operatoren aus dem Beweis der lokalen Umkehrformeln in Satz \ref{satz:lokal:umkehrformel}.
 		Dort haben wir die Notation $L_a f(x) = f(x-a)$ und $M_\lambda f(x) = f(\lambda x)$ eingef"uhrt.
-		Definieren wir nun wieder $N= \prod_{p<\infty} p^{-k_p}$, so k"onnen wir die Funktion \ref{eq:schwartzform} umschreiben als
+		Mit ihnen k"onnen wir die Funktion \eqref{eq:schwartzform} umschreiben zu
 		\begin{align*}
 			f = L_a M_{N}\left( \left(M_{1/N} L_{-a} f_\infty\right) \prod_{p<\infty}\ind_{\Zp}\right).
 		\end{align*}
 		Damit er"offnet sich nun folgende Beweisidee. 
-		Wir zeigen zuerst, dass die obige Gleichung (falls sie denn tats"achlich gilt) stabil unter den Operatoren $L_a$ und $M_\lambda$ ist.
+		Wir zeigen zuerst, dass Gleichung \eqref{eq:tateproof:fourier} (falls sie denn tats"achlich gilt) stabil unter den Operatoren $L_a$ und $M_\lambda$ ist.
 		Anschließend zeigen wir sie f"ur den einfacheren Fall $f=f_\infty \prod_{p<\infty}\ind_{\Zp}$.
 		Beides kombiniert ergibt dann den Beweis.
 		
@@ -199,13 +211,14 @@
 		\begin{align*}
 			\sum_{\gamma \in \K} L_a {f(\gamma)} = \sum_{\gamma \in \K} {f(\gamma -a)} = \sum_{\gamma \in \K} {f(\gamma)}.
 		\end{align*}
-		Da unser additiver Charakter $e$ allerdings trivial auf $\K$ wirkt, ist dies gleich
+		Da der Standardcharakter $e$ allerdings trivial auf $\K$ wirkt, ist dies gleich
 		\begin{align*}
-			\sum_{\gamma \in \K} {\hat{f}(\gamma)} 	&= \sum_{\gamma \in \K} e(-a\gamma)\hat{f}(\gamma)\\
-													&= \sum_{\gamma \in \K} \Omega_{-a}\hat{f}(\gamma)
+			\sum_{\gamma \in \K} {\hat{f}(\gamma)} 	&= \sum_{\gamma \in \K} e(-a\gamma)\hat{f}(\gamma)
+													= \sum_{\gamma \in \K} \Omega_{-a}\hat{f}(\gamma)
 													= \sum_{\gamma \in \K} (L_a f)\widehat{\phantom{x}}(\gamma).
 		\end{align*}
-		Nutzen wir aus, dass $\abs[\lambda]_\A = 1$ f"ur alle $\lambda \in \Kx$, so erhalten wir
+		F"ur den zweiten Operator erinnern wir uns daran, dass $\abs[\lambda]_\A = 1$ f"ur alle $\lambda \in \Kx$.
+		Es folgt
 		\begin{align*}
 			\sum_{\gamma \in \K} M_\lambda {f(\gamma)} 	&= \sum_{\gamma \in \K} {f(\lambda\gamma)} 
 														= \sum_{\gamma \in \K} \hat{f}(\lambda\gamma) \\
@@ -215,16 +228,16 @@
 		Damit haben wir auch schon den ersten Teil der Beweisidee verwirklicht.
 		
 		Der zweite Teil ist weniger Arbeit.
-		F"ur $f=f_\infty \prod_{p<\infty}\ind_{\Zp}$ haben wir zum einen, dass $\hat{f} = \hat{f}_\infty \prod_{p<\infty}\ind_{\Zp}$. 
+		F"ur $f=f_\infty \prod_{p<\infty}\ind_{\Zp}$ wissen wir aus den lokalen Berechnungen und Lemma \ref{satz:adeleidele:intA}, dass $\hat{f} = \hat{f}_\infty \prod_{p<\infty}\ind_{\Zp}$. 
 		Zum anderen ist
 		\begin{align*}
 			\sum_{\gamma \in \K}{f(\gamma)} = \sum_{\gamma \in \K} f_\infty(\gamma) \prod_{p<\infty}\ind_{\Zp}(\gamma) =\sum_{\gamma \in \Z} f_\infty(\gamma),
 		\end{align*}
-		denn das Produkt "uber alle verschwindet genau dann nicht, wenn $\gamma$ eine ganze Zahl ist.
+		denn das Produkt "uber alle endlichen Stellen verschwindet genau dann nicht, wenn $\gamma$ eine ganze Zahl ist.
 		Wir m"ussen also nur $\sum_{\gamma \in \Z} f_\infty(\gamma) = \sum_{\gamma \in \Z} \hat{f}_\infty(\gamma)$ zeigen.
-		Aber das sagt uns gerade die klassische Poisson-Summenformel.
+		Aber das sagt uns gerade die klassische Poisson Summenformel aus Satz \ref{satz:einleitung:poisson}.
 	\end{proof}
-	Ausger"ustet mit dieser Summenformel kommen wir jetzt zum Beweis von Tates \glqq Thetaformel\grqq{}.
+	Ausger"ustet mit dieser Summenformel k"onnen wir jetzt Tates Variante der Thetaformel beweisen.
 	\begin{satz}[Riemann-Roch]
 	\label{satz:global:riemannroch}
 		Sei $x \in \I$ ein Idel und $f\in S(\A)$. Dann
@@ -235,21 +248,23 @@
 	\end{satz}
 	\begin{proof}
 		Sei $x \in \I$ beliebig aber fest. 
-		F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y)\coloneqq f(yx)$. Diese ist wieder in $S(\A)$, erf"ullt damit die Poisson-Summenformel
+		F"ur beliebige $y \in \A$ definieren wir eine Funktion $h(y)\coloneqq f(yx)$. Diese ist wieder in $S(\A)$, erf"ullt damit die Poisson Summenformel
 		\begin{align*}
 			\sum_{\gamma \in \K}h(\gamma) = \sum_{\gamma \in \K} \hat{h}(\gamma)
 		\end{align*}
 		und beide Summen konvergieren absolut.
-		Berechnen wir allerdings die Fouriertransformation von $h$ erhalten wir mit einer Translation um $x^{-1}$
+		Nach Korollar \ref{kor:tateproof:fourierids} gilt aber
+		%Berechnen wir allerdings die Fouriertransformation von $h$ erhalten wir mit einer Translation um $x^{-1}$
 		\begin{align*}
-			\hat{h}(\gamma) &= \int_{\A}h(y)\Psi(\gamma y)dy \\
-							 &= \int_{\A}f(yx)\Psi(\gamma y)dy \\
-							 &= \frac{1}{|x|_{\A}} \int_{\A}f(y)\Psi(\gamma y x^{-1})dy \\
-							 &= \frac{1}{|x|_{\A}} \hat{f}(\gamma x^{-1}).
+			\hat{h}(\gamma) 
+				%&= \int_{\A}h(y)\Psi(\gamma y)dy \\
+				%&= \int_{\A}f(yx)\Psi(\gamma y)dy \\
+				%&= \frac{1}{|x|_{\A}} \int_{\A}f(y)\Psi(\gamma y x^{-1})dy \\
+				= \frac{1}{|x|_{\A}} \hat{f}(\gamma x^{-1}).
 		\end{align*}
 		Damit sind wir auch schon fertig.
 	\end{proof}
-	F"ur eine Interpretation dieses Resultats, die einen Bezug zum namensgebenden Satz von Riemann-Roch in der algebraischen Geometrie herstellt, verweisen wir auf Ramakrishnan und Valenza \cite{rama} Kapitel 7.2.
+	F"ur eine Interpretation dieses Resultats, die einen Bezug zum namensgebenden Satz von Riemann-Roch in der algebraischen Geometrie herstellt, verweisen wir auf \textcite{rama} Kapitel 7.2.
 	
 \subsection{Die globale Funktionalgleichung}
 %Hauptsatz gegliedert wie Riemann beweis
@@ -257,14 +272,14 @@
 %%%
 %%%	Fubini und das Volumen von des Fundamentalbereichs F
 %%%
-	In Satz \ref{satz:adeleidele:ideleiso} haben wir gesehen, dass  sich die Idele $\I$ schreiben lassen als direktes Produkt $\I^1\times\R_+^\times$.
-	Um nun auf $\I^1$ ein (multiplikatives) Haar-Maß $\dxs[b]$ zu fixieren, fixieren wir auf $\R_+^\times$ das Maß $\frac{\dx[t]}{t}$ und verlangen $\dxx = \dxs[b] \times \frac{\dx[t]}{t}$.
+	In Satz \ref{satz:adeleidele:ideleiso} haben wir gesehen, dass  sich die Idele $\I$  als direktes Produkt $\I^1\times\R_+^\times$ schreiben lassen.
+	Um nun auf $\I^1$ ein (multiplikatives) Haar-Maß $\dxs[b]$ zu fixieren, nehmen wir auf $\R_+^\times$ das Maß $\frac{\dx[t]}{t}$ und verlangen $\dxx = \dxs[b] \times \frac{\dx[t]}{t}$.
 	F"ur die Berechnungen haben wir dann ganz im Sinne von Fubini
 	\begin{align*}
-		\int_\I f(x) \dxx = \int_0^\infty \left[\int_{\I^1} f(tb) \dxs[b]\right]  \frac{\dx[t]}{t} =  \int_{\I^1} \left[\int_0^\infty f(tb) \frac{\dx[t]}{t}\right] \dxs[b].
+		\int_\I f(x) \dxx = \int_0^\infty \left[\int_{\I^1} f(t\cdot b) \dxs[b]\right]  \frac{\dx[t]}{t} =  \int_{\I^1} \left[\int_0^\infty f(t\cdot b) \frac{\dx[t]}{t}\right] \dxs[b].
 	\end{align*}
-	Die Notation $tb$ ist dabei als Multiplikation $\iota_\infty(t) \cdot b$ zu verstehen. 
-	Es folgt sofort, dass $\abs[tb]_\A = \abs[t]_\infty$ gilt. 
+	Die Notation $t\cdot b$ ist dabei als Multiplikation $\iota_\infty(t) \cdot b$ zu verstehen.
+	Es folgt sofort, dass $\abs[t\cdot b]_\A = \abs[t]_\infty$ gilt. 
 	Weiter haben wir in Satz \ref{satz:adeleidele:ideleiso} auch den kompakten Fundamentalbereich $F=\{1\}\times \prod_{p<\infty}\Zpx$ der Wirkung von $\Kx$ auf $\I^1$ kennengelernt.
 	Das Volumen von $F$ bez"uglich $\dxs[b]$ wird f"ur unsere Berechnung eine Rolle spielen.
 	Berechnen wir es schnell.
@@ -274,43 +289,50 @@
 	\end{align*}
 	
 	Bevor wir jetzt die die globalen Zeta-Funktionen einf"uhren ben"otigen wir noch geeignete multiplikative Charaktere.
-	Es wird sich als sinnvoll erweisen die sogenannten \emph{Idelklassencharaktere}\footnote{Der Name r"uhrt aus der Tatsache, dass diese die Charaktere auf der \emph{Idelklassengruppe $\I/\Kx$} sind (vgl. \cite{neukirch} S.375)} zu betrachten.
-	Dies sind, wie der Name tr"ugerisch verschweigt, Quasi-Charaktere auf $\I$, die trivial auf die Untergruppe $\Kx$ wirken.
-	Im Gegensatz zu unseren lokalen multiplikativen Charakteren fangen wir zuerst mit der Form an.
+	Es wird sich als sinnvoll erweisen die \emph{Idelklassencharaktere} zu betrachten.
+	Dies sind, wie der Name tr"ugerisch verschweigt, Quasi-Charaktere auf $\I$, die trivial auf die Untergruppe $\Kx$ wirken\footnote{Der Name erkl"art sich aus der Tatsache, dass sie gerade Quasi-Charaktere auf der sogenannten \emph{Idelklassengruppe $\I/\Kx$} sind (vgl. \cite{neukirch} S.375)}.
+	Aus dieser Definition wird klar, dass die Idelkassencharaktere $\chi$ das Vorzeichen nicht beachten.
+	Es gilt n"amlich $\chi(-x) = \chi(-1) \chi(x) = \chi(x)$ f"ur jedes Idel $x \in I$.
+	Wir k"onnen aber noch mehr "uber sie aussagen.
 	\begin{satz}
 		Jeder Idelklassencharakter $\chi$ hat die Form 
 		\begin{align*}
-			\chi(x) = \mu(\tilde{x}) \abs[x]_\A^s
+			\chi(x) = \mu(\tilde{x}) \abs[x]_\A^s,
 		\end{align*}
-		wobei $\mu$ ein unit"arer Charakter auf $\I^1$ und $\tilde{\cdot}:\I\to \I^1$ der stetige Homomorphismus nach Satz \ref{satz:adeleidele:ideleiso} (iv) ist.
+		wobei $\mu$ ein Charakter auf $\I^1$ und $\tilde{\cdot}:\I\to \I^1$ der stetige Homomorphismus nach Satz \ref{satz:adeleidele:ideleiso} (iv) ist.
 	\end{satz}
 	\begin{proof}
-		Wir schreiben wie oben $x\in \I$ als eindeutiges Produkt $tb$ mit $t=\abs[x]_\A\in \R^\times_+$ und $b\in \I^1$.
+		Wir schreiben wie oben $x\in \I$ als eindeutiges Produkt $t\cdot b$ mit $t=\abs[x]_\A\in \R^\times_+$ und $b\in \I^1$.
 		Dies ergibt die Zerlegung $\chi(x) = \chi_\infty(t) \cdot \chi(b)$.
-		Da $\chi$ trivial auf $\Kx$ wirkt induziert er einen Charakter auf der kompakten Gruppe ansehen $\I^1/\Kx$ den wir wieder mit $\chi$ bezeichnen.
-		$\chi(\I^1/\Kx)$ liegt als kompakte Untergruppe von $\Komplex^\times$ in $S^1$.
-		Folglich ist (mit etwas Missbrauch der Notation) $\mu\coloneqq \chi|_{\I^1} = \chi|_{\I^1/\Kx}$ ein Charakter auf $\I^1$.
+		Da $\chi$ trivial auf $\Kx$ wirkt, induziert er einen Charakter auf der kompakten Gruppe $\I^1/\Kx$, den wir wieder mit $\chi$ bezeichnen.
+		%$\chi(\I^1/\Kx)$ liegt als kompakte Untergruppe von $\Komplex^\times$ in $S^1$.
+		Folglich ist (mit etwas Missbrauch der Notation) $\mu\coloneqq \chi|_{\I^1} = \chi|_{\I^1/\Kx}$ nach Lemma \ref{Lemma:trivialerCharAufKompakt} ein Charakter auf $\I^1$.
 		Weiter ist nach Lemma \ref{lemma:lokal:unverzweigterChar} $\chi_\infty(t) = \abs[t]_\infty^s$ und wegen $\abs[t]_\infty = \abs[t]_\A$ folgt die Behauptung.
 	\end{proof}
-	Wie auch im Lokalen, k"onnen wir wieder von dem \emph{Exponenten} $\sigma=\Re(s)$ von $\chi = \mu\abs_\A^s$ reden.
+	Auch hier ist in dieser Darstellung im Allgemeinen nur der \emph{Exponenten} $\sigma=\Re(s)$ des Quasi-Charakters $\chi = \mu\abs_\A^s$ eindeutig.
 	Ein Idelklassencharakter soll nun \emph{unverzweigt} heißen, wenn er trivial auf $\I^1$ wirkt. 
-	Nach obigen Satz h"angt die Verzweigtheit also nur von dem Charakter $\mu$ ab.
-	\begin{korollar}
+	\begin{korollar}\label{kor:tateproof:iccOnF}
 		Jeder Idelklassencharakter $\chi$ ist genau dann unverzweigt, wenn er  trivial auf $F$ ist.
 	\end{korollar}
 	\begin{proof}
-		Das folgt sofort aus $\I/\Kx \cong F$.
+		Das folgt sofort aus $\I^1/\Kx \cong F$.
 	\end{proof}
-	Bevor wir nun die Zeta-Funktion definieren, merken wir noch an, dass die Idelkassencharaktere $\chi$ Vorzeichen nicht beachten.
-	Da sie trivial auf $\Kx$ wirken gilt n"amlich $\chi(-x) = \chi(-1) \chi(x) = \chi(x)$ f"ur jedes Idel $x \in I$.
+	Nach obigen Satz h"angt die Verzweigtheit also nur von dem Charakter $\mu$ ab.
+	\begin{lemma}\label{lemma:tateproof:unverzweigterChar}
+		Jeder unverzweigte Idelklassencharakter $\chi$ hat die Form $\chi = \abs_\A^s$.
+	\end{lemma}
+	\begin{proof}[Beweisidee]
+		Daf"ur m"ussen wir im wesentlichen den Beweis von Lemma \ref{lemma:lokal:unverzweigterChar} kopieren
+	\end{proof}
 	
-	
-	\begin{defi}
-		F"ur jede globale Schwartz-Bruhat Funktion $f\in \Sw(\A)$ und Idelklassencharakter $\chi$ mit Exponenten $\sigma > 0$ sei
+	Die Definition der Zeta-Funktionen auf $\A$ kann jetzt fast eins zu eins aus dem Lokalen "ubernommen werden. 
+	\begin{defi}\label{def:tateproof:zeta}
+		Sei $f\in \Sw(\A)$ eine Schwartz-Bruhat Funktion und $\chi=\mu\abs_p^s$ Idelklassencharakter.
+		Die \emph{globale Zeta-Funktion} von $f$ und $\chi$ ist definiert als das Integral
 		\begin{align*}
-			Z(f, \chi) = \int_{\I} f(x) \chi(x) \dxx
+			Z(f, \chi) = \int_{\I} f(x) \chi(x) \dxx.
 		\end{align*}
-		eine \emph{globale Zeta-Funktion} auf $\A$.
+		Wir schreiben wieder $Z(f, \mu, s)$ f"ur $Z(f, \mu\abs_p^s)$.
 	\end{defi}
 	
 	%Nun haben wir alles zusammen f"ur den großen Beweis:
@@ -323,66 +345,69 @@
 	%
 	Damit haben wir nun alles zusammen was wir brauchen um Riemanns Beweis in die Welt der Adele zu "ubertragen.
 	%Zusammen mit dem, was wir aus unseren ersten Trocken"ubungen mit den lokalen Funktiongleichungen gelernt haben, werden wir jetzt eine globale Funktionalgleichung etablieren indem wir die Beweisideen aus Riemanns Beweis "ubertragen.
-%%%
-%%% Die Globale Funktionalgleichung
-%%%
+%---------------------------------%
+% Die Globale Funktionalgleichung %
+%---------------------------------%
 	\begin{satz}[Globale Funktionalgleichung]
-		Sei $\chi=\mu\abs_\A^s$ ein Idelklassencharakter. Sei $f \in S(\A)$. 
-		Dann konvergiert die globale Zeta-Funktion $Z(f,\mu,s)$  f"ur $\text{Re}(s) > 1$ absolut und gleichmäßig auf kompakten Teilmengen und definiert dort eine holomorphe Funktion, die zu einer meromorphen Funktion auf ganz $\Komplex$ fortgesetzt werden kann, welche die \emph{globale Funktionalgleichung}
+		Sei $\chi=\mu\abs_\A^s$ ein Idelklassencharakter und sei $f \in S(\A)$ eine Schwartz-Bruhat Funktion. 
+		Dann konvergiert die globale Zeta-Funktion $Z(f,\mu,s)$  f"ur $\Re(s) > 1$ absolut und gleichmäßig auf kompakten Teilmengen und definiert dort eine holomorphe Funktion, die zu einer meromorphen Funktion auf ganz $\Komplex$ fortgesetzt werden kann, welche die \emph{globale Funktionalgleichung}
 		\begin{align*}
-			Z(f,\mu,s) = Z(\hat{f}, \frac{1}{\mu}, 1-s)
+			Z(f,\chi) = Z(\hat{f}, \check{\chi})
+		\end{align*}
+		bzw.
+		\begin{align*}
+			Z(f,\mu,s) = Z(\hat{f}, 1/\mu, 1-s)
 		\end{align*}
 		erf"ullt.
 		Diese Funktion ist "uberall holomorph, außer wenn $\mu = \abs_\A^{-i\tau}$, $\tau \in \R$. 
 		Dann besitzt sie einen einfachen Pol bei $s= i\tau$ mit Residuum $-f(0)$ und einen einfachen Pol bei $s=1+i\tau$ mit Residuum $\hat{f}(0)$.
 	\end{satz}
 	\begin{proof}
-		Wir beweisen zun"achst die Konvergenz. 
-		Dazu gen"ugt es faktorisierbare Schwartz-Bruhat Funktionen $f$ zu betrachten.
+		Starten wir mit der Konvergenz. 
+		Wie bisher gen"ugt es faktorisierbare Schwartz-Bruhat Funktionen $f$ zu betrachten.
 		%F"ur alle endlichen Stellen $p$ ist dann $f_p$ die charakteristische Funktion von $p^k\Z_p$ mit $k\in\Z$, wobei $k=0$ f"ur fast alle Stellen.
-		Wir m"ussen also zeigen, dass das Integral 
+		Ziel ist es dann zu zeigen, dass das Integral 
 		\begin{align}\label{eq:zetaproduct}
 			\int_\I \abs[f(x)\chi(x)] d^\times x = \int_\I \abs[f(x)] \cdot \abs[x]_\A^\sigma d^\times x = \prod_{p\leq\infty} \int_{\K_p^\times} \abs[f_p(x_p)] \cdot \abs[x_p]_p^\sigma d^\times x_p
 		\end{align}
 		endlich ist.
 		Dazu teilen wir das Produkt auf.
-		Es gibht eine Primzahl $p_0$, so dass $f_p$ f"ur alle $p_0\leq p <\infty$ die charakteristische Funktion $\ind_\Zp$ ist.
+		Es gibt eine Primzahl $p_0$, so dass $f_p$ f"ur alle $p_0\leq p <\infty$ gleich der charakteristischen Funktion $\ind_\Zp$ ist.
 		Wir k"onnen Gleichung \eqref{eq:zetaproduct} also schreiben als 
 		\begin{align*}
 			\int_{\K_\infty^\times} \abs[f_\infty(x_\infty)] \cdot \abs[x_\infty]_\infty^\sigma d^\times x_\infty \cdot \prod_{p < p_0} \int_{\K_p^\times} \abs[f_p(x_p)] \cdot \abs[x_p]_p^\sigma d^\times x_p \cdot \prod_{p_0\leq p < \infty} \int_{\Z_p \setminus \{0\}} \abs[x_p]_p^\sigma d^\times x_p .
 		\end{align*}
-		Der erste Faktor und das Produkt in der Mitte sind endlich nach dem Satz "uber die lokalen Funktionalgleichungen. 
-		In der Tat haben wir hier ein endliches Produkt lokaler Zeta-Funktionen $Z(\abs[f_p], \abs[x]_p^\sigma)$. 
-		Diese konvergieren f"ur $\sigma >0$, also sicherlich auch f"ur $\sigma >1$.
-		Konvergenz h"angt also nur von der Konvergenz des unendlichen Produkts 
+		Das Integral setzt sich also als unendliches Produkt lokaler Zeta-Funktionen $Z_p(\abs[f_p], \abs[x]_p^\sigma)$ zusammen.
+		Der erste Faktor und das endliche Produkt in der Mitte konvergieren damit nach dem Satz "uber die lokalen Funktionalgleichungen f"ur $\sigma >0$, also sicherlich auch f"ur $\sigma >1$. 
+		Die Konvergenz der Zeta-Funktion h"angt also nur noch von der des unendlichen Produkts 
 		\begin{align*}
 			\prod_{p_0\leq p < \infty} \int_{\Z_p \setminus \{0\}} \abs[x_p]_p^\sigma d^\times x_p
 		\end{align*}
 		ab. 
 		Der aufmerksame Leser wird sich hier vielleicht an die genauen Berechnungen der lokalen Funktionalgleichungen erinnern und einen Bezug zur Riemannschen Zeta-Funktion erahnen. 
-		Um die sp"atere "Uberraschung aber nicht zu verderben werden wir nur anmerken, dass dies ein Teilprodukt eines bekannten unendlichen Produktformel ist, welche gleichm"aßig auf jedem Kompaktum der gegeben Halbebene konvergiert.
+		Um die sp"atere "Uberraschung aber nicht zu verderben, werden wir nur anmerken, dass dies ein Teilprodukt einer bekannten Produktformel ist, welche gleichm"aßig auf jedem Kompaktum der gegeben Halbebene konvergiert.
 		
 		%%%Ende Konvergenz
 		%%%
-		%%%Anfang Funktionalgleichung
+		%%%Anfang Fortsetzung
 		
-		Nun zur Funktionalgleichung. 
+		Weiter zur meromorphen Fortsetzung auf ganz $\Komplex$. 
 		Aufgrund absoluter Konvergenz auf der Halbebene $\Re(s)>1$ haben wir
 		\begin{align*}
 			Z(f,\chi) 	&= \int_{\I} f(x) \chi(x) d^\times x \\
 							&= \iint_{\R^\times_+ \times \I^1} f(t\cdot b) \chi(t\cdot b) (d^\times t\times \dxs[b])\\
 							&= \int_0^\infty \left[\int_{\I^1} (f(t\cdot b) \chi(t\cdot b) \dxs[b]\right] \frac{dt}{t}
 		\end{align*}
-		Um uns etwas Schreibarbeit zu sparen definieren wir
+		Um uns etwas Schreibarbeit zu sparen, definieren wir das innere Integral als
 		\begin{align*}
 			Z_t(f,\chi) \coloneqq  \int_{\I^1} f(t\cdot b) \chi(t\cdot b) \dxs[b].
 		\end{align*}
 		Wie in Riemanns Beweis wollen wir nun eine auf ganz $\Komplex$ g"ultige meromorphe Darstellung der Zeta-Funktion finden.
-		Dazu teilen wir ganz analog das Integral in die zwei Summanden
-		\begin{align*}
+		Dazu teilen wir, ganz analog, das Integral in die zwei Summanden
+		\begin{align}\label{eq:tateproof:intSplit}
 			Z(f,\chi) = \int_0^1 Z_t(f,\chi) \frac{dt}{t} 
 							+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t}.
-		\end{align*}
+		\end{align}
 		
 		Das Integral $\int_1^\infty$ macht uns keine Probleme.
 		Wir haben festgestellt, dass
@@ -404,28 +429,28 @@
 							&= \sum_{a \in \Kx} \int_{F} (f(at\cdot b) \chi(t\cdot b) \dxs[b]
 							= \int_{F} \left(\sum_{a \in \Kx}  f(at\cdot b)\right) \chi(t\cdot b) \dxs[b],
 		\end{align*}
-		wobei wir auf $\sigma>1$ wegen absoluter Konvergenz hier Summe und Integral vertauschen d"urfen.
+		wobei wir auf $\sigma>1$ wegen absoluter Konvergenz Summe und Integral vertauschen d"urfen.
 		Die Summe "uber $a\in\Kx$ erinnert dabei den Ausdruck $\Theta(x)-1$ in Riemanns Beweis, welcher gerade $\sum_{n\in\Z\setminus\{0\}} \exp(-\pi x n^2)$ entspricht. 
-		Wir sind also dazu verleitet Riemann-Roch hier anzuwenden, wof"ur wir allerdings eine Summe "uber ganz $\K$ ben"otigen. 
+		Wir sind also dazu verleitet hier den Satz von Riemann-Roch anzuwenden, wof"ur wir allerdings eine Summe "uber ganz $\K$ ben"otigen. 
 		Dieses Problem l"asst sich leicht beheben.
 		\begin{lemma}
 			\begin{align*}
-				Z_t(f,\chi) = \zeta_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b] - f(0)\int_F \chi(tx)\dxs[b].
+				Z_t(f,\chi) = Z_{t^{-1}}(\hat{f},\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b] - f(0)\int_F \chi(tx)\dxs[b].
 			\end{align*}
 		\end{lemma}
 		\begin{proof}
 			Die Idee ist klar. 
-			Wir f"ugen $f(0)\int_F \chi(tx)\dxs[b]$ zu $Z_t(f,\chi)$ hinzu, erhalten
+			Wir addieren $f(0)\int_F \chi(tx)\dxs[b]$ auf $Z_t(f,\chi)$, erhalten
 			\begin{align*}
 				Z_t(f,\chi) + f(0)\int_F \chi(tb)\dxs[b]= \int_{F} \left(\sum_{a \in \K}  (f(at\cdot b)\right) \chi(t\cdot b) \dxs[b]
 			\end{align*}
 			und k"onnen jetzt unsere Version von Riemann-Roch anwenden:
 			\begin{align*}
 				\int_{F} \left(\sum_{a \in \K}  f(at\cdot b)\right) \chi(t\cdot b) \dxs[b] 
-					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tx]_{\A}} \dxs[b]\\
+					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b^{-1}) \right) \frac{\chi(t\cdot b)}{\abs[tb]_{\A}} \dxs[b]\\
 					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \abs[t^{-1}b]_{\A} \chi(t\cdot b) \dxs[b]\\
-					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \check{\chi}(b/t)\dxs[b] + \hat{f}(0) \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b]\\
-					&= Z_{t^{-1}}(f,\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b]
+					&= \int_{F} \left(\sum_{a \in \K}  \hat{f}(a t^{-1} b) \right) \check{\chi}(b/t)\dxs[b] + \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b]\\
+					&= Z_{t^{-1}}(\hat{f},\check{\chi}) + \hat{f}(0) \int_F \check{\chi} (x/t)\dxs[b]
 			\end{align*}
 			wobei wir im zweiten Schritt den Variablenwechsel $b\mapsto b^{-1}$ und im dritten Schritt $\chi(x^{-1}) = \chi(x)^{-1}$ ausgenutzt haben.
 		\end{proof}
@@ -433,7 +458,7 @@
 		\begin{align*}
 			\int_0^1 Z_t(f,\chi) \frac{dt}{t} 
 				= \int_0^1 \left( Z_{t^{-1}}(\hat{f},\check{\chi}) 
-					+ \hat{f}(0) \check{\chi}(t^{-1}) \int_F \check{\chi} (x)\dxs[b] 
+					+ \hat{f}(0) \check{\chi}(t) ^{-1}\int_F \check{\chi} (x)\dxs[b] 
 					- f(0)\chi(t)\int_F \chi(x)\dxs[b] \right)\frac{dt}{t}
 		\end{align*}
 		Ein Variablenwechsel $t\mapsto t^{-1}$ im ersten Summanden ergibt dann
@@ -441,51 +466,60 @@
 			\int_0^1  Z_{t^{-1}}(\hat{f},\check{\chi}) \frac{dt}{t} = \int_1^\infty  Z_{t}(\hat{f},\check{\chi}) \frac{dt}{t}
 		\end{align*}
 		was nach dem gleichen Argument wie bei $\int_1^\infty$ auf ganz $\Komplex$ konvergiert. 
-		Ganz nach Riemanns Vorbild haben wir beide Integrale auf dem Bereich von $1$ bis $\infty$.
-		Es bleibt noch der \glqq Fehler\grqq{}-Term 
+		Ganz nach Riemanns Vorbild haben wir nun zwei Integrale auf dem Bereich von $1$ bis $\infty$.
+		Es bleibt noch der Term 
 		\begin{align*}
-			E(f,\chi)\coloneqq  \int_0^1  \hat{f}(0) \check{\chi}(t^{-1}) \left(\int_F \check{\chi} (x)\dxs[b]\right) \frac{dt}{t}
+			E(f,\chi)\coloneqq  \int_0^1  \hat{f}(0) \check{\chi}(t)^{-1} \left(\int_F \check{\chi} (x)\dxs[b]\right) \frac{dt}{t}
 					- \int_0^1 f(0)\chi(t)\left(\int_F \chi(x)\dxs[b] \right)\frac{dt}{t}.
 		\end{align*}
 		Dieser entspricht wiederum den beiden Termen $\frac{1}{s}$ und $\frac{1}{1-s}$ aus Riemanns Beweis.
-		Ist $\chi$ nicht trivial auf $\I^1$, so wirkt $\chi$ auch nicht trivial auf dem Kompaktum $F$.
-		Folglich verschwinden beide Integrale und $E(f,\chi) = 0$
+		Ist der Idelklassencharakter $\chi$ nicht unverzweigt, so wirkt er nach Korollar \ref{kor:tateproof:iccOnF} auch nicht trivial auf dem Kompaktum $F$.
+		Folglich verschwinden beide Integrale und $E(f,\chi) = 0$ ist offensichtlich eine ganze Funktion.
 		%\begin{align*}
 				%Z(f,\chi) =  \int_1^\infty Z_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
 							%+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t}.
 		%\end{align*}
-		Ist $\chi = \mu \abs^s$ dagegen trivial auf $\I^1$, dann wissen wir, dass $\chi = \abs^{s'}$, wobei $s'=s-i\tau$ f"ur ein $\tau \in \R$. Also,
+		Ist $\chi = \mu \abs_\A^s$ dagegen unverzweigt, so haben wir in Lemma \ref{lemma:tateproof:unverzweigterChar} gezeigt, dass $\chi = \abs_\A^{s'}$, wobei $s'=s-i\tau$ f"ur ein $\tau \in \R$. 
+		Wegen $\chi(t) = \abs[t]_\A^{s'}$ ist damit
 		\begin{align*}
-			E(f,\chi) 	&= \int_0^1  \hat{f}(0) t^{s'-1} \text{Vol}(F,\dxs[b]) - f(0) t^{s'}\text{Vol}(F,\dxs[b])\frac{dt}{t}\\
-						&= \frac{\hat{f}(0)}{s' - 1} - \frac{f(0)}{s'}
+			E(f,\chi) 	&= \text{Vol}(F,\dxs[b]) \hat{f}(0) \int_0^1  t^{s'-1} \frac{dt}{t}  -\text{Vol}(F,\dxs[b]) f(0) \int_0^1  t^{s'}\frac{dt}{t}\\
+						&= \frac{\hat{f}(0)}{s' - 1} - \frac{f(0)}{s'} = \frac{\hat{f}(0)}{s - (i \tau + 1)} - \frac{f(0)}{s-i\tau}
 		\end{align*}
-		und wir sehen, dass $E$ in diesem Fall eine rationale Funktion ist. Damit ist
+		und wir sehen, dass $E$ in diesem Fall eine rationale Funktion in $s$ ist. 
+		Eingesetzt in Gleichung \eqref{eq:tateproof:intSplit} erh"alt man
 		\begin{align*}
 			Z(f,\chi) =  \int_1^\infty Z_t(\hat{f}, \check{\chi}) \frac{dt}{t} 
-							+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t} + E(f,\chi)
+							+ \int_1^\infty Z_t(f,\chi) \frac{dt}{t} + E(f,\chi),
 		\end{align*}
-		Eine meromorphe Erweiterung der Funktion auf ganz $\Komplex$. 
-		Zudem haben wir gezeigt, dass f"ur $\mu \not=\abs^{-i\tau}$ die Funktion $\zeta$ sogar ganz ist und im Fall $\mu =\abs^{-i\tau}$ ihre einzigen Pole bei $s=i\tau$ und $s=1+i\tau$ liegen mit den Residuen $-f(0)$ bzw. $\hat{f}(0)$.
+		einen auf ganz $\Komplex$ g"ultigen Ausdruck der Zeta-Funktion und damit eine meromorphe Fortsetzung  der Funktion. 
+		Diese ist f"ur $\mu \not=\abs_\A^{-i\tau}$ sogar ganz und hat im Fall $\mu =\abs_\A^{-i\tau}$ nur zwei einfache Pole bei $s=i\tau$ und $s=1+i\tau$ mit Residuen $-f(0)$ bzw. $\hat{f}(0)$.
 		
 		%%%
 		%%%Funktionalgleichung
 		%%%
-		Zum Schluss kommen wir noch zur Funktionalgleichung. Aus
+		Zum Schluss kommen wir noch zur Funktionalgleichung. 
+		Es gilt zun"achst $E(f,\chi) = E(\hat{f},\check{\chi})$.
+		Im unverzweigten Fall folgt dies sofort, und im verzweigten Fall $\chi=\abs_\A^{s'}$ haben wir 
 		\begin{align*}
-			\hat{\hat{f}}(x) = f(-x) \quad \text{ und }\quad \check{\check{\chi}} = \chi
+			E(f,\chi) = \frac{\hat{f}(0)}{s' - 1} - \frac{f(0)}{s'} = - \frac{\hat{f}(0)}{1 - s'} + \frac{\hat{\hat{f}}(0)}{1- (1-s')} = E(\hat{f},\check{\chi}),
 		\end{align*}
-		folgt
+		wobei wir hier die Umkehrformel
+		$
+			\hat{\hat{f}}(x) = f(-x) 
+		$
+		nach Satz \ref{satz:tateproof:umkehrformel} benutzt haben. Mit $\check{\check{\chi}} = \chi$folgt
 		\begin{align*}
 			Z(\hat{f},\check{\chi}) 
 				&=  \int_1^\infty Z_t(\hat{\hat{f}}, \check{\check{\chi}}) \frac{dt}{t} 
 					+ \int_1^\infty Z_t(\hat{f},\check{\chi}) \frac{dt}{t} + E(\hat{f},\check{\chi})\\
-				&= \int_1^\infty \int_{\I^1}f(-tb)\chi(tb)\dxs[b]  \frac{dt}{t} 
-					+ \int_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)\dxs[b]  \frac{dt}{t} +E(f,\chi)\\
-				&= \int_1^\infty \int_{\I^1}f(tb)\chi(tb)\dxs[b]  \frac{dt}{t} 
-					+ \int_1^\infty \int_{\I^1}\hat{f}(tb)\check{\chi}(tb)\dxs[b]  \frac{dt}{t} +E(f,\chi) = Z(f,\chi)
+				&= \int_1^\infty \int_{\I^1}f(-t \cdot b)\chi(t \cdot b)\dxs[b]  \frac{dt}{t} 
+					+ \int_1^\infty \int_{\I^1}\hat{f}(t \cdot b)\check{\chi}(t \cdot b)\dxs[b]  \frac{dt}{t} +E(f,\chi)\\
+				&= \int_1^\infty \int_{\I^1}f(t \cdot b)\chi(t \cdot b)\dxs[b]  \frac{dt}{t} 
+					+ \int_1^\infty \int_{\I^1}\hat{f}(t \cdot b)\check{\chi}(t \cdot b)\dxs[b]  \frac{dt}{t} +E(f,\chi) = Z(f,\chi)
 		\end{align*}
 		wobei wir im letzten Schritt im ersten Integral die Translationsinvarianz der Haar-Maßes $\dxs[b]$ und die Eigenschaft des Idelklassencharakters $\chi(-tx) = \chi(tx)$ ausgenutzt haben.
 	\end{proof}
+	
 \subsection{Globale Berechnung: Die Riemannsche Zeta-Funktion}
 	Wir wollen jetzt zeigen, dass unsere Berechnungen im letzten Abschnitt nicht ohne Inhalt sind.
 	Immerhin besteht immer noch die Gefahr, dass wir gerade $0 = 0$ gezeigt haben.
@@ -501,14 +535,14 @@
 	
 	%Auf zu den Zeta-Funktionen!
 	F"ur jede Stelle $p\leq \infty$ ist der Faktor $f_p$ die Funktion, die wir bei den Berechnungen der lokalen Zeta-Funktionen $Z_p(f_p,1,\abs_p^s)$ im unverzweigten Fall verwendet haben.
-	Bleiben wir also auch hier im unverzweigten und betrachten den Charakter $\abs_\A^s$.
+	Bleiben wir also auch hier unverzweigt und betrachten den Charakter $\abs_\A^s$.
 	Damit vereinfacht sich die Berechnung der globalen Zeta-Funktion zu
 	\begin{align*}
 		Z(f, 1, \abs_\A^s) 	= \int_\I f(x) \abs[x]_\A^s \dxx 
 							= \prod_{p\leq \infty} Z(f_p, 1 , \abs_p^s)
 							= \pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right) \prod_{p<\infty} \frac{1}{1-p^{-s}}.
 	\end{align*}
-	Das Produkt am Ende sollte uns bekannt vorkommen.
+	Das Produkt am Ende sollte uns aber bekannt vorkommen.
 	Es ist genau die Darstellung der Riemannschen Zeta-Funktion als Euler-Produkt.
 	Damit ist also
 	\begin{align*}
@@ -530,7 +564,7 @@
 	
 	B"ose Zungen m"ogen jetzt behaupten, dass wir durch die Wahl unserer Funktion $f$, vor allem durch die Wahl des Faktors $f_\infty (x_\infty) =  exp(-2\pi i x_\infty)$,
 	die Form dieser Gleichung letztendlich beeinflusst haben um gerade auf das klassische Ergebnis zu kommen.
-	Sie haben recht, denn immerhin h"atte ein anderer Faktor $g_\infty$ eine andere Funktionalgleichung ergeben.
+	Das stimmt, denn immerhin h"atte ein anderer Faktor $g_\infty$ eine andere Funktionalgleichung ergeben.
 	Diese beiden Funktionalgleichungen unterscheiden sich dann aber nur um einen meromorphen Faktor, den wir dank
 	\begin{align*}
 		  Z_\infty(g_\infty, \abs_\infty^s)Z_\infty(\hat{f}_\infty,\abs_\infty^{s-1}) =Z_\infty(f_\infty, \abs_\infty^s) Z_\infty(\hat{g}_\infty, \abs_\infty^{s-1}),

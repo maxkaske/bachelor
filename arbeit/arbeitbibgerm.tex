@@ -15,20 +15,8 @@
 \usepackage[ngerman]{babel}% deutsche Trennregeln
 \usepackage[T1]{fontenc}% wichtig für Trennung von Wörtern mit Umlauten
 \usepackage{lmodern}
-%\usepackage{bibgerm}
+\usepackage{bibgerm}
 %\usepackage[square,sort,comma,numbers]{natbib}
-\usepackage{csquotes}
-\usepackage[
-    backend=biber,
-    style=numeric,
-    sortlocale=de_DE,
-    natbib=true,
-	isbn=false,
-    url=true, 
-    doi=true,
-    eprint=false
-]{biblatex}
-\addbibresource{arbeit.bib}
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
@@ -196,9 +184,12 @@
 \input{anhang}
 \clearpage
 
-%\bibliographystyle{gerplain}
+\bibliographystyle{gerplain}
 %\bibliographystyle{plainnat}
-\printbibliography
+\bibliography{arbeit}
+
+
+\clearpage
 
 
 \end{document}

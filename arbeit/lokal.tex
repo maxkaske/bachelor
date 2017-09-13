@@ -179,7 +179,7 @@
 		Die kleinste solche Untergruppe $p^k\Zp$ nennen wir den \emph{Konduktor} des additiven Charakters $\psi$. %%%KONDUKTOR DEFINITION
 		Dieser wird uns im folgenden Lemma zur Hilfe kommen.
 	
-		\begin{lemma}
+		\begin{lemma}\label{lemma:lokal:genericchar}
 			Jeder Charakter $\psi: \Kp \to S^1$ ist von der Form $x \mapsto e_p(ax)$ f"ur ein $a \in \Kp$.
 		\end{lemma}
 		\begin{proof}
@@ -299,7 +299,7 @@
 			\end{enumerate}
 		\end{bsp}
 		
-		\begin{lemma}\label{lemma:padischSBF}
+		\begin{lemma}\label{lemma:lokal:sw}
 			F"ur jede endliche Stelle $p<\infty$ sind die lokalen Schwartz-Bruhat Funktion $f\in \Sw(\Kp)$ endliche Linearkombinationen von charakteristischen Funktionen der Mengen ${a+p^k\Zp}$, wobei $a\in \K$ und $k\in \Z$.
 		\end{lemma}
 		\begin{proof}
@@ -333,7 +333,7 @@
 			Daf"ur verweisen wir auf die Berechnungen am Ende des Kapitels.
 			
 			Kommen wir zum Fall $p<\infty$. 
-			Wie wir in Lemma \ref{lemma:padischSBF} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. 
+			Wie wir in Lemma \ref{lemma:lokal:sw} gesehen haben haben, ist jede Funktion in $\Sw(\Kp)$ eine Linearkombination von Funktionen der Form $f = \ind_{a+p^k\Zp}$. 
 			Es reicht also die Aussage f"ur solche $f$ zu zeigen.
 			Sei dazu $h\coloneqq  \ind_{\Zp}$. Wir zeigen $\hat{h} = h$ durch folgende Rechnung
 			\begin{align*}
@@ -386,7 +386,7 @@
 	Wenn $p<\infty$ ist $\dedekind_p^\times = \Z_p^\times$, $V(\K_p) = p^\Z$ und wir k"onnen jedes Element $x \in \Kpx$ schreiben als $x = \abs[x]_p\tilde{x}$.
 	Es wird nun von Interesse sein, wie die multiplikativen Charaktere auf die Untergruppe $\dedekind_p^\times$ wirken. Dazu zun"achst eine kleine Definition.
 	\begin{defi}
-		Ein Charakter $\chi \in \text{Hom}_\text{cont}(\Kpx, \Komplex^\times)$ ist \emph{unverzweigt}, wenn er trivial auf die Untergruppe $\dedekind_p^\times$ wirkt.
+		Ein multiplikativer  Quasi-Charakter $\chi$ ist \emph{unverzweigt}, wenn er trivial auf die Untergruppe $\dedekind_p^\times$ wirkt.
 	\end{defi}
 	Die unverzweigten Charaktere haben eine recht einfache Form, wie folgendes Lemma zeigt.
 	\begin{lemma}\label{lemma:lokal:unverzweigterChar}
@@ -397,8 +397,8 @@
 		Umgekehrt sei $\chi$ ein unverzweigter Quasi-Charakter. Dann gilt $\chi(x) = \chi(\abs[x]_p \tilde{x}) = \chi(\abs[x]_p)$.
 		Dadurch induziert $\chi$ eine stetige Abbildung auf dem Wertebereich $V(\Kp)$. Wir zeigen, dass diese Abbildung gerade die Form $t\mapsto t^s$ hat.
 		
-		Sei zuerst $p=\infty$, also $V(\Kp) = \R_+^\times$. Wir definieren $s\coloneqq  \log(\chi(e))$, also $\chi(e) = e^s$.
-		Induktiv l"asst sich nun leicht $\chi(e^n) = e^{ns}$ f"ur ganze Zahlen $n\in\Z$ zeigen. 
+		Sei zuerst $p=\infty$, also $V(\Kinf) = \R_+^\times$. Wir definieren $s\coloneqq  \log(\chi(e))$, also $\chi(e) = e^s$.
+		Induktiv l"asst sich nun leicht $\chi(e^n) = e^{ns}$ f"ur alle ganzen Zahlen $n\in\Z$ zeigen. 
 		Analog zeigt man 
 		\begin{align*}
 			\chi(e^{\frac{n}{m}})^m = \chi(e^{m\frac{n}{m}}) =\chi(e^n) = e^{ns},
@@ -443,16 +443,18 @@
 	\end{align*}
 	erkennen wir, dass die Zeta-Funktion nichts weiter als ein Integral "uber die multiplikative Gruppe $\R^\times$ ist, deren Integrand das Produkt einer Schwartz-Funktion mit einem multiplikativen Charakter ist.
 	Genau das wird unsere Defintion einer lokalen Zeta-Funktion.
-	\begin{defi}%%%TODO SCHOENER DEFINIEREN
-		F"ur jede lokale Schwartz-Bruhat Funktion $f\in \Sw(\K_p)$ und multiplikativen Quasi-Charakter $\chi$ mit Exponenten $\sigma >0$ sei
+	\begin{defi}\label{def:lokal:zeta}
+		Sei $f\in \Sw(\K_p)$ eine lokale Schwartz-Bruhat Funktion und $\chi=\mu\abs_p^s$ multiplikativer Quasi-Charakter.
+		Die \emph{lokale Zeta-Funktion} von $f$ und $\chi$ ist definiert als das Integral
 		\begin{align*}
-			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxxp
+			Z_p(f, \chi) = \int_{\Kpx} f(x) \chi(x) \dxxp.
 		\end{align*}
-		eine \emph{lokale Zeta-Funktion} auf $\Kp$.
+		Wir schreiben auch $Z_p(f, \mu, s)$ f"ur $Z_p(f, \mu\abs_p^s)$.
 	\end{defi}
-	Fixieren wir einen multiplikativen Charakter $\mu$ auf $\dedekind_p^\times$, so k"onnen wir $Z_p(f, \mu \abs_p^s)$ als eine Funktion in der komplexen Variable $s$ ansehen und schreiben dann auch $Z_p(f, \mu, s)$.
+	Fixieren wir eine Funktion $f$ und einen multiplikativen Charakter $\mu$ auf $\dedekind_p^\times$, so k"onnen wir $Z_p(f, \mu, s)$ als eine Funktion in der komplexen Variable $s$ ansehen. 
+	Es wird daher Sinn machen, der Frage nach Holomorphie bzw. Meromorphie der lokalen Zeta-Funktionen nachzugehen.
 	
-	Bevor wir gleich zum ersten großen Ergebnis aus Tates Doktorarbeit kommen, definieren wir f"ur jeden Quasi-Charakter $\chi$ noch mittels
+	Zuletzt definieren wir noch f"ur jeden Quasi-Charakter $\chi$ mittels
 	\begin{align*}
 		\check{\chi}(x) = \frac{\abs[x]_p}{\chi(x)},
 	\end{align*}

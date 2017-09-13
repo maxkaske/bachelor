@@ -1,7 +1,7 @@
 
 \section{Von Riemann zu Tate}
 	%\subsection{Historische Kontext}
-	Im Jahr 1859 erschien mit \emph{\glqq Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse\grqq} Bernhard Riemanns erste und einzige ver"offentlichte Arbeit im Bereich der Zahlentheorie.
+	Im Jahr 1859 erschien mit \emph{\glqq Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse\grqq} \cite{riemann1859ueber} Bernhard Riemanns erste und einzige ver"offentlichte Arbeit im Bereich der Zahlentheorie.
 	Als Startpunkt nimmt Riemann die heute als \emph{Riemannsche Zeta-Funktion}\footnote{Obwohl diese Funktion heute nach Riemann benannt ist, war es Leonhard Euler der sich zuerst n"aher mit ihr besch"aftigte } $\zeta(s)$ bekannte Abbildung, welche f"ur $\Re(s)>1$ durch
 	\begin{align*}
 		\sum_{n\in \N} \frac{1}{n^s} = \prod_{p \text{ prim}} \frac{1}{1-p^{-s}}
@@ -11,7 +11,7 @@
 	\begin{align*}
 		\Xi(s) = \Xi(1-s),
 	\end{align*}
-	wobei $\Xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)$ und $\Gamma(s)$\footnote{Riemann selbst benutze noch den durch Gauß definierte Notation $\Pi(s-1)=\Gamma(s)$} das bekannte Euler-Integral
+	wobei $\Xi(s) = \Gamma(s/2)\pi^{-s/2}\zeta(s)$ und $\Gamma(s)$\footnote{Riemann selbst benutze noch die durch Gauß definierte Notation $\Pi(s-1)=\Gamma(s)$} das bekannte Euler-Integral
 	\begin{align*}
 		\Gamma(s) = \int_0^\infty e^{-x} x^s \frac{\dx}{x}
 	\end{align*}
@@ -116,8 +116,8 @@
 			\hat{f}(\xi) = \int_\R f(x)e^{-2\pi i x \xi} \dx.
 		\end{align*}
 		Mit dieser Abbildung haben wir folgenden
-		\begin{satz}[Klassische Poisson-Summenformel]
-			\label{satz:poisson}
+		\begin{satz}[Klassische Poisson Summenformel]
+			\label{satz:einleitung:poisson}
 			F"ur jedes geeignete $f:\R \to \Komplex$ und deren Fouriertransformation $\hat{f}:\R \to \Komplex$ gilt:
 			\begin{align}
 				\sum_{a \in \Z} f(a) = \sum_{a \in \Z} \hat{f}(a) \label{eq:einleitung:poisson}
@@ -127,7 +127,7 @@
 			In dieser klassischen Form zum Beispiel in Deitmar \cite{deitmar2010} Proposition 5.4.10.
 		\end{proof}
 		Als Zweites halten wir fest, dass die \emph{Fouriertransformierte} von $f_t(x) = e^{-\pi t x^2}$ gleich $\hat{f}_t(x)= t^{-1/2}f_{\frac{1}{t}}(x)$ ist.
-		Einsetzen in die Poisson-Summenformel \eqref{eq:einleitung:poisson} ergibt dann die Transformationsformel \eqref{eq:einleitung:thetatrafo}.
+		Einsetzen in die Poisson Summenformel \eqref{eq:einleitung:poisson} ergibt dann die Transformationsformel \eqref{eq:einleitung:thetatrafo}.
 		Mit dieser kann man nun den ersten Summanden in Gleichung \eqref{eq:einleitung:riemann1} umformen zu
 		\begin{align*}		
 			\int_{0}^{1} \left(t^{-1/2}\Theta(1/t)-1\right) t^{s/2}  \frac{\dx[t]}{t} 
@@ -154,7 +154,7 @@
 	Auftritt John Tate.
 	
 	Tate kommt aus einer langen Linie von Mathematikern deren Arbeit mehr oder weniger direkt durch Riemanns Ideen in  \emph{Ueber die Anzahl\dots} beeinflusst wurde.
-	Unter der Aufsicht Emil Artins verfasste er 1950, fast 100 Jahre nach Riemann, seine Doktorarbeit \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{}\cite{tate}. Sie ist zum Beispiel in \cite{cassels1967algebraic} zu finden.
+	Unter der Aufsicht Emil Artins verfasste er 1950, fast 100 Jahre nach Riemann, seine Doktorarbeit \glqq Fourier Analysis in Number Fields and Hecke's Zeta-Functions\grqq{} \cite{tate}. Sie ist zum Beispiel in \cite{cassels1967algebraic} zu finden.
 	In ihr bewies er die analytische Fortsetzung und Funktionalgleichung der Dedekind Zeta-Funktionen und Hecke L-Funktionen, eine Art Verallgemeinerung der Riemannschen Zeta-Funktion.
 	Dieses Ergebnis war keineswegs neu und wurde 30 Jahre fr"uher bereits durch Erich Hecke gezeigt.
 	Was Tates Doktorarbeit jedoch so besonders macht - und einer der Gr"unde daf"ur warum sie als  \glqq Tate's Thesis\grqq{} gewissen Kultstatus erreicht hat - ist die elegante Herangehensweise an Heckes Problemstellung in der globalen Sprache der \emph{Adele und Idele}.

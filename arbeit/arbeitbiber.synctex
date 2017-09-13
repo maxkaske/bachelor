@@ -1,5 +1,5 @@
 SyncTeX Version:1
-Input:1:D:\Dev\bachelor\arbeit\arbeit.tex
+Input:1:D:\Dev\bachelor\arbeit\arbeitbiber.tex
 Input:2:D:\Dev\MiKTeX 2.9\tex\latex\base\article.cls
 Input:3:D:\Dev\MiKTeX 2.9\tex\latex\base\size11.clo
 Input:4:D:\Dev\MiKTeX 2.9\tex\latex\base\inputenc.sty
@@ -73,9 +73,9 @@ Input:71:D:\Dev\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
 Input:72:D:\Dev\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
 Input:73:D:\Dev\MiKTeX 2.9\tex\latex\biblatex\lbx\ngerman.lbx
 Input:74:D:\Dev\MiKTeX 2.9\tex\latex\biblatex\lbx\german.lbx
-Input:75:D:\Dev\bachelor\arbeit\arbeit.aux
+Input:75:D:\Dev\bachelor\arbeit\arbeitbiber.aux
 Input:76:D:\Dev\MiKTeX 2.9\tex\latex\lm\t1lmr.fd
-Input:77:D:\Dev\bachelor\arbeit\arbeit.bbl
+Input:77:D:\Dev\bachelor\arbeit\arbeitbiber.bbl
 Input:78:D:\Dev\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
 Input:79:D:\Dev\MiKTeX 2.9\tex\latex\graphics\graphics.sty
 Input:80:D:\Dev\MiKTeX 2.9\tex\latex\graphics\trig.sty
@@ -88,8 +88,8 @@ Input:86:D:\Dev\MiKTeX 2.9\tex\latex\graphics\color.sty
 Input:87:D:\Dev\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
 Input:88:D:\Dev\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
 Input:89:D:\Dev\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
-Input:90:D:\Dev\bachelor\arbeit\arbeit.out
-Input:91:D:\Dev\bachelor\arbeit\arbeit.out
+Input:90:D:\Dev\bachelor\arbeit\arbeitbiber.out
+Input:91:D:\Dev\bachelor\arbeit\arbeitbiber.out
 Input:92:D:\Dev\bachelor\arbeit\abstract.tex
 Input:93:D:\Dev\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 Input:94:D:\Dev\MiKTeX 2.9\tex\latex\lm\omllmm.fd
@@ -103,7 +103,7 @@ Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!5642
+!5667
 {1
 [1,163:4736286,53617711:28827951,48881425,0
 h1,163:4736286,4736286:0,0,0
@@ -804,8 +804,8 @@ k1,163:33564238,53617711:13855534
 ]
 !17497
 }1
-Input:99:D:\Dev\bachelor\arbeit\arbeit.toc
-!53
+Input:99:D:\Dev\bachelor\arbeit\arbeitbiber.toc
+!58
 {2
 [1,165:4736286,53617711:28827951,48881425,0
 [1,165:4736286,4736286:0,0,0
@@ -118176,8 +118176,8 @@ k1,204:33564237,53617711:13626290
 ]
 !19222
 }60
-Input:112:D:\Dev\bachelor\arbeit\arbeit.aux
-!55
+Input:112:D:\Dev\bachelor\arbeit\arbeitbiber.aux
+!60
 Postamble:
 Count:73260
 !27
