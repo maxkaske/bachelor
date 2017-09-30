@@ -1,22 +1,14 @@
-\documentclass[11pt]{article} % use larger type; default would be 10pt
-%\documentclass[paper=a4, 	% Seitenformat
-		%fontsize=11pt, 		% Schriftgr\"o\ss{}e
- 		%bibtotoc, 	% Literaturverzeichnis in das Inhaltsverzeichnis
- 		%bibtotocnumbered, % Literaturverzeichnis mit Nummer in das Inhaltsverzeichnis
-		%twoside, 	% doppelseitig
- 		%idxtotoc, 	% Index in das Inhaltsverzeichnis
-		%abstracton, 	% mit Abstrakt
-		%headsepline, 	% Trennlinie f\"ur die Kopfzeile
-		%footnosepline,	% Trennlinie f\"ur die Fu\ss{}zeile
-		%notitlepage	% keine extra Titelseite
-		%]{scrartcl}
-\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\documentclass[12pt]{article} %
 
+%%% Input encoding
+\usepackage[utf8]{inputenc}
+
+%%% Deutsch bitte
 \usepackage[ngerman]{babel}% deutsche Trennregeln
 \usepackage[T1]{fontenc}% wichtig für Trennung von Wörtern mit Umlauten
 \usepackage{lmodern}
-%\usepackage{bibgerm}
-%\usepackage[square,sort,comma,numbers]{natbib}
+
+%%% Bibliografie
 \usepackage{csquotes}
 \usepackage[
     backend=biber,
@@ -30,15 +22,16 @@
 ]{biblatex}
 \addbibresource{arbeit.bib}
 
-%%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper, left=30mm, right=30mm, top=25mm, bottom=20mm}
+%%% SICHTBARE SEITENRAENDER
+%\usepackage{showframe}
 
-%Listen
+%%% PAGE DIMENSIONS
+
+\usepackage[]{appendix}
+% Listen
 \usepackage{multicol}
 \usepackage{enumitem} 
 
-%\usepackage{cite}
 %%%%%%%%%%%%%%%%%%
 % Mathe Packages %
 %%%%%%%%%%%%%%%%%%
@@ -46,6 +39,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{amsopn}
 \usepackage{mathtools}
 \usepackage{bbm}
 \usepackage{centernot}
@@ -56,15 +50,21 @@
 
 
 %Links
+
+
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black,
+	plainpages=false,
 }
+\usepackage{bookmark}
 
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper, left=30mm, right=30mm, top=25mm, bottom=25mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematische Symbole %
@@ -112,16 +112,18 @@
 
 \newcommand{\dxx}[1][x]{d^\times {#1}}
 \newcommand{\dxs}[1][x]{d^* {#1}}
+\newcommand{\dxsp}[1][x]{d^* {#1}_p}
 \newcommand{\dxxp}[1][x]{d^\times {#1}_p}
 \newcommand{\dxxinfty}[1][x]{d^\times {#1}_\infty}
 \newcommand{\dxp}[1][x]{d{#1}_p}
 \newcommand{\dxinfty}[1][x]{d{#1}_\infty}
 \newcommand{\dx}[1][x]{d{#1}}
-\newcommand{\Vol}{\text{Vol}}
+\DeclareMathOperator{\Vol}{Vol}
 
-
+%%% Eingeschraenkte direkte Produkt
 \newcommand{\rdprod}[1]{\prod\limits_{#1}'}{%{\widehat{\prod\limits_{#1}}}
 
+%%% BEtraege und norm
 \DeclarePairedDelimiter\abso{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
@@ -138,8 +140,6 @@
 % Theoreme %
 %%%%%%%%%%%%
 
-
-
 \theoremstyle{definition}
 \newtheorem{defi}{Definition}[section]
 \newtheorem{bsp}[defi]{Beispiele}
@@ -151,28 +151,27 @@
 \newtheorem{korollar}[defi]{Korollar}
 
 
-
 \begin{document}
 
-\pagenumbering{Roman}
-
 %%%Deckblatt
-%\include{000Deckblatt}
-%%% Inhaltsverzeichnis
+
+\pagenumbering{Roman}
+\input{title}
+\clearpage
+
+%%% Zusammenfassung und Inhaltsverzeichnis
+\pagenumbering{roman}
+\setcounter{page}{2}
 \input{abstract}
-\newpage
+\clearpage
 \tableofcontents
 \clearpage
 
-\pagenumbering{arabic}   
+%%% Hauptteil
+\pagenumbering{arabic}
 
-
-
-%%%%%%%%%%%%%%%%%%%Beginn
 \input{einleitung}
 \clearpage
-
-
 
 \input{topogroup}
 \clearpage
@@ -192,13 +191,12 @@
 \input{tateproof}
 \clearpage
 
-\appendix
+% Anhang
+
+\begin{appendices}
 \input{anhang}
 \clearpage
-
-%\bibliographystyle{gerplain}
-%\bibliographystyle{plainnat}
+\end{appendices}
+ %Bibliografie
 \printbibliography
-
-
 \end{document}

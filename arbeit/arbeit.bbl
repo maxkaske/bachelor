@@ -225,37 +225,11 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ges. Math. Werke und Wissenschaftlicher Nachla{ß}}
-      \field{title}{Ueber die Anzahl der Primzahlen unter einer gegebenen Grosse}
+      \field{title}{Über die Anzahl der Primzahlen unter einer gegebenen Größe}
       \field{volume}{2}
       \field{year}{1859}
       \field{pages}{145\bibrangedash 155}
       \range{pages}{11}
-    \endentry
-    \entry{taoblog}{online}{}
-      \name{author}{1}{}{%
-        {{hash=4cea0d7ce90ed017dfa21b4cee6c72e9}{%
-           family={Tao},
-           familyi={T\bibinitperiod},
-           given={Terence},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{4cea0d7ce90ed017dfa21b4cee6c72e9}
-      \strng{fullhash}{4cea0d7ce90ed017dfa21b4cee6c72e9}
-      \strng{authornamehash}{4cea0d7ce90ed017dfa21b4cee6c72e9}
-      \strng{authorfullhash}{4cea0d7ce90ed017dfa21b4cee6c72e9}
-      \field{sortinit}{T}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Tate’s proof of the functional equation}
-      \field{urlday}{1}
-      \field{urlmonth}{9}
-      \field{urlyear}{2017}
-      \field{year}{2008}
-      \field{urldateera}{ce}
-      \verb{url}
-      \verb https://terrytao.wordpress.com/2008/07/27/tates-proof-of-the-functional-equation/
-      \endverb
     \endentry
     \entry{tate}{thesis}{}
       \name{author}{1}{}{%

@@ -1,26 +1,26 @@
 \section{Exkurs: p-adische Zahlen}\label{sec:padisch}
 	Die Tatsache, dass die Gruppen $\R^+$ und $\R^\times$ lokalkompakt sind, ist kein Zufall.
-	Lokalkompakte Gruppen treten relativ nat"urlich im Zusammenhang mit algebraischen Zahlkörpern auf.
-	Ganz Allgemeinen sind die additiven und multiplikativen Gruppen jeder Vervollst"andigung eines algebraischen Zahlenk"orpers $\mathbb{K}$ bez"uglich seiner Primideale $\mathfrak{p}$ (oder genauer, bez"uglich der durch $\mathfrak{p}$ induzierten Topologie) lokalkompakte Gruppen.
+	Lokalkompakte Gruppen treten relativ natürlich im Zusammenhang mit algebraischen Zahlkörpern auf.
+	Ganz Allgemein sind die additiven und multiplikativen Gruppen jeder Vervollständigung eines algebraischen Zahlenkörpers $\mathbb{K}$ bezüglich der Primideale $\mathfrak{p}$ seines Ganzheitsring $\mathcal{O}$ lokalkompakte Gruppen\footnote{Genauer induziert $\mathfrak{p}$ einen Absolutbetrag auf $\mathbb{K}$ und damit eine Topologie.}.
 	So weit gehen wir in dieser Arbeit jedoch nicht. 
-	Wir beschr"anken uns im folgenden Kapitel auf den Zahlk"orper $\Q$ und lernen die $p$-adischen Zahlen kennen.
-	Dabei orientieren wir uns ganz an Gouveas exzellenten Einf"uhrungtext \cite{gouv}.
+	Wir beschränken uns im folgenden Kapitel auf den Zahlkörper $\Q$ und lernen die $p$-adischen Zahlen kennen.
+	Dabei orientieren wir uns an Gouveas exzellenten Einführungtext \cite{gouv} und \textcite{deitmar2010} Kapitel 4.
 \subsection{Absolutbeträge und der Satz von Ostrowski}
 	Beginnen wir mit einer Wiederholung.
-	Sei $\mathbb{K}$ zun"achst ein beliebiger K"orper und $\R_{\geq 0} = \{x\in \R: x\geq 0\}$ die Menge der nicht-negativen reellen Zahlen.
+	Sei $\mathbb{K}$ zunächst ein beliebiger Körper.
 	\begin{defi}
 		Ein \emph{Absolutbetrag} auf $\mathbb{K}$ ist eine Abbildung
 		\begin{align*}
-			\abs:\K \longrightarrow R_{\geq 0}
+			\abs:\K \longrightarrow [0,\infty)
 		\end{align*}
 		welche die folgenden Bedingungen erfüllt:
-		\begin{enumerate}[label=(\roman*),leftmargin=1.5cm]
+		\begin{enumerate}[label=(\roman*)]%leftmargin=1.5cm]
 			\item $\abs[x] = 0 \Leftrightarrow x=0$ (Definitheit)
 			\item $\abs[xy] = \abs[x]\abs[y]$ für alle $x, y \in \mathbb{K}$ (Multiplikativität)
 			\item $\abs[x+y] \leq \abs[x] + \abs[y]$ für alle $x,y \in \mathbb{K}$ (Dreiecksungleichung)
 		\end{enumerate}
 		Wir nennen einen Absolutbetrag $\abs$ \emph{nicht-archimedisch}, wenn er zusätzlich die stärkere Bedingung
-		\begin{enumerate}[label=(\roman*)$'$,leftmargin=1.5cm]
+		\begin{enumerate}[label=(\roman*)$'$]%,leftmargin=1.5cm]
 			\setcounter{enumi}{2}
 			\item $\abs[x+y] \leq \max\{\abs[x],\abs[y]\}$ für alle $x, y \in \mathbb{K}$ (verschärfte Dreiecksungleichung)
 		\end{enumerate}
@@ -28,24 +28,24 @@
 	\end{defi}
 	\begin{bsp}~
 		\begin{enumerate}[label=(\alph*)]
-			\item Auf jedem beliebigen K"orper $\mathbb{L}$ ist der\emph{triviale Absolutbetrag}
+			\item Auf jedem beliebigen Körper $\mathbb{K}$ ist der \emph{triviale Absolutbetrag}
 				\begin{align*}
 					x \mapsto 
 						\begin{cases}
-							1, &\text{f"ur $x\not=0$}\\
-							0, &\text{f"ur x= 0}
+							1, &\text{für $x\not=0$}\\
+							0, &\text{für x= 0}
 						\end{cases}
 				\end{align*}
 				ein nicht-archimedischer Absolutbetrag.
-			\item Auf $\mathbb{K}=\R$ bzw. $\mathbb{K} = \Komplex$ ist der\emph{reellen Absolutbetrag} bzw. der \emph{komplexen Absolutbetrag} ein archimedischer Absolutbetrag.
+			\item Auf $\mathbb{K}=\R$ bzw. $\mathbb{K} = \Komplex$ ist der klassische \emph{reelle Absolutbetrag} bzw. der \emph{komplexe Absolutbetrag} ein archimedischer Absolutbetrag.
 		\end{enumerate}
 	\end{bsp}
-	
-	Halten wir einige Eigenschaften von Absolutbeträgen in einem Lemma fest.
+	%
+	%Halten wir einige Eigenschaften von Absolutbeträgen in einem Lemma fest.
 	\begin{lemma}
-		Für beliebige Absolutbeträge $\abs$ auf $\mathbb{K}$ und Elemente $x\in \mathbb{K}$ gilt:
+		Sei $\abs$ ein beliebiger Absolutbetrag auf $\mathbb{K}$ und $x\in \mathbb{K}$. Dann gilt:
 		\begin{multicols}{2}
-			\begin{enumerate}[label=\emph{(\roman*)},leftmargin=1.5cm]
+			\begin{enumerate}[label=(\roman*)]
 				\item $\abs[1] = 1$
 				\item $\abs[-1] = 1$
 				\item Falls $\abs[x^n]=1$, dann $\abs[x]=1$
@@ -55,11 +55,11 @@
 	\end{lemma}
 	\begin{proof}
 		(i) folgt direkt aus $\abs[1] = \abs[1\cdot 1] = \abs[1]\cdot\abs[1]$ und $\abs[1]\not=0$.
-		"Ahnlich bei (ii): $1 = \abs[-1\cdot -1] = \abs[-1]\cdot\abs[-1]$ und mit $\abs[-1]>0$ folgt die Behauptung.
+		Ähnlich rechnen wir bei (ii): $1 = \abs[-1\cdot -1] = \abs[-1]\cdot\abs[-1]$ und mit $\abs[-1]>0$ folgt die Behauptung.
 		(iii) folgt mit $\abs[x]\geq 0$ aus $\abs[x^n] = \abs[x]^n$ und (iv) gilt wegen $\abs[-x] = \abs[-1] \abs[x] = \abs[x]$.
 	\end{proof}
 	
-	Wir wollen uns im Folgenden auf den K"orper $\mathbb{K} = \Q$ der rationalen Zahlen beschr"anken.
+	Wir wollen uns im Folgenden auf den Körper $\mathbb{K} = \Q$ der rationalen Zahlen beschränken.
 	Dort kennen wir bereits den archimedischen reellen Absolutbetrag
 	\begin{align*}
 		x \mapsto
@@ -68,27 +68,30 @@
 			-x,&\text{ falls } x<0,
 		\end{cases}
 	\end{align*}
-	welchen wir von nun an mit $\abs_\infty$ bezeichnen wollen.
+	welchen wir von hier an mit $\abs_\infty$ bezeichnen wollen.
 	
-	Es stellt sich nun die Frage, ob es auch nicht-archimedische Absolutbetr"age auf $\Q$ gibt.
-	Betrachten wir dazu mit $x\in \Q^\times$ eine beliebige rationale Zahl ungleich $0$. 
+	Wir k"onnen uns die Frage stellen, ob es neben dem trivialen Betrag noch weitere nicht-archimedische Absolutbeträge auf $\Q$ gibt.
+	Betrachten wir dazu eine beliebige rationale Zahl $x\in \Q^\times$ ungleich $0$. 
 	Dann existiert eine eindeutige Primfaktorzerlegung
 	\begin{align*}
-		x = \prod_{p} p^{v_p},
+		x = \pm\prod_{p} p^{v_p},
 	\end{align*}
-	wobei das Produkt über alle Primzahlen $p \in \N$ geht und $v_p \in \Z$ für fast alle\footnote{F"ur diese Arbeit gebrauchen wir die Bedeutung: f"ur alle bis auf endlich viele} $p$ gleich $0$ ist. 
-	Legen wir uns auf ein $p$ fest, so erm"oglicht sich die 
+	wobei das Produkt über alle Primzahlen $p \in \N$ l"auft und $v_p \in \Z$ für fast alle\footnote{Für diese Arbeit gebrauchen wir die Bedeutung: für alle bis auf endlich viele} $p$ gleich $0$ ist. 
+	Legen wir uns auf ein $p$ fest, so erm"oglicht sich folgende Definition.
 	\begin{defi}
-		Für beliebige $x \in \Q^\times$ sei der \emph{$p$-adische Absolutbetrag} von $x$ gegeben durch
+		Der \emph{$p$-adische Absolutbetrag} auf $\Q$ sein definiert durch
 		\begin{align*}
-			\abs[x]_p = p^{-v_p}
+			\abs[x]_p =
+			\begin{cases} 
+				p^{-v_p}, 	& \text{für }x\in\Q^\times\\
+				0,			& \text{für } x = 0
+			\end{cases}
 		\end{align*}
-		mit $v_p \in \Z$ wie oben. 
-		Durch $\abs[0]_p \coloneqq  0$ erhalten wir dann eine Abbildung $\abs_p: \Q \to \R_+$.
+		mit $v_p \in \Z$ aus der obigen Primfaktorzerlegung.
 	\end{defi}
-	Der Name der Abbildung ist nicht willk"urlich gew"ahlt wie folgendes Lemma zeigt.
+	Der Name der Abbildung ist nicht willkürlich gewählt, wie folgendes Lemma zeigt.
 	\begin{lemma}
-		F"ur jede Primzahl $p\in\N$ ist $\abs_p$ ein nicht-archimedischer Absolutbetrag auf $\Q$.
+		Für jede Primzahl $p$ ist $\abs_p$ ein nicht-archimedischer Absolutbetrag auf $\Q$.
 	\end{lemma}
 	\begin{proof}
 		Die Definitheit folgt sofort aus der Definition. 
@@ -98,73 +101,73 @@
 			\abs[xy]_p = \abs[p^{k+k'}\frac{mm'}{nn'}]_p = p^{-(k+k')} = p^{-k} p^{-k'} = \abs[x]_p \abs[y]_p.
 		\end{align*}
 		Zuletzt zur verschärften Dreiecksungleichung. 
-		Mit $x=p^k \frac{m}{n}$ und $y=p^{k'} \frac{m'}{n'}$ wie eben k"onnen wir ohne Einschränkung annehmen, dass $k\leq k'$. 
+		Mit $x=p^k \frac{m}{n}$ und $y=p^{k'} \frac{m'}{n'}$ wie eben können wir ohne Einschränkung annehmen, dass $k\leq k'$. 
 		Es gilt
 		\begin{align*}
 			x+y = p^k\frac{mn' + p^{k'- k}nm'}{nn'}.
 		\end{align*}
-		%Pastie:$\abs[x]_p \not=\abs[y]_p$ ist
-		Für  $k< k'$ ist $mn' + p^{k'-k}nm'$ teilerfremd zu $p$ und es folgt $\abs[x+y]_p = p^{-k} = \max(\abs[x]_p,\abs[y]_p)$. 
-		Ist dagegen $k=k'$, so hat der Z"ahler die Form $mn' + nm'$ und ist nicht unbedingt teilerfremd zu $p$. 
+		Für $k< k'$ ist $mn' + p^{k'-k}nm'$ teilerfremd zu $p$ und es folgt $\abs[x+y]_p = p^{-k} = \max(\abs[x]_p,\abs[y]_p)$. 
+		Ist dagegen $k=k'$, so hat der Zähler die Form $mn' + nm'$ und ist nicht unbedingt teilerfremd zu $p$. 
 		Wir erhalten dann $\abs[x+y]_p \leq p^{-k} = \max(\abs[x]_p,\abs[y]_p)$.
 	\end{proof}
 	\begin{korollar}
-		Jedes Dreieck ist bez"uglich des $p$-adischen Absolutbetrags gleichschenklig.
+		Alle Dreiecke sind bezüglich des $p$-adischen Absolutbetrags gleichschenklig.
 	\end{korollar}
 	\begin{proof}
-		Der Beweis des Lemmas zeigt, dass Gleichheit der versch"arften Dreiecksungleichung eintrifft, wenn $\abs[x]_p \not= \abs[y]_p$.
+		Im Beweis des Lemmas haben wir gezeigt, dass Gleichheit der verschärften Dreiecksungleichung eintrifft, wenn $\abs[x]_p \not= \abs[y]_p$.
 	\end{proof}
 	
-	Somit haben wir neben den archimedischen trivialen Absolutbetrag und $\abs_\infty$ auch unendlich viele nicht-archimedische Betr"age $\abs_p$ gefunden.
-	Es stellt sich nun die Frage: Gibt es mehr?
+	Somit haben wir neben dem trivialen Absolutbetrag und $\abs_\infty$ auch unendlich viele nicht-archimedische Beträge $\abs_p$ gefunden.
+	Es stellt sich die Frage: Gibt es mehr?
 	Jein!
-	Fixieren wir einen beliebigen Absolutbetrag $\abs$, so ist auch $\abs^\alpha$ f"ur jede reelle Zahl $\alpha>0$ ein weiterer Absolutbetrag.
-	Wir nennen solche Betr"age \emph{"aquivalent} und zeigen, dass wir auf $\Q$ bereits alle "Aquivalenzklassen von Betr"agen gefunden haben.
+	
+	Fixieren wir einen beliebigen Absolutbetrag $\abs$, so ist auch $\abs^\alpha$ für jede reelle Zahl $\alpha>0$ ein weiterer Absolutbetrag.
+	Wir nennen solche Beträge \emph{äquivalent} und folgender Satz zeigt, dass wir auf $\Q$ bereits alle Äquivalenzklassen von Beträgen gefunden haben.
 	\begin{satz}[Ostrowski]\label{satz:padisch:ostrowski}
 	\label{satz:ostrowksi}
 		Jeder nicht-triviale Absolutbetrag auf $\Q$ ist äquivalent zu einem der Absolutbeträge $\abs_p$, wobei $p$ entweder eine Primzahl ist oder $p=\infty$.
 	\end{satz}
-	Der Beweis ist etwas l"anger und tr"agt nicht unmittelbar dem Verst"andnis der Arbei bei.
-	Wir haben uns daher vorbehalten ihn in den Anhang zu verschieben.
+	Der Beweis ist etwas länger und trägt nicht unmittelbar zum Verständnis der Arbeit bei.
+	Wir werden ihn daher im Anhang besprechen.
 
 \subsection{Vervollständigungen von \texorpdfstring{$\K$}{Q}}
-	Eine M"oglichkeit die reellen Zahlen $\R$ zu konstruieren war über die (metrische) \emph{(Vervollständigung} der rationalen Zahlen $\Q$ bezüglich des Absolutbetrags $\abs_\infty$.
-	Wir werden diese Konstruktion mit den $p$-adischen Beträgen $\abs_p$ nutzen und geben daher im folgenden Abschnitt eine kurze Wiederholung der wichtigsten Ideen.
+	Eine Möglichkeit die reellen Zahlen $\R$ zu konstruieren war durch die (metrische) \emph{Vervollständigung} der rationalen Zahlen $\Q$ bezüglich des Absolutbetrags $\abs_\infty$.
+	Wir werden diese Konstruktion zusammen mit den $p$-adischen Beträgen $\abs_p$ nutzen und geben daher im folgenden Abschnitt eine kurze Wiederholung der wichtigsten Ideen.
 	
-	Ein \emph{metrischer Raum} ist ein Paar $(X, d)$ bestehen aus einer nichtleeren Menge $X$ und einer Abbildung $d: X\times X\to[0,\infty)$\footnote{Bei der Konstruktion der reellen Zahlen spielen hier nat"urlich nur die rationalen Elemente des Intervalls eine Rolle}, die
-	\begin{itemize}
-		\item $d(x,y) = 0 \Leftrightarrow x = y$ (Positive Definitheit)
+	Ein \emph{metrischer Raum} ist ein Paar $(X, d)$ bestehend aus einer nichtleeren Menge $X$ und einer Abbildung $d: X\times X\to[0,\infty)$\footnote{Bei der Konstruktion der reellen Zahlen spielen hier natürlich nur die rationalen Elemente des Intervalls eine Rolle.}, die
+	\begin{enumerate}[label=(\roman*)]
+		\item $d(x,y) = 0 \Leftrightarrow x = y$ (Definitheit)
 		\item $d(x,y) = d(y,x)$ (Symmetrie)
 		\item $d(x,y) \leq d(x,z) + d(z,y)$ (Dreiecksungleichung)
-	\end{itemize}
+	\end{enumerate}
 	erfüllt.
-	Jede Metrik induziert durch f"ur jedes $x\in X$ durch die \emph{offenen B"alle} $B(x,\varepsilon) \coloneqq \{y \in X: d(x,y)<\varepsilon)\}$ eine Umgebungsbasis und damit eine Topologie auf ganz $X$.
+	Eine Metrik induziert für jedes $x\in X$, durch die \emph{offenen Bälle} $B(x,\varepsilon) \coloneqq \{y \in X: d(x,y)<\varepsilon)\}$, eine Umgebungsbasis und damit eine Topologie auf ganz $X$.
 	Eine Folge $(x_n)$ in $X$ heißt \emph{konvergent} gegen $x \in X$, wenn die reelle Folge $(d(x_n,x))$ eine Nullfolge ist.
-	Eine \emph{Cauchy-Folge} in dem metrischen Raum $X$ ist eine Folge $(x_n)$ in $X$, so dass für alle $\varepsilon >0$ ein $n_0\in \N$ gibt, so dass $d(x_n,x_m) < \varepsilon$ für alle $n,m\geq n_0$ gilt. 
-	Man sieht leicht, dass jede konvergente Folge auch eine Cauchy-Folge ist. 
+	Wir nennen $(x_n)$ eine \emph{Cauchy-Folge} in $X$, wenn für alle $\varepsilon >0$ ein $n_0\in \N$ existiert, so dass $d(x_n,x_m) < \varepsilon$ für alle $n,m\geq n_0$ gilt. 
+	Man sieht leicht, dass jede konvergente Folge eine Cauchy-Folge ist. 
 	Die Umkehrung gilt allerdings im Allgemeinen nicht.
 	Ist jede Cauchy-Folge konvergent, so nennen wir den metrischen Raum $(X,d)$ \emph{vollständig}.
 	
-	Ausgehend von einem K"orper $\mathbb{K}$ definiert jeder Absolutbetrag $\abs$ auf $\mathbb{K}$ durch $d(x,y) = \abs[x-y]$ eine Metrik. 
+	Ist $X=\mathbb{K}$ sogar ein K"orper, definiert jeder Absolutbetrag $\abs$ auf $\mathbb{K}$ durch $d(x,y) = \abs[x-y]$ eine Metrik. 
 	Wir sprechen dann von der durch $\abs$ induzierten Metrik auf $\mathbb{K}$.
-	Ist dieser Absolutbetrag sogar nicht-archimedisch vereinfacht sich die Definition einer Cauchy-Folge.
-	Im nicht-archimedischen Fall vereinfacht sich diese Definition etwas.
-	\begin{lemma}
-		Eine Folge $(x_n)$ auf $\mathbb{K}$ ist genau dann bezüglich eines nicht-archimedischen Absolutbetrags $\abs$ eine Cauchy-Folge, wenn
+	Im Fall, dass dieser Absolutbetrag sogar nicht-archimedisch ist, vereinfacht sich die Definition einer Cauchy-Folge.
+	\begin{lemma}\label{lemma:padisch:cauchy}
+		Sei $\abs$ ein nicht-archimedischen Absolutbetrag auf $\mathbb{K}$.
+		Eine Folge $(x_n)$ in $\mathbb{K}$ ist genau eine Cauchy-Folge, wenn
 		\begin{align*}
 			\lim_{n\to\infty}\abs[x_{n+1} - x_n] = 0.
 		\end{align*}
 	\end{lemma}
 	\begin{proof}
-		Wenn $m  > n$, so haben wir
+		Wenn $m > n$ gilt, so haben wir
 		\begin{align*}
 			\abs[x_m - x_n] = \abs[\sum_{k=n}^{m-1} x_{k+1} - x_k] \leq \max\{\abs[x_m - x_{m-1}], \dots, \abs[x_{n+1} - x_{n}]\}
 		\end{align*}
 		und das Lemma folgt sofort aus den Definitionen.
 	\end{proof}
 	
-	Gehen wir nun wieder $\mathbb{K}=\Q$ "uber.
-	Es ist bereits bekannt, dass $\Q$  bez"uglich der durch $\abs_\infty$ induzierten Metrik nicht vollständig ist. 
+	Gehen wir wieder auf $\mathbb{K}=\Q$ über und setzen $d_p(x,y) = \abs[x-y]_p$.
+	Es ist bereits bekannt, dass $\Q$ bezüglich $d_\infty$  vollständig ist. 
 	Für $p<\infty$ haben wir folgendes
 	\begin{lemma}
 		Der metrische Raum $(\K, d_p)$ ist nicht vollständig. 
@@ -181,11 +184,11 @@
 		\begin{align*}
 			\abs[x_{n+1} - x_n]_p = \abs[a^{p^{n}}]_p \cdot\abs[( a^{p^n(p-1)} - 1)]_p \leq p^{-n}\to 0.
 		\end{align*}
-		Damit ist $(x_n)$ eine Cauchy-Folge. 
+		Nach Lemma \ref{lemma:padisch:cauchy} ist $(x_n)$ also eine Cauchy-Folge. 
 		Angenommen $(x_n)$ konvergiert gegen ein $x\in\K$. 
 		Dann haben wir
 		\begin{align*}
-			x = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} x_{n+1}^p = x^p
+			x = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} x_{n}^p = x^p
 		\end{align*}
 		und folglich $x=1$ oder $x=-1$.
 		Für $n$ genügend groß gilt
@@ -197,71 +200,70 @@
 			= \underbrace{\abs[a]_p}_{\leq 1}\cdot\abs[ a^{p^n-1} - 1]_p 
 			\leq \abs[ a^{p^n-1} - 1]_p < 1,
 		\end{align*}
-		am Ende wieder nach dem kleinen Satz von Fermat. 
-		Also ist $p$ ein Teiler von $x-a$. Wegen $x=\pm 1$ und der Wahl von $a$ ist aber $0<x-a<p$. Ein Widerspruch.
+		wieder nach dem kleinen Satz von Fermat. 
+		Also ist $p$ ein Teiler von $x-a$. Wegen $x=\pm 1$ und der Wahl von $a$ ist aber $0<a-x<p$. Ein Widerspruch.
 	\end{proof}
 
-	Es macht also Sinn $\Q$ ganz wie im Falle der reellen Zahlen bez"uglich $\abs_p$ vervollst"andigen. 
+	Es macht also Sinn, ganz wie im Fall der reellen Zahlen, eine Vervollst"andigung von $\Q$ bezüglich $\abs_p$ zu konstruieren. 
 	\begin{satz}
 		Für jede Primzahl $p$ oder $p=\infty$ gibt es eine Vervollständigung $\Q_p$ von $\Q$ und einen Absolutbetrag $\abs_p$ mit folgenden Eigenschaften:
-		\begin{enumerate}
+		\begin{enumerate}[label=(\roman*)]
 			\item Es gibt eine Inklusion $\K \hookrightarrow \Kp$ und der durch $\abs_p$ auf $\K$ induzierte Betrag ist der $p$-adische bzw. reelle Absolutbetrag.
 			\item Das Bild von $\K$ bezüglich dieser Inklusion ist dicht in $\Q_p$.
 			\item $\Q_p$ ist vollständig bezüglich des Absolutbetrags $\abs_p$.
 		\end{enumerate}
-		Der K"orper $\Q_p$ mit diesen Eigenschaften ist eindeutig bis auf eindeutige Isomorphismen, die den Absolutbetrag erhalten.
+		Der Körper $\Q_p$ mit diesen Eigenschaften ist eindeutig bis auf eindeutige Isomorphismen, die den Absolutbetrag erhalten.
 	\end{satz}
 	\begin{proof}[Beweisidee]
-		Die Grundidee der Konstruktion ist mit der Menge aller Cauchy-Folgen in $\Q$ zu beginnen.
+		Die Grundidee der Konstruktion ist es, mit der Menge aller Cauchy-Folgen in $\Q$ zu beginnen.
 		Diese wird zu einem Ring wenn wir Addition und Multiplikation gliedweise definieren.
-		Anschließend teilen wir alle Nullfolgen raus, d.h. zwei Cauchy-Folgen sind genau dann "aquivalent, wenn sie sich um eine Nullfolge unterscheiden.
-		Zu guter Letzt l"asst sich $\Q$ einbetten als die Menge aller konstanten Folgen.
+		Anschließend teilen wir alle Nullfolgen heraus, d.h. zwei Cauchy-Folgen sind genau dann äquivalent, wenn sie sich um eine Nullfolge unterscheiden.
+		War haben eine Einbettug von $\Q$ als die Menge aller konstanten Folgen.
 		Von diesem Raum kann gezeigt werden, dass jede Cauchy-Folge (also eine Cauchy-Folge von Cauchy-Folgen auf $\Q$) konvergiert.
 		
-		F"ur die genaue Konstruktion und den Beweis der Eindeutigkeit, siehe zum Beispiel Gouvea \cite{gouv} Theorem 3.2.13. 
+		Für die genaue Konstruktion und den Beweis der Eindeutigkeit, siehe zum Beispiel Gouvea \cite{gouv} Theorem 3.2.13. 
 	\end{proof}
-	\begin{lemma}
-		Das Bild von $\Q_p$ unter $\abs_p$ ist gleich $p^\Z$.
+	\begin{lemma}\label{lemma:padisch:bildbetrag}
+		F"ur jede Primzahl $p$ ist das Bild von $\Q_p$ unter $\abs_p$ gleich $p^\Z\cup\{0\}$.
 	\end{lemma}
 	\begin{proof}
-		Auch hier verweisen wir auf Gouvea \cite{gouv} und zwar Lemma 3.3.1. 
-		Die Grundidee ist zu zeigen, dass f"ur jede Cauchy-Folge $(x_n)$ in $\Q$ die Folge der Betr"age $(\abs[x_n]_p)$ gegen 0 konvergiert oder irgendwann konstant wird.
+		Auch hier verweisen wir auf \textcite{gouv}, genauer auf Lemma 3.3.1. 
+		Die Grundidee ist zu zeigen, dass für jede Cauchy-Folge $(x_n)$ in $\Q$ die Folge der Beträge $(\abs[x_n]_p)$ gegen 0 konvergiert oder irgendwann konstant wird.
 	\end{proof}
 	
 
 \subsection{Topologische Eigenheiten}
-	Wir haben zwei Gruppenstrukturen auf $\Kp$, n"amlich die additive Gruppe $\Kpp = (\K_p, +, 0)$ und die multiplikative Gruppe $\Kpx = (\K_p\setminus\{0\}, \cdot, 1)$.
-	Zudem induziert der $p$-adische Betrag eine Topologie auf $\K_p^+$, welche durch den "Ubergang zur Teilraumtopologie zu einer auf $\Kpx$ wird.
+	Wir haben zwei Gruppenstrukturen auf $\Kp$: die additive Gruppe $\Kpp = (\K_p, +, 0)$ und die multiplikative Gruppe $\Kpx = (\K_p\setminus\{0\}, \cdot, 1)$.
+	Zudem induziert der $p$-adische Betrag eine Topologie auf $\K_p^+$, welche, durch den Übergang zur Teilraumtopologie, zu einer auf $\Kpx$ wird.
 	Es macht daher Sinn $\Kp$ im Kontext topologischer Gruppen zu betrachten.
 	\begin{satz}\label{satz:QpIstLokalKompakt}
-		F"ur jede Primzahl $p\in\N$ gilt
-		\begin{enumerate}[label=\emph{(\roman*)}]
+		Für jede Primzahl $p$ gilt:
+		\begin{enumerate}[label=(\roman*)]
 			\item $\Kpp$ ist eine topologische Gruppe.
 			\item $\Kpx$ ist eine topologische Gruppe.
 		\end{enumerate}
 	\end{satz}
 	\begin{proof}
-		Zu (i): Die Stetigkeit der Addition und der Negierung sind eigentlich direkte Folgen der Konstruktion als Vervollst"andigung.
-		Als kleine Auffrischung zeigen wir sie trotzdem im Kontext metrischer R"aume.
-		Seien $x_n \to x$ und $y_n \to y$ konvergente Folgen in $\Kp$. 
+		Zu (i): Die Stetigkeit der Addition und der Negierung sind direkte Folgen der Konstruktion als Vervollständigung.
+		Als kleine Auffrischung zeigen wir sie trotzdem im Kontext metrischer Räume.
+		Seien $x_n \to x$ und $y_n \to y$ konvergente Folgen in $\Kpp$. 
 		Es ist zu zeigen, dass $x_n+y_n$ gegen $x+y$ konvergiert. 
 		Nach der Dreiecksungleichung gilt
 		\begin{align*}
-			\abs[(x_n+y_n) - (x+y)]_p = \abs[(x_n - x) + (y_n - y)]_p \leq \abs[(x_n - x)]_p + \abs[(y_n - y)]_p.
+			\abs[(x_n+y_n) - (x+y)]_p = \abs[(x_n - x) + (y_n - y)]_p \leq \abs[x_n - x]_p + \abs[y_n - y]_p.
 		\end{align*}
 		Die rechte Seite konvergiert gegen $0$, also ist die linke eine Nullfolge und die Stetigkeit der Addition folgt.
-		"Ahnlich zeigen wir $-x_n \to -x$, denn $\abs[(-x_n) - (-x)]_p = \abs[x_n-x]_p$.
+		Ähnlich zeigen wir $-x_n \to -x$, denn $\abs[(-x_n) - (-x)]_p = \abs[x_n-x]_p$.
 		Damit ist $\Kp$ eine topologische Gruppe. 
 		
-		Zu (ii): $\Kpx = \Kpp\setminus \{0\}$ ist ein offener Teilraum von $\Kpp$ und somit selbst wieder hausdorffsch und lokalkompakt.
-		F"ur die Stetigkeit seien $x_n \to x$ und $y_n \to y$ zwei konvergente Folgen in $\K_p^\times$. 
+		Zu (ii): Für die Stetigkeit seien $x_n \to x$ und $y_n \to y$ zwei konvergente Folgen in $\K_p^\times$. 
 		Wir zeigen, dass $x_ny_n$ gegen $xy$ konvergiert.
-		Dies folgt aus der Absch"atzung
+		Dies folgt aus der Abschätzung
 		\begin{align*}
 			\abs[x_n y_n - xy]_p 
-			&= \abs[x_n y_n -x_ny + x_n y- xy]_p  \\
+			&= \abs[x_n y_n -x_ny + x_n y- xy]_p \\
 			&\leq \abs[x_n y_n -x_ny]_p + \abs[x_n y- xy]_p \\
-			&= \underbrace{\abs[x_n]_p}_{\text{beschr"ankt}} \underbrace{\abs[y_n -y]_p}_{\to 0} + \underbrace{\abs[x_n- x]_p}_{\to 0} \abs[y]_p \to 0
+			&= \underbrace{\abs[x_n]_p}_{\to \abs[x]_p} \underbrace{\abs[y_n -y]_p}_{\to 0} + \underbrace{\abs[x_n- x]_p}_{\to 0} \abs[y]_p \to 0
 		\end{align*}
 		Weiter zur Invertierung. Wegen
 		\begin{align*}
@@ -270,121 +272,113 @@
 		folgt, dass $x_n^{-1}$ gegen $x^{-1}$ konvergiert und die Stetigkeit ist gezeigt.
 	\end{proof}
 	
-	Bisher haben wir uns noch keine n"ahren Gedanken "uber die offenen Mengen der Topologie gemacht.
-	Da $\Kpx$ nur die Teilraumtopologie erbt, reicht es sich zun"achst auf $\Kpp$ zu konzentrieren.
-	Wir wissen bereits, dass die offenen Mengen gerade durch die offenen B"alle
+	Bisher haben wir uns noch keine nähren Gedanken über die offenen Mengen der Topologie gemacht.
+	Da $\Kpx$ nur die Teilraumtopologie erbt, reicht es sich zunächst auf $\Kpp$ zu konzentrieren.
+	Wir wissen bereits, dass die offenen Mengen durch die offenen Bälle
 	\begin{align*}
 		B(x,\varepsilon) = \{ y \in \Kp: \abs[x-y]_p < \varepsilon\}
 	\end{align*}
 	mit $x\in \Kp$ und $\varepsilon>0$ erzeugt werden.
-	Da wir es aber mit einer topologische Gruppe zu tun haben, reicht es nur die offenen B"alle $B(\varepsilon)\coloneqq  B(0,\varepsilon)$ zu betrachten.
+	Da wir es aber mit einer topologische Gruppe zu tun haben, reicht es nur die offenen Bälle $B(\varepsilon)\coloneqq B(0,\varepsilon)$ zu betrachten.
 	Diese bilden dann eine Umgebungsbasis der $0$.
-	Wir haben aber gesehen, dass $\abs[\Kp]_p = p^\Z$.
-	Folglich ist $B(\varepsilon) = B(\varepsilon')$ f"ur $p^{k} < \varepsilon, \varepsilon' \leq p^{k+1}$.
+	In Lemma \ref{lemma:padisch:bildbetrag} haben wir gesehen, dass $\abs[\Kp]_p = p^\Z\cup\{0\}$.
+	Folglich ist $B(\varepsilon) = B(\varepsilon')$ für $p^{k} < \varepsilon, \varepsilon' \leq p^{k+1}$.
 	Es sind also nur solche $\varepsilon$ interessant, die selber Potenzen von $p$ sind.
 	Dies hat aber noch weitere Auswirkungen. 
-	%F"ur die \emph{abgeschlossenen B"alle} $\conj{B_{p^k} (x)}$, denn 
+	%Für die \emph{abgeschlossenen Bälle} $\conj{B_{p^k} (x)}$, denn 
 	Es gilt 
 	\begin{align*}
 		\conj{B(p^k)} = \{ x \in \Kp: \abs[x]_p \leq p^k\} =\{ x \in \Kp: \abs[x]_p < p^{k+1}\} = B(p^{k+1}).
 	\end{align*}
-	Alle abgeschlossenen B"alle sind offen. 
-	Umgekehrt sind alle offenen B"alle abgeschlossen, wir m"ussen nur die Gleichung von rechts nach links lesen.
-	Im Englischen haben wir f"ur diese Art von Mengen die sch"one Wortsch"opfung \emph{clopen}\footnote{Abgeschloffen?} f"ur \textit{closed} und \textit{open}.
+	Alle \emph{abgeschlossenen Bälle} sind offen. 
+	Umgekehrt sind alle offenen Bälle abgeschlossen, wir müssen nur die Gleichung von rechts nach links lesen.
+	Im Englischen haben wir für diese Art von Mengen die schöne Wortschöpfung \emph{clopen}\footnote{Abgeschloffen?}, zusammengesetzt aus \textit{closed} und \textit{open}.
 	Definieren wir nun die offene und abgeschlossene Menge der \emph{$p$-adischen ganzen Zahlen}
 	\begin{align*}
 		\Zp = \{x\in \Kp: \abs[x]_p \leq 1\} = \{x\in \Kp: \abs[x]_p < p\}.
 	\end{align*}
-	Diese bildet eine offene, abgeschlossene Umgebung der $0$.
-	Wir k"onnen jedes Element der Umgebungsbasis durch $\Zp$ darstellen, denn es gilt
+	Diese bildet eine offene und abgeschlossene Umgebung der $0$.
+	Wir können jedes Element der Umgebungsbasis durch $\Zp$ darstellen, denn es gilt
 	\begin{align*}
 		p^k\Zp = \{p^kx\in \Kp: \abs[x]_p \leq 1\} = \{x\in \Kp: \abs[x]_p \leq p^{-k}\}.
 	\end{align*}
-	Diese Mengen haben noch eine weitere Eigenschaft: Sie sind Untergruppen von $\Kpp$.
-	Offensichtlich ist f"ur jedes $x \in p^k\Zp$ auch $-x \in p^k\Zp$.
-	Die versch"arfte Dreicksungleichung garantiert uns dann, dass f"ur alle $x,y \in p^k\Zp$ auch die Summe $x+y$ wieder in $p^k\Zp$ liegt.
+	Diese Mengen haben noch eine weitere Eigenschaft. 
+	Sie sind Untergruppen von $\Kpp$.
+	Offensichtlich ist für jedes $x \in p^k\Zp$, auch $-x \in p^k\Zp$.
+	Die verschärfte Dreiecksungleichung garantiert uns dann, dass für alle $x,y \in p^k\Zp$, auch die Summe $x+y$ wieder in $p^k\Zp$ liegt.
 	
-	Wir k"onnen nun f"ur jede $p$-adische Zahl $x$ eine Basis offener Umgebungen angeben.
+	Wir können für jede $p$-adische Zahl $x$ eine Basis offener Umgebungen angeben.
 	Diese besteht aus offenen Mengen der Form $x+p^k\Zp$.
-	Solche Mengen haben wieder ihre Eigenheiten.
-	Wir haben uns "uberlegt, dass in den $p$-adischen Zahlen jedes Dreieck gleichschenklig ist.
+	Solche Mengen haben ungewohnte Eigenschaften.
+	Wir haben uns überlegt, dass in den $p$-adischen Zahlen jedes Dreieck gleichschenklig ist.
 	Das hat aber zur Folge, dass auch jeder Punkt innerhalb eines Kreises bereits der Mittelpunkt ist!
 	Betrachten wir dazu die Kreisscheibe $x_1+p^k\Zp$ und sei $x_2 \in x_1+p^k\Zp$ beliebig.
-	Offensichtlich ist $x_1 \in  x_2+p^k\Zp$.
+	Offensichtlich ist $x_1 \in x_2+p^k\Zp$.
 	Es reicht also zu zeigen, dass $ x_2+p^k\Zp \subseteq x_1+p^k\Zp$, die andere Richtung folgt dann analog.
-	F"ur ein beliebiges $y\in x_2+p^k\Zp$ haben wir
+	Für ein beliebiges $y\in x_2+p^k\Zp$ haben wir somit
 	\begin{align*}
 		\abs[x_1-y]_p = \abs[x_1 -x_2 + x_2-y]_p \leq \max\{\abs[x_1 -x_2]_p, \abs[x_2-y]_p\} \leq p^{-k},
 	\end{align*}
 	also $y \in x_1+p^k\Zp$ und folglich $x_1+p^k\Zp = x_2+p^k\Zp$.
-	Wir k"onnen sogar noch mehr zeigen.
-	$\K$ liegt dich in $\Kp$, d.h. jede Umgebung $x+p^k\Zp$ enth"alt eine rationale Zahl $a$.
-	Damit l"asst jedes Element der Umgebungsbasis schreiben als $a+p^k\Zp$ f"ur $k\in\Z$ und ein $a\in Q$.
+	\begin{korollar}
+		Jeder Punkt einer Kreisscheibe auf $\Kp$ ist bereits deren Mittelpunkt.
+	\end{korollar}
+	Wir können sogar noch mehr zeigen.
+	Die rationalen Zahlen $\K$ liegen dich in $\Kp$, d.h. jede Umgebung $x+p^k\Zp$ enthält eine rationale Zahl $a_k\in\K$.
+	Damit lässt sich jedes Element der Umgebungsbasis von $x$ schreiben als $a_k+p^k\Zp$ mit $k\in\Z$ und ein $a_k\in Q$.
 		
 	Bisher haben wir nur offene und abgeschlossene Mengen betrachtet. 
 	Wie sieht es mit kompakten Mengen aus?
 	\begin{satz}
-		$\Zp$ ist kompakt
+		$\Zp$ ist kompakt.
 	\end{satz}
-	\begin{proof}
-		%Da die Topologie von einer Metrik induziert wird, ist diese hausdorffsch.
-		%Wir m"ussen folglich nur noch die Lokalkompaktheit zeigen.
-		%Wegen der Stetigkeit der Addition reicht es dazu eine kompakte Umgebung der $0$ zu finden, denn sei $K$ eine kompakte Nullumgebung, so ist $a+K$ f"ur beliebige $a\in \Kp$ eine kompakte Umgebung von $a$.
-		%Wir behaupten, dass die Umgebung
-		%\begin{align*}
-			%\Zp = \{x \in \Kp : \abs[x]_p \leq 1\}
-		%\end{align*}
-		%kompakt ist.
-		%F"ur $p=\infty$ ist $\Z_\infty = [-1,1]$ also kompakt.
-		%F"ur $p<\infty$ gen"ugt es zu zeigen, dass $\Zp$ vollst"andig und totalbeschr"ankt ist. 
-		Da wir uns in einem metrischen Raum befinden nutzen die Charakterisierung kompakter Mengen als vollst"andige und totalbschr"ankte Mengen.
-		Ersteres folgt daraus, dass $\Zp$ als abgeschlossene Menge des vollst"andigen Raumes $\Kp$ selber vollst"andig ist.
-		Eine Menge heißt totalbeschr"ankt, wenn wir sie f"ur jedes $\varepsilon > 0$ mit endlich vielen $\varepsilon$-B"allen "uberdecken k"onnen.
-		Da der Betrag nur diskrete Werte annimmt reicht es wieder $\varepsilon$ der Form $p^{k}$ zu betrachten. 
-		Der Fall $k\geq 0$ ist klar, da dann $\Zp \subseteq p^{-k}\Zp$.
+	\begin{proof} 
+		Da wir uns in einem metrischen Raum befinden nutzen wir die Charakterisierung kompakter Mengen als vollständige und totalbschränkte Mengen.
+		Ersteres folgt daraus, dass $\Zp$ als abgeschlossene Menge des vollständigen Raumes $\Kp$ selbst vollständig ist.
+		Eine Menge heißt totalbeschränkt, wenn wir sie für jedes $\varepsilon > 0$ mit endlich vielen $\varepsilon$-Bällen überdecken können.
+		Für uns bedeutet das also $\Zp$ mit endlich vielen Mengen der Form $x+p^k\Zp$ zu überdecken. 
+		Der Fall $k\leq 0$ ist klar, da dann $\Zp \subseteq p^{k}\Zp$.
 		
-		Sei also $k<0$.
-		Wir haben eine (nicht unbedingt endliche) "Uberdeckung von $\Zp$ durch alle $x+p^k\Zp$ mit $x\in\Zp$.
-		Aus vorherigen "Uberlegungen wissen wir, dass wir diese Mengen auch darstellen k"onnen durch $a+p^k\Zp$ mit $a\in\Q$.
-		Genauer muss $a$ auch in $\Zp$ liegen, wodurch wir ohne Einschr"ankung annehmen k"onnen, dass $a\in\Z$ liegt.
+		Sei also $k>0$.
+		Wir haben eine (nicht unbedingt endliche) Überdeckung von $\Zp$ durch alle $x+p^k\Zp$ mit $x\in\Zp$.
+		Aus vorherigen Überlegungen wissen wir, dass wir diese Mengen auch durch $a+p^k\Zp$ mit $a\in\Q$ darstellen können.
+		Genauer liegt $a$ auch in $\Zp$, wodurch wir ohne Einschränkung annehmen können, dass $a\in\Z$.
 		Wir stellen jetzt einen Bezug zwischen $p$-adischen Absolutbetrag und modularer Arithmetik her.
-		Es ist $a_1 +p^k\Zp = a_2 +p^k\Zp$ genau dann, wenn $a_1 \in a_2 +p^k\Zp$, also $\abs[a_1-a_2]\leq p^{-k}$.
-		Das bedeutet gerade, dass $p^k$ ein Teiler von $a_1 - a_2$ ist, oder anders ausgedr"uckt $a_1 \equiv a_2 \bmod{p^k}$.
+		Es gilt $a_1 +p^k\Zp = a_2 +p^k\Zp$ genau dann, wenn $a_1 \in a_2 +p^k\Zp$, also $\abs[a_1-a_2]_p\leq p^{-k}$.
+		Dies bedeutet gerade, dass $p^k$ ein Teiler von $a_1 - a_2$ ist, oder anders ausgedrückt $a_1 \equiv a_2 \bmod{p^k}$.
 		Folglich kann es nur $p^k$ verschiedene Mengen der Form $a+p^k\Zp$ geben, welche dann durch $a=0\dots p^{-k+1}-1$ repräsentiert werden.
-		Die "Uberdeckung ist also schon endlich. 
-		Als vollst"andige und totalbeschr"ankte Menge ist $\Zp$ somit kompakt.
+		Die Überdeckung ist also schon endlich. 
+		Als vollständige und totalbeschränkte Menge ist $\Zp$ somit kompakt.
 	\end{proof}
-	Damit sieht man aber auch schnell ein, dass alle Mengen der Form $a + p^k\Zp$ als stetiges Bild einer kompakter Menge wieder kompakt sind.
-	Hier muss man sich nur kurz bewusst machen, dass die Abbildung $x\mapsto p^kx$ in $\Q_p^+$ auch tats"achlich stetig ist.
+	Mit diesem Satz sieht man schnell ein, dass alle Mengen der Form $x + p^k\Zp$ als stetiges Bild einer kompakter Menge wieder kompakt sind.
+	Hier muss man sich nur kurz bewusst machen, dass die Abbildung $x\mapsto p^kx$ in $\Q_p^+$ auch tatsächlich stetig ist.
 	
 	Zum Ende dieses Abschnitts wenden wir uns noch einer wichtigen multiplikativen Untergruppe zu: die Gruppe der ganzzahligen Einheiten
 	\begin{align*}
 		\Zpx = \{x\in\Kp: \abs[x]_p = 1\}.
 	\end{align*}
-	Sie entspricht dem Einheitskreis $S^1$ im Komplexen und spielt sp"ater bei der Berechnung von Integralen eine wichtige Rolle.
+	Sie entspricht dem Einheitskreis $S^1$ der komplexen Zahlen und wird bei der Berechnung von Integralen eine wichtige Rolle spielen.
 	Zuerst bemerken wir, dass $\Zpx$ als Urbild der abgeschlossenen Menge $\{1\}\subset\R^+_0$ unter der stetigen Betragsabbildung selbst wieder abgeschlossen ist.
-	Damit ist aber $\Zpx$ als abgeschlossene Teilmenge von $\Zp$ kompakt.
-	"Ahnlich zu $\Komplex^\times = \bigcup_{r \in \R_+} rS^1$ haben wir zudem auch im $p$-adischen Fall eine disjunkte Zerlegung der Einheiten $\Kpx$ in Translationen von $\Zpx$.
-	Diese hat aber eine wichtige Besonderheit: Da unser Betrag nur diskrete Werte annimmt, ist die Zerlegung $\Kpx = \bigcup_{k\in \Z} p^k\Zpx$ sogar abz"ahlbar.
+	Damit ist $\Zpx$ als abgeschlossene Teilmenge von $\Zp$ kompakt.
+	Ähnlich zu $\Komplex^\times = \bigcup_{r \in \R_+^\times} rS^1$ haben wir im $p$-adischen Fall eine disjunkte Zerlegung der Einheiten $\Kpx$ in Translationen von $\Zpx$.
+	Diese hat aber eine wichtige Besonderheit. Da unser Betrag nur diskrete Werte annimmt, ist diese Zerlegung $\Kpx = \bigcup_{k\in \Z} p^k\Zpx$ sogar abzählbar.
 \subsection{Die Potenzreihendarstellung}
-%Zeige potenzreihen konvergieren in Q_p: done
-%Zeige jede zahl in Q_p darstellbar als Potenzreihe: done
-	Nachdem wir die Struktur und Topolgie auf $\Kp$ besser verstanden haben, sollten wir uns etwas mit den eigentlichen Objekten, den $p$-adischen Zahlen besch"aftigen.
-	Wie auch schon im Fall der Vervollständigung von $\Q$ bezüglich $\abs_\infty$ sind die Objekte dieser Konstruktion etwas unhandlich.
-	In $\R$ hatten wir die Dezimalbruchentwicklung  $x=\pm\sum_{k=-\infty}^{n}x_k 10^{k}$, $x_k\in\{0,\dots,9\}$ oder etwas allgemeiner die $b$-adische Darstellung $x =\pm \sum_{k=-\infty}^{n}x_k b^{k}$, $x_k\in\{0,\dots,b-1\}$ für eine natürliche Zahl $b>1$, die zwar nicht unbedingt eindeutig ist ($0,999\dots = 1,000\dots$) aber wesentlich anschaulicher als Äquivalenzklassen von Cauchy-Folgen.
+	Nachdem wir die Struktur und Topologie auf $\Kp$ besser verstanden haben, sollten wir uns etwas mit den eigentlichen Objekten, den $p$-adischen Zahlen, beschäftigen.
+	Wie auch schon im Fall der Vervollständigung von $\Q$ bezüglich $\abs_\infty$, sind die Objekte dieser Konstruktion etwas unhandlich.
+	In $\R$ hatten wir die Dezimalbruchentwicklung $x=\pm\sum_{k=-\infty}^{n}x_k 10^{k}$, $x_k\in\{0,\dots,9\}$ oder etwas allgemeiner die $b$-adische Darstellung $x =\pm \sum_{k=-\infty}^{n}x_k b^{k}$, $x_k\in\{0,\dots,b-1\}$ für eine natürliche Zahl $b>1$, die zwar nicht unbedingt eindeutig ist ($0,999\dots = 1,000\dots$), aber wesentlich anschaulicher als Äquivalenzklassen von Cauchy-Folgen.
 	Zu unserer Freude werden wir feststellen, dass es auch in $\Q_p$ eine ähnliche Darstellung gibt. 
 	Diese ist im Gegensatz zu der Darstellung in $\R$ sogar eindeutig und kann, wieder etwas ungewohnt, unendliche viele Stellen vor dem Komma, aber nur endlich viele Nachkommastellen haben
 	\begin{satz}
 	\label{satz:padisch:potenzreihen}
-		Jede Element $x\in\Kp$ lässt sich eindeutig als eine Potenzreihe 
+		Jede $p$-adische Zahl $x\in\Kp\setminus\{0\}$ lässt sich eindeutig als eine Potenzreihe 
 		\begin{align*}
 			x= \sum_{k=N}^{\infty} x_k p^k
 		\end{align*}
-		mit $x_k\in\{0,\dots,p-1\}$, $x_n\not= 0$ und $n\in\Z$ darstellen. 
-		Insbesondere gilt $\abs[x]_p = p^{-n}$.
+		mit $x_k\in\{0,\dots,p-1\}$, $x_N\not= 0$ und $N\in\Z$ darstellen. 
+		Insbesondere gilt $\abs[x]_p = p^{-N}$.
 	\end{satz}
 	\begin{proof}
-		Wir zeigen zunächst das die Folge der Partialsummen $S_n=\sum_{k=N}^{n} x_k p^k$ in $\Kp$ konvergiert.
+		Wir zeigen zunächst, dass die Folge der Partialsummen $S_n=\sum_{k=N}^{n} x_k p^k$ in $\Kp$ konvergiert.
 		\begin{align*}
 			\abs[S_{n} - S_{n-1}]_p 
 			= \abs[x_{n}p^{n}]_p = p^{-n} \to 0
@@ -403,7 +397,7 @@
 		\begin{align*}
 			\abs[\frac{a}{b}]_p \leq \max\left\{\abs[x]_p, \abs[x-\frac{a}{b}]_p\right\} \leq 1.
 		\end{align*}
-		Dies zeigt, dass $p$ kein Teiler von $b$ ist und wir folglich eine Bezout-Darstellung $1=b'b + p'p^{n}$ (also $b'b \equiv 1 \bmod{p^n}$) für  $b', p' \in \Z$ haben.
+		Dies zeigt, dass $p$ kein Teiler von $b$ ist und folglich eine Bezout-Darstellung $1=b'b + p'p^{n}$ (also $b'b \equiv 1 \bmod{p^n}$) für $b', p' \in \Z$ existiert.
 		Weiter ist
 		\begin{align*}
 			\abs[\frac{a}{b} - ab']_p 
@@ -411,11 +405,11 @@
 			=\abs[\frac{a(p'p^n)}{b}]_p \leq p^{-n}
 		\end{align*}
 		und natürlich $ab' \in \Z$. 
-		Wir definieren nun $y_n\in\Z$ als die eindeutig bestimmte Zahl, so dass
+		Wir definieren $y_n\in\Z$ als die eindeutig bestimmte Zahl, welche
 		\begin{align*}
-			0\leq y_n \leq p^n-1 \quad \text{ und } \quad  y_n \equiv ab' \bmod{p^n}.
+			0\leq y_n \leq p^n-1 \quad \text{ und } \quad y_n \equiv ab' \bmod{p^n}
 		\end{align*}
-		Dann gilt
+		erfüllt. Dann gilt
 		\begin{align*}
 			\abs[x-y_n]_p 
 			= \abs[x-\frac{a}{b} + \frac{a}{b} - y_n]_p 
@@ -424,7 +418,7 @@
 		\end{align*}
 		und daher konvergiert die Folge $(y_n)$ gegen $x$.
 		Wir zeigen, dass diese Folge eindeutig ist. 
-		Sei dazu $y_n'$ eine weiter Zahl mit $0\leq y_n' \leq p^n-1$ und $\abs[x-y_n']_p\leq p^{-n}$.
+		Sei dazu $y_n'$ eine weitere Zahl mit $0\leq y_n' \leq p^n-1$ und $\abs[x-y_n']_p\leq p^{-n}$.
 		Dann gilt aber wie eben
 		\begin{align*}
 			\abs[y_n - y_n']_p = \abs[y_n - x + x - y_n']_p \leq p^{-n},
@@ -434,26 +428,26 @@
 		\begin{align*}
 			\abs[y_n - y_{n-1}]_p = \abs[y_n - x + x - y_{n-1}]_p \leq \max\left\{\abs[y_n-x]_p, \abs[x- y_{n-1}]_p\right\} \leq p^{-n+1},
 		\end{align*}
-		und folglich $p^{n-1}$ ein Teiler von $y_n - y_{n-1}$.
-		Die eindeutigen $p$-adischen Entwicklungen dieser $y_n$ sind genau die gesuchten Partialsummen $S_n$ und definieren induktiv die gesuchten $x_k$.
-		Damit haben wir die Aussage f"ur $\Zp$ gezeight.
+		und folglich ist $p^{n-1}$ ein Teiler von $y_n - y_{n-1}$.
+		Die eindeutigen $p$-adischen Entwicklungen dieser $y_n$ sind genau die gesuchten Partialsummen $S_n$ und definieren induktiv die $x_k$.
+		Damit haben wir die Aussage für $\Zp$ gezeigt.
 		
-		Für beliebige $x\in \Q_p$ existiert ein $N\in\N_0$, so dass $p^{N}x \in \Zp$. Damit haben wir eine eindeutige Entwicklung $p^{N}x = \sum_{k=0}^{\infty} x_kp^k$ und foglich mit 
+		Für beliebige $x\in \Q_p$ existiert ein $N\in\N_0$, so dass $p^{N}x \in \Zp$. Dadurch erhalten wir eine eindeutige Entwicklung $p^{N}x = \sum_{k=0}^{\infty} x_kp^k$ und folglich mit 
 		\begin{align*}
 			x = \sum_{k=-N}^{\infty} x_{(k+N)}p^k
 		\end{align*}
-		die geforderte Entwicklung f"ur $x$.
+		die geforderte Entwicklung für $x$.
 	\end{proof}
 	
-	Die Potenzreihendarstellung verschafft uns nun einen alternativen Blick auf die im letzten Abschnitt behandelten Mengen.
-	Zun"achst stellen wir fest, dass aufgrund der versch"arften Dreiecksungleichung jedes $x = \sum_{k=N}^{\infty} x_{k}p^k$ mit $x_{N} \not= 0$ den $p$-adischen Betrag $\abs[x]_p = p^{-n}$ hat.
+	Die Potenzreihendarstellung verschafft uns einen alternativen Blick auf die im letzten Abschnitt behandelten Mengen.
+	Zunächst stellen wir fest, dass aufgrund der verschärften Dreiecksungleichung jedes $x = \sum_{k=N}^{\infty} x_{k}p^k$ mit $x_{N} \not= 0$ den $p$-adischen Betrag $\abs[x]_p = p^{-N}$ hat.
 	Folglich ist dann
 	\begin{align*}
-		p^n\Zp = \{ \sum_{k=n}^{\infty} x_{k}p^k \in \Kp\}.
+		p^n\Zp = \left\{ \sum_{k=n}^{\infty} x_{k}p^k \in \Kp\right\}.
 	\end{align*}
-	Fassen wir diese Potenzreihenentwicklung als Analogie zur Laurent-Reihenentwicklung meromorpher Funktion auf, so entspricht $\Zp$ den holomorphen Funktionen und $p^n\Zp$ den meromorphen Funktionen mit Pol- bzw. Nullstelle vom Grad $n$.
+	Fassen wir diese Potenzreihenentwicklung als Analogie zur Entwicklung meromorpher Funktion als Laurent-Reihen auf, so entspricht $\Zp$ den holomorphen Funktionen und $p^n\Zp$ den meromorphen Funktionen mit Pol- bzw. Nullstelle vom Grad $n$.
 	Weiter ist 
 	\begin{align*}
-		\Zpx = \{ \sum_{k=0}^{\infty} x_{k}p^k \in \Kp\: x_0\not=0\}
+		\Zpx = \left\{ \sum_{k=0}^{\infty} x_{k}p^k \in \Kp: x_0\not=0 \right\}
 	\end{align*}
-	und entspricht den holomorphen Funktionen die am Entwicklungspunkt nicht verschwinden.
+	und entspricht den holomorphen Funktionen, die am Entwicklungspunkt nicht verschwinden.
